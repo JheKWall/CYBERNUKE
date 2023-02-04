@@ -45,7 +45,6 @@
 %%                    bare_jrnl_compsoc.tex, bare_jrnl_transmag.tex
 %%*************************************************************************
 
-
 % *** Authors should verify (and, if needed, correct) their LaTeX system  ***
 % *** with the testflow diagnostic prior to trusting their LaTeX platform ***
 % *** with production work. IEEE's font choices and paper sizes can       ***
@@ -53,16 +52,12 @@
 % The testflow support page is at:
 % http://www.michaelshell.org/tex/testflow/
 
-
 \documentclass[10pt,conference,onecolumn,compsoc]{IEEEtran}
-
 
 \usepackage{hyperref}
 \usepackage{enumitem}
 \setlist[itemize]{leftmargin=3 cm}
 \setlist[enumerate]{leftmargin=3cm}
-
-
 
 % *** CITATION PACKAGES ***
 %
@@ -88,8 +83,6 @@
 % The latest version can be obtained at:
 % http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
 % The documentation is contained in the cite.sty file itself.
-
-
 
 % *** GRAPHICS RELATED PACKAGES ***
 %
@@ -129,56 +122,49 @@
 % Basically, \url{my_url_here}.
 
 
+% ************************************************************************************** %
+% END ESOTERIC PRE-WRITTEN CODE
+% ************************************************************************************** %
 
 
 
 
 \begin{document}
 
+% Title, Authors
 \title{P.A.C.R.L\\Post-Apocalyptic Cyberpunk Roguelike}
-
 \author{J. Kenneth Wallace, Vance Brenderabrandis\\}
 
-\IEEEtitleabstractindextext{%
+% Abstract
+\IEEEtitleabstractindextext{
 \begin{abstract}
-PACRL is a roguelike built in the C\# WPF framework. It is set in a cyberpunk future where a brief nuclear exchange plunged the world into the "New Dark Age". You play as a character that must do everything in their power to survive not only cyber-humans but the monsters that emerged from the radioactive ashes of the old world. The target audience is anyone interested in either a post-apocalyptic or cyberpunk setting and those who enjoy roguelikes. So far we've gotten the setting down.
+PACRL is a roguelike built in the C\# WPF framework. It is inspired by stories like \emph{Fallout} and \emph{Cyberpunk 2077}, with gameplay reminiscent of games such as \emph{Cataclysm: Dark Days Ahead}. The dystopian cyberpunk future of PACRL depicts a society that has entered a "New Dark Age" following a brief nuclear exchange.
+You take on the role of a human who must make every effort to avoid being destroyed by both cyber-humans and the monsters that emerged from the radioactive ashes of the old world. 
 \end{abstract}
 }
 
-
-% make the title area
+% Title Area
 \maketitle
-
-
-
 \IEEEdisplaynontitleabstractindextext
-
 \IEEEpeerreviewmaketitle
 
 
 
+% INTRODUCTION ************************************************************************* %
 \section{Introduction}
 
+For this project we aim to create a roguelike to gain some experience with C\#, WPF, and game design. With PACRL, we're trying to showcase our understanding of the Cyberpunk and Post-apocalyptic genres by creating a unique setting that blends both ideas together. Our target audience is primarily those who enjoy roguelikes but would like to experience a new  and unique setting. For reference, Cyberpunk is a \emph{"science-fiction subgenre characterized by countercultural antiheroes trapped in a dehumanized, high-tech future"}\cite{IEEEhowto:cyberpunk}. Mixed in with this is the post-apocalyptic genre seen in popular games such as \emph{Fallout}, \emph{Wasteland}, and \emph{Metro}. Although broad, the post-apocalyptic genre is defined by a setting where nuclear warfare, or any disaster, has caused modern society to collapse. We believe that a blend of these two settings can create an interesting theme for our game that hasn't been explored by others.
 
+This game's estimated impact is very low. An optimistic prediction would be that our game reaches a larger audience and inspires others to create roguelikes or other games with a similar setting to ours. Other than that we hope to entertain at least one person with our game.
 
-Your introduction should give an introduction to your project.  What are you trying to accomplish (high level), who do you expect to target with your project?  What do you expect your target audience will get out of it?
+One of the most difficult challenges we face right now is our lack of experience not only with C\# and WPF, but also with game design in general. For example, goals such as movement, combat, stats, and so on will all have to be developed and implemented without any prior knowledge of how to do these things. However, inexperience is a treatable disease. We have access to a plethora of online resources that we can study and use to create this project, and we will do so. 
 
-Should you need to cite anything, use the \emph{cite} keyword, and refer to something from your bibliography.  For example, this was put together with the help of a \LaTeX guide\cite{IEEEhowto:kopka}.
+%Your introduction should give an introduction to your project.  What are you trying to accomplish (high level), who do you expect to target with your project?  What do you expect your target audience will get out of it?
+%Should you need to cite anything, use the \emph{cite} keyword, and refer to something from your bibliography.  For example, this was put together with the help of a \LaTeX guide\cite{IEEEhowto:kopka}.
+%Make sure that by the end of your introduction the reader knows what your project is and why you are doing it.
 
-
-Make sure that by the end of your introduction the reader knows what your project is and why you are doing it.
-
-
-
-\subsection{Subsection Heading Here}
+\subsection{Audience}
 Occasionally you need to break your sections into separate parts, you will likely not need a subsection for every section
-
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
-
-\subsubsection{Subsubsection Heading Here}
-Occasionally you will need to break your subsections into separate parts, if you find yourself using this often, you're likely going overboard.  Don't try to go any lower down than this. (And make sure you remove this!)
-
 
 
 \subsection{Background}
@@ -195,12 +181,42 @@ For your first deliverable, this should be a list of where you believe you will 
 As you overcome these challenges, this section becomes more of a retrospective: don't only identify the challenge, but also briefly outline the solution!
 
 
+\pagebreak
+% SCOPE ******************************************************************************** %
 \section{Scope}
-This section is a bit tricksy.  You are going to do your best to set up ground rules:  How will you know when your project is done?
+For the scope of PACRL, we have defined the core mechanics that need to be implemented to consider the game playable: (Not in any particular order)
+\begin{enumerate}
+\item User interface (Heads up display, map rendering)
+\item Menus (Main menu, Load menu, Options, etc)
+\item Your character (Name, Stats)
+\item Movement around map
+\item Map generation
+\item Enemies
+\item Enemy encounters (Similar to \emph{Pokemon})
+\item Combat
+\end{enumerate}
 
-If you were doing this under contract for a company, this would be your checklist to make sure you get paid.  We will be going into this in more detail over time, but you should start planning your major goals of the project as soon as possible.
+These are the features we will be rushing to complete first. 
 
-For every sub(sub)section below, make sure to mark which items are basic goals (project won't be done without it) and which ones are stretch goals (it would be really cool to do...).  We will be meeting one-on-one to help identify which goals go where.
+Once all of these are complete the game will be in a playable state and more features can be added on.
+
+Examples of additional features: (stretch goals, no particular order)
+\begin{enumerate}
+\item Companions (Party system)
+\item Hacking
+\item More enemies
+\item Further story/world-building
+\item Items, loot, weapons
+\item Cybernetic augmentation
+\item Level system
+\item Currency and item stores
+\item Alternative player species (Monster)
+\end{enumerate}
+
+
+%This section is a bit tricksy.  You are going to do your best to set up ground rules:  How will you know when your project is done?
+%If you were doing this under contract for a company, this would be your checklist to make sure you get paid.  We will be going into this in more detail over time, but you should start planning your major goals of the project as soon as possible.
+%For every sub(sub)section below, make sure to mark which items are basic goals (project won't be done without it) and which ones are stretch goals (it would be really cool to do...).  We will be meeting one-on-one to help identify which goals go where.
 
 \subsection{Requirements}
 As part of fleshing out the scope of your requirements, you'll also need to keep in mind both your functional and non-functional requirements.  These should be listed, and explained in detail as necessary.  Use this area to explain how you gathered these requirements.
@@ -268,7 +284,7 @@ Alternative: Item already exists in the cart
 \item[Termination Outcome:] The user now has multiple instances of the item in their cart.
 \end{enumerate}
 
-You will often also need to include pictures or diagrams.  It is quite common to see use-case diagrams in such write-ups.  To properly reference an image, you will need to use the \texttt{figure} environment and will need to reference it in your text (via the \texttt{ref} command) (see Figure \ref{cat1}).  NOTE: this is not a use case diagram, but a kitten.
+You will often also need to include pictures or diagrams.  It is quite common to see use-case diagrams in such write-ups.  To properly reference an image, you will need to use the \texttt{figure} environment and will need to reference it in your text (via the \texttt{ref} command) (see Figure \ref{capybara1}).  NOTE: this is not a use case diagram, but a capybara.
 
 After fully describing a use case, it is time to move on to the next use case:
 
@@ -282,9 +298,9 @@ After fully describing a use case, it is time to move on to the next use case:
 You will then need to continue to flesh out all use cases you have identified for your project.
 
 \begin{figure}[ht!]
-\includegraphics[height=250px, width=350px]{cat1.jpg}
-\caption{First picture, this is a kitten, not a use case diagram}
-\label{cat1}
+\includegraphics[height=250px, width=350px]{capybara1.jpg}
+\caption{First picture, look at the capybara}
+\label{capybara1}
 \end{figure}
 
 \subsection{Interface Mockups}
@@ -301,12 +317,12 @@ Go back to your notes and look up a typical project development life cycle for t
 At first, this will be a little empty (it will need to be filled in by the time you turn in your final report).  This is your chance to discuss all of your design decisions (consider this the README's big brother).
 
 \subsection{UML Outline}
-Show the full structure of your program.  Make sure to keep on updating this section as your project evolves (you often start out with one plan, but end up modifying things as you move along).  As a note, while Dia fails miserably at generating pdfs (probably my fault), I have had much success with png files.  Make sure to wrap your images in a \texttt{figure} environment, and to reference with the \texttt{ref} command.  For example, see Figure \ref{cat2}.
+Show the full structure of your program.  Make sure to keep on updating this section as your project evolves (you often start out with one plan, but end up modifying things as you move along).  As a note, while Dia fails miserably at generating pdfs (probably my fault), I have had much success with png files.  Make sure to wrap your images in a \texttt{figure} environment, and to reference with the \texttt{ref} command.  For example, see Figure \ref{capybara2}.
 
 \begin{figure}[ht!]
-\includegraphics[scale=1.5]{cat2.jpg}
-\caption{Your figures should be in the \emph{figure} environment, and have captions.  Should also be of diagrams pertaining to your project, not random internet kittens}
-\label{cat2}
+\includegraphics[scale=1]{capybara2.jpg}
+\caption{Your figures should be in the \emph{figure} environment, and have captions.  Should also be of diagrams pertaining to your project, here we are teaching the capybaras to do our work.}
+\label{capybara2}
 \end{figure}
 
 
@@ -327,30 +343,28 @@ By the end, what do you plan on doing with this project?  Will you try to sell i
 
 \begin{thebibliography}{1}
 
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+\bibitem{IEEEhowto:cyberpunk}
+Britannica, T. Editors of Encyclopaedia. \emph{"cyberpunk."} Encyclopedia Britannica, 		1999. https://www.britannica.com/art/cyberpunk.
 
 \end{thebibliography}
 
 
+%\begin{IEEEbiography}{Michael Shell}
+%Biography text here.
+%\end{IEEEbiography}
 
-\begin{IEEEbiography}{Michael Shell}
-Biography text here.
-\end{IEEEbiography}
+%% if you will not have a photo at all:
+%\begin{IEEEbiographynophoto}{John Doe}
+%Biography text here.
+%\end{IEEEbiographynophoto}
 
-% if you will not have a photo at all:
-\begin{IEEEbiographynophoto}{John Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
+%% insert where needed to balance the two columns on the last page with
+%% biographies
+%%\newpage
 
-% insert where needed to balance the two columns on the last page with
-% biographies
-%\newpage
-
-\begin{IEEEbiographynophoto}{Jane Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
+%\begin{IEEEbiographynophoto}{Jane Doe}
+%Biography text here.
+%\end{IEEEbiographynophoto}
 
 
 
