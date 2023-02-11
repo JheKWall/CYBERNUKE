@@ -121,9 +121,24 @@
 % http://www.ctan.org/tex-archive/macros/latex/contrib/url/
 % Basically, \url{my_url_here}.
 
+\usepackage{fancyvrb}
+%              --------------------------------------------------
+%              |                   `fancyvrb'                   |
+%              |                                                |
+%              | Timothy Van Zandt (Princeton University - USA) |
+%              |                                                |
+%              |     Packaging, documentation and support       |
+%              |       Denis Girou (CNRS/IDRIS - France)        |
+%              |            <Denis.Girou@idris.fr>              |
+%              |        Sebastian Rahtz (Elsevier - GB)         |
+%              |       Herbert Voss, Berlin (hvoss@tug.org)     |
+%              --------------------------------------------------
+%% This package may be distributed under the terms of the LaTeX Project Public
+%% License, as described in lppl.txt in the base LaTeX distribution.
+%% Either version 1.3 or, at your option, any later version.
 
 % ************************************************************************************** %
-% END ESOTERIC PRE-WRITTEN CODE
+% END LEGAL DISCLAIMERS & CREDITS
 % ************************************************************************************** %
 
 
@@ -131,20 +146,47 @@
 
 \begin{document}
 
-% Title, Authors
-\title{P.A.C.R.L\\Post-Apocalyptic Cyberpunk Roguelike}
-\author{J. Kenneth Wallace, Vance Brenderabrandis\\}
+% Title
+\begin{figure}
+
+% Splash Art
+\centering
+\begin{footnotesize}
+\begin{BVerbatim}
+ .d8888b. Y88b   d88P 888888b.   8888888888 8888888b.  888b    888 888    888 888    d8P  8888888888 
+d88P  Y88b Y88b d88P  888  "88b  888        888   Y88b 8888b   888 888    888 888   d8P   888        
+888    888  Y88o88P   888  .88P  888        888    888 88888b  888 888    888 888  d8P    888        
+888          Y888P    8888888K.  8888888    888   d88P 888Y88b 888 888    888 888d88K     8888888    
+888           888     888  "Y88b 888        8888888P"  888 Y88b888 888    888 8888888b    888        
+888    888    888     888    888 888        888 T88b   888  Y88888 888    888 888  Y88b   888        
+Y88b  d88P    888     888   d88P 888        888  T88b  888   Y8888 Y88b..d88P 888   Y88b  888        
+ "Y8888P"     888     8888888P"  8888888888 888   T88b 888    Y888  "Y8888P"  888    Y88b 8888888888 
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+\end{BVerbatim}
+\end{footnotesize}
+
+% Title, Sub-title, Authors
+CYBERNUKE\\
+{\small POST-APOCALYPTIC CYBERPUNK ROGUELIKE}\\
+J. Kenneth Wallace, Vance Brenderabrandis\\
+\end{figure}
+
+
+% Old Title, Authors
+%\title{{\Huge CYBERNUKE}\\Post-Apocalyptic Cyberpunk Roguelite}
+%\author{J. Kenneth Wallace, Vance Brenderabrandis\\}
 
 % Abstract
 \IEEEtitleabstractindextext{
 \begin{abstract}
-PACRL is a roguelike built in the C\# WPF framework. It is inspired by stories like \emph{Fallout} and \emph{Cyberpunk 2077}, with gameplay reminiscent of games such as \emph{Cataclysm: Dark Days Ahead}. The dystopian cyberpunk future of PACRL depicts a society that has entered a "New Dark Age" following a brief nuclear exchange.
-You take on the role of a human who must make every effort to avoid being destroyed by both cyber-humans and the monsters that emerged from the radioactive ashes of the old world. 
+CYBERNUKE is a roguelite game developed in C\# WPF. You play as an amnesiac cyborg who awakens in the middle of a destroyed futuristic city and must discover who they were and what happened to them. The game combines a post-apocalyptic and cyberpunk setting to create a distinct atmosphere not previously explored by others. The setting of the game is inspired by popular stories such as \emph{Fallout}, \emph{Cyberpunk 2077}, and other games like \emph{FTL: Faster than Light} and the \emph{Megami Tensei} series.
 \end{abstract}
 }
 
+
 % Title Area
-\maketitle
+%\maketitle
 \IEEEdisplaynontitleabstractindextext
 \IEEEpeerreviewmaketitle
 
@@ -184,35 +226,49 @@ Apart from getting used to WPF, there is no "most difficult" part that we can th
 %\pagebreak
 % SCOPE ******************************************************************************** %
 \section{Scope}
-For the scope of PACRL, we have defined the core mechanics that need to be implemented to consider the game playable: (Not in any particular order)
+In order of importance, these are the fundamental game mechanics that must be implemented for \emph{CYBERNUKE} to be considered functional:
 \begin{enumerate}
-\item User interface (Heads up display, map rendering)
-\item Menus (Main menu, Load menu, Options, etc)
-\item Your character (Name, Stats)
-\item Movement around map
-\item Map generation
-\item Enemies
-\item Enemy encounters (Similar to \emph{Pokemon})
-\item Combat
-\end{enumerate}
+\item Operational Interfaces (Main Menu, Option Menu)
+\item Maps
+\item User Interface (Map Screen, Player HUD)
+\item Character Movement, Interaction
+\item Character Interface (Name, Stats)
+\item Enemies, Enemy Encounters
+\item Combat, Combat Interface
+\item Player Saves \& Load Menu\\
+\end{enumerate} 
 
-These are the features we will be rushing to complete first. 
+\begin{flushleft}
+1. The Operational Interfaces are the menus that are used to interact with the game when the player is not playing the game (Main Menu, Option Menu).
 
-Once all of these are complete the game will be in a playable state and more features can be added on.
+2. The maps are pre-made rather than generated automatically; in this case, it will only be a simple testing map until later.
 
-Examples of additional features: (stretch goals, no particular order)
+3. The User Interface includes the Map Screen, which renders the current map to the screen. The Player HUD displays the player's statistics such as Hit Points, Money, and so on.
+
+4. Character Movement refers to moving around the map with the player character. Character Interaction refers to how the player interacts with the map, such as unlocking locked doors or moving between maps.
+
+5. Character Interface differs from User Interface in that it is a separate menu that displays the character's full stats such as HP, Strength, Luck, Agility, and so on, as well as their name.
+
+6. Enemies are the monsters/humans that the player will encounter throughout the game. Enemy Encounters refers to how you will find monsters in the first place, which is primarily done through a "percent encounter" system akin to the old \textit{Pokemon} games. There may also be opportunities for pre-scripted encounters.
+
+7. Combat refers to fights between the player character and enemies in this game, which will be turn-based. Actual combat is made possible by the Combat Interface.
+
+8. Players can save their state (at specific points in the game) and load back in at a later time using Player Saves and the Load Menu.
+\end{flushleft}
+
+After the fundamental game mechanics are in place, additional features that flesh out the game can be added.
+
+Possible stretch-goal features:
 \begin{enumerate}
-\item Companions (Party system)
-\item Hacking
-\item More enemies
-\item Further story/world-building
-\item Items, loot, weapons
-\item Armor, equipment
-\item Cybernetic augmentation
-\item Level system
-\item Currency and item stores
-\item Alternative player species (Monster)
-\item Expanded player customization
+\item Companions and Party System
+\item Hacking Puzzles
+\item More Enemy Types
+\item More Story Content
+\item Items, Loot, Weapons, Armor, etc.
+\item Cybernetic Augmentation
+\item Leveling System
+\item Currency and Merchants
+\item Expanded Character Creation (Species, Backstory, etc.)
 \end{enumerate}
 
 
