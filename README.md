@@ -1,5 +1,5 @@
-# PACRL-352
-PACRL - Post-Apocalyptic Cyberpunk Roguelike
+# Cybernuke Project #
+- Cybernuke is a student project focused on creating a roguelite RPG-style game set in an apocalyptic, nuclear-warfare ridden landscape.
 
 ## Documentation
-See Documentation/PACRL-352.pdf for information on the project.
+See Documentation/Cybernuke.pdf for more information on the project.
