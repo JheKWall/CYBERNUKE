@@ -167,7 +167,7 @@ Y88b  d88P    888     888   d88P 888        888  T88b  888   Y8888 Y88b..d88P 88
 
 % Title, Sub-title, Authors
 CYBERNUKE\\
-{\small POST-APOCALYPTIC CYBERPUNK ROGUELIKE}\\
+{\small POST-APOCALYPTIC CYBERPUNK ROGUELITE}\\
 J. Kenneth Wallace, Vance Brender-A-Brandis\\
 \end{figure}
 
@@ -178,7 +178,7 @@ J. Kenneth Wallace, Vance Brender-A-Brandis\\
 % Abstract
 \IEEEtitleabstractindextext{
 \begin{abstract}
-CYBERNUKE is a roguelite game developed in the C\# WPF framework. You play as an amnesiac cyborg who awakens in the middle of a destroyed futuristic city and must recover their memories. The game combines a post-apocalyptic and cyberpunk setting to create a unique atmosphere not previously explored by other games. The setting of the game is inspired by popular stories such as \emph{Fallout}, \emph{Cyberpunk 2077}, and other games like the \emph{Dark Souls} and \emph{Megami Tensei} series.
+CYBERNUKE is a roguelite game developed in the C\# WPF framework. You play as an amnesiac cyborg who awakens in the middle of a destroyed futuristic city and must recover their memories. The game combines a post-apocalyptic and cyberpunk setting to create a unique atmosphere not previously explored by other games. The setting of the game is inspired by popular stories such as \emph{Fallout}, \emph{Cyberpunk 2077}, and other game series like \emph{Dark Souls} and \emph{Megami Tensei}.
 \end{abstract}
 }
 
@@ -193,47 +193,55 @@ CYBERNUKE is a roguelite game developed in the C\# WPF framework. You play as an
 % INTRODUCTION ************************************************************************* %
 \section{Introduction}
 
-For this project we aim to create a roguelike to gain some experience with C\#, WPF, and game design. With CYBERNUKE, we're trying to showcase our understanding of the Cyberpunk and Post-apocalyptic genres by creating a unique setting that blends both ideas together. Our target audience is primarily those who enjoy roguelikes but would like to experience a new  and unique setting. 
+For this project we aim to create a video game to gain experience with C\#, WPF, and game design. We called the game "CYBERNUKE," combining the game's cyberpunk and post-apocalyptic elements into a single title. 
 
-For reference, Cyberpunk is a \emph{"science-fiction subgenre characterized by countercultural antiheroes trapped in a dehumanized, high-tech future"}\cite{IEEEhowto:cyberpunk} and roguelites are \emph{"a subgenre of roguelikes that has most of the game design philosophies of roguelikes, but also has at least one progression element that persists after failure"}\cite{IEEEhowto:roguelite_1}. Essentially, this means that whenever the player fails a run (either by their player dying or some other failure condition), the player must restart but with some form of saved progress such that they are not starting from zero.
+The setting of the game is rooted in the cyberpunk genre, taking place in a massive futuristic city where buildings as tall as the Burj Khalifa are commonplace, gangs are armed with high-tech laser guns, and the wealth gap is at its widest. On a peaceful day in the twenty-first century, the city is attacked by an unknown power, which is followed by a nuclear explosion and the displacement of the entire city into another dimension. The story's cyberpunk portion is inspired by the game \emph{Cyberpunk 2077}, while the post-apocalyptic portion is inspired by \emph{Fallout} and other post-apocalyptic games. 
 
-Mixed together with this game genre is the post-apocalyptic setting seen in popular games such as \emph{Fallout}, \emph{Wasteland}, and \emph{Metro}. Although broad, the post-apocalyptic genre is defined by a setting where nuclear warfare, or any disaster, has caused modern society to collapse. We believe that a blend of these two settings can create an interesting theme for our game that hasn't been explored by others.
+CYBERNUKE's gameplay is influenced by games such as the \emph{Shin Megami} and \emph{Dark Souls} series. Shin Megami inspired the game's turn-based combat, while Dark Souls inspired the overworld map and exploration. Moreover, CYBERNUKE is heavily influenced by the roguelike genre, particularly games like \emph{Slay the Spire}, \emph{The Binding of Isaac}, and \emph{FTL: Faster Than Light}.
 
-This game's estimated impact is very low. An optimistic prediction would be that our game reaches a larger audience and inspires others to create roguelikes or other games with a similar setting to ours. Other than that, we hope to entertain at least one person with our game.
-
-One of the most difficult challenges we face right now is our lack of experience not only with C\# and WPF, but also with game design in general. For example, goals such as movement, combat, stats, and so forth will all have to be developed and implemented without any prior knowledge of how to do these things. However, inexperience is a treatable disease. We have access to a plethora of online resources that we can study and use to create this project, and we will do so. 
-
-%How to cite: (stuff that needs citation)\cite{IEEEhowto:kopka}.
+We hope that those who enjoy the gameplay and story of the works that inspired CYBERNUKE will enjoy the game we make as well.
 
 \subsection{Audience}
-CYBERNUKE's target audience is those who enjoy playing RPGs and roguelites but are looking for a fresh new setting. We also hope to appeal to fans of the cyberpunk and post-apocalyptic genres who have never played a roguelite before.
+CYBERNUKE has a diverse setting, story, and gameplay that draws inspiration from a wide range of games and stories. We want to draw in fans by fusing two sizable genres—cyberpunk and post-apocalyptic—and putting it into a roguelite game. Those looking for gameplay should expect turn-based combat and a top-down world filled with exploration and encounters akin to \emph{Pokémon}. Those who come for the story will be treated to a mysterious tale about someone piecing together their memories in a new, hostile cyberpunk hell. 
 
+%Cosmetic Page Break
 \pagebreak
 \subsection{Background}
-We chose to make a game for our project because it is a genre in which we are both very familiar. A game is also much more enjoyable to create and play than a calculator or calendar app. CYBERNUKE is a roguelite game, which is a subset of roguelike games. The most widely accepted definition is the Berlin Interpretation, which was developed at the 2008 International Roguelike Development Conference.\cite{IEEEhowto:roguelite_2} It says that all roguelikes must have these features:
+CYBERNUKE is inspired by roguelike games, but it does not completely follow them, making CYBERNUKE a rogue-\emph{lite}. Roguelite games are a subgenre of roguelike games. The Berlin Interpretation of a "roguelike," developed at the 2008 International Roguelike Development Conference, is the most widely accepted definition. It specifies that all roguelikes must have the following characteristics:\cite{IEEEhowto:roguelite_2}
 \begin{enumerate}
-\item Permadeath
-\item Random environment generation
-\item Exploration and discovery
-\item Turn-based, grid-based, non-modal gameplay
-\item Hack-n-slash
-\item Resource management
+\item Permadeath: the player has one life per game.
+\item Random environment generation: no map or encounter is ever the same.
+\item Exploration and discovery: the player explores the map and finds items.
+\item Turn-based, grid-based, non-modal gameplay: all actions are turn-based, on a grid map, on a single screen that holds all windows and doesn't change.
+\item Hack-n-slash: the player defeats a lot of monsters.
+\item Resource management: the player manages a limited amount of resources.
 \end{enumerate}
+Permadeath, random environment generation, and non-modal gameplay are not included in CYBERNUKE. As such, our game is classified as a roguelite because it lacks most of the required features. Specifically, roguelite as used by CYBERNUKE means the player has infinite lives, explores a pre-built map with loot spread out, encounters enemies at fixed rates, fights in turn-based combat, and manages a limited amount of resources.
 
-CYBERNUKE is a roguelite as it only includes some of these features, like exploration \& discovery, turn-based \& grid-based gameplay, and resource management.
-
-The setting of CYBERNUKE is a blend between two popular genres: Cyberpunk and Post-apocalypse.  Cyberpunk is a \emph{"science-fiction subgenre characterized by countercultural antiheroes trapped in a dehumanized, high-tech future"}\cite{IEEEhowto:cyberpunk}; and Post-apocalypse is genre characterized by the collapse of society due to a disaster. We believe that we can create a new, unique setting for our game by blending these two genres together.
+CYBERNUKE's setting is a hybrid of two genres: cyberpunk and post-apocalyptic.
+Cyberpunk is defined as a \emph{"science-fiction subgenre characterized by countercultural antiheroes trapped in a dehumanized, high-tech future,"}\cite{IEEEhowto:cyberpunk} or a dystopian future full of holograms, lasers, and crime. The post-apocalyptic genre is defined by the collapse of society as a result of a disaster, with a few survivors forming small civilizations. The combination of these two genres serves as the foundation for the rest of the story and gameplay. 
 
 \subsection{Impacts}
-We believe that the overall impact of this game will be minimal. An optimistic estimate would be that when our game is released, it will reach a larger audience that will play, discuss, and enjoy it. If this is the case, it may inspire others to create games or stories with a setting similar to CYBERNUKE.
+If enough effort is put in, CYBERNUKE has the potential to amass a sizable fan base. An optimistic estimate would be that CYBERNUKE reaches a large audience that plays, discusses, and enjoys the game in general. The game would then inspire others to create stories or games in the same hybrid cyberpunk-post-apocalyptic genre. A more realistic estimate would be that the game is simply released and is only played by a small number of people. Expecting too much from such a small game is unrealistic. 
 
 \subsection{Challenges}
-Going into this, we have a lot of challenges to face. One of the most significant is that we have almost no experience working with C\#, WPF, or in game design. If we are to complete CYBERNUKE within the time frame, we will need a lot of reference material. We believe it is doable though. 
-Apart from getting used to WPF, there is no "most difficult" part that we can think of. All of the core mechanics that must be added will be difficult, some more than others; however, we lack the experience to differentiate the difficulty of each implementation. 
+Three big challenges will need to be overcome in this project:
+\begin{enumerate}
+\item Inexperience in C\# and WPF
+\item Clear communication of ideas and implementations
+\item Beating the time limit
+\item How to design a game
+\end{enumerate}
+We've both never worked with the WPF framework, let alone C\#. As the project progresses, we will have to learn how to work with both. This can be mitigated by reading documentation or watching tutorials.
 
+Clear communication can also be a big issue and can stop work if people aren't on the same page. What makes this worse is that we are both inspired by different games which makes it difficult to communicate ideas of one game that the other person hasn't experienced. The clear solution to a lack of clear communication is using standardized methods of communication like UMLs and Diagrams. UML and Discord will definitely be the work-horses of communication throughout the project.
 
+Another issue is the project's time frame. Having to not only learn but also implement a large number of designs in a short period of time will be stressful, but it should be possible.
 
-%\pagebreak
+The most serious issue is that we have no experience designing games. There is a significant difference between playing and creating a game, which will need to be addressed as we continue to work. 
+
+%Tactical Page Break
+\pagebreak
 % SCOPE ******************************************************************************** %
 \section{Scope}
 In order of importance, these are the fundamental game mechanics that must be implemented for \emph{CYBERNUKE} to be considered functional:
@@ -352,7 +360,7 @@ Alternative: Item already exists in the cart
 \item[Termination Outcome:] The user now has multiple instances of the item in their cart.
 \end{enumerate}
 
-You will often also need to include pictures or diagrams.  It is quite common to see use-case diagrams in such write-ups.  To properly reference an image, you will need to use the \texttt{figure} environment and will need to reference it in your text (via the \texttt{ref} command) (see Figure \ref{capybara1}).  NOTE: this is not a use case diagram, but a capybara.
+You will often also need to include pictures or diagrams.  It is quite common to see use-case diagrams in such write-ups.  To properly reference an image, you will need to use the \texttt{figure} environment and will need to reference it in your text (via the \texttt{ref} command) (see Figure \ref{combat_mockup}).  NOTE: this is not a use case diagram, but a capybara.
 
 After fully describing a use case, it is time to move on to the next use case:
 
@@ -366,9 +374,10 @@ After fully describing a use case, it is time to move on to the next use case:
 You will then need to continue to flesh out all use cases you have identified for your project.
 
 \begin{figure}[ht!]
-\includegraphics[height=250px, width=350px]{capybara1.jpg}
-\caption{First picture, look at the capybara}
-\label{capybara1}
+\centering
+\includegraphics[height=281.25px, width=500px]{Mockups/CYBERNUKE_COMBAT_MOCKUP.png}
+\caption{CYBERNUKE Combat Screen Mockup}
+\label{combat_mockup}
 \end{figure}
 
 \subsection{Interface Mockups}
@@ -389,12 +398,13 @@ Go back to your notes and look up a typical project development life cycle for t
 At first, this will be a little empty (it will need to be filled in by the time you turn in your final report).  This is your chance to discuss all of your design decisions (consider this the README's big brother).
 
 \subsection{UML Outline}
-Show the full structure of your program.  Make sure to keep on updating this section as your project evolves (you often start out with one plan, but end up modifying things as you move along).  As a note, while Dia fails miserably at generating pdfs (probably my fault), I have had much success with png files.  Make sure to wrap your images in a \texttt{figure} environment, and to reference with the \texttt{ref} command.  For example, see Figure \ref{capybara2}.
+Show the full structure of your program.  Make sure to keep on updating this section as your project evolves (you often start out with one plan, but end up modifying things as you move along).  As a note, while Dia fails miserably at generating pdfs (probably my fault), I have had much success with png files.  Make sure to wrap your images in a \texttt{figure} environment, and to reference with the \texttt{ref} command.  For example, see Figure \ref{main_menu_mockup}.
 
 \begin{figure}[ht!]
-\includegraphics[scale=1]{capybara2.jpg}
-\caption{Your figures should be in the \emph{figure} environment, and have captions.  Should also be of diagrams pertaining to your project, here we are teaching the capybaras to do our work.}
-\label{capybara2}
+\centering
+\includegraphics[height=462px, width=500px]{Mockups/CYBERNUKE_MAIN_MENU_2.png}
+\caption{CYBERNUKE Main Menu Screen Mockup}
+\label{main_menu_mockup}
 \end{figure}
 
 
@@ -413,7 +423,7 @@ For early deliverables, what are your next steps?  (HINT: you will typically wan
 By the end, what do you plan on doing with this project?  Will you try to sell it?  Set it on fire?  Link to it on your resume and forget it exists?
 
 
-
+%How to cite: (stuff that needs citation)\cite{IEEEhowto:kopka}.
 % BIBLIOGRAPHY ************************************************************************* %
 \bibliographystyle{IEEEtran}
 \bibliography{./reference}
