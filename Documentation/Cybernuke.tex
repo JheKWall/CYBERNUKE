@@ -325,60 +325,174 @@ You should have a table listing all use cases discussed in the document, the ID 
 
 
 
-%\begin{table}
-%\centering
-%\begin{tabular}{|c|c|c|c|c|}
-%\hline
-%Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
-%\hline \hline
-%1 & Add item to cart & Shopper & Med & 1\\
-%\hline
-%2 & Checkout & Shopper & Med & 1\\
-%\hline
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
+\hline \hline
+1 & Start New Game & Player & Low & 1\\
+\hline
+2 & Save Game & Player & Low & 1\\
+\hline
+3 & Load Game & Player & Low & 1\\
+\hline
+4 & Movement & Player & Med & 1\\
+\hline
+5 & Combat & Player & Med & 1\\
+\hline
+6 & Talk to NPCs & Player & Low & 3\\
+\hline
+7 & Manage Inventory & Player & Low & 3\\
+\hline
+8 & Check Character Stats & Player & Low & 3\\
+\hline
+9 & Manage Companions & Player & Med & 1\\
+\hline
 
-%\end{tabular}
-%\caption{Sample use case table}
-%\label{tab:useCaseIndex}
-%\end{table}
+\end{tabular}
+\caption{Cybernuke use case table}
+\label{tab:useCaseIndex}
+\end{table}
 
 
 \begin{itemize}
 \item[Use Case Number:] 1
-\item[Use Case Name:] Add item to cart
-\item[Description:] A shopper on our site has identified an item they wish to buy.  They will click on a ``Add to Cart" button.  This will kick off a process to add one instance of the item to their cart.
+\item[Use Case Name:] Start New Game
+\item[Description:] A player has opened the game and wishes to start a new save. They will click on a "New Game" button. This will start the process to start a new game.
 \end{itemize}
 
-You will then go on to (minimally) discuss a basic flow for the process:
+%You will then go on to (minimally) discuss a basic flow for the process:
 
 \begin{enumerate}
-\item User navigates to page listing desired item
-\item User left-clicks on ``Add to Cart" button.
-\item User cart is updated to reflect the new item, this also updates the current total.
-\item[Termination Outcome:] The user now has a single instance of the item in their cart.
+\item Player opens game to the Main Menu
+\item Player left-clicks on ``Start Game" button.
+\item A new save is created and the Player is shunted into the game world
+\item[Termination Outcome:] A new game will be started for the Player
 \end{enumerate}
 
-You may need to also add in any alternative flows:
 
-Alternative: Item already exists in the cart
-\begin{enumerate}
-\item User navigates to page listing desired item
-\item User left-clicks on ``Add to Cart" button.
-\item User cart is updated to reflect the new item, showing that one more instance of the existing item has been added.  This also updates the current total.
-\item[Termination Outcome:] The user now has multiple instances of the item in their cart.
-\end{enumerate}
+%You will often also need to include pictures or diagrams.  It is quite common to see use-case diagrams in such write-ups.  To properly reference an image, you will need to use the \texttt{figure} environment and will need to reference it in your text (via the \texttt{ref} command) (see Figure \ref{combat_mockup}).  NOTE: this is not a use case diagram, but a capybara.
 
-You will often also need to include pictures or diagrams.  It is quite common to see use-case diagrams in such write-ups.  To properly reference an image, you will need to use the \texttt{figure} environment and will need to reference it in your text (via the \texttt{ref} command) (see Figure \ref{combat_mockup}).  NOTE: this is not a use case diagram, but a capybara.
-
-After fully describing a use case, it is time to move on to the next use case:
 
 \begin{itemize}
 \item[Use Case Number:] 2
-\item[Use Case Name:] Checkout
-\item[Description:] A shopper on our site has finished shopping.  They will click on a ``Checkout" button.  This will kick off a process to calculate cart total, any taxes, shipping rates, and collect payment from the shopper.
-
+\item[Use Case Name:] Save Game
+\item[Description:] Player has achieved a goal or wishes to save their progress before stepping away.  They will click on a ``Save Game" button.  This will kick off a process to record map position, inventory, character stats and companions, etc. etc.
 \end{itemize}
 
-You will then need to continue to flesh out all use cases you have identified for your project.
+\begin{enumerate}
+\item Player opens the pause menu (presumably with ESC key).
+\item Player left-clicks on ``Save Game" button.
+\item The Player's progress and status is recorded into a file and saved to a dedicated "saves" folder
+\item [Termination Outcome:] A new saved game is recorded and exported to a "saves" folder for future loading
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 3
+\item[Use Case Name:] Load Game
+\item[Description:] Player has died or has opened the game and wishes to load their previously saved progress. They will click on a ``Load Game" button. This will kick off a process to load their saved status and start from where they left off.
+\end{itemize}
+
+\begin{enumerate}
+\item Player opens the game
+\item Player left-clicks on "Load Game" button
+\item Player chooses from a list of saves from within their "saves" folder
+\item [Termination Outcome:] Player loads their saved game and is returned to the point where they saved their game with their status, equipment, stats, etc. the same as when they saved.
+\end{enumerate}
+
+Alternative: Player is within the game world and is alive
+\begin{enumerate}
+\item Player opens the pause menu
+\item Player left-clicks on "Load Game" button
+\item Player chooses from a list of saves
+\item [Termination Outcome:] Player loads their saved game from within the game world and is returned to the point where they saved their game with all faculties the same as when they saved
+\end{enumerate}
+
+Alternative: Player is within the game world and died in combat
+\begin{enumerate}
+\item Player has arrived on death screen
+\item Player left-clicks on "Load Game" button
+\item Player chooses from a list of saves
+\item [Termination Outcome:] Player loads their saved game from the death screen and is returned to the point their saved game was created with all faculties the same as when they saved
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 4
+\item[Use Case Name:] Movement
+\item[Description:] Player wishes to move their sprite on the game world or overworld. They will press one of the assigned "movement keys" (arrows: Up, Down, Left, Right). This will kick off a process to move the character sprite from where they started to where the character wishes to move.
+\end{itemize}
+
+\begin{enumerate}
+\item Player is in the game world or overworld
+\item Player presses one of the movement keys
+\item [Termination Outcome:] The Player's sprite is moved from where they started to one space in the direction they wished to move
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 5
+\item[Use Case Name:] Combat
+\item[Description:] Combat with Player is initiated. Player wishes to perform a variety of actions like: 
+\begin{enumerate}
+\item Attacking with Melee or Ranged
+\item Guard / Defend
+\item Use Skill
+\item Analyze Enemy
+\item Wait
+\item Escape
+\item Autobattle
+\end{enumerate}
+Player will access these functions by typing the corresponding number into a UI console.
+\end{itemize}
+
+\begin{enumerate}
+\item Player is within the Combat UI
+\item Player enters their preferred action in the lower console
+\item Player selects an enemy or companion to attack or use a skill or item on if required. Otherwise, action is performed on themselves (like wait, guard, etc.).
+\item [Termination Outcome:] Player performs an action in combat, which will continue until Player dies or all of the enemies to the Player die.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 6
+\item[Use Case Name:] Talk to NPCs
+\item[Description:] Player wishes to talk to an NPC, like shopkeepers or story NPCs, or companions. They will press an "Interact" key while near the NPC. This kicks off the process to push text into a text box for the Player to read and react to
+\end{itemize}
+
+\begin{enumerate}
+\item Player presses the interact key while one space away from an NPC they wish to talk to
+\item NPC text is inserted into a text box for the Player to read
+\item [Termination Outcome:] Player can read the NPCs text
+\end{enumerate}
+
+Alternative: Player is talking to a Shop NPC or a Story NPC
+\begin{enumerate}
+\item Player presses the interact key while one space away from the Shopkeeper NPC or Story NPC
+\item A list of choices for the Player appears
+\item Player selects a choice (Shop, Talk, etc.)
+\item Player is guided to the Shopkeeper's inventory if "Shop" is selected or engages in conversation with the NPC if "Talk" is selected
+\item [Termination Outcome:] Player has chatted with the NPC or is entered into the Shopkeeper's shop menu
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 7
+\item{Use Case Name:] Manage Inventory
+\item[Description:] Player wishes to access their own items or switch their equipped equipment. They will click on an "Inventory" button. This will kick off a process to manage their inventory.
+\end{itemize}
+
+\begin{enumerate}
+\item Player opens their inventory using a pre-defined "Inventory" hotkey, displaying a menu which holds the Player's currently worn and used equipment, a list of "consumable" items, and a list of unused equipment
+\item Player can select on consumable items to use them, can select on equipped items to unequip them, and click on unequipped items to switch to or initially wear
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 8
+\item[Use Case Name:] Check Character Stats
+\item[Description:] Player wishes to check their stats and a description of what said stats do. They will open a "Character" menu by pressing a pre-defined hotkey. This will kick of a process to display said menu and allow the character to read a description of their stats by clicking on the names of the stat
+\end{itemize}
+
+\begin{enumerate}
+\item
+\end{enumerate}
 
 \begin{figure}[ht!]
 \centering
