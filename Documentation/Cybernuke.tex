@@ -299,15 +299,22 @@ The non-required mechanics for the game are defined in the second part of the sc
 
 \subsubsection{Functional}
 \begin{itemize}
-\item User needs to have a private shopping cart -- this cannot be shared between users, and needs to maintain state across subsequent visits to the site
-\item Users need to have website accounts -- this will help track recent purchases, keep shopping cart records, etc.
-\item You'll need more than 2 of these...
+\item User needs to be able to start a new game as well as load a previous game if one exists. \item Additionally, User must be able to save their game while playing 
+\item User must be able to move around the game world - both on normal map and overworld map
+\item User must be able to participate in combat by performing actions like attacking, guarding, using items, etc.
+\item User must be able to interact with NPCs, like for shopping or for progressing the story
+\item User must be able to manage inventory - dropping or equipping/using items, using quest items, etc.
+\item User must be able to see and examine their character's stats - each stat should have a description of what it affects 
+\item User must be able to manage companions - change order, dismiss or recruit, check equipment and skills of, etc.
 \end{itemize}
 
 \subsubsection{Non-Functional}
 \begin{itemize}
-\item Security -- user credentials must be encrypted on disk, users should be able to reset their passwords if forgotten
-\item you'll typically have fewer non-functional than functional requirements
+\item Autosaves - User should have automatic saving in case of crashing, failing battles, and general convenience
+\item Simple Combat AI - Enemies should be able to attack, use skills, etc. during battle through use of algorithms or basic attack sequences
+\item Shop Stock - Basic inventory stocked so User can buy various items at different times (can reset shop every nth battle if we want)
+\item Map autoscrolling - Camera should center on User and map should scroll as User moves around
+\item I didn't know what else to put here.
 \end{itemize}
 
 \subsection{Use Cases}
@@ -318,21 +325,21 @@ You should have a table listing all use cases discussed in the document, the ID 
 
 
 
-\begin{table}
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
-\hline \hline
-1 & Add item to cart & Shopper & Med & 1\\
-\hline
-2 & Checkout & Shopper & Med & 1\\
-\hline
+%\begin{table}
+%\centering
+%\begin{tabular}{|c|c|c|c|c|}
+%\hline
+%Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
+%\hline \hline
+%1 & Add item to cart & Shopper & Med & 1\\
+%\hline
+%2 & Checkout & Shopper & Med & 1\\
+%\hline
 
-\end{tabular}
-\caption{Sample use case table}
-\label{tab:useCaseIndex}
-\end{table}
+%\end{tabular}
+%\caption{Sample use case table}
+%\label{tab:useCaseIndex}
+%\end{table}
 
 
 \begin{itemize}
