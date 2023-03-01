@@ -323,8 +323,6 @@ This subsection is arguably part of how you define your project scope (why it is
 You should have a table listing all use cases discussed in the document, the ID is just the order it is listed in, the name should be indicative of what should happen, the primary actor is typically most important in an application where you may have different levels of users (think admin vs normal user), complexity is a best-guess on your part as to how hard it should be.  A lower number in priority indicates that it needs to happen sooner rather than later.  A sample table, or Use Case Index can be seen in Table \ref{tab:useCaseIndex}.
 
 
-
-
 \begin{table}
 \centering
 \begin{tabular}{|c|c|c|c|c|}
@@ -509,6 +507,23 @@ Alternative: Player is talking to a Shop NPC or a Story NPC
 \item [Termination Outcome:] Player has managed their companion by observing their status as well as being able to recruit or dismiss them
 \end{enumerate}
 
+%Page Break Mockup
+\pagebreak
+\subsection{Interface Mockups}
+%At first, this will largely be completely made up, as you get further along in your project, and closer to a final product, this will typically become simple screenshots of your running application.
+%In this subsection, you will be showing what the screen should look like as the user moves through various use cases (make sure to tie the interface mockups back to the specific use cases they illustrate).
+
+The following is a mock-up of CYBERNUKE's main menu screen. The main menu is tied to use cases 1 (Start New Game), 3 (Load Game), and use cases for the Options Menu and Exit Game.
+\begin{figure}[ht!]
+\centering
+\includegraphics[height=462px, width=500px]{Mockups/CYBERNUKE_MAIN_MENU_2.png}
+\caption{CYBERNUKE Main Menu Screen Mockup}
+\label{main_menu_mockup}
+\end{figure}
+
+%Summon Page Break
+\pagebreak
+The following is a mock-up of CYBERNUKE's combat screen. The combat screen is tied to use case 5 (Combat).
 \begin{figure}[ht!]
 \centering
 \includegraphics[height=281.25px, width=500px]{Mockups/CYBERNUKE_COMBAT_MOCKUP.png}
@@ -516,13 +531,9 @@ Alternative: Player is talking to a Shop NPC or a Story NPC
 \label{combat_mockup}
 \end{figure}
 
-\subsection{Interface Mockups}
-At first, this will largely be completely made up, as you get further along in your project, and closer to a final product, this will typically become simple screenshots of your running application.
 
-In this subsection, you will be showing what the screen should look like as the user moves through various use cases (make sure to tie the interface mockups back to the specific use cases they illustrate).
-
-
-
+%Ultimate Page Break Attack
+\pagebreak
 % PROJECT TIMELINE ********************************************************************* %
 \section{Project Timeline}
 Go back to your notes and look up a typical project development life cycle for the Waterfall approach.  How will you follow this life cycle over the remainder of this semester?  This will usually involve a chart showing your proposed timeline, with specific milestones plotted out.  Make sure you have deliverable dates from the course schedule listed, with a plan to meet them (NOTE: these are generally optimistic deadlines).
@@ -536,12 +547,12 @@ At first, this will be a little empty (it will need to be filled in by the time 
 \subsection{UML Outline}
 Show the full structure of your program.  Make sure to keep on updating this section as your project evolves (you often start out with one plan, but end up modifying things as you move along).  As a note, while Dia fails miserably at generating pdfs (probably my fault), I have had much success with png files.  Make sure to wrap your images in a \texttt{figure} environment, and to reference with the \texttt{ref} command.  For example, see Figure \ref{main_menu_mockup}.
 
-\begin{figure}[ht!]
-\centering
-\includegraphics[height=462px, width=500px]{Mockups/CYBERNUKE_MAIN_MENU_2.png}
-\caption{CYBERNUKE Main Menu Screen Mockup}
-\label{main_menu_mockup}
-\end{figure}
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[height=462px, width=500px]{Mockups/CYBERNUKE_MAIN_MENU_2.png}
+%\caption{CYBERNUKE Main Menu Screen Mockup}
+%\label{main_menu_mockup}
+%\end{figure}
 
 
 \subsection{Design Patterns Used}
