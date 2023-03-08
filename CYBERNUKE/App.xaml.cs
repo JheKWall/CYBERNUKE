@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace PACRL_352
+namespace CYBERNUKE
 {
     /// <summary>
     /// Interaction logic for App.xaml

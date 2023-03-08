@@ -1,7 +1,7 @@
-﻿<Application x:Class="PACRL_352.App"
+﻿<Application x:Class="CYBERNUKE.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:PACRL_352"
+             xmlns:local="clr-namespace:CYBERNUKE"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

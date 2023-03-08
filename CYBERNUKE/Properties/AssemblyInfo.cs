@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PACRL-352")]
+[assembly: AssemblyTitle("CYBERNUKE")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("University of TN at Martin")]
-[assembly: AssemblyProduct("PACRL-352")]
+[assembly: AssemblyProduct("CYBERNUKE")]
 [assembly: AssemblyCopyright("Copyright © University of TN at Martin 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
