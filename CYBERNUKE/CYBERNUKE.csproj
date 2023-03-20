@@ -122,5 +122,18 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Combats\" />
+    <Folder Include="Fonts\" />
+    <Folder Include="Images\" />
+    <Folder Include="Items\Armor\" />
+    <Folder Include="Items\Artifacts\" />
+    <Folder Include="Items\Consumables\" />
+    <Folder Include="Items\Quest\" />
+    <Folder Include="Items\Weapons\" />
+    <Folder Include="Maps\" />
+    <Folder Include="Towns\" />
+    <Folder Include="Windows\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
