@@ -2,8 +2,17 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CYBERNUKE"
-             StartupUri="MainWindow.xaml">
+             xmlns:viewModel="clr-namespace:CYBERNUKE.MVVM.ViewModel" 
+             xmlns:view="clr-namespace:CYBERNUKE.MVVM.View"
     <Application.Resources>
-         
+        
+        <DataTemplate DataType="{x:Type TypeName=viewModel:MainMenuViewModel}">
+            <view:MainMenuView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:CutsceneViewModel}">
+            <view:CutsceneView/>
+        </DataTemplate>
+        
     </Application.Resources>
 </Application>

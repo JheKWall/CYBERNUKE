@@ -8,8 +8,10 @@
         Title="CYBERNUKE" 
         Height="450" 
         Width="800"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Background="Black">
     <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="420,235,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         
     </Grid>
 </Window>
