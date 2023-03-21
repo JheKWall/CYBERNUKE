@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CYBERNUKE"
              xmlns:viewModel="clr-namespace:CYBERNUKE.MVVM.ViewModel" 
-             xmlns:view="clr-namespace:CYBERNUKE.MVVM.View"
+             xmlns:view="clr-namespace:CYBERNUKE.MVVM.View">
     <Application.Resources>
         
+        <!-- DataTemplates for each ViewModel & View -->
         <DataTemplate DataType="{x:Type TypeName=viewModel:MainMenuViewModel}">
             <view:MainMenuView/>
         </DataTemplate>

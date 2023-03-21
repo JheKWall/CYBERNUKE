@@ -9,6 +9,19 @@
              d:DesignWidth="800"
              Background="DarkRed">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height="61*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="79*"/>
+            <ColumnDefinition Width="81*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Margin="252,0,252,164" TextWrapping="Wrap" Text="CYBERNUKE" FontFamily="Unispace" FontWeight="Bold" Foreground="Red" TextAlignment="Center" FontSize="36" Grid.ColumnSpan="2" Height="43" VerticalAlignment="Bottom" Grid.RowSpan="2" HorizontalAlignment="Center" Width="296"/>
+        <Button x:Name="MainMenu_StartGameButton" Content="START GAME" Margin="345,0,345,131" FontFamily="Microsoft Himalaya" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Foreground="Red" Grid.Row="1"/>
+        <Button x:Name="MainMenu_LoadGameButton" Content="LOAD GAME" Margin="345,0,345,98" FontFamily="Microsoft Himalaya" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Foreground="Red" Grid.Row="1"/>
+        <Button x:Name="MainMenu_OptionsButton" Content="OPTIONS" Margin="345,0,345,65" FontFamily="Microsoft Himalaya" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Foreground="Red" Grid.Row="1"/>
+        <Button x:Name="MainMenu_ExitGameButton" Content="EXIT GAME" Margin="345,0,345,32" FontFamily="Microsoft Himalaya" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Foreground="Red" Grid.Row="1"/>
+
     </Grid>
 </UserControl>

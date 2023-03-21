@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CYBERNUKE.MVVM.ViewModel
 {
-    class CutsceneViewModel
+    class CutsceneViewModel : Core.ViewModel
     {
+
     }
 }
