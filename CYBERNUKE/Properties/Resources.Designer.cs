@@ -59,5 +59,74 @@ namespace CYBERNUKE.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Beetlemuse_Psychotic_And_Robotic {
+            get {
+                return ResourceManager.GetStream("Beetlemuse_Psychotic_And_Robotic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CYBERNUKE_Icon {
+            get {
+                object obj = ResourceManager.GetObject("CYBERNUKE_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainMenu_CityParallax_1 {
+            get {
+                object obj = ResourceManager.GetObject("MainMenu_CityParallax_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainMenu_CityParallax_2 {
+            get {
+                object obj = ResourceManager.GetObject("MainMenu_CityParallax_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainMenu_CityParallax_3 {
+            get {
+                object obj = ResourceManager.GetObject("MainMenu_CityParallax_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainMenu_CityParallax_4 {
+            get {
+                object obj = ResourceManager.GetObject("MainMenu_CityParallax_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainMenu_CityParallax_5 {
+            get {
+                object obj = ResourceManager.GetObject("MainMenu_CityParallax_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

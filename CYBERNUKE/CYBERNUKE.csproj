@@ -61,6 +61,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -161,7 +162,6 @@
   <ItemGroup>
     <Folder Include="GameData\Combats\" />
     <Folder Include="GameData\Fonts\" />
-    <Folder Include="GameData\Images\" />
     <Folder Include="GameData\Items\Armor\" />
     <Folder Include="GameData\Items\Artifacts\" />
     <Folder Include="GameData\Items\Consumables\" />
@@ -170,6 +170,25 @@
     <Folder Include="GameData\Maps\" />
     <Folder Include="GameData\Towns\" />
     <Folder Include="MVVM\Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\MainMenu_CityParallax_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\MainMenu_CityParallax_3.png" />
+    <Resource Include="GameData\Images\MainMenu_CityParallax_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\MainMenu_CityParallax_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\CYBERNUKE_Icon.png" />
+    <Resource Include="GameData\Images\MainMenu_CityParallax_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GameData\Sounds\Beetlemuse_Psychotic_And_Robotic.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

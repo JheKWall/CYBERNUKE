@@ -5,23 +5,106 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CYBERNUKE.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" 
-             d:DesignWidth="800"
-             Background="DarkRed">
+             d:DesignHeight="768" 
+             d:DesignWidth="1366" Foreground="{x:Null}">
+
+    <!-- Style Resources -->
+    <UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <!-- https://stackoverflow.com/questions/3854317/how-to-remove-default-mouse-over-effect-on-wpf-buttons -->
+        <Style x:Key="MainMenuButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <!-- Gradient Background -->
+    <UserControl.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0.653"/>
+            <GradientStop Color="Red" Offset="0.137"/>
+        </LinearGradientBrush>
+    </UserControl.Background>
+
+    <!-- UI Element Grid -->
     <Grid>
+        <!-- Vertical Grid -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="89*"/>
-            <RowDefinition Height="61*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
+        <!-- Horizontal Grid -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="79*"/>
-            <ColumnDefinition Width="81*"/>
+            <ColumnDefinition Width="4.5*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="4.5*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Margin="252,0,252,164" TextWrapping="Wrap" Text="CYBERNUKE" FontFamily="Unispace" FontWeight="Bold" Foreground="Red" TextAlignment="Center" FontSize="36" Grid.ColumnSpan="2" Height="43" VerticalAlignment="Bottom" Grid.RowSpan="2" HorizontalAlignment="Center" Width="296"/>
-        <Button x:Name="MainMenu_StartGameButton" Content="START GAME" Margin="345,0,345,131" FontFamily="Microsoft Himalaya" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Foreground="Red" Grid.Row="1"/>
-        <Button x:Name="MainMenu_LoadGameButton" Content="LOAD GAME" Margin="345,0,345,98" FontFamily="Microsoft Himalaya" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Foreground="Red" Grid.Row="1"/>
-        <Button x:Name="MainMenu_OptionsButton" Content="OPTIONS" Margin="345,0,345,65" FontFamily="Microsoft Himalaya" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Foreground="Red" Grid.Row="1"/>
-        <Button x:Name="MainMenu_ExitGameButton" Content="EXIT GAME" Margin="345,0,345,32" FontFamily="Microsoft Himalaya" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Foreground="Red" Grid.Row="1"/>
+
+        <!-- Parallax Background -->
+        <Image x:Name="MainMenuBG_5" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/CYBERNUKE;component/GameData/Images/MainMenu_CityParallax_5.png" RenderTransformOrigin="0.499,0.458" Margin="-100,-120,-100,0"/>
+        <Image x:Name="MainMenuBG_4" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/CYBERNUKE;component/GameData/Images/MainMenu_CityParallax_4.png" RenderTransformOrigin="0.499,0.458" Margin="-100,-120,-100,0"/>
+        <Image x:Name="MainMenuBG_3" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/CYBERNUKE;component/GameData/Images/MainMenu_CityParallax_3.png" RenderTransformOrigin="0.499,0.458" Margin="-100,-120,-100,0"/>
+        <Image x:Name="MainMenuBG_2" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/CYBERNUKE;component/GameData/Images/MainMenu_CityParallax_2.png" RenderTransformOrigin="0.499,0.458" Margin="-100,-120,-100,0"/>
+        <Image x:Name="MainMenuBG_1" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/CYBERNUKE;component/GameData/Images/MainMenu_CityParallax_1.png" RenderTransformOrigin="0.499,0.458" Margin="-100,-120,-100,0"/>
+
+        <!-- Title Text -->
+        <TextBlock TextWrapping="Wrap" Text="CYBERNUKE" FontFamily="Unispace" FontWeight="Bold" Foreground="Red" TextAlignment="Center" FontSize="70" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,10" Grid.RowSpan="2"/>
+
+        <!-- Bottom Text "CYBERNUKE PROJECT," "AUTHORS" -->
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="CYBERNUKE PROJECT 2023" VerticalAlignment="Bottom" FontFamily="Microsoft Himalaya" FontSize="24" Foreground="Red"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="3" TextWrapping="Wrap" Text="KENNETH W. VANCE B." VerticalAlignment="Bottom" FontFamily="Microsoft Himalaya" FontSize="24" Foreground="Red" Grid.Column="2"/>
+
+        <!-- Main Menu Options Highlights -->
+        <Rectangle Fill="Red" Height="4" Margin="0,26,10,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Rectangle Fill="Red" Height="4" Margin="10,26,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="2"/>
+        <Rectangle Fill="Red" Height="4" Margin="0,68,10,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Rectangle Fill="Red" Height="4" Margin="10,68,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="2"/>
+        <Rectangle Fill="Red" Height="4" Margin="0,111,10,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Rectangle Fill="Red" Height="4" Margin="10,111,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="2"/>
+        <Rectangle Fill="Red" Height="4" Margin="0,153,10,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Rectangle Fill="Red" Height="4" Margin="10,153,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="2"/>
+
+        <!-- Main Menu Options -->
+        <StackPanel Grid.ColumnSpan="3" Grid.Row="3">
+            <Button x:Name="MainMenu_StartGameButton" Style="{StaticResource MainMenuButton}" Content="START GAME" FontFamily="Microsoft Himalaya" FontSize="36" BorderBrush="{x:Null}" Background="{x:Null}" 
+                    VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="2" Margin="0,15,0,0" FontWeight="Bold" Click="MainMenu_StartGameButton_Click" Height="27"/>
+
+            <Button x:Name="MainMenu_LoadGameButton" Style="{StaticResource MainMenuButton}" Content="LOAD GAME" FontFamily="Microsoft Himalaya" FontSize="36" BorderBrush="{x:Null}" Background="{x:Null}" 
+                    VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="2" Margin="0,15,0,0" FontWeight="Bold" Click="MainMenu_LoadGameButton_Click" Height="27"/>
+
+            <Button x:Name="MainMenu_OptionsButton" Style="{StaticResource MainMenuButton}" Content="OPTIONS" FontFamily="Microsoft Himalaya" FontSize="36" BorderBrush="{x:Null}" Background="{x:Null}" 
+                    VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="2" Margin="0,15,0,0" FontWeight="Bold" Click="MainMenu_OptionsButton_Click" Height="27"/>
+
+            <Button x:Name="MainMenu_ExitGameButton" Style="{StaticResource MainMenuButton}" Content="EXIT GAME" FontFamily="Microsoft Himalaya" FontSize="36" BorderBrush="{x:Null}" Background="{x:Null}" 
+                    VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="2" Margin="0,15,0,0" FontWeight="Bold" Click="MainMenu_ExitGameButton_Click" Height="27"/>
+        </StackPanel>
+
+        <!-- Screen Resolution Buttons -->
+        <Button x:Name="Resolution_768x1366"  Content="768x1366" Grid.Column="2" Margin="0,0,77,101" Grid.Row="3" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom" Click="Resolution_768x1366_Click"/>
+        <Button x:Name="Resolution_900x1600" Content="900x1600" Grid.Column="2" Margin="0,0,77,76" Grid.Row="3" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom" Click="Resolution_900x1600_Click"/>
+        <Button x:Name="Resolution_1080x1920" Content="1080x1920" Grid.Column="2" Margin="0,0,77,51" Grid.Row="3" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom" Click="Resolution_1080x1920_Click"/>
+
+
+
+
 
     </Grid>
 </UserControl>

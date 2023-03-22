@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:CYBERNUKE"
         mc:Ignorable="d"
         Title="CYBERNUKE" 
-        Height="450" 
-        Width="800"
+        Height="768" 
+        Width="1366"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
-        Background="White">
+        Background="Black" 
+        Icon="/CYBERNUKE;component/GameData/Images/CYBERNUKE_Icon.png">
     <Grid>
         <ContentControl Content="{Binding Navigation.CurrentView}">
         </ContentControl>

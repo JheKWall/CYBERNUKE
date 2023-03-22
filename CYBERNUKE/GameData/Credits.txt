@@ -1,0 +1,16 @@
+Fonts:
+Microsoft Himalaya - Microsoft Beijing
+
+OCR-A - American Type Founders
+
+Unispace - Typodermic Fonts 
+(https://www.typodermicfonts.com/)
+
+Images:
+Kenneth W.
+
+Sounds:
+Main Menu Radio Noise - Maestro_Himself (https://freesound.org/people/Maestro_Himself/sounds/581266/)
+
+Main Menu Music - Beetlemuse 
+(https://freesound.org/people/Beetlemuse/sounds/617139/)
