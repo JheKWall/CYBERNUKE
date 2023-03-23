@@ -89,6 +89,11 @@
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Core\ViewModel.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\NavigationService.cs" />
     <Page Include="MVVM\View\CutsceneView.xaml">
       <SubType>Designer</SubType>
@@ -123,11 +128,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -186,7 +186,7 @@
     <Resource Include="GameData\Images\MainMenu_CityParallax_2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GameData\Sounds\Beetlemuse_Psychotic_And_Robotic.wav">
+    <Content Include="GameData\Sounds\beetlemuse__psychotic-and-robotic.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

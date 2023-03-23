@@ -30,13 +30,12 @@ namespace CYBERNUKE.MVVM.View
             MainMenuMusicPlayer();
         }
 
-        // Sound Manager
-        // Music
+        // Music Player
         MediaPlayer MainMenu_BGM = new MediaPlayer(); //Background Music
         private void MainMenuMusicPlayer()
         {
             //Open the sound files
-            MainMenu_BGM.Open(new Uri(System.IO.Directory.GetCurrentDirectory() + @"\GameData\Sounds\Beetlemuse_Psychotic_And_Robotic.wav", UriKind.Absolute));
+            MainMenu_BGM.Open(new Uri(System.IO.Directory.GetCurrentDirectory() + @"\GameData\Sounds\beetlemuse__psychotic-and-robotic.wav", UriKind.Absolute));
 
             //Loop sound files if they end
             MainMenu_BGM.MediaEnded += new EventHandler(Media_Ended);
@@ -44,7 +43,6 @@ namespace CYBERNUKE.MVVM.View
             //Play sound 
             MainMenu_BGM.Play();
         }
-
         // Replays sound once it ends
         private void Media_Ended(object sender, EventArgs e)
         {
@@ -73,6 +71,8 @@ namespace CYBERNUKE.MVVM.View
 
         private void MainMenu_ExitGameButton_Click(object sender, RoutedEventArgs e)
         {
+
+
             System.Windows.Application.Current.Shutdown();
         }
 
@@ -85,13 +85,11 @@ namespace CYBERNUKE.MVVM.View
             Application.Current.MainWindow.Width = 1366;
             Application.Current.MainWindow.Height = 768;
         }
-
         private void Resolution_900x1600_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Width = 1600;
             Application.Current.MainWindow.Height = 900;
         }
-
         private void Resolution_1080x1920_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Width = 1920;

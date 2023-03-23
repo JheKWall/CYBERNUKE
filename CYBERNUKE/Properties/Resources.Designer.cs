@@ -63,9 +63,9 @@ namespace CYBERNUKE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Beetlemuse_Psychotic_And_Robotic {
+        internal static System.IO.UnmanagedMemoryStream beetlemuse__psychotic_and_robotic {
             get {
-                return ResourceManager.GetStream("Beetlemuse_Psychotic_And_Robotic", resourceCulture);
+                return ResourceManager.GetStream("beetlemuse__psychotic_and_robotic", resourceCulture);
             }
         }
         

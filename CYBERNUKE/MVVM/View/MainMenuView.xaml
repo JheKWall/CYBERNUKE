@@ -66,24 +66,28 @@
         <Image x:Name="MainMenuBG_1" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/CYBERNUKE;component/GameData/Images/MainMenu_CityParallax_1.png" RenderTransformOrigin="0.499,0.458" Margin="-100,-120,-100,0"/>
 
         <!-- Title Text -->
-        <TextBlock TextWrapping="Wrap" Text="CYBERNUKE" FontFamily="Unispace" FontWeight="Bold" Foreground="Red" TextAlignment="Center" FontSize="70" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,10" Grid.RowSpan="2"/>
+        <TextBlock x:Name="MainMenu_TitleText" TextWrapping="Wrap" Text="CYBERNUKE" FontFamily="Unispace" FontWeight="Bold" Foreground="Red" TextAlignment="Center" FontSize="70" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,10" Grid.RowSpan="2"/>
 
         <!-- Bottom Text "CYBERNUKE PROJECT," "AUTHORS" -->
         <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="CYBERNUKE PROJECT 2023" VerticalAlignment="Bottom" FontFamily="Microsoft Himalaya" FontSize="24" Foreground="Red"/>
         <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="3" TextWrapping="Wrap" Text="KENNETH W. VANCE B." VerticalAlignment="Bottom" FontFamily="Microsoft Himalaya" FontSize="24" Foreground="Red" Grid.Column="2"/>
 
         <!-- Main Menu Options Highlights -->
-        <Rectangle Fill="Red" Height="4" Margin="0,26,10,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <Rectangle Fill="Red" Height="4" Margin="10,26,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="2"/>
-        <Rectangle Fill="Red" Height="4" Margin="0,68,10,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <Rectangle Fill="Red" Height="4" Margin="10,68,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="2"/>
-        <Rectangle Fill="Red" Height="4" Margin="0,111,10,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <Rectangle Fill="Red" Height="4" Margin="10,111,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="2"/>
-        <Rectangle Fill="Red" Height="4" Margin="0,153,10,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <Rectangle Fill="Red" Height="4" Margin="10,153,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="2"/>
+        <Viewbox x:Name="MainMenu_OptionsHighlight" Grid.ColumnSpan="3" Margin="0,26,0,0" Grid.Row="3" Stretch="Fill" Height="131" VerticalAlignment="Top">
+            <Grid Height="131" Width="1366">
+                <Rectangle x:Name="Highlight_StartGame_1" Fill="Red" Height="4" Margin="0,0,817,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_StartGame_2" Fill="Red" Height="4" Margin="817,0,0,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_LoadGame_1" Fill="Red" Height="4" Margin="0,42,817,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_LoadGame_2" Fill="Red" Height="4" Margin="817,42,0,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_Options_1" Fill="Red" Height="4" Margin="0,85,817,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_Options_2" Fill="Red" Height="4" Margin="817,85,0,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_ExitGame_1" Fill="Red" Height="4" Margin="0,127,817,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_ExitGame_2" Fill="Red" Height="4" Margin="817,127,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </Viewbox>
 
         <!-- Main Menu Options -->
-        <StackPanel Grid.ColumnSpan="3" Grid.Row="3">
+        <StackPanel x:Name="MainMenu_OptionsPanel" Grid.ColumnSpan="3" Grid.Row="3">
             <Button x:Name="MainMenu_StartGameButton" Style="{StaticResource MainMenuButton}" Content="START GAME" FontFamily="Microsoft Himalaya" FontSize="36" BorderBrush="{x:Null}" Background="{x:Null}" 
                     VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="2" Margin="0,15,0,0" FontWeight="Bold" Click="MainMenu_StartGameButton_Click" Height="27"/>
 
