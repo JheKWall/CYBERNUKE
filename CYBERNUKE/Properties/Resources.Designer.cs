@@ -80,6 +80,16 @@ namespace CYBERNUKE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] himalaya {
+            get {
+                object obj = ResourceManager.GetObject("himalaya", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap MainMenu_CityParallax_1 {
@@ -126,6 +136,26 @@ namespace CYBERNUKE.Properties {
             get {
                 object obj = ResourceManager.GetObject("MainMenu_CityParallax_5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OCRAEXT {
+            get {
+                object obj = ResourceManager.GetObject("OCRAEXT", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] unispace_bd {
+            get {
+                object obj = ResourceManager.GetObject("unispace_bd", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

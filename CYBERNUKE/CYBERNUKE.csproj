@@ -138,6 +138,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="GameData\Fonts\himalaya.ttf" />
+    <Resource Include="GameData\Fonts\OCRAEXT.TTF" />
+    <Resource Include="GameData\Fonts\unispace bd.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -161,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GameData\Combats\" />
-    <Folder Include="GameData\Fonts\" />
     <Folder Include="GameData\Items\Armor\" />
     <Folder Include="GameData\Items\Artifacts\" />
     <Folder Include="GameData\Items\Consumables\" />
@@ -184,11 +186,6 @@
   <ItemGroup>
     <Resource Include="GameData\Images\CYBERNUKE_Icon.png" />
     <Resource Include="GameData\Images\MainMenu_CityParallax_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="GameData\Sounds\beetlemuse__psychotic-and-robotic.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

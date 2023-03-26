@@ -1,63 +1,13 @@
+External Libraries:
+// Microsoft Dependency Injection Extension (MVVM)
+
 Fonts:
 // Microsoft Himalaya - Microsoft Beijing
 // OCR-A - American Type Founders
 // Unispace - Typodermic Fonts (https://www.typodermicfonts.com/)
 
-
 Images:
 // Kenneth W.
-
-
-Music:
-// Psychotic And Robotic - Beetlemuse  (CC0 https://freesound.org/people/Beetlemuse/sounds/617139/)
-// Lurker In Town (V2) - Beetlemuse (CC-BY-4.0 https://freesound.org/people/Beetlemuse/sounds/617159/)
-// Ghosts On Record - Beetlemuse (CC0 https://freesound.org/people/Beetlemuse/sounds/652966/)
-// Numskull - Beetlemuse (CC0 https://freesound.org/people/Beetlemuse/sounds/650939/)
-// Mysterious and Spooky Music - Victor_Natas (CC0 https://freesound.org/people/Victor_Natas/sounds/544907/)
-// Army of Mean Robots - Victor_Natas (CC0 https://freesound.org/people/Victor_Natas/sounds/626575/)
-// Haunted Blues - FoolBoyMedia (CC-BY-NC-4.0 https://freesound.org/people/FoolBoyMedia/sounds/237268/)
-// Tense Loop - junkfood2121 (CC-BY-4.0 https://freesound.org/people/junkfood2121/sounds/245421/)
-// Marvelous Gift - BloodPixelHero (CC-BY-4.0 https://freesound.org/people/BloodPixelHero/sounds/608624/)
-// Electronic Info Loop - SergeQuadrado (CC-BY-NC-3.0 https://freesound.org/people/SergeQuadrado/sounds/469419/)
-// Shine 1 (loop) - SkibkaMusic (CC0 https://freesound.org/people/SkibkaMusic/sounds/361139/)
-
-
-Ambience:
-// Creepy Radio Comms - strangehorizon (CC0 https://freesound.org/people/strangehorizon/sounds/623499/)
-// Dark Star Drone - reacthor (CC0 https://freesound.org/people/reacthor/sounds/240118/)
-// Digital Texture 02 - gouldem (CC-BY-3.0 https://freesound.org/people/gouldem/sounds/445045/)
-// Jason, Mother is Talking to You - brewcitymike (CC0 https://freesound.org/people/brewcitymike/sounds/594592/)
-// Electronic Minute - gis_sweden:
-/ No. 262 (CC0 https://freesound.org/people/gis_sweden/sounds/466567/)
-/ No. 248 (CC0 https://freesound.org/people/gis_sweden/sounds/463313/)
-/ No. 254 (CC0 https://freesound.org/people/gis_sweden/sounds/465290/)
-/ No. 249 (CC0 https://freesound.org/people/gis_sweden/sounds/463317/)
-// Atmosphere Sci-Fi Horror Sndtrk 01 - 1jmorrisoncafe291 (CC-BY 3.0 https://freesound.org/people/1jmorrisoncafe291/sounds/116957/)
-// Spacedrone1 - Elektrocell (CC0 https://freesound.org/people/Elektrocell/sounds/20703/)
-// Atmospheric Loop #16 - BloodPixelHero (CC-BY-4.0 https://freesound.org/people/BloodPixelHero/sounds/565859/)
-
-
-SFX:
-// Electronic Growl - dragonboi50120 (CC0 https://freesound.org/people/dragonboi50120/sounds/632436/)
-// Tesla Monster Growl - Vartioh (CC-BY-4.0 https://freesound.org/people/vartioh/sounds/128237/)
-// Radio In Out Cut - DRFX (CC0 https://freesound.org/people/DRFX/sounds/353712/)
-// Spooky 02 - nomiqbomi (CC0 https://freesound.org/people/nomiqbomi/sounds/651025/)
-// Crepulsular - shimsewn (CC-BY-4.0 https://freesound.org/people/shimsewn/sounds/35189/)
-// Break something - Aurelon (CC0 https://freesound.org/people/Aurelon/sounds/422633/)
-
-
-Weapon SFX:
-// Gun Sounds - SuperPhat
-/ Sniper Rifle (CC0 https://freesound.org/people/SuperPhat/sounds/514228/)
-/ ScifiHeavyBlasterShot (CC0 https://freesound.org/people/SuperPhat/sounds/531861/)
-/ Submachine gun automatic fire (CC0 https://freesound.org/people/SuperPhat/sounds/417689/)
-/ LightMachineGun3 (CC0 https://freesound.org/people/SuperPhat/sounds/417686/)
-/ MachineGunloop (CC0 https://freesound.org/people/SuperPhat/sounds/397657/)
-// Sniper Rifle Shot with Bolt Action - EFlexMusic (CC-BY-NC-3.0 https://freesound.org/people/EFlexMusic/sounds/393651/)
-// Shotgun Fire - hyperix6 (CC0 https://freesound.org/people/hyperix6/sounds/660299/)
-// 1911 Reload - nioczkus (CC0 https://freesound.org/people/nioczkus/sounds/396331/)
-
-
 
 
 

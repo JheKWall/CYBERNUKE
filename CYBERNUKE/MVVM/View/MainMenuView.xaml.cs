@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CYBERNUKE.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,80 +21,150 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class MainMenuView : UserControl
     {
+        // Resolution Variable List
+        readonly double[] ListResolutionWidth = new double[3] { 1366, 1600, 1920 };
+        readonly double[] ListResolutionHeight = new double[3] { 768, 900, 1080 };
+        int ResolutionIndex = 0;
 
-
+        // Constructor
         public MainMenuView()
         {
             InitializeComponent();
-
-            //Play Main Menu Music
-            MainMenuMusicPlayer();
         }
 
-        // Music Player
-        MediaPlayer MainMenu_BGM = new MediaPlayer(); //Background Music
-        private void MainMenuMusicPlayer()
-        {
-            //Open the sound files
-            MainMenu_BGM.Open(new Uri(System.IO.Directory.GetCurrentDirectory() + @"\GameData\Sounds\beetlemuse__psychotic-and-robotic.wav", UriKind.Absolute));
-
-            //Loop sound files if they end
-            MainMenu_BGM.MediaEnded += new EventHandler(Media_Ended);
-
-            //Play sound 
-            MainMenu_BGM.Play();
-        }
-        // Replays sound once it ends
-        private void Media_Ended(object sender, EventArgs e)
-        {
-            //Sender is the MediaPlayer but its sent as object so cast it to Mediaplayer
-            MediaPlayer mediaPlayer = (MediaPlayer)sender;
-            mediaPlayer.Position = TimeSpan.Zero;
-            mediaPlayer.Play();
-        }
-
-
-        // Main Menu Options
+        // Start Button
         private void MainMenu_StartGameButton_Click(object sender, RoutedEventArgs e)
         {
+            //Hide Main Menu Options and Highlights
+            MainMenu_OptionsPanel.Visibility = Visibility.Hidden;
+            MainMenu_OptionsHighlight.Visibility = Visibility.Hidden;
+
+            //Show Start Prompt
+            MainMenu_StartPrompt.Visibility = Visibility.Visible;
+        }
+        private void StartPrompt_YesButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Start New Game
 
         }
+        private void StartPrompt_NoButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Hide Start Prompt
+            MainMenu_StartPrompt.Visibility = Visibility.Hidden;
 
+            //Show Main Menu Options and Highlights
+            MainMenu_OptionsPanel.Visibility = Visibility.Visible;
+            MainMenu_OptionsHighlight.Visibility = Visibility.Visible;
+        }
+
+
+        // Load Game Button
         private void MainMenu_LoadGameButton_Click(object sender, RoutedEventArgs e)
         {
+            //Hide Main Menu Options and Highlights
+            MainMenu_OptionsPanel.Visibility = Visibility.Hidden;
+            MainMenu_OptionsHighlight.Visibility = Visibility.Hidden;
+
+            //Show Load Menu
 
         }
 
+
+        // Options Menu Button
         private void MainMenu_OptionsButton_Click(object sender, RoutedEventArgs e)
         {
+            //Hide Main Menu Options and Highlights
+            MainMenu_OptionsPanel.Visibility = Visibility.Hidden;
+            MainMenu_OptionsHighlight.Visibility = Visibility.Hidden;
 
+            //Show Options Menu
+            MainMenu_OptionsMenu.Visibility = Visibility.Visible;
+        }
+        // Options Menu: Resolution Change Buttons
+        private void OptionsMenu_Resolution_ButtonLeft_Click(object sender, RoutedEventArgs e)
+        {
+            if (ResolutionIndex > 0)
+            {
+                ResolutionIndex--;
+                UpdateScreenResolution(ListResolutionWidth[ResolutionIndex], ListResolutionHeight[ResolutionIndex]);
+            }
+        }
+        private void OptionsMenu_Resolution_ButtonRight_Click(object sender, RoutedEventArgs e)
+        {
+            if (ResolutionIndex < 2)
+            {
+                ResolutionIndex++;
+                UpdateScreenResolution(ListResolutionWidth[ResolutionIndex], ListResolutionHeight[ResolutionIndex]);
+            }
         }
 
+        // Options Menu: Fullscreen/Windowed Button
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            //Fullscreens the game
+            Application.Current.MainWindow.WindowStyle = WindowStyle.None;
+            Application.Current.MainWindow.WindowState = WindowState.Maximized;
+
+            //Updates resolution (updates to your screen's max resolution since its fullscreen)
+            UpdateScreenResolution(System.Windows.SystemParameters.PrimaryScreenWidth, System.Windows.SystemParameters.PrimaryScreenHeight);
+        }
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            //Windows the game
+            Application.Current.MainWindow.WindowStyle = WindowStyle.SingleBorderWindow;
+            Application.Current.MainWindow.WindowState = WindowState.Normal;
+
+            //Updates resolution (updates to current resolution after it windows)
+            UpdateScreenResolution(Application.Current.MainWindow.Width, Application.Current.MainWindow.Height);
+        }
+
+        // Options Menu: Back Button
+        private void OptionsMenu_BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Hide Options Menu
+            MainMenu_OptionsMenu.Visibility = Visibility.Hidden;
+
+            //Show Main Menu Options and Highlights
+            MainMenu_OptionsPanel.Visibility = Visibility.Visible;
+            MainMenu_OptionsHighlight.Visibility = Visibility.Visible;
+        }
+
+
+        // Exit Button
         private void MainMenu_ExitGameButton_Click(object sender, RoutedEventArgs e)
         {
+            //Hide Main Menu Options and Highlights
+            MainMenu_OptionsPanel.Visibility = Visibility.Hidden;
+            MainMenu_OptionsHighlight.Visibility = Visibility.Hidden;
 
-
+            //Show Quit Prompt
+            MainMenu_ExitPrompt.Visibility = Visibility.Visible;
+        }
+        private void ExitPrompt_YesButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Quit Game
             System.Windows.Application.Current.Shutdown();
         }
-
-
-
-
-        // DEBUG: Resolution Change Buttons
-        private void Resolution_768x1366_Click(object sender, RoutedEventArgs e)
+        private void ExitPrompt_NoButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.Width = 1366;
-            Application.Current.MainWindow.Height = 768;
+            //Hide Exit Prompt
+            MainMenu_ExitPrompt.Visibility = Visibility.Hidden;
+
+            //Show Main Menu Options and Highlights
+            MainMenu_OptionsPanel.Visibility = Visibility.Visible;
+            MainMenu_OptionsHighlight.Visibility = Visibility.Visible;
         }
-        private void Resolution_900x1600_Click(object sender, RoutedEventArgs e)
+
+
+        // Call to update screen resolution
+        private void UpdateScreenResolution(double ResolutionWidth, double ResolutionHeight)
         {
-            Application.Current.MainWindow.Width = 1600;
-            Application.Current.MainWindow.Height = 900;
-        }
-        private void Resolution_1080x1920_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.MainWindow.Width = 1920;
-            Application.Current.MainWindow.Height = 1080;
+            //Changes resolution
+            Application.Current.MainWindow.Width = ResolutionWidth;
+            Application.Current.MainWindow.Height = ResolutionHeight;
+
+            //Updates all resolution displays (text saying what resolution you are using)
+            OptionsMenu_Resolution_DisplayText.Text = ResolutionHeight.ToString() + "x" + ResolutionWidth.ToString();
         }
     }
 }
