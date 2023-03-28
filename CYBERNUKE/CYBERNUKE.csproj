@@ -89,12 +89,28 @@
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Core\ViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\CombatViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\OverworldViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\TownViewModel.cs" />
+    <Compile Include="MVVM\View\CombatView.xaml.cs">
+      <DependentUpon>CombatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\OverworldView.xaml.cs">
+      <DependentUpon>OverworldView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\TownView.xaml.cs">
+      <DependentUpon>TownView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\NavigationService.cs" />
+    <Page Include="MVVM\View\CombatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\CutsceneView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,6 +140,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\OverworldView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\TownView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -138,9 +162,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="GameData\Fonts\himalaya.ttf" />
-    <Resource Include="GameData\Fonts\OCRAEXT.TTF" />
-    <Resource Include="GameData\Fonts\unispace bd.ttf" />
+    <Resource Include="GameData\Fonts\himalaya.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="GameData\Fonts\OCRAEXT.TTF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="GameData\Fonts\Unispace.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

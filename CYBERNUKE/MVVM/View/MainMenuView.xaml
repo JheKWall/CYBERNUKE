@@ -7,7 +7,8 @@
              xmlns:core="clr-namespace:CYBERNUKE.Core"
              mc:Ignorable="d" 
              d:DesignHeight="768" 
-             d:DesignWidth="1366" Foreground="{x:Null}">
+             d:DesignWidth="1366" 
+             Foreground="{x:Null}">
 
     <!-- UserControl Resources -->
     <UserControl.Resources>
@@ -119,7 +120,7 @@
         <Image x:Name="MainMenuBG_1" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/CYBERNUKE;component/GameData/Images/MainMenu_CityParallax_1.png" RenderTransformOrigin="0.499,0.458" Margin="-100,-120,-100,0"/>
 
         <!-- Title Text -->
-        <TextBlock x:Name="MainMenu_TitleText" TextWrapping="Wrap" Text="CYBERNUKE" FontFamily="Unispace" FontWeight="Bold" Foreground="Red" TextAlignment="Center" FontSize="70" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,10" Grid.RowSpan="2"/>
+        <TextBlock x:Name="MainMenu_TitleText" TextWrapping="Wrap" Text="CYBERNUKE" FontFamily="{StaticResource Unispace}" FontWeight="Bold" Foreground="Red" TextAlignment="Center" FontSize="70" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,10" Grid.RowSpan="2"/>
 
         <!-- Bottom Text "CYBERNUKE PROJECT," "AUTHORS" -->
         <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="CYBERNUKE PROJECT 2023" VerticalAlignment="Bottom" FontFamily="Microsoft Himalaya" FontSize="24" Foreground="Red"/>
