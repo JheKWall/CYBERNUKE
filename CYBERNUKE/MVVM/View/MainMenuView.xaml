@@ -215,5 +215,7 @@
             <Button x:Name="ExitPrompt_NoButton" Style="{StaticResource MainMenuButton}" Content="NO" FontFamily="Microsoft Himalaya" FontSize="36"
                     BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" Margin="0,15,0,0" Height="27" Click="ExitPrompt_NoButton_Click"/>
         </StackPanel>
+    
+        
     </Grid>
 </UserControl>

@@ -14,7 +14,27 @@
         Icon="/CYBERNUKE;component/GameData/Images/CYBERNUKE_Icon.png">
 
     <Grid>
-        <ContentControl Content="{Binding Navigation.CurrentView}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="633*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <ContentControl Content="{Binding Navigation.CurrentView}" Grid.ColumnSpan="2">
         </ContentControl>
+
+        <!-- DEBUG Buttons for switching Windows -->
+        <StackPanel Grid.Column="1">
+            
+            <Button Content="MainMenu"
+                    Height="25"
+                    Command="{Binding Path=(???).NavigateMainMenuViewCommand}"/>
+
+            <Button Content="Cutscene"
+                    Height="25"
+                    Command="{Binding Path=(???).NavigateCutsceneViewCommand}"/>
+
+        </StackPanel>
+
     </Grid>
 </Window>
