@@ -5,16 +5,28 @@
              xmlns:viewModel="clr-namespace:CYBERNUKE.MVVM.ViewModel" 
              xmlns:view="clr-namespace:CYBERNUKE.MVVM.View">
     <Application.Resources>
-        
+
         <!-- DataTemplates for each ViewModel & View -->
-        <DataTemplate DataType="{x:Type TypeName=viewModel:MainMenuViewModel}">
-            <view:MainMenuView/>
+        <DataTemplate DataType="{x:Type TypeName=viewModel:CombatViewModel}">
+            <view:CombatView/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type TypeName=viewModel:CutsceneViewModel}">
             <view:CutsceneView/>
         </DataTemplate>
-        
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:MainMenuViewModel}">
+            <view:MainMenuView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:OverworldViewModel}">
+            <view:OverworldView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:TownViewModel}">
+            <view:TownView/>
+        </DataTemplate>
+
         <!-- Font Resources -->
         <FontFamily x:Key="Unispace">./GameData/Fonts/Unispace.ttf#Unispace</FontFamily>
 

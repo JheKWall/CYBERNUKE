@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CYBERNUKE.MVVM.ViewModel
 {
-    internal class CombatViewModel
+    class CombatViewModel : Core.ViewModel
     {
+
     }
 }

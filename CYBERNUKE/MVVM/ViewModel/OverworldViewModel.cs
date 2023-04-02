@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CYBERNUKE.MVVM.ViewModel
 {
-    internal class OverworldViewModel
+    class OverworldViewModel : Core.ViewModel
     {
     }
 }

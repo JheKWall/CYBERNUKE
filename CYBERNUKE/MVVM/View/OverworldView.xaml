@@ -9,6 +9,23 @@
              d:DesignWidth="1366"
              Background="AliceBlue">
     <Grid>
-            
+        <!-- Horizontal Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!-- Vertical Grid -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Overworld View Test" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
+        <Image Source="/CYBERNUKE;component/GameData/Images/capybara (7).png" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+
     </Grid>
 </UserControl>

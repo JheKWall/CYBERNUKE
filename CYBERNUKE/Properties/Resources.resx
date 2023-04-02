@@ -118,26 +118,80 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="capybara_60" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\capybara_60.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="capybara__6_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\capybara (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="capybara__7_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\capybara (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_Background_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_background_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_Background_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_background_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_Background_2_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_background_2_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_Background_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_background_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_Background_3_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_background_3_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_ControlPanel_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_controlpanel_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_ControlPanel_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_controlpanel_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_ControlPanel_2_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_controlpanel_2_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_ControlPanel_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_controlpanel_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_EnemyBox_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_enemybox_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_EnemyBox_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_enemybox_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_PlayerBox_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_playerbox_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_PlayerBox_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_playerbox_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_TurnOrder_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_turnorder_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CombatMenu_TurnOrder_Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\combatmenu\combatmenu_turnorder_box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CYBERNUKE_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\gamedata\images\cybernuke_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\gamedata\images\cybernuke_icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="himalaya" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\himalaya.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="MainMenu_CityParallax_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\gamedata\images\mainmenu_cityparallax_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\gamedata\images\mainmenu\mainmenu_cityparallax_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MainMenu_CityParallax_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\gamedata\images\mainmenu_cityparallax_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\gamedata\images\mainmenu\mainmenu_cityparallax_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MainMenu_CityParallax_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\gamedata\images\mainmenu_cityparallax_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\gamedata\images\mainmenu\mainmenu_cityparallax_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MainMenu_CityParallax_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\gamedata\images\mainmenu_cityparallax_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\gamedata\images\mainmenu\mainmenu_cityparallax_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MainMenu_CityParallax_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\gamedata\images\mainmenu_cityparallax_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\gamedata\images\mainmenu\mainmenu_cityparallax_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OCRAEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\ocraext.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

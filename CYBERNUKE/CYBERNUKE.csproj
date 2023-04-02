@@ -161,6 +161,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <Resource Include="GameData\Fonts\himalaya.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -194,6 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GameData\Combats\" />
+    <Folder Include="GameData\Images\CutsceneMenu\" />
+    <Folder Include="GameData\Images\OverworldMenu\" />
+    <Folder Include="GameData\Images\TownMenu\" />
     <Folder Include="GameData\Items\Armor\" />
     <Folder Include="GameData\Items\Artifacts\" />
     <Folder Include="GameData\Items\Consumables\" />
@@ -204,18 +208,44 @@
     <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Images\MainMenu_CityParallax_1.png" />
+    <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Images\MainMenu_CityParallax_3.png" />
-    <Resource Include="GameData\Images\MainMenu_CityParallax_4.png" />
+    <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_3.png" />
+    <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Images\MainMenu_CityParallax_5.png" />
+    <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_5.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Images\CYBERNUKE_Icon.png" />
-    <Resource Include="GameData\Images\MainMenu_CityParallax_2.png" />
+    <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\CYBERNUKE_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_Background_1.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_Background_2.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_Background_2_2.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_Background_3.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_Background_3_2.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_ControlPanel_1.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_ControlPanel_2.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_ControlPanel_2_2.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_ControlPanel_3.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_EnemyBox_1.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_EnemyBox_2.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_PlayerBox_1.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_PlayerBox_2.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_TurnOrder_1.png" />
+    <Resource Include="GameData\Images\CombatMenu\CombatMenu_TurnOrder_Box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\capybara_60.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\capybara %286%29.png" />
+    <Resource Include="GameData\Images\capybara %287%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

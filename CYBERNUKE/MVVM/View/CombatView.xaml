@@ -3,11 +3,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CYBERNUKE.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="768" 
              d:DesignWidth="1366"
-             Background="Green">
+             Background="#300000">
     <Grid>
+        <!-- Horizontal Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="370*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="266*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
+        <!-- Vertical Grid -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!-- Main Background -->
+        <Image x:Name="CombatMenu_BG_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_BG_2_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_2_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_BG_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_BG_1_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_3_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_BG_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_3.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+
+        <!-- Control Panel -->
+        <Image x:Name="CombatMenu_CP_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_3.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_2_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+
+        <!-- Control Panel Display -->
+        <StackPanel x:Name="CombatMenu_ControlPanelLeft" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5">
+
+        </StackPanel>
+
+        <StackPanel x:Name="CombatMenu_ControlPanelRight" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5">
+
+        </StackPanel>
+        
+        <!-- Player Box Display -->
+        <StackPanel x:Name="CombatMenu_PlayerBoxPanel" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Width="205" Height="405" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+        </StackPanel>
+
+        <!-- Turn Order Display -->
+        <Image x:Name="CombatMenu_TO_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_TurnOrder_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <StackPanel x:Name="CombatMenu_TurnOrderPanel" Grid.Column="6" Grid.Row="3" Height="370" VerticalAlignment="Top">
             
+        </StackPanel>
+
+        <!-- Enemy Box Display -->
+        <StackPanel x:Name="CombatMenu_EnemyBoxPanel" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3">
+            
+        </StackPanel>
+
     </Grid>
 </UserControl>

@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CYBERNUKE" 
+        xmlns:viewmodel="clr-namespace:CYBERNUKE.MVVM.ViewModel" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         mc:Ignorable="d"
         Title="CYBERNUKE" 
         Height="768" 
@@ -11,7 +13,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
         Background="Black" 
-        Icon="/CYBERNUKE;component/GameData/Images/CYBERNUKE_Icon.png">
+        Icon="/CYBERNUKE;component/GameData/Images/CYBERNUKE_Icon.ico">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -19,21 +21,31 @@
             <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
 
-
         <ContentControl Content="{Binding Navigation.CurrentView}" Grid.ColumnSpan="2">
         </ContentControl>
 
         <!-- DEBUG Buttons for switching Windows -->
-        <StackPanel Grid.Column="1">
-            
-            <Button Content="MainMenu"
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+
+            <Button Content="Combat"
                     Height="25"
-                    Command="{Binding Path=(???).NavigateMainMenuViewCommand}"/>
+                    Command="{Binding NavigateCombatViewCommand}"/>
 
             <Button Content="Cutscene"
                     Height="25"
-                    Command="{Binding Path=(???).NavigateCutsceneViewCommand}"/>
+                    Command="{Binding NavigateCutsceneViewCommand}"/>
+            
+            <Button Content="MainMenu"
+                    Height="25"
+                    Command="{Binding NavigateMainMenuViewCommand}"/>
 
+            <Button Content="Overworld"
+                    Height="25"
+                    Command="{Binding NavigateOverworldViewCommand}"/>
+
+            <Button Content="Town"
+                    Height="25"
+                    Command="{Binding NavigateTownViewCommand}"/>
         </StackPanel>
 
     </Grid>
