@@ -23,6 +23,47 @@ namespace CYBERNUKE.MVVM.View
         public CombatView()
         {
             InitializeComponent();
+
+            // Combat Start Text
+            ControlPanel_Left_TextBlock.Text = "!! COMBAT START !!";
+
+            // Display Options
+            ControlPanel_DisplayOptions();
+        }
+
+        public void ControlPanel_DisplayOptions()
+        {
+            /* Final Options
+            ControlPanel_Left_TextBlock.Text +=
+                "\nINPUT COMMAND:\n" +
+                "\n1. ATTACK\t2. SKILL" +
+                "\n3. ITEM\t4. ANALYZE" +
+                "\n5. GUARD\t6. WAIT" +
+                "\n7. ESCAPE\t8. AUTO";
+            */
+
+            // Debug Options for Test
+            ControlPanel_Left_TextBlock.Text +=
+                "\nINPUT COMMAND:\n" +
+                "\n1. Add Enemy\t2. Add Player";
+        }
+
+        public void AddEnemy()
+        {
+            var enemy = new Image();
+            BitmapImage bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.UriSource = new Uri("CombatMenu_EnemyBox_1.PNG", UriKind.Relative);
+            bitmapImage.EndInit();
+            enemy.Stretch = Stretch.Fill;
+            enemy.Source = bitmapImage;
+
+            CombatMenu_EnemyBoxPanel.Children.Add(enemy);
+        }
+
+        public void AddPlayer()
+        {
+
         }
     }
 }
