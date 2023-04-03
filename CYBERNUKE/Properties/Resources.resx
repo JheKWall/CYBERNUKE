@@ -196,6 +196,9 @@
   <data name="OCRAEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\ocraext.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="TestSkill0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\skilllist\testskill0.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Unispace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\unispace.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

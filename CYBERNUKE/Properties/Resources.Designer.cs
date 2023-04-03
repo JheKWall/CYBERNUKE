@@ -19,7 +19,7 @@ namespace CYBERNUKE.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -317,6 +317,20 @@ namespace CYBERNUKE.Properties {
             get {
                 object obj = ResourceManager.GetObject("OCRAEXT", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name: Test Skill 0
+        ///SPCost: 10
+        ///Damage: 50
+        ///typeDamage: Blunt
+        ///Description: Just a Test Skill
+        ///.
+        /// </summary>
+        internal static string TestSkill0 {
+            get {
+                return ResourceManager.GetString("TestSkill0", resourceCulture);
             }
         }
         
