@@ -180,7 +180,7 @@
                 <Button x:Name="OptionsMenu_Resolution_ButtonLeft" Style="{StaticResource MainMenuArrowButton}" FontFamily="Microsoft Himalaya" 
                         FontSize="36" FontWeight="Bold" Height="26" Width="40" Margin="0,0,0,0" Click="OptionsMenu_Resolution_ButtonLeft_Click"/>
 
-                <TextBlock x:Name="OptionsMenu_Resolution_DisplayText" Text="768x1366" Foreground="Red" FontFamily="Microsoft Himalaya" FontSize="32"
+                <TextBlock x:Name="OptionsMenu_Resolution_DisplayText" Foreground="Red" FontFamily="Microsoft Himalaya" FontSize="32"
                        TextAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" Height="22" Width="168"/>
 
                 <Button x:Name="OptionsMenu_Resolution_ButtonRight" Style="{StaticResource MainMenuArrowButton}" FontFamily="Microsoft Himalaya" 
@@ -194,8 +194,8 @@
             </StackPanel>
 
             <!-- Fullscreen/Window Option -->
-            <CheckBox Style="{StaticResource MainMenuCheckbox}" Content="FULLSCREEN" FontFamily="Microsoft Himalaya" FontSize="28" Margin="0,15,0,0" 
-                      FontWeight="Bold" Height="24" Width="160" BorderThickness="2" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            <CheckBox x:Name="OptionsMenu_Resolution_FullscreenCheckBox" Style="{StaticResource MainMenuCheckbox}" Content="FULLSCREEN" FontFamily="Microsoft Himalaya" 
+                      FontSize="28" Margin="0,15,0,0" FontWeight="Bold" Height="24" Width="160" BorderThickness="2" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
 
             <!-- Bottom Options Button -->
             <StackPanel Orientation="Horizontal" Height="26" Margin="0,15,0,0" HorizontalAlignment="Center">

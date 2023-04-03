@@ -46,7 +46,10 @@
 
         <!-- Control Panel Display -->
         <StackPanel x:Name="CombatMenu_ControlPanelLeft" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5">
-
+            <TextBlock x:Name="ControlPanel_Left_TextBlock" FontFamily="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"
+                       Text="" FontSize="25" Foreground="White" TextWrapping="Wrap"/>
+            <TextBlock x:Name="ControlPanel_Left_UserInput" FontFamily="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"
+                       FontSize="25" Foreground="White" TextWrapping="Wrap"/>
         </StackPanel>
 
         <StackPanel x:Name="CombatMenu_ControlPanelRight" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5">
@@ -65,9 +68,9 @@
         </StackPanel>
 
         <!-- Enemy Box Display -->
-        <StackPanel x:Name="CombatMenu_EnemyBoxPanel" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3">
+        <WrapPanel x:Name="CombatMenu_EnemyBoxPanel" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3">
             
-        </StackPanel>
+        </WrapPanel>
 
     </Grid>
 </UserControl>

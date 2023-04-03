@@ -24,12 +24,27 @@ namespace CYBERNUKE.MVVM.View
         // Resolution Variable List
         readonly double[] ListResolutionWidth = new double[3] { 1366, 1600, 1920 };
         readonly double[] ListResolutionHeight = new double[3] { 768, 900, 1080 };
-        int ResolutionIndex = 0;
+        int ResolutionIndex;
 
         // Constructor
         public MainMenuView()
         {
             InitializeComponent();
+
+            //Initialize ResolutionIndex
+            ResolutionIndex = Properties.Settings.Default.UserResolutionIndex;
+
+            //Check Fullscreen
+            if (Properties.Settings.Default.UserIsFullScreen)
+            {
+                OptionsMenu_Resolution_FullscreenCheckBox.IsChecked = true;
+                OptionsMenu_Resolution_FullscreenCheckBox.RaiseEvent(new RoutedEventArgs(CheckBox.ClickEvent));
+            }
+            //Initialize Resolution Display
+            else
+            {
+                UpdateScreenResolution(ListResolutionWidth[ResolutionIndex], ListResolutionHeight[ResolutionIndex]);
+            }
         }
 
         // Start Button
@@ -101,6 +116,9 @@ namespace CYBERNUKE.MVVM.View
         // Options Menu: Fullscreen/Windowed Button
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
+            //Updates User Setting
+            Properties.Settings.Default.UserIsFullScreen = true;
+
             //Fullscreens the game
             Application.Current.MainWindow.WindowStyle = WindowStyle.None;
             Application.Current.MainWindow.WindowState = WindowState.Maximized;
@@ -110,6 +128,9 @@ namespace CYBERNUKE.MVVM.View
         }
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
+            //Updates User Setting
+            Properties.Settings.Default.UserIsFullScreen = false;
+
             //Windows the game
             Application.Current.MainWindow.WindowStyle = WindowStyle.SingleBorderWindow;
             Application.Current.MainWindow.WindowState = WindowState.Normal;
@@ -165,6 +186,9 @@ namespace CYBERNUKE.MVVM.View
 
             //Updates all resolution displays (text saying what resolution you are using)
             OptionsMenu_Resolution_DisplayText.Text = ResolutionHeight.ToString() + "x" + ResolutionWidth.ToString();
+
+            //Updates UserResolutionIndex in Application Settings
+            Properties.Settings.Default.UserResolutionIndex = ResolutionIndex;
         }
     }
 }
