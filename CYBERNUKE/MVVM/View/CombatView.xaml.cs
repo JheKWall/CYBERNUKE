@@ -22,8 +22,6 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class CombatView : UserControl
     {
-        Boolean running; //Used to control loops
-        Thread userInputListener; //Thread to handle user input
 
         public CombatView()
         {
@@ -35,14 +33,7 @@ namespace CYBERNUKE.MVVM.View
             // Display Options
             ControlPanel_DisplayOptions();
 
-            // Initialize user input reader
-            running = true;
-            if (running)
-            {
-                //User input listener
-                userInputListener = new Thread(this.InputReader);
-                userInputListener.Start();
-            }
+            
         }
 
         //
@@ -57,10 +48,11 @@ namespace CYBERNUKE.MVVM.View
                 "\n7. ESCAPE\t8. AUTO";
             */
 
-            // Debug Options for Test
+            /* Debug Options for Test
             ControlPanel_Left_TextBlock.Text +=
                 "\nINPUT COMMAND:\n" +
                 "\n1. Add Enemy\t2. Add Player";
+            */
         }
 
         //
@@ -91,10 +83,7 @@ namespace CYBERNUKE.MVVM.View
         //
         public void InputReader()
         {
-            while (running)
-            {
-                string userInput = 
-            }
+
         }
     }
 }
