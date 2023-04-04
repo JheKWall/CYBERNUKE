@@ -42,7 +42,17 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+        <!-- Control Panel TextBox -->
+        <Style x:Key="ControlPanel_TextBox" TargetType="TextBox">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+
     </UserControl.Resources>
 
     <!-- UI Element Grid -->
@@ -83,8 +93,9 @@
 
         <!-- Control Panel Display -->
         <StackPanel x:Name="CombatMenu_ControlPanelLeft" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5">
-            <TextBlock x:Name="ControlPanel_Left_TextBlock" Style="{StaticResource ControlPanel_TextBlock}"
-                       Text="TESTING"/>
+            <TextBlock x:Name="ControlPanel_Left_TextBlock" Style="{StaticResource ControlPanel_TextBlock}"/>
+            <WrapPanel x:Name="ControlPanel_Left_ButtonPanel"/>
+            <TextBox x:Name="ControlPanel_Left_TextBox" Style="{StaticResource ControlPanel_TextBox}"/>
         </StackPanel>
 
         <StackPanel x:Name="CombatMenu_ControlPanelRight" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5">

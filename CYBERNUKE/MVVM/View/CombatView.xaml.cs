@@ -22,7 +22,6 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class CombatView : UserControl
     {
-
         public CombatView()
         {
             InitializeComponent();
@@ -32,8 +31,6 @@ namespace CYBERNUKE.MVVM.View
 
             // Display Options
             ControlPanel_DisplayOptions();
-
-            
         }
 
         //
@@ -53,12 +50,16 @@ namespace CYBERNUKE.MVVM.View
                 "\nINPUT COMMAND:\n" +
                 "\n1. Add Enemy\t2. Add Player";
             */
+            
+            //Create 
         }
 
         //
         //TODO: Take file input for a specific enemy
         public void AddEnemy()
         {
+            // Check if max enemies exist (6)
+
             // Create new enemy box
             var enemy = new Image();
             BitmapImage bitmapImage = new BitmapImage();
@@ -70,18 +71,21 @@ namespace CYBERNUKE.MVVM.View
 
             CombatMenu_EnemyBoxPanel.Children.Add(enemy);
 
-            // Create new turn order box
+            // Create new turn order box for that enemy
         }
 
         //
         //TODO: Take file input for a character
         public void AddPlayer()
         {
+            // Check if max players exist (4)
 
+            // Create new player box
+
+            // Create new turn order box for that player
         }
 
-        //
-        public void InputReader()
+        private void controlPanelOptionButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
