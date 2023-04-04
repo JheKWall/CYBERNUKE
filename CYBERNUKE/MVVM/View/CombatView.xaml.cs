@@ -20,6 +20,9 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class CombatView : UserControl
     {
+        //
+        Boolean running;
+
         public CombatView()
         {
             InitializeComponent();
@@ -31,6 +34,7 @@ namespace CYBERNUKE.MVVM.View
             ControlPanel_DisplayOptions();
         }
 
+        //
         public void ControlPanel_DisplayOptions()
         {
             /* Final Options
@@ -48,6 +52,7 @@ namespace CYBERNUKE.MVVM.View
                 "\n1. Add Enemy\t2. Add Player";
         }
 
+        //
         public void AddEnemy()
         {
             var enemy = new Image();
@@ -61,9 +66,19 @@ namespace CYBERNUKE.MVVM.View
             CombatMenu_EnemyBoxPanel.Children.Add(enemy);
         }
 
+        //
         public void AddPlayer()
         {
 
+        }
+
+        //
+        public void InputReader()
+        {
+            while (running)
+            {
+
+            }
         }
     }
 }

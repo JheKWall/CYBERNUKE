@@ -8,6 +8,44 @@
              d:DesignHeight="768" 
              d:DesignWidth="1366"
              Background="#300000">
+
+    <!-- UserControl Resources -->
+    <UserControl.Resources>
+        <!-- Control Panel TextBlock -->
+        <Style x:Key="ControlPanel_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+        
+        <!-- Control Panel Button -->
+        <Style x:Key="ControlPanel_Button" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </UserControl.Resources>
+
+    <!-- UI Element Grid -->
     <Grid>
         <!-- Horizontal Grid -->
         <Grid.RowDefinitions>
@@ -45,11 +83,8 @@
 
         <!-- Control Panel Display -->
         <StackPanel x:Name="CombatMenu_ControlPanelLeft" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5">
-            <TextBlock x:Name="ControlPanel_Left_TextBlock" FontFamily="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"
-                       FontSize="25" Foreground="White" TextWrapping="Wrap"/>
-
-            <TextBlock x:Name="ControlPanel_Left_UserInput" FontFamily="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"
-                       FontSize="25" Foreground="White" TextWrapping="Wrap"/>
+            <TextBlock x:Name="ControlPanel_Left_TextBlock" Style="{StaticResource ControlPanel_TextBlock}"
+                       Text="TESTING"/>
         </StackPanel>
 
         <StackPanel x:Name="CombatMenu_ControlPanelRight" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5">
