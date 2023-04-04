@@ -89,6 +89,7 @@
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Core\ViewModel.cs" />
+    <Compile Include="MVVM\Model\Enemy.cs" />
     <Compile Include="MVVM\Model\Character.cs" />
     <Compile Include="MVVM\Model\CharacterMenu.cs" />
     <Compile Include="MVVM\Model\Skill.cs" />
