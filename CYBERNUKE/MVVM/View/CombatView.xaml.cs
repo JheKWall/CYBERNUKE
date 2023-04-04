@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,8 +22,8 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class CombatView : UserControl
     {
-        //
-        Boolean running;
+        Boolean running; //Used to control loops
+        Thread userInputListener; //Thread to handle user input
 
         public CombatView()
         {
@@ -32,6 +34,15 @@ namespace CYBERNUKE.MVVM.View
 
             // Display Options
             ControlPanel_DisplayOptions();
+
+            // Initialize user input reader
+            running = true;
+            if (running)
+            {
+                //User input listener
+                userInputListener = new Thread(this.InputReader);
+                userInputListener.Start();
+            }
         }
 
         //
@@ -53,8 +64,10 @@ namespace CYBERNUKE.MVVM.View
         }
 
         //
+        //TODO: Take file input for a specific enemy
         public void AddEnemy()
         {
+            // Create new enemy box
             var enemy = new Image();
             BitmapImage bitmapImage = new BitmapImage();
             bitmapImage.BeginInit();
@@ -64,9 +77,12 @@ namespace CYBERNUKE.MVVM.View
             enemy.Source = bitmapImage;
 
             CombatMenu_EnemyBoxPanel.Children.Add(enemy);
+
+            // Create new turn order box
         }
 
         //
+        //TODO: Take file input for a character
         public void AddPlayer()
         {
 
@@ -77,7 +93,7 @@ namespace CYBERNUKE.MVVM.View
         {
             while (running)
             {
-
+                string userInput = 
             }
         }
     }
