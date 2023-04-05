@@ -79,7 +79,7 @@
             <ColumnDefinition Width="97*"/>
             <ColumnDefinition Width="113*"/>
         </Grid.ColumnDefinitions>
-        
+
         <!-- Font Size Variable -->
         <TextBlock x:Name="ControlPanelFontSize" FontSize="28" Margin="0,36,0,0" Visibility="Hidden"/>
 
@@ -147,8 +147,6 @@
             <Button x:Name="CPBP_FIGHT_RETURN" Style="{StaticResource ControlPanel_Button}"
                         Content="4. RETURN" Click="CPBP_FIGHT_RETURN_Click"/>
         </StackPanel>
-
-
 
     </Grid>
 </UserControl>
