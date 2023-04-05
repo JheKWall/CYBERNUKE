@@ -89,10 +89,9 @@
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Core\ViewModel.cs" />
-    <Compile Include="MVVM\Model\Enemy.cs" />
-    <Compile Include="MVVM\Model\Character.cs" />
-    <Compile Include="MVVM\Model\CharacterMenu.cs" />
-    <Compile Include="MVVM\Model\Skill.cs" />
+    <Compile Include="GameData\UserControls\EnemyBox.xaml.cs">
+      <DependentUpon>EnemyBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\ViewModel\CombatViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OverworldViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TownViewModel.cs" />
@@ -111,6 +110,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\NavigationService.cs" />
+    <Page Include="GameData\UserControls\EnemyBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\CombatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,6 +212,7 @@
     <Folder Include="GameData\Items\Weapons\" />
     <Folder Include="GameData\Maps\" />
     <Folder Include="GameData\Towns\" />
+    <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_1.png" />
@@ -249,9 +253,6 @@
   <ItemGroup>
     <Resource Include="GameData\Images\capybara %286%29.png" />
     <Resource Include="GameData\Images\capybara %287%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="GameData\SkillList\TestSkill0.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

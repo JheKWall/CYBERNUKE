@@ -246,32 +246,34 @@ The most serious issue is that we have no experience designing games. There is a
 \section{Scope}
 In order of importance, these are the fundamental game mechanics that must be implemented for \emph{CYBERNUKE} to be considered functional:
 \begin{enumerate}
-\item Operational Interfaces (Main Menu, Option Menu)
-\item Maps
-\item User Interface (Map Screen, Player HUD)
-\item Character Movement, Interaction
-\item Character Interface (Name, Stats)
-\item Enemies, Enemy Encounters
-\item Combat, Combat Interface
+\item Operational Interfaces (Main Menu, Combat Menu, Town Menu, etc.)
+\item Menu-switching Functionality
+\item Secondary Interfaces (Character Menu, Inventory Menu)
+\item Enemies
+\item Overworld Maps and Map Rendering
+\item Overworld Map Functionality (Character Movement, Interaction, Enemy Encounters)
+\item Combat Implementation
 \item Player Saves \& Load Menu
-\end{enumerate} 
+\end{enumerate}
 
 \begin{flushleft}
-1. The Operational Interfaces are the menus that are used to interact with the game when the player is not playing the game (Main Menu, Option Menu).
+1. The Operational Interfaces are the menus that the player uses to interact with the game. (Main Menu, Combat Menu, Town Menu, Overworld Menu, Cutscene Menu).
 
-2. The maps are pre-made rather than generated automatically; in this case, it will only be a simple testing map until later.
+2. The ability to switch between Menus.
 
-3. The User Interface includes the Map Screen, which renders the current map to the screen. The Player HUD displays the player's statistics such as Hit Points, Money, and so on.
+3. The Secondary Interfaces are other menus that are accessed within other menus. (Character Menu, Inventory Menu).
 
-4. Character Movement refers to moving around the map with the player character. Character Interaction refers to how the player interacts with the map, such as unlocking locked doors or moving between maps.
+4. Enemies and Enemy Data.
 
-5. Character Interface differs from User Interface in that it is a separate menu that displays the character's full stats such as HP, Strength, Luck, Agility, and so on, as well as their name.
+5. The ability to create Overworld maps and render them onto the screen.
 
-6. Enemies are the monsters/humans that the player will encounter throughout the game. Enemy Encounters refers to how you will find monsters in the first place, which is primarily done through a "percent encounter" system akin to the old \textit{Pokemon} games. There may also be opportunities for pre-scripted encounters.
+6. The ability to move a player's character while they are on the map and the ability to interact with parts of that map as the player.
 
-7. Combat refers to fights between the player character and enemies in this game, which will be turn-based. Actual combat is made possible by the Combat Interface.
+7. Enemies are the monsters/humans that the player will encounter throughout the game. Enemy Encounters refers to how you will find monsters in the first place, which is primarily done through a "percent encounter" system akin to the old \textit{Pokemon} games. There may also be opportunities for pre-scripted encounters.
 
-8. Players can save their state (at specific points in the game) and load back in at a later time using Player Saves and the Load Menu.
+8. Combat refers to fights between the player character and enemies in this game, which will be turn-based. Actual combat is made possible by the Combat Interface.
+
+9. Players can save their state (at specific points in the game) and load back in at a later time using Player Saves and the Load Menu.
 \end{flushleft}
 
 After the fundamental game mechanics are in place, additional features that flesh out the game can be added.

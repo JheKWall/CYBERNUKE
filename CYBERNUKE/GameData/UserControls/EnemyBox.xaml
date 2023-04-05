@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="CYBERNUKE.GameData.UserControls.EnemyBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CYBERNUKE.GameData.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="199" d:DesignWidth="204">
+
+    <!-- Styles -->
+    <UserControl.Resources>
+        <!-- TextBlock Style -->
+        <Style x:Key="EnemyBox_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#Microsoft Himalaya"/>
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
+        </Style>
+    </UserControl.Resources>
+
+    <!-- Enemy Box -->
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <!-- Card Background -->
+        <Image x:Name="Card" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_EnemyBox_1.PNG"
+               Visibility="Visible" Grid.ColumnSpan="2"/>
+        <Image x:Name="Card_Destroyed" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_EnemyBox_2.PNG"
+               Visibility="Hidden" Grid.ColumnSpan="2"/>
+
+        <!-- Dynamic Elements -->
+        <Grid x:Name="DynamicElements" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="14*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="64*"/>
+                <RowDefinition Height="13*"/>
+                <RowDefinition Height="23*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="23*"/>
+                <RowDefinition Height="22*"/>
+            </Grid.RowDefinitions>
+            <!-- Grid Columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="42*"/>
+                <ColumnDefinition Width="124*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="15*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Enemy Name -->
+            <TextBlock x:Name="Name" Text="ENEMY" Style="{StaticResource EnemyBox_TextBlock}" Foreground="#400000" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" TextAlignment="Center" Grid.Row="1" Grid.Column="1">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <!-- Enemy Portrait -->
+            <Image x:Name="Portrait" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="3"/>
+
+            <!-- Enemy HP Bar -->
+            <ProgressBar x:Name="HP_Bar"
+                         Foreground="#00ff00" Background="#008000" BorderBrush="#008000" Grid.Column="2" Grid.Row="5"/>
+            <!-- Enemy HP Number -->
+            <TextBlock x:Name="HP_Text" Style="{StaticResource EnemyBox_TextBlock}" Foreground="#002000" TextAlignment="Left" Padding="3,0,0,0"
+                       Text="{Binding ElementName=HP_Bar, Path=Value}" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="5">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="1" Direction="330" Color="#00c000" Opacity="5" BlurRadius="0"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <!-- Enemy SP Bar -->
+            <ProgressBar x:Name="SP_Bar"
+                         Foreground="#ffff00" Background="#808000" BorderBrush="#808000" Value="-1" Grid.Column="2" Grid.Row="7"/>
+            <!-- Enemy SP Number -->
+            <TextBlock x:Name="SP_Text" Style="{StaticResource EnemyBox_TextBlock}" Foreground="#202000" TextAlignment="Left" Padding="3,0,0,0"
+                       Text="{Binding ElementName=SP_Bar, Path=Value}" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="7">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c0c000" Opacity="5" BlurRadius="0"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Grid>
+
+    </Grid>
+</UserControl>

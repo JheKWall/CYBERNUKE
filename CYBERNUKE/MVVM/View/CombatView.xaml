@@ -8,6 +8,56 @@
              d:DesignHeight="768" 
              d:DesignWidth="1366"
              Background="#300000">
+
+    <!-- UserControl Resources -->
+    <UserControl.Resources>
+        <!-- Control Panel TextBlock -->
+        <Style x:Key="ControlPanel_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=ControlPanelFontSize, Path=FontSize}"/>
+        </Style>
+
+        <!-- Control Panel Button -->
+        <Style x:Key="ControlPanel_Button" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=ControlPanelFontSize, Path=FontSize}"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Margin" Value="15,0,0,0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Control Panel TextBox -->
+        <Style x:Key="ControlPanel_TextBox" TargetType="TextBox">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=ControlPanelFontSize, Path=FontSize}"/>
+        </Style>
+
+    </UserControl.Resources>
+
+    <!-- UI Element Grid -->
     <Grid>
         <!-- Horizontal Grid -->
         <Grid.RowDefinitions>
@@ -21,15 +71,17 @@
         </Grid.RowDefinitions>
         <!-- Vertical Grid -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="210*"/>
+            <ColumnDefinition Width="161*"/>
+            <ColumnDefinition Width="312*"/>
+            <ColumnDefinition Width="312*"/>
+            <ColumnDefinition Width="161*"/>
+            <ColumnDefinition Width="97*"/>
+            <ColumnDefinition Width="113*"/>
         </Grid.ColumnDefinitions>
-
+        
+        <!-- Font Size Variable -->
+        <TextBlock x:Name="ControlPanelFontSize" FontSize="28" Margin="0,36,0,0" Visibility="Hidden"/>
 
         <!-- Main Background -->
         <Image x:Name="CombatMenu_BG_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
@@ -39,38 +91,64 @@
         <Image x:Name="CombatMenu_BG_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_3.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
 
         <!-- Control Panel -->
-        <Image x:Name="CombatMenu_CP_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_3.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <Image x:Name="CombatMenu_CP_2_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <Image x:Name="CombatMenu_CP_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <Image x:Name="CombatMenu_CP_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_3.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        <Image x:Name="CombatMenu_CP_2_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        <Image x:Name="CombatMenu_CP_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        <Image x:Name="CombatMenu_CP_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+
+        <!-- Player Box Display -->
+        <StackPanel x:Name="CombatMenu_PlayerBoxPanel" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Width="205" Height="405" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <!-- Turn Order Display -->
+        <Image x:Name="CombatMenu_TO_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_TurnOrder_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <StackPanel x:Name="CombatMenu_TurnOrderPanel" Grid.Column="6" Grid.Row="3" Height="370" VerticalAlignment="Top"/>
+        <!-- Enemy Box Display -->
+        <UniformGrid x:Name="CombatMenu_EnemyBoxPanel" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3"
+                     Columns="3" Rows="2"/>
+
 
         <!-- Control Panel Display -->
         <StackPanel x:Name="CombatMenu_ControlPanelLeft" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5">
-            <TextBlock x:Name="ControlPanel_Left_TextBlock" FontFamily="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"
-                       Text="" FontSize="25" Foreground="White" TextWrapping="Wrap"/>
-            <TextBlock x:Name="ControlPanel_Left_UserInput" FontFamily="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"
-                       FontSize="25" Foreground="White" TextWrapping="Wrap"/>
         </StackPanel>
 
-        <StackPanel x:Name="CombatMenu_ControlPanelRight" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5">
+        <!-- Control Panel TextBlock Leftside -->
+        <TextBlock x:Name="ControlPanel_Left_TextBlock" Style="{StaticResource ControlPanel_TextBlock}"
+                   Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Height="266" VerticalAlignment="Top"/>
+        <!-- Control Panel TextBlock Rightside -->
+        <TextBlock x:Name="ControlPanel_Right_TextBlock" Style="{StaticResource ControlPanel_TextBlock}"
+                   Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5" Height="266" VerticalAlignment="Top"/>
 
+        <!-- Control Panel Button Panels -->
+        <!-- CPBP MAIN MENU -->
+        <StackPanel x:Name="ControlPanel_ButtonPanel_MAIN" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="{Binding ElementName=ControlPanelFontSize, Path=Margin}" 
+                    Visibility="Visible">
+            <TextBlock Style="{StaticResource ControlPanel_TextBlock}" Text="SELECT COMMAND:"/>
+            <Button x:Name="CPBP_MAIN_FIGHT" Style="{StaticResource ControlPanel_Button}"
+                        Content="1. FIGHT" Click="CPBP_MAIN_FIGHT_Click"/>
+            <Button x:Name="CPBP_MAIN_ITEM" Style="{StaticResource ControlPanel_Button}"
+                        Content="2. ITEM" Click="CPBP_MAIN_ITEM_Click"/>
+            <Button x:Name="CPBP_MAIN_GUARD" Style="{StaticResource ControlPanel_Button}"
+                        Content="3. GUARD" Click="CPBP_MAIN_GUARD_Click"/>
+            <Button x:Name="CPBP_MAIN_ANALYZE" Style="{StaticResource ControlPanel_Button}"
+                        Content="4. ANALYZE" Click="CPBP_MAIN_ANALYZE_Click"/>
+            <Button x:Name="CPBP_MAIN_ESCAPE" Style="{StaticResource ControlPanel_Button}"
+                        Content="5. ESCAPE" Click="CPBP_MAIN_ESCAPE_Click"/>
         </StackPanel>
-        
-        <!-- Player Box Display -->
-        <StackPanel x:Name="CombatMenu_PlayerBoxPanel" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Width="205" Height="405" VerticalAlignment="Top" HorizontalAlignment="Left">
 
+        <!-- CPBP FIGHT MENU -->
+        <StackPanel x:Name="ControlPanel_ButtonPanel_FIGHT" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="{Binding ElementName=ControlPanelFontSize, Path=Margin}" 
+                    Visibility="Hidden">
+            <TextBlock Style="{StaticResource ControlPanel_TextBlock}" Text="SELECT COMMAND:"/>
+            <Button x:Name="CPBP_FIGHT_MELEE" Style="{StaticResource ControlPanel_Button}"
+                        Content="1. MELEE WEAPON" Click="CPBP_FIGHT_MELEE_Click"/>
+            <Button x:Name="CPBP_FIGHT_RANGED" Style="{StaticResource ControlPanel_Button}"
+                        Content="2. RANGED WEAPON" Click="CPBP_FIGHT_RANGED_Click"/>
+            <Button x:Name="CPBP_FIGHT_SKILL" Style="{StaticResource ControlPanel_Button}"
+                        Content="3. SKILL" Click="CPBP_FIGHT_SKILL_Click"/>
+            <Button x:Name="CPBP_FIGHT_RETURN" Style="{StaticResource ControlPanel_Button}"
+                        Content="4. RETURN" Click="CPBP_FIGHT_RETURN_Click"/>
         </StackPanel>
 
-        <!-- Turn Order Display -->
-        <Image x:Name="CombatMenu_TO_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_TurnOrder_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <StackPanel x:Name="CombatMenu_TurnOrderPanel" Grid.Column="6" Grid.Row="3" Height="370" VerticalAlignment="Top">
-            
-        </StackPanel>
 
-        <!-- Enemy Box Display -->
-        <WrapPanel x:Name="CombatMenu_EnemyBoxPanel" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3">
-            
-        </WrapPanel>
 
     </Grid>
 </UserControl>
