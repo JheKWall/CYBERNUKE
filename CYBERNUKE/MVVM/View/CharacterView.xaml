@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CYBERNUKE.MVVM.View"
         mc:Ignorable="d"
-        Title="CharacterView" Height="450" Width="800">
+        Title="CharacterView" Height="731" Width="1300">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="206"/>
+            <ColumnDefinition Width="445*"/>
+            <ColumnDefinition Width="102*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <UniformGrid Columns="1" x:Name="CharacterPanel">
+            <Button x:Name="Character0" Height="150" Margin="10,10,10,10">
+
+            </Button>
+            <Button x:Name="Character1" Height="150" Margin="10,10,10,10">
+
+            </Button>
+            <Button x:Name="Character2" Height="150" Margin="10,10,10,10">
+
+            </Button>
+            <Button x:Name="Character3" Height="150" Margin="10,10,10,10">
+
+            </Button>
+        </UniformGrid>
+        <StackPanel Grid.Column="2" x:Name="MenuButtons">
+            <Button x:Name="Character"/>
+            <Button x:Name="Skills"/>
+            <Button x:Name="Map"/>
+            <Button x:Name="Close_Menu"/>
+            <Button x:Name="Options"/>
+            <Button x:Name="Exit_Game"/>
+        </StackPanel>
     </Grid>
 </Window>

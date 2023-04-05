@@ -95,6 +95,9 @@
     <Compile Include="MVVM\ViewModel\CombatViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OverworldViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TownViewModel.cs" />
+    <Compile Include="MVVM\View\CharacterView.xaml.cs">
+      <DependentUpon>CharacterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\CombatView.xaml.cs">
       <DependentUpon>CombatView.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
     <Page Include="GameData\UserControls\EnemyBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\CharacterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MVVM\View\CombatView.xaml">
       <SubType>Designer</SubType>
