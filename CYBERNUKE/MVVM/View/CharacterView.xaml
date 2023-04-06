@@ -16,26 +16,26 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <UniformGrid Columns="1" x:Name="CharacterPanel">
-            <Button x:Name="Character0" Height="150" Margin="10,10,10,10">
+            <Button x:Name="Character0" Height="150" Margin="10,10,10,10" FontSize="40" Content="MC">
 
             </Button>
-            <Button x:Name="Character1" Height="150" Margin="10,10,10,10">
+            <Button x:Name="Character1" Height="150" Margin="10,10,10,10" FontSize="40" Content="C1">
 
             </Button>
-            <Button x:Name="Character2" Height="150" Margin="10,10,10,10">
+            <Button x:Name="Character2" Height="150" Margin="10,10,10,10" FontSize="40" Content="C2">
 
             </Button>
-            <Button x:Name="Character3" Height="150" Margin="10,10,10,10">
+            <Button x:Name="Character3" Height="150" Margin="10,10,10,10" FontSize="40" Content="C3">
 
             </Button>
         </UniformGrid>
         <StackPanel Grid.Column="2" x:Name="MenuButtons">
-            <Button x:Name="Character"/>
-            <Button x:Name="Skills"/>
-            <Button x:Name="Map"/>
-            <Button x:Name="Close_Menu"/>
-            <Button x:Name="Options"/>
-            <Button x:Name="Exit_Game"/>
+            <Button x:Name="Character" Height="50" Margin="10"/>
+            <Button x:Name="Skills" Height="50" Margin="10"/>
+            <Button x:Name="Map" Height="50" Margin="10"/>
+            <Button x:Name="Close_Menu" Height="50" Margin="10"/>
+            <Button x:Name="Options" Height="50" Margin="10"/>
+            <Button x:Name="Exit_Game" Height="50" Margin="10"/>
         </StackPanel>
     </Grid>
 </Window>
