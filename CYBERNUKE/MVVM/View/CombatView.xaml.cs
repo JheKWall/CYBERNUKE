@@ -41,6 +41,7 @@ namespace CYBERNUKE.MVVM.View
 
         //string[] ListPlayerTargets; //List of all player targets (Max 4)
         EnemyBox[] ListEnemyTargets = new EnemyBox[6]; //List of all enemy targets (Max 6)
+
         //string[] ListPlayerSkills; //List of the current character's skills, initialized on turn start
         //string[] ListInventory; //List of usable items
 
