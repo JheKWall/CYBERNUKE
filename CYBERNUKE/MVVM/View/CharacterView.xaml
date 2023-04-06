@@ -8,28 +8,29 @@
         Title="CharacterView" Height="731" Width="1300">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="206"/>
-            <ColumnDefinition Width="445*"/>
-            <ColumnDefinition Width="102*"/>
+            <ColumnDefinition Width="213"/>
+            <ColumnDefinition Width="439*"/>
+            <ColumnDefinition Width="444*"/>
+            <ColumnDefinition Width="204*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <UniformGrid Columns="1" x:Name="CharacterPanel">
-            <Button x:Name="Character0" Height="150" Margin="10,10,10,10" FontSize="40" Content="MC">
+            <Button x:Name="Character0" Height="150" Margin="10,10,10,10" FontSize="40" Content="MC" Click="Character0_Click">
 
             </Button>
-            <Button x:Name="Character1" Height="150" Margin="10,10,10,10" FontSize="40" Content="C1">
+            <Button x:Name="Character1" Height="150" Margin="10,10,10,10" FontSize="40" Content="C1" Click="Character1_Click">
 
             </Button>
-            <Button x:Name="Character2" Height="150" Margin="10,10,10,10" FontSize="40" Content="C2">
+            <Button x:Name="Character2" Height="150" Margin="10,10,10,10" FontSize="40" Content="C2" Click="Character2_Click">
 
             </Button>
-            <Button x:Name="Character3" Height="150" Margin="10,10,10,10" FontSize="40" Content="C3">
+            <Button x:Name="Character3" Height="150" Margin="10,10,10,10" FontSize="40" Content="C3" Click="Character3_Click">
 
             </Button>
         </UniformGrid>
-        <StackPanel Grid.Column="2" x:Name="MenuButtons">
+        <StackPanel Grid.Column="3" x:Name="MenuButtons">
             <Button x:Name="Character" Height="50" Margin="10"/>
             <Button x:Name="Skills" Height="50" Margin="10"/>
             <Button x:Name="Map" Height="50" Margin="10"/>
@@ -37,5 +38,6 @@
             <Button x:Name="Options" Height="50" Margin="10"/>
             <Button x:Name="Exit_Game" Height="50" Margin="10"/>
         </StackPanel>
+        <TextBlock x:Name="charName0" Grid.Column="1" Margin="32,33,310,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
     </Grid>
 </Window>

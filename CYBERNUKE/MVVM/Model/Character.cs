@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CYBERNUKE.MVVM.Model
 {
-    internal abstract class Character
+    public abstract class Character
     {
         private string name;
         private int level;

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CYBERNUKE.Core;
+using CYBERNUKE.MVVM.Model;
 
 namespace CYBERNUKE
 {
@@ -22,6 +23,8 @@ namespace CYBERNUKE
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Character> c = new List<Character>();
+
         public MainWindow()
         {
             InitializeComponent();

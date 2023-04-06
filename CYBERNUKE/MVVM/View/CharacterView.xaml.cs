@@ -22,6 +22,27 @@ namespace CYBERNUKE.MVVM.View
         public CharacterView()
         {
             InitializeComponent();
+            
+        }
+
+        private void Character0_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Character1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Character2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Character3_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
