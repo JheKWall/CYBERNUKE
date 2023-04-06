@@ -75,7 +75,7 @@ namespace CYBERNUKE.MVVM.View
         private void AddEnemy(int index)
         {
             // Initialize new enemy, assign it to index
-            EnemyBox enemy = new EnemyBox(100, 100, "UNKNOWN");
+            EnemyBox enemy = new EnemyBox("Lesser_Zombie");
             ListEnemyTargets[index] = enemy;
 
             CombatMenu_EnemyBoxPanel.Children.Add(enemy);

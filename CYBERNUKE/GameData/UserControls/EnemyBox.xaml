@@ -58,7 +58,7 @@
             </TextBlock>
 
             <!-- Enemy Portrait -->
-            <Image x:Name="Portrait" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="3"/>
+            <Image x:Name="Portrait" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="3"/>
 
             <!-- Enemy HP Bar -->
             <ProgressBar x:Name="HP_Bar"

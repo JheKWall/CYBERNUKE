@@ -92,6 +92,7 @@
     <Compile Include="GameData\UserControls\EnemyBox.xaml.cs">
       <DependentUpon>EnemyBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\Model\SkillObjectModel.cs" />
     <Compile Include="MVVM\ViewModel\CombatViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OverworldViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TownViewModel.cs" />
@@ -201,7 +202,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GameData\Combats\" />
+    <Folder Include="GameData\Images\CharacterPortrait\" />
     <Folder Include="GameData\Images\CutsceneMenu\" />
     <Folder Include="GameData\Images\OverworldMenu\" />
     <Folder Include="GameData\Images\TownMenu\" />
@@ -212,7 +213,6 @@
     <Folder Include="GameData\Items\Weapons\" />
     <Folder Include="GameData\Maps\" />
     <Folder Include="GameData\Towns\" />
-    <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_1.png" />
@@ -253,6 +253,25 @@
   <ItemGroup>
     <Resource Include="GameData\Images\capybara %286%29.png" />
     <Resource Include="GameData\Images\capybara %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\Lesser_Zombie.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\EnemyData\EnemyDataGuide.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\SkillData\SkillDataGuide.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\SkillData\SkillBite.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\EnemyPortrait\Lesser_Zombie_Portrait.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
