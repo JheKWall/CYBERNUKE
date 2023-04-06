@@ -38,6 +38,12 @@
             <Button x:Name="Options" Height="50" Margin="10"/>
             <Button x:Name="Exit_Game" Height="50" Margin="10"/>
         </StackPanel>
-        <TextBlock x:Name="charName0" Grid.Column="1" Margin="32,33,310,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
+        <TextBlock x:Name="charName" Grid.Column="1" Margin="32,10,170,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Text="Name: Insert Name Here"/>
+        <ProgressBar x:Name="HPBar"  Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="294,8,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="328,9,0,0" TextWrapping="Wrap" Text="HP: 0/0" VerticalAlignment="Top" FontSize="10"/>
+        <ProgressBar x:Name="SPBar"  Grid.Column="1" HorizontalAlignment="Left" Height="15" Margin="294,25,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="329,26,0,0" TextWrapping="Wrap" Text="SP: 0/0" VerticalAlignment="Top" FontSize="10" RenderTransformOrigin="0.519,0.68"/>
+        <ProgressBar x:Name="ExpBar" Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="32,42,0,0" VerticalAlignment="Top" Width="237"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="135,40,0,0" TextWrapping="Wrap" Text="XP: 0/0" VerticalAlignment="Top" FontSize="10"/>
     </Grid>
 </Window>
