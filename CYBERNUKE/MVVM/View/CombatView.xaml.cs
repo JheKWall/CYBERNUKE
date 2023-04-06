@@ -33,6 +33,9 @@ namespace CYBERNUKE.MVVM.View
         /// 4. Link Enemy/Player Boxes to their respective Turn Order Boxes
         /// </summary>
 
+        //File reader
+        private StreamReader input;
+
         int enemyCount; //Number of enemies in combat
         int playerCount; //Number of players in combat
 
@@ -42,13 +45,11 @@ namespace CYBERNUKE.MVVM.View
         //string[] ListInventory; //List of usable items
 
         //TODO: Initialize player/enemy count on combat start
-        //TODO: Get enemy party composition on combat start
         public CombatView()
         {
             InitializeComponent();
             ScaleText();
 
-            enemyCount = 6;
             playerCount = 0;
 
             /*
@@ -59,27 +60,74 @@ namespace CYBERNUKE.MVVM.View
                 AddPlayer();
             }*/
 
+            // Initialize StreamReader to Enemy Party file
+            // enemyParty is pulled from MainWindow.xaml.cs
+            string enemyParty = ((MainWindow)Application.Current.MainWindow).enemyPartyName;
+            input = new StreamReader("GameData/EnemyData/EnemyParty/" + enemyParty + ".txt");
+            enemyCount = Int32.Parse(input.ReadLine());
+            ResizeEnemyGrid();
+
             // Add Enemies
-            // TODO: File input for enemy party and individual enemies
             for (int i = 0; i < enemyCount; i++)
             {
-                AddEnemy(i);
+                AddEnemy(input.ReadLine(), i);
             }
 
+            // Close StreamReader
+            input.Close();
             // Combat Start Text
             ControlPanel_Left_TextBlock.Text = "!! COMBAT START !!";
         }
 
-        //
-        //TODO: Take file input for a specific enemy
-        private void AddEnemy(int index)
+        //Private method for resizing CombatMenu_EnemyBoxPanel UniformGrid
+        private void ResizeEnemyGrid()
+        {
+            switch (enemyCount)
+            {
+                case 1:
+                    CombatMenu_EnemyBoxPanel.Columns = 1;
+                    CombatMenu_EnemyBoxPanel.Rows = 1;
+                    break;
+
+                case 2:
+                    CombatMenu_EnemyBoxPanel.Columns = 2;
+                    CombatMenu_EnemyBoxPanel.Rows = 1;
+                    break;
+
+                case 3:
+                    CombatMenu_EnemyBoxPanel.Columns = 3;
+                    CombatMenu_EnemyBoxPanel.Rows = 1;
+                    break;
+
+                case 4:
+                    CombatMenu_EnemyBoxPanel.Columns = 2;
+                    CombatMenu_EnemyBoxPanel.Rows = 2;
+                    break;
+
+                case 5:
+                    CombatMenu_EnemyBoxPanel.Columns = 3;
+                    CombatMenu_EnemyBoxPanel.Rows = 2;
+                    break;
+
+                case 6:
+                    CombatMenu_EnemyBoxPanel.Columns = 3;
+                    CombatMenu_EnemyBoxPanel.Rows = 2;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        //Private method for adding an enemy from a file and with an index
+        private void AddEnemy(string enemyName, int index)
         {
             // Initialize new enemy, assign it to index
-            EnemyBox enemy = new EnemyBox("Lesser_Zombie");
+            EnemyBox enemy = new EnemyBox(enemyName, index);
             ListEnemyTargets[index] = enemy;
 
             CombatMenu_EnemyBoxPanel.Children.Add(enemy);
-
+            
             // Create new turn order box for that enemy
 
         }
@@ -205,8 +253,6 @@ namespace CYBERNUKE.MVVM.View
             // Show Main Menu
             ControlPanel_ButtonPanel_MAIN.Visibility = Visibility.Visible;
         }
-
-
 
     }
 }

@@ -58,18 +58,21 @@ namespace CYBERNUKE.GameData.UserControls
         bool isWind;
 
         //TODO: Use file as input to initialize
-        public EnemyBox(string enemyName)
+        public EnemyBox(string enemyName, int index)
         {
             InitializeComponent();
             ScaleText();
-            ReadEnemyData(enemyName);
+            ReadEnemyData(enemyName, index);
         }
 
         //Private class for reading enemy data
-        private void ReadEnemyData(string enemyName)
+        private void ReadEnemyData(string enemyName, int index)
         {
             // Initialize StreamReader toe EnemyData.txt
             input = new StreamReader("GameData/EnemyData/" + enemyName + ".txt");
+
+            // Index
+            Index.Text = index.ToString();
 
             // Read in all enemy data (sorry for coding)
             this.Name.Text = input.ReadLine();
@@ -93,6 +96,9 @@ namespace CYBERNUKE.GameData.UserControls
             resElectric = Double.Parse(input.ReadLine());
             resEarth = Double.Parse(input.ReadLine());
             resWind = Double.Parse(input.ReadLine());
+
+            amountDamage = Int32.Parse(input.ReadLine());
+            costSP = Int32.Parse(input.ReadLine());
 
             isSlash = input.ReadLine() == "1";
             isPierce = input.ReadLine() == "1";
@@ -199,6 +205,7 @@ namespace CYBERNUKE.GameData.UserControls
         private void ChangeFontSize(double size)
         {
             Name.FontSize = size;
+            Index.FontSize = size;
             HP_Text.FontSize = size;
             SP_Text.FontSize = size;
         }

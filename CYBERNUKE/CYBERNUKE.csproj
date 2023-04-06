@@ -256,13 +256,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GameData\EnemyData\Lesser_Zombie.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\EnemyData\EnemyDataGuide.txt">
+    <None Include="GameData\EnemyData\EnemyDataGuide.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\SkillData\SkillDataGuide.txt" />
@@ -272,6 +272,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\EnemyPortrait\Lesser_Zombie_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\EnemyPartyGuide.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\LesserZombieHorde.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

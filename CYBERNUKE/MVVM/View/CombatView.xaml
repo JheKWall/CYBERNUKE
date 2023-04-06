@@ -123,15 +123,15 @@
                     Visibility="Visible">
             <TextBlock Style="{StaticResource ControlPanel_TextBlock}" Text="SELECT COMMAND:"/>
             <Button x:Name="CPBP_MAIN_FIGHT" Style="{StaticResource ControlPanel_Button}"
-                        Content="1. FIGHT" Click="CPBP_MAIN_FIGHT_Click"/>
+                        Content="0. FIGHT" Click="CPBP_MAIN_FIGHT_Click"/>
             <Button x:Name="CPBP_MAIN_ITEM" Style="{StaticResource ControlPanel_Button}"
-                        Content="2. ITEM" Click="CPBP_MAIN_ITEM_Click"/>
+                        Content="1. ITEM" Click="CPBP_MAIN_ITEM_Click"/>
             <Button x:Name="CPBP_MAIN_GUARD" Style="{StaticResource ControlPanel_Button}"
-                        Content="3. GUARD" Click="CPBP_MAIN_GUARD_Click"/>
+                        Content="2. GUARD" Click="CPBP_MAIN_GUARD_Click"/>
             <Button x:Name="CPBP_MAIN_ANALYZE" Style="{StaticResource ControlPanel_Button}"
-                        Content="4. ANALYZE" Click="CPBP_MAIN_ANALYZE_Click"/>
+                        Content="3. ANALYZE" Click="CPBP_MAIN_ANALYZE_Click"/>
             <Button x:Name="CPBP_MAIN_ESCAPE" Style="{StaticResource ControlPanel_Button}"
-                        Content="5. ESCAPE" Click="CPBP_MAIN_ESCAPE_Click"/>
+                        Content="4. ESCAPE" Click="CPBP_MAIN_ESCAPE_Click"/>
         </StackPanel>
 
         <!-- CPBP FIGHT MENU -->
@@ -139,13 +139,13 @@
                     Visibility="Hidden">
             <TextBlock Style="{StaticResource ControlPanel_TextBlock}" Text="SELECT COMMAND:"/>
             <Button x:Name="CPBP_FIGHT_MELEE" Style="{StaticResource ControlPanel_Button}"
-                        Content="1. MELEE WEAPON" Click="CPBP_FIGHT_MELEE_Click"/>
+                        Content="0. MELEE WEAPON" Click="CPBP_FIGHT_MELEE_Click"/>
             <Button x:Name="CPBP_FIGHT_RANGED" Style="{StaticResource ControlPanel_Button}"
-                        Content="2. RANGED WEAPON" Click="CPBP_FIGHT_RANGED_Click"/>
+                        Content="1. RANGED WEAPON" Click="CPBP_FIGHT_RANGED_Click"/>
             <Button x:Name="CPBP_FIGHT_SKILL" Style="{StaticResource ControlPanel_Button}"
-                        Content="3. SKILL" Click="CPBP_FIGHT_SKILL_Click"/>
+                        Content="2. SKILL" Click="CPBP_FIGHT_SKILL_Click"/>
             <Button x:Name="CPBP_FIGHT_RETURN" Style="{StaticResource ControlPanel_Button}"
-                        Content="4. RETURN" Click="CPBP_FIGHT_RETURN_Click"/>
+                        Content="3. RETURN" Click="CPBP_FIGHT_RETURN_Click"/>
         </StackPanel>
 
     </Grid>
