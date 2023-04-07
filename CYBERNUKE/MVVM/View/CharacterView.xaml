@@ -31,19 +31,38 @@
             </Button>
         </UniformGrid>
         <StackPanel Grid.Column="3" x:Name="MenuButtons">
-            <Button x:Name="Character" Height="50" Margin="10"/>
-            <Button x:Name="Skills" Height="50" Margin="10"/>
-            <Button x:Name="Map" Height="50" Margin="10"/>
-            <Button x:Name="Close_Menu" Height="50" Margin="10"/>
-            <Button x:Name="Options" Height="50" Margin="10"/>
-            <Button x:Name="Exit_Game" Height="50" Margin="10"/>
+            <Button x:Name="Character" Height="50" Margin="10" Content="Character"/>
+            <Button x:Name="Skills" Height="50" Margin="10" Content="Skills"/>
+            <Button x:Name="Map" Height="50" Margin="10" Content="Map"/>
+            <Button x:Name="Close_Menu" Height="50" Margin="10" Content="Close Menu"/>
+            <Button x:Name="Options" Height="50" Margin="10" Content="Options"/>
+            <Button x:Name="Exit_Game" Height="50" Margin="10" Content="Exit Game"/>
         </StackPanel>
-        <TextBlock x:Name="charName" Grid.Column="1" Margin="32,10,170,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Text="Name: Insert Name Here"/>
+        <TextBlock x:Name="charName" Grid.Column="1" Margin="32,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Text="Name: Insert Name Here" HorizontalAlignment="Left" Width="237"/>
         <ProgressBar x:Name="HPBar"  Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="294,8,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="328,9,0,0" TextWrapping="Wrap" Text="HP: 0/0" VerticalAlignment="Top" FontSize="10"/>
-        <ProgressBar x:Name="SPBar"  Grid.Column="1" HorizontalAlignment="Left" Height="15" Margin="294,25,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="329,26,0,0" TextWrapping="Wrap" Text="SP: 0/0" VerticalAlignment="Top" FontSize="10" RenderTransformOrigin="0.519,0.68"/>
+        <ProgressBar x:Name="SPBar"  Grid.Column="1" HorizontalAlignment="Left" Height="15" Margin="294,38,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="329,39,0,0" TextWrapping="Wrap" Text="SP: 0/0" VerticalAlignment="Top" FontSize="10" RenderTransformOrigin="0.519,0.68"/>
         <ProgressBar x:Name="ExpBar" Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="32,42,0,0" VerticalAlignment="Top" Width="237"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="135,40,0,0" TextWrapping="Wrap" Text="XP: 0/0" VerticalAlignment="Top" FontSize="10"/>
+        <TextBlock Grid.Column="1" Margin="195,84,196,0" TextWrapping="Wrap" Text="Stats:" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.579" FontSize="20"/>
+        <TextBlock x:Name="StrengthTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="32,151,0,0" TextWrapping="Wrap" Text="Strength: 0" VerticalAlignment="Top" Height="30" Width="145" FontSize="20"/>
+        <TextBlock x:Name="DexterityTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="292,151,0,0" TextWrapping="Wrap" Text="Dexterity: 0" VerticalAlignment="Top" Height="30" Width="145" FontSize="20"/>
+        <TextBlock x:Name="EnduranceTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="32,221,0,0" TextWrapping="Wrap" Text="Endurance: 0" VerticalAlignment="Top" Height="30" Width="145" FontSize="20"/>
+        <TextBlock x:Name="IntelligenceTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="292,221,0,0" TextWrapping="Wrap" Text="Intelligence: 0" VerticalAlignment="Top" Height="30" Width="145" FontSize="20"/>
+        <TextBlock Grid.Column="1" Margin="145,366,145,0" TextWrapping="Wrap" Text="Equipped Items:" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.579" FontSize="20"/>
+        <TextBlock x:Name="OutfitTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="32,436,0,0" TextWrapping="Wrap" Text="Outfit: None" VerticalAlignment="Top" Height="30" Width="317" FontSize="20"/>
+        <TextBlock x:Name="MeleeWeaponTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="32,500,0,0" TextWrapping="Wrap" Text="Melee Weapon: None" VerticalAlignment="Top" Height="30" Width="317" FontSize="20"/>
+        <TextBlock x:Name="RangedWeaponTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="32,564,0,0" TextWrapping="Wrap" Text="Ranged Weapon: None" VerticalAlignment="Top" Height="30" Width="317" FontSize="20"/>
+        <Button Grid.Column="1" x:Name="OutfitChangeButton" Content="Change" HorizontalAlignment="Left" Margin="354,441,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="1" x:Name="MeleeWeaponChangeButton" Content="Change" HorizontalAlignment="Left" Margin="354,505,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="1" x:Name="RangedWeaponChangeButton" Content="Change" HorizontalAlignment="Left" Margin="354,569,0,0" VerticalAlignment="Top"/>
+        <ListView Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="20" Visibility="Hidden">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
