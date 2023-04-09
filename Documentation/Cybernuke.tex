@@ -569,13 +569,11 @@ Omitted, project does not need to be maintained after completed.
 % PROJECT STRUCTURE ******************************************************************** %
 \section{Project Structure}
 %At first, this will be a little empty (it will need to be filled in by the time you turn in your final report).  This is your chance to discuss all of your design decisions (consider this the README's big brother).
-The basis of Cybernuke's structure is built on top of the MVVM (Model-View-ViewModel) pattern. For mostly every function available in Cybernuke, said function was accessed by opening or closing windows and managing the visibility of said windows. Behind the curtains, the main window of the program will always be open and hidden behind whatever window is currently open (there will always be at least one menu open, be it the main menu, the overworld movement menu, the combat menu, etc.). 
-
-By doing this, we can use the main window to switch between the previously mentioned views and menus according to what we need. If the user initiates combat or triggers a random encounter, we use the main window as a go-between to open combat and pass whatever information and data is required to that window for gameplay to actually occur. This is done by using buttons placed on the hidden MainWindow.xaml file which are connected (through use of the Binding NavigateXXX command) to other views (like the CombatView, CutsceneView, MainMenuView, etc.) and are used to open them as needed.
+The basis of Cybernuke's structure is built on top of the MVVM (Model-View-ViewModel) pattern. Views in this project are essentially the menus or windows that allow the user to actually play the game. For instance, the MainMenuView is functionally and graphically the main menu of the game, and the CombatView is functionally and graphically the GUI and functions used in facilitating combat between the player and npcs.
 
 For the main menu view, (which is opened as the initial menu that opens to the player upon launching the game, it must connect to the cutscene view, the town view, and the overworld view through use of the load menu, as starting the game fresh with a new game or loading a previous saved game will lead into one of these views after data is initialized and loaded. As mentioned previously, regardless of what the user does (load a game or start a new game, open options, exit, etc.) the MainWindow handles the go-between by accessing the information needed and connecting to the other views and menus through the .xaml file's user control scheme.
 
-For the combat view, 
+For the combat view, (accessed once more through MainWindow.xaml backend) a list of enemy targets and list of players (main character and companions) is used to track turn order and actions in combat. 
 
 
 
