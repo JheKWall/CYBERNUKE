@@ -193,7 +193,7 @@ CYBERNUKE is a roguelite game developed in the C\# WPF framework. You play as an
 % INTRODUCTION ************************************************************************* %
 \section{Introduction}
 
-For this project we aim to create a video game to gain experience with C\#, WPF, and game design. We called the game "CYBERNUKE," combining the game's cyberpunk and post-apocalyptic elements into a single title. 
+For this project we aim to create a video game to gain experience with C\#, WPF, and game design. We called the game "CYBERNUKE," combining the game's cyberpunk and post-apocalyptic elements into a single title.
 
 The setting of the game is rooted in the cyberpunk genre, taking place in a massive futuristic city where buildings as tall as the Burj Khalifa are commonplace, gangs are armed with high-tech laser guns, and the wealth gap is at its widest. On a peaceful day in the twenty-first century, the city is attacked by an unknown power, which is followed by a nuclear explosion and the displacement of the entire city into another dimension. The story's cyberpunk portion is inspired by the game \emph{Cyberpunk 2077}, while the post-apocalyptic portion is inspired by \emph{Fallout} and other post-apocalyptic games. 
 
@@ -538,16 +538,55 @@ The following is a mock-up of CYBERNUKE's combat screen. The combat screen is ti
 \pagebreak
 % PROJECT TIMELINE ********************************************************************* %
 \section{Project Timeline}
-Go back to your notes and look up a typical project development life cycle for the Waterfall approach.  How will you follow this life cycle over the remainder of this semester?  This will usually involve a chart showing your proposed timeline, with specific milestones plotted out.  Make sure you have deliverable dates from the course schedule listed, with a plan to meet them (NOTE: these are generally optimistic deadlines).
+%Go back to your notes and look up a typical project development life cycle for the Waterfall approach.  How will you follow this life cycle over the remainder of this semester?  This will usually involve a chart showing your proposed timeline, with specific milestones plotted out.  Make sure you have deliverable dates from the course schedule listed, with a plan to meet them (NOTE: these are generally optimistic deadlines).
 
+\underline{1. Requirements}
+\vspace{5px}
+
+We identified the requirements in the early parts of the project's lifetime (near the beginning of the semester.) Those requirements would later be revised as we realized we were running out of time to implement all of the features we originally planned for.
+
+\underline{2. Design}
+\vspace{5px}
+
+This stage resulted in the creation of the first UML diagram for CYBERNUKE.
+
+\underline{3. Implementation}
+\vspace{5px}
+
+Implementation was started during Spring Break with Kenneth creating the Main Menu and implementing the MVVM pattern for window operation. Kenneth then implemented the Combat Menu and Enemies, and Vance implemented the Character Menu and Characters.
+
+\underline{4. Testing}
+\vspace{5px}
+
+Testing has been done as we worked on implementation due to time constraints with the project.
+
+\underline{5. Maintenance}
+\vspace{5px}
+
+Omitted, project does not need to be maintained after completed.
 
 
 % PROJECT STRUCTURE ******************************************************************** %
 \section{Project Structure}
-At first, this will be a little empty (it will need to be filled in by the time you turn in your final report).  This is your chance to discuss all of your design decisions (consider this the README's big brother).
+%At first, this will be a little empty (it will need to be filled in by the time you turn in your final report).  This is your chance to discuss all of your design decisions (consider this the README's big brother).
+
+The basis of Cybernuke's structure is built on top of the MVVM (Model-View-ViewModel) pattern. Views in this project are essentially the menus or windows that allow the user to actually play the game. For instance, the MainMenuView is graphically the main menu of the game, and the CombatView is graphically the GUI and functions used in facilitating combat between the player and npcs. The main code and functionality for the views is located in each view's ViewModel.cs code file. Each View will have functionality that allows said view to navigate to other views: for example, the CombatView will be able to navigate to the OverworldView, and vice versa upon finishing and starting combat.
+
+For the MainMenuView, (which is opened as the initial menu available to the player upon launching the game) it must connect to the CutsceneView, the TownView, and the OverworldView through use of the main menu's load menu, as starting the game fresh with a new game or loading a previous saved game will lead into one of these views after data is initialized and loaded. 
+
+For the CombatView which will be used during combat with rng-determined battles or scripted boss battles, a list of enemy targets and list of players (main character and companions) is used to track turn order and actions and effects in combat. Character and companion data will be pulled from lists initialized in the MainWindowView (not MainMenuView) and referenced constantly throughout gameplay to track equipment, stats, hp, sp, and so on. Enemy data and the potential enemy lineup during combat will be loaded through file at the beginning of combat based on a randomly generated number system.
+
+For the OverworldView, this will serve as the player's method for moving throughout the game's world and exploring locations and places of interest. This is done through use of a grid-like movement system where the player can move one tile each action to cover distance. During each movement step, chances of a random encounter will be factored depending on the location the player is in (for instance, the player will not have random encounters in a safe-designated area while having lots of encounters in "dungeons").
+
+From the OverworldView, the player can open the PauseMenuView, which functions to allow the player to examine skills, character info, and the more general map (of the entire world, not where the player currently is and is moving on), as well as configuring options, closing the View, and exiting the game.
+
+For the TownView (accessed upon reaching a town), the user will use a sequence of buttons to access features the town holds. For example, to visit certain NPCs, clickable buttons will be used to do that. To visit shops and leave the town, buttons will be used for that as well. The ability to save and load game is available here as well.
+
+For the CutsceneView, this is essentially using premade videos to deliver exposition and important story events to the player through use of a content presenter on the MainWindow that is hidden after the cutscene finishes and control is granted back to the player.
+
 
 \subsection{UML Outline}
-Show the full structure of your program.  Make sure to keep on updating this section as your project evolves (you often start out with one plan, but end up modifying things as you move along).  As a note, while Dia fails miserably at generating pdfs (probably my fault), I have had much success with png files.  Make sure to wrap your images in a \texttt{figure} environment, and to reference with the \texttt{ref} command.  For example, see Figure \ref{main_menu_mockup}.
+%Show the full structure of your program.  Make sure to keep on updating this section as your project evolves (you often start out with one plan, but end up modifying things as you move along).  As a note, while Dia fails miserably at generating pdfs (probably my fault), I have had much success with png files.  Make sure to wrap your images in a \texttt{figure} environment, and to reference with the \texttt{ref} command.  For example, see Figure \ref{main_menu_mockup}.
 
 %\begin{figure}[ht!]
 %\centering
@@ -558,16 +597,29 @@ Show the full structure of your program.  Make sure to keep on updating this sec
 
 
 \subsection{Design Patterns Used}
-Make sure to actually use at least 2 design patterns from this class.  This is not normally part of such documentation, but largely just specific to this class -- I want to see you use the patterns!
+%Make sure to actually use at least 2 design patterns from this class.  This is not normally part of such documentation, but largely just specific to this class -- I want to see you use the patterns!
+\underline{1. Prototype Design Pattern}
+\vspace{5px}
 
+We used a Prototype for the enemies in CYBERNUKE. When the Combat Menu is opened it will be given a data file that contains which enemies to spawn. It will then take the data files for those enemies and instantiate an Enemy UserControl Object to display on the Combat Menu.
+
+\underline{2. Decorator Design Pattern}
+\vspace{5px}
+
+We used a Decorator for the Pause Menu in CYBERNUKE. When opening the Pause Menu it unhides a Content Presenter that is present on the MainWindow. This Content Presenter holds the Pause Menu and renders over the underlying window so that the user cannot accidentally activate anything while paused.
+
+\underline{3. MVVM (Model-View-ViewModel) Design Pattern}
+\vspace{5px}
+
+We used the MVVM design pattern for CYBERNUKE. We chose to use it as it would allow the program to seamlessly switch between menus without breaking the user's immersion in the game. It also allows us to store data in MainWindow as it stays open persistently.
 
 
 % RESULTS ****************************************************************************** %
 \section{Results}
-This section will start out a little vague, but it should grow as your project evolves.  With each deliverable you hand in, give me a final summary of where your project stands.  By the end, this should be a reflective section discussing how many of your original goals you managed to attain/how many desired use cases you implemented/how many extra features you added.
+%This section will start out a little vague, but it should grow as your project evolves.  With each deliverable you hand in, give me a final summary of where your project stands.  By the end, this should be a reflective section discussing how many of your original goals you managed to attain/how many desired use cases you implemented/how many extra features you added.
 
 \subsection{Future Work}
-Where are you going next with your project?
+%Where are you going next with your project?
 For early deliverables, what are your next steps?  (HINT: you will typically want to look back at your timeline and evaluate: did you meet your expected goals?  Are you ahead of schedule?  Did you decide to shift gears and implement a new feature?)
 By the end, what do you plan on doing with this project?  Will you try to sell it?  Set it on fire?  Link to it on your resume and forget it exists?
 
