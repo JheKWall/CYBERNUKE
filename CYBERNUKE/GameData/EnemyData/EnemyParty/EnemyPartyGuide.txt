@@ -1,0 +1,10 @@
+﻿A guide on the formatting of EnemyParty.txt files:
+
+//Enemies (Max 6)
+1. Number of Enemies (int)
+1. EnemyName (string)
+2. EnemyName (string)
+3. EnemyName (string)
+4. EnemyName (string)
+5. EnemyName (string)
+6. EnemyName (string)

@@ -21,8 +21,7 @@
             <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
 
-        <ContentControl Content="{Binding Navigation.CurrentView}" Grid.ColumnSpan="2">
-        </ContentControl>
+        <ContentControl Content="{Binding Navigation.CurrentView}" Grid.ColumnSpan="2"/>
 
         <!-- DEBUG Buttons for switching Windows -->
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
