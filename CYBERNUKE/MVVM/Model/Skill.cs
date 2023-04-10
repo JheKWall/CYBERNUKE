@@ -8,7 +8,7 @@ using System.Windows.Documents.DocumentStructures;
 
 namespace CYBERNUKE.MVVM.Model
 {
-    internal class Skill
+    public class Skill
     {
         private string name;
         private int SPCost;

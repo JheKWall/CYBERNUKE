@@ -23,11 +23,14 @@ namespace CYBERNUKE
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Character> c = new List<Character>();
+        public List<Character> CharacterList = new List<Character>();
 
         public MainWindow()
         {
             InitializeComponent();
+
+            Character mainCharacter = new Character(); // test character for character view. Will remove later.
+            CharacterList.Add(mainCharacter);
         }
     }
 }
