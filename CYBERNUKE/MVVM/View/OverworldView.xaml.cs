@@ -34,5 +34,30 @@ namespace CYBERNUKE.MVVM.View
         {
 
         }
+
+        private void Button_Left_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Interact_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Right_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Down_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Map_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
