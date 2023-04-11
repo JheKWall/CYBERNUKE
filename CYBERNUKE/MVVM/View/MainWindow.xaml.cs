@@ -33,7 +33,6 @@ namespace CYBERNUKE
             mainCharacter.setName("Test Character");
             mainCharacter.setMaxHP(500);
             mainCharacter.setMaxSP(100);
-            mainCharacter
             CharacterList.Add(mainCharacter);
         }
     }

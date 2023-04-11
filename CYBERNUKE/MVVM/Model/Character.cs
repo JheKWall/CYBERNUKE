@@ -62,7 +62,7 @@ namespace CYBERNUKE.MVVM.Model
             resWind = 0;
         }
 
-        public Character(string name, int level, int maxHP, int maxSP, int statStrength, int statDexterity, int statEndurance, int statIntelligence)
+        public Character(string name, int level, int maxHP, int maxSP, int statStrength, int statDexterity, int statEndurance, int statIntelligence, MeleeWeapon m, RangedWeapon r, MainArmor a)
         {
             this.name = name;
             this.level = level;
@@ -74,6 +74,18 @@ namespace CYBERNUKE.MVVM.Model
             this.statDexterity = statDexterity;
             this.statEndurance = statEndurance;
             this.statIntelligence = statIntelligence;
+            equippedMeleeWeapon = m;
+            equippedRangedWeapon = r;
+            equippedOutfit = a;
+            resSlash = 0;
+            resPierce = 0;
+            resBlunt = 0;
+            resFire = 0;
+            resWater = 0;
+            resIce = 0;
+            resElectric = 0;
+            resEarth = 0;
+            resWind = 0;
         }
 
         public void setName(string name)
