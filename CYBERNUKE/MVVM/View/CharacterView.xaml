@@ -41,9 +41,9 @@
         <TextBlock x:Name="charName" Grid.Column="1" Margin="32,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Text="Name: Insert Name Here" HorizontalAlignment="Left" Width="237"/>
         <ProgressBar x:Name="HPBar"  Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="294,8,0,0" VerticalAlignment="Top" Width="140" ValueChanged="HPBar_ValueChanged"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="345,10,0,0" TextWrapping="Wrap" Text="HP: 0/0" VerticalAlignment="Top" FontSize="12"/>
-        <ProgressBar x:Name="SPBar"  Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="294,38,0,0" VerticalAlignment="Top" Width="140"/>
+        <ProgressBar x:Name="SPBar"  Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="294,38,0,0" VerticalAlignment="Top" Width="140" ValueChanged="SPBar_ValueChanged"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="346,40,0,0" TextWrapping="Wrap" Text="SP: 0/0" VerticalAlignment="Top" FontSize="12"/>
-        <ProgressBar x:Name="ExpBar" Grid.Column="1" HorizontalAlignment="Left" Height="15" Margin="32,42,0,0" VerticalAlignment="Top" Width="237"/>
+        <ProgressBar x:Name="ExpBar" Grid.Column="1" HorizontalAlignment="Left" Height="15" Margin="32,42,0,0" VerticalAlignment="Top" Width="237" ValueChanged="ExpBar_ValueChanged"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="135,43,0,0" TextWrapping="Wrap" Text="XP: 0/0" VerticalAlignment="Top" FontSize="10"/>
         <TextBlock Grid.Column="1" Margin="195,84,196,0" TextWrapping="Wrap" Text="Stats:" VerticalAlignment="Top" FontSize="20"/>
         <TextBlock x:Name="StrengthTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="32,151,0,0" TextWrapping="Wrap" Text="Strength: 0" VerticalAlignment="Top" Height="30" Width="145" FontSize="20"/>

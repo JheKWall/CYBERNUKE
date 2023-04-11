@@ -197,6 +197,36 @@ namespace CYBERNUKE.MVVM.Model
             this.resWind = resWind;
         }
 
+        public void setEquippedMeleeWeapon(MeleeWeapon m)
+        {
+            this.equippedMeleeWeapon = m;
+        }
+
+        public MeleeWeapon getEquippedMeleeWeapon()
+        {
+            return this.equippedMeleeWeapon;
+        }
+
+        public void setEquippedRangedWeapon(RangedWeapon r)
+        {
+            equippedRangedWeapon = r;
+        }
+
+        public RangedWeapon getEquippedRangedWeapon()
+        {
+            return this.equippedRangedWeapon;
+        }
+
+        public void setEquippedOutfit(MainArmor a)
+        {
+            this.equippedOutfit = a;
+        }
+
+        public MainArmor getEquippedOutfit()
+        {
+            return this.equippedOutfit;
+        }
+
         public string getName()
         {
             return name;
