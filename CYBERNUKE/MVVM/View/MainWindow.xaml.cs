@@ -30,6 +30,10 @@ namespace CYBERNUKE
             InitializeComponent();
 
             Character mainCharacter = new Character(); // test character for character view. Will remove later.
+            mainCharacter.setName("Test Character");
+            mainCharacter.setMaxHP(500);
+            mainCharacter.setMaxSP(100);
+            mainCharacter
             CharacterList.Add(mainCharacter);
         }
     }
