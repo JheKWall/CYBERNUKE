@@ -7,25 +7,112 @@
              mc:Ignorable="d"
              d:DesignHeight="768" 
              d:DesignWidth="1366"
-             Background="AliceBlue">
+             Background="Black">
+
+    <!-- UserControl Resources -->
+    <UserControl.Resources>
+        <!-- Control Panel TextBlock -->
+        <Style x:Key="ControlPanel_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=ControlPanelFontSize, Path=FontSize}"/>
+        </Style>
+
+        <!-- Control Panel Button -->
+        <Style x:Key="ControlPanel_Button" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Image Name="button_image" Source="{TemplateBinding Button.Content}" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="button_image" Property="Margin" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="button_image" Property="Margin" Value="3"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Control Panel TextBox -->
+        <Style x:Key="ControlPanel_TextBox" TargetType="TextBox">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=ControlPanelFontSize, Path=FontSize}"/>
+        </Style>
+
+    </UserControl.Resources>
+
+    <!-- UI Element Grid -->
     <Grid>
         <!-- Horizontal Grid -->
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="49*"/>
         </Grid.RowDefinitions>
         <!-- Vertical Grid -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="372*"/>
+            <ColumnDefinition Width="682*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Overworld View Test" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
-        <Image Source="/CYBERNUKE;component/GameData/Images/capybara (7).png" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!-- Font Size Variable -->
+        <TextBlock x:Name="ControlPanelFontSize" FontSize="28" Margin="0,26,0,33.857" Visibility="Hidden" Grid.ColumnSpan="14" Grid.Row="1" Grid.RowSpan="8"/>
 
+        <!-- Left Panel -->
+        <Image x:Name="OverworldMenu_BG_1" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_LeftPanel.png" Stretch="Fill" Grid.ColumnSpan="15" Grid.RowSpan="18" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,-0.499,-0.143"/>
+        <Image x:Name="OverworldMenu_BG_2" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_ControlPanel.png" Stretch="Fill" Grid.ColumnSpan="15" Grid.RowSpan="18" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,-0.499,-0.143"/>
+
+        <!-- 2D Map Display -->
+
+
+        <!-- Player Boxes -->
+        <StackPanel x:Name="PlayerBox_Panel" Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="11"/>
+
+        <!-- Control Panel Buttons -->
+        <Button Name="Button_Menu" Style="{StaticResource ControlPanel_Button}" Grid.Row="10" Grid.Column="3" Margin="0" Grid.ColumnSpan="2" 
+                Click="Button_Menu_Click">
+            <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_Q.png"/>
+        </Button>
 
     </Grid>
 </UserControl>

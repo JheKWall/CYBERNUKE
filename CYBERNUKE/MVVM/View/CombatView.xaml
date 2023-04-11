@@ -91,10 +91,10 @@
         <Image x:Name="CombatMenu_BG_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_3.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
 
         <!-- Control Panel -->
-        <Image x:Name="CombatMenu_CP_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_3.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
-        <Image x:Name="CombatMenu_CP_2_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
-        <Image x:Name="CombatMenu_CP_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
-        <Image x:Name="CombatMenu_CP_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        <Image x:Name="CombatMenu_CP_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_3.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_2_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
 
         <!-- Player Box Display -->
         <StackPanel x:Name="CombatMenu_PlayerBoxPanel" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Width="205" Height="405" VerticalAlignment="Top" HorizontalAlignment="Left"/>

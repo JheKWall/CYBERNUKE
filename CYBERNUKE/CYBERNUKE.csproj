@@ -95,7 +95,6 @@
     <Compile Include="GameData\UserControls\TurnOrderBox.xaml.cs">
       <DependentUpon>TurnOrderBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\Model\SkillObjectModel.cs" />
     <Compile Include="MVVM\ViewModel\CombatViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OverworldViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TownViewModel.cs" />
@@ -211,7 +210,6 @@
   <ItemGroup>
     <Folder Include="GameData\Images\CharacterPortrait\" />
     <Folder Include="GameData\Images\CutsceneMenu\" />
-    <Folder Include="GameData\Images\OverworldMenu\" />
     <Folder Include="GameData\Images\TownMenu\" />
     <Folder Include="GameData\Items\Armor\" />
     <Folder Include="GameData\Items\Artifacts\" />
@@ -220,6 +218,7 @@
     <Folder Include="GameData\Items\Weapons\" />
     <Folder Include="GameData\Maps\" />
     <Folder Include="GameData\Towns\" />
+    <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_1.png" />
@@ -272,12 +271,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\SkillData\SkillDataGuide.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="GameData\SkillData\SkillBite.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="GameData\Images\EnemyPortrait\Lesser_Zombie_Portrait.png" />
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +282,21 @@
     <None Include="GameData\EnemyData\EnemyParty\LesserZombieHorde.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_Button_A.png" />
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_Button_C.png" />
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_Button_D.png" />
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_Button_Q.png" />
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_Button_S.png" />
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_Button_W.png" />
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_Button_X.png" />
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_ControlPanel.png" />
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_Display.png" />
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_LeftPanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_PlayerBox.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

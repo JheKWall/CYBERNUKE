@@ -24,5 +24,10 @@ namespace CYBERNUKE.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void Button_Menu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
