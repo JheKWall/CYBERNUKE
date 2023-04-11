@@ -29,5 +29,10 @@ namespace CYBERNUKE.MVVM.View
         {
 
         }
+
+        private void Button_Up_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
