@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using CYBERNUKE.MVVM.View;
+using System.Windows.Navigation;
 using CYBERNUKE.MVVM.Model;
 
 namespace CYBERNUKE.MVVM.View
@@ -19,19 +19,17 @@ namespace CYBERNUKE.MVVM.View
     /// <summary>
     /// Interaction logic for CharacterView.xaml
     /// </summary>
-    public partial class CharacterView : Window
+    public partial class CharacterView : UserControl
     {
         List<Character> characterList = new List<Character>();
         public CharacterView()
         {
             InitializeComponent();
-            Loaded += (s, e) =>
-            {
-                Character0.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            };
 
             List<Character> CharacterList = new List<Character>();
-            CharacterList = ((MainWindow)Application.Current.MainWindow).CharacterList;
+            characterList = ((MainWindow)Application.Current.MainWindow).CharacterList;
+
+            Character0.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         private void Character0_Click(object sender, RoutedEventArgs e)

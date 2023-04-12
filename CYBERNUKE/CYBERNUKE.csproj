@@ -98,6 +98,7 @@
     <Compile Include="MVVM\Model\MeleeWeapon.cs" />
     <Compile Include="MVVM\Model\RangedWeapon.cs" />
     <Compile Include="MVVM\Model\Skill.cs" />
+    <Compile Include="MVVM\ViewModel\CharacterViewModel.cs" />
     <Compile Include="MVVM\ViewModel\CombatViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OverworldViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TownViewModel.cs" />
