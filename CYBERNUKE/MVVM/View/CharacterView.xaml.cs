@@ -227,7 +227,7 @@ namespace CYBERNUKE.MVVM.View
         private void CreateButton(Item item, Action<Item> buttonAction)
         {
             Button button = new Button();
-            button.Content = item.getName() + ": " + item.getDescription();
+            button.Content = item.getName();
             button.Command = new RelayCommand(param => buttonAction(item), o => true);
             EquipmentStackPanel.Children.Add(button);
         }
@@ -242,6 +242,7 @@ namespace CYBERNUKE.MVVM.View
         private void ChangeSelectedMeleeWeapon(Item item)
         {
             currentCharacter.setEquippedMeleeWeapon((MeleeWeapon)item);
+
         }
 
         // Sets current character's equipped ranged weapon to the passed item

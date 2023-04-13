@@ -42,8 +42,8 @@ namespace CYBERNUKE
             testWeapon.setDamage(700);
 
             MeleeWeapon testWeapon1 = new MeleeWeapon();
-            testWeapon.setName("Umbrella");
-            testWeapon.setDamage(3);
+            testWeapon1.setName("Umbrella");
+            testWeapon1.setDamage(3);
 
             EquipmentList.Add(testWeapon);
             EquipmentList.Add(testWeapon1);
