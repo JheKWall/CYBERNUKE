@@ -145,19 +145,19 @@ namespace CYBERNUKE.MVVM.View
             RangedWeaponTextBox.Text = "Ranged Weapon: " + characterList[3].getEquippedRangedWeapon();
         }
 
-        // Have to have or else build fails. Because the HP bar won't change while this View is open, don't need to code it.
+        // Have to have this or else build fails. Because the HP bar won't change while this View is open, don't need to code it.
         private void HPBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
         }
 
-        // Have to have or else build fails. Because the SP bar won't change while this View is open, don't need to code it.
+        // Have to have this or else build fails. Because the SP bar won't change while this View is open, don't need to code it.
         private void SPBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
         }
 
-        // Have to have or else build fails. Because the EXP bar won't change while this View is open, don't need to code it.
+        // Have to have this or else build fails. Because the EXP bar won't change while this View is open, don't need to code it.
         private void ExpBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
