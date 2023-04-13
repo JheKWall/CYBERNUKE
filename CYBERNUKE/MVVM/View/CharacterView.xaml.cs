@@ -350,19 +350,51 @@ namespace CYBERNUKE.MVVM.View
         private void ChangeSelectedOutfit(Item item)
         {
             currentCharacter.setEquippedOutfit((MainArmor)item);
+            OutfitTextBox.Text = "Outfit: " + item.getName();
         }
 
         // Sets current character's equipped Melee weapon to the passed item
         private void ChangeSelectedMeleeWeapon(Item item)
         {
             currentCharacter.setEquippedMeleeWeapon((MeleeWeapon)item);
-
+            MeleeWeaponTextBox.Text = "Melee Weapon: " + item.getName();
         }
 
         // Sets current character's equipped ranged weapon to the passed item
         private void ChangeSelectedRangedWeapon(Item item)
         {
             currentCharacter.setEquippedRangedWeapon((RangedWeapon)item);
+            RangedWeaponTextBox.Text = "Ranged Weapon: " + item.getName();
+        }
+
+        private void Character_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Skills_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Map_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Close_Menu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Options_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Exit_Game_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

@@ -37,6 +37,14 @@ namespace CYBERNUKE
             mainCharacter.setMaxSP(100);
             CharacterList.Add(mainCharacter);
 
+            MainArmor testArmor = new MainArmor();
+            testArmor.setName("Test Armor");
+            testArmor.setDefense(100);
+
+            MainArmor testArmor1 = new MainArmor();
+            testArmor1.setName("Test Armor 2");
+            testArmor1.setDefense(200);
+
             MeleeWeapon testWeapon = new MeleeWeapon();
             testWeapon.setName("Destroyer of Worlds");
             testWeapon.setDamage(700);
@@ -45,8 +53,20 @@ namespace CYBERNUKE
             testWeapon1.setName("Umbrella");
             testWeapon1.setDamage(3);
 
+            RangedWeapon testRangedWeapon = new RangedWeapon();
+            testRangedWeapon.setName("Test Ranged Weapon");
+            testRangedWeapon.setDamage(100);
+
+            RangedWeapon testRangedWeapon1 = new RangedWeapon();
+            testRangedWeapon1.setName("Test Ranged Weapon 2");
+            testRangedWeapon1.setDamage(200);
+
             EquipmentList.Add(testWeapon);
             EquipmentList.Add(testWeapon1);
+            EquipmentList.Add(testArmor);
+            EquipmentList.Add(testArmor1);
+            EquipmentList.Add(testRangedWeapon);
+            EquipmentList.Add(testRangedWeapon1);
 
         }
     }

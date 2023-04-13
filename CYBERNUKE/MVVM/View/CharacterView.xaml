@@ -33,12 +33,12 @@
             </Button>
         </UniformGrid>
         <StackPanel Grid.Column="3" x:Name="MenuButtons">
-            <Button x:Name="Character" Height="50" Margin="10" Content="Character"/>
-            <Button x:Name="Skills" Height="50" Margin="10" Content="Skills"/>
-            <Button x:Name="Map" Height="50" Margin="10" Content="Map"/>
-            <Button x:Name="Close_Menu" Height="50" Margin="10" Content="Close Menu"/>
-            <Button x:Name="Options" Height="50" Margin="10" Content="Options"/>
-            <Button x:Name="Exit_Game" Height="50" Margin="10" Content="Exit Game"/>
+            <Button x:Name="Character" Height="50" Margin="10" Content="Character" Click="Character_Click"/>
+            <Button x:Name="Skills" Height="50" Margin="10" Content="Skills" Click="Skills_Click"/>
+            <Button x:Name="Map" Height="50" Margin="10" Content="Map" Click="Map_Click"/>
+            <Button x:Name="Close_Menu" Height="50" Margin="10" Content="Close Menu" Click="Close_Menu_Click"/>
+            <Button x:Name="Options" Height="50" Margin="10" Content="Options" Click="Options_Click"/>
+            <Button x:Name="Exit_Game" Height="50" Margin="10" Content="Exit Game" Click="Exit_Game_Click"/>
         </StackPanel>
         <TextBlock x:Name="charName" Grid.Column="1" Margin="32,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Text="Name: Insert Name Here" HorizontalAlignment="Left" Width="237"/>
         <ProgressBar x:Name="HPBar"  Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="294,8,0,0" VerticalAlignment="Top" Width="140" ValueChanged="HPBar_ValueChanged"/>
