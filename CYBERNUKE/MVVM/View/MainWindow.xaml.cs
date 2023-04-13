@@ -23,6 +23,7 @@ namespace CYBERNUKE
     public partial class MainWindow : Window
     {
         public string enemyPartyName = "LesserZombieHorde";
+        public string mapToLoad = "Backstreets1";
 
         public MainWindow()
         {

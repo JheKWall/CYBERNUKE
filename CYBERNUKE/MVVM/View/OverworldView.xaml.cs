@@ -22,42 +22,48 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class OverworldView : UserControl
     {
+        string mapToLoad;
+
         public OverworldView()
         {
             InitializeComponent();
             ScaleText();
+
+            // Gets map to load from main window.
+            mapToLoad = ((MainWindow)Application.Current.MainWindow).mapToLoad;
+            Read_Map_Data(mapToLoad);
+        }
+
+        //Private method for reading in map data from a map txt file
+        private void Read_Map_Data(string map)
+        {
+
         }
 
         private void Button_Menu_Click(object sender, RoutedEventArgs e)
         {
             // Open Pause Menu
         }
-
         private void Button_Up_Click(object sender, RoutedEventArgs e)
         {
             // Go Up on map
         }
-
         private void Button_Left_Click(object sender, RoutedEventArgs e)
         {
             // Go Left on map
         }
-
         private void Button_Interact_Click(object sender, RoutedEventArgs e)
         {
             // Interact with current spot on map
         }
-
         private void Button_Right_Click(object sender, RoutedEventArgs e)
         {
             // Go Right on map
         }
-
         private void Button_Down_Click(object sender, RoutedEventArgs e)
         {
             // Go Down on map
         }
-
         private void Button_Map_Click(object sender, RoutedEventArgs e)
         {
             // Open local map

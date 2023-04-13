@@ -38,8 +38,18 @@
             <Setter Property="Foreground" Value="#f0f0f0"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#Unifont"/>
-            <Setter Property="FontWeight" Value="Light"/>
             <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
+        </Style>
+        
+        <!-- Map Display Location TextBox -->
+        <Style x:Key="MapDisplay_Location_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="#f0f0f0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Padding" Value="5,0,0,0"/>
         </Style>
 
     </UserControl.Resources>
@@ -98,6 +108,8 @@
             <TextBlock x:Name="MapDisplay_Text" Style="{StaticResource MapDisplay_TextBlock}" TextAlignment="Center" VerticalAlignment="Center"
                        Text="⬛⬛⬛⬛⬛⬛⬛⛶⬛⬛⬛⬛⬛⬛⬛&#x0a;⬛⬜⬜⬜⛹⬜⬜⬜⬜⬜⛹⬜⬜⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜☢⬜⬜⬜⬜❕⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜❕⬜⬛&#x0a;⬛⬜　　⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛&#x0a;⬛⬛⬛⬛⬛⬛⬛☖⬛⬛⬛⬛⬛⬛⬛"/>
         </Grid>
+        <TextBlock x:Name="MapDisplay_Location" Style="{StaticResource MapDisplay_Location_TextBlock}" Grid.Row="19" Grid.Column="13"
+                   Text="Backstreets"/>
 
         <!-- Player Boxes -->
         <StackPanel x:Name="PlayerBox_Panel" Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="11"/>
