@@ -35,13 +35,10 @@ namespace CYBERNUKE.MVVM.View
         {
             InitializeComponent();
 
-            List<Character> CharacterList = new List<Character>();
             characterList = ((MainWindow)Application.Current.MainWindow).CharacterList;
 
-            List<Item> EquipmentList = new List<Item>();
             equipmentList = ((MainWindow)Application.Current.MainWindow).EquipmentList;
 
-            List<Item> ConsumableList = new List<Item>();
             consumableList = ((MainWindow)Application.Current.MainWindow).ConsumableList;
 
             Character0.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
@@ -82,9 +79,36 @@ namespace CYBERNUKE.MVVM.View
             EnduranceTextBox.Text = "Endurance " + characterList[0].getStatEndurance();
             IntelligenceTextBox.Text = "Intelligence: " + characterList[0].getStatIntelligence();
 
-            OutfitTextBox.Text = "Outfit: " + characterList[0].getEquippedOutfit();
-            MeleeWeaponTextBox.Text = "Melee Weapon: " + characterList[0].getEquippedMeleeWeapon();
-            RangedWeaponTextBox.Text = "Ranged Weapon: " + characterList[0].getEquippedRangedWeapon();
+            OutfitTextBox.Text = "Outfit: ";
+            if (characterList[0].getEquippedOutfit() != null)
+            {
+                OutfitTextBox.Text += characterList[0].getEquippedOutfit().getName();
+            }
+            else
+            {
+                OutfitTextBox.Text += "None";
+            }
+
+            MeleeWeaponTextBox.Text = "Melee Weapon: ";
+            if (characterList[0].getEquippedMeleeWeapon() != null)
+            {
+                MeleeWeaponTextBox.Text += characterList[0].getEquippedMeleeWeapon().getName();
+            }
+            else
+            {
+                MeleeWeaponTextBox.Text += "None";
+            }
+
+            RangedWeaponTextBox.Text = "Ranged Weapon: ";
+            if (characterList[0].getEquippedRangedWeapon() != null)
+            {
+                RangedWeaponTextBox.Text += characterList[0].getEquippedRangedWeapon().getName();
+            }
+            else
+            {
+                RangedWeaponTextBox.Text += "None";
+            }
+            
 
             currentCharacter = characterList[0];
         }
@@ -108,9 +132,35 @@ namespace CYBERNUKE.MVVM.View
             EnduranceTextBox.Text = "Endurance " + characterList[1].getStatEndurance();
             IntelligenceTextBox.Text = "Intelligence: " + characterList[1].getStatIntelligence();
 
-            OutfitTextBox.Text = "Outfit: " + characterList[1].getEquippedOutfit();
-            MeleeWeaponTextBox.Text = "Melee Weapon: " + characterList[1].getEquippedMeleeWeapon();
-            RangedWeaponTextBox.Text = "Ranged Weapon: " + characterList[1].getEquippedRangedWeapon();
+            OutfitTextBox.Text = "Outfit: ";
+            if (characterList[1].getEquippedOutfit() != null)
+            {
+                OutfitTextBox.Text += characterList[1].getEquippedOutfit().getName();
+            }
+            else
+            {
+                OutfitTextBox.Text += "None";
+            }
+
+            MeleeWeaponTextBox.Text = "Melee Weapon: ";
+            if (characterList[1].getEquippedMeleeWeapon() != null)
+            {
+                MeleeWeaponTextBox.Text += characterList[1].getEquippedMeleeWeapon().getName();
+            }
+            else
+            {
+                MeleeWeaponTextBox.Text += "None";
+            }
+
+            RangedWeaponTextBox.Text = "Ranged Weapon: ";
+            if (characterList[1].getEquippedRangedWeapon() != null)
+            {
+                RangedWeaponTextBox.Text += characterList[1].getEquippedRangedWeapon().getName();
+            }
+            else
+            {
+                RangedWeaponTextBox.Text += "None";
+            }
 
             currentCharacter = characterList[1];
         }
@@ -134,9 +184,35 @@ namespace CYBERNUKE.MVVM.View
             EnduranceTextBox.Text = "Endurance " + characterList[2].getStatEndurance();
             IntelligenceTextBox.Text = "Intelligence: " + characterList[2].getStatIntelligence();
 
-            OutfitTextBox.Text = "Outfit: " + characterList[2].getEquippedOutfit();
-            MeleeWeaponTextBox.Text = "Melee Weapon: " + characterList[2].getEquippedMeleeWeapon();
-            RangedWeaponTextBox.Text = "Ranged Weapon: " + characterList[2].getEquippedRangedWeapon();
+            OutfitTextBox.Text = "Outfit: ";
+            if (characterList[2].getEquippedOutfit() != null)
+            {
+                OutfitTextBox.Text += characterList[2].getEquippedOutfit().getName();
+            }
+            else
+            {
+                OutfitTextBox.Text += "None";
+            }
+
+            MeleeWeaponTextBox.Text = "Melee Weapon: ";
+            if (characterList[2].getEquippedMeleeWeapon() != null)
+            {
+                MeleeWeaponTextBox.Text += characterList[2].getEquippedMeleeWeapon().getName();
+            }
+            else
+            {
+                MeleeWeaponTextBox.Text += "None";
+            }
+
+            RangedWeaponTextBox.Text = "Ranged Weapon: ";
+            if (characterList[2].getEquippedRangedWeapon() != null)
+            {
+                RangedWeaponTextBox.Text += characterList[2].getEquippedRangedWeapon().getName();
+            }
+            else
+            {
+                RangedWeaponTextBox.Text += "None";
+            }
 
             currentCharacter = characterList[2];
         }
@@ -160,9 +236,35 @@ namespace CYBERNUKE.MVVM.View
             EnduranceTextBox.Text = "Endurance " + characterList[3].getStatEndurance();
             IntelligenceTextBox.Text = "Intelligence: " + characterList[3].getStatIntelligence();
 
-            OutfitTextBox.Text = "Outfit: " + characterList[3].getEquippedOutfit();
-            MeleeWeaponTextBox.Text = "Melee Weapon: " + characterList[3].getEquippedMeleeWeapon();
-            RangedWeaponTextBox.Text = "Ranged Weapon: " + characterList[3].getEquippedRangedWeapon();
+            OutfitTextBox.Text = "Outfit: ";
+            if (characterList[3].getEquippedOutfit() != null)
+            {
+                OutfitTextBox.Text += characterList[0].getEquippedOutfit().getName();
+            }
+            else
+            {
+                OutfitTextBox.Text += "None";
+            }
+
+            MeleeWeaponTextBox.Text = "Melee Weapon: ";
+            if (characterList[3].getEquippedMeleeWeapon() != null)
+            {
+                MeleeWeaponTextBox.Text += characterList[3].getEquippedMeleeWeapon().getName();
+            }
+            else
+            {
+                MeleeWeaponTextBox.Text += "None";
+            }
+
+            RangedWeaponTextBox.Text = "Ranged Weapon: ";
+            if (characterList[3].getEquippedRangedWeapon() != null)
+            {
+                RangedWeaponTextBox.Text += characterList[3].getEquippedRangedWeapon().getName();
+            }
+            else
+            {
+                RangedWeaponTextBox.Text += "None";
+            }
 
             currentCharacter = characterList[3];
         }
