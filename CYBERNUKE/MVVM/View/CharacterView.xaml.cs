@@ -66,6 +66,9 @@ namespace CYBERNUKE.MVVM.View
         // On click, inserts data from first character into appropriate textboxes.
         private void Character0_Click(object sender, RoutedEventArgs e)
         {
+            EquipmentStackPanel.Children.Clear(); // Clear equipment change children
+            EquipmentStackPanel.Visibility = Visibility.Collapsed; // Collapses stack panel
+
             charName.Text = "Name: " + characterList[0].getName(); // Name: <Enter Name Here>
 
             HPBar.Maximum = characterList[0].getMaxHP();
@@ -89,6 +92,9 @@ namespace CYBERNUKE.MVVM.View
         // On click, inserts data from second character into appropriate textboxes.
         private void Character1_Click(object sender, RoutedEventArgs e)
         {
+            EquipmentStackPanel.Children.Clear(); // Clear equipment change children
+            EquipmentStackPanel.Visibility = Visibility.Collapsed; // Collapses stack panel
+
             charName.Text = "Name: " + characterList[1].getName(); // Name: <Enter Name Here>
 
             HPBar.Maximum = characterList[1].getMaxHP();
@@ -112,6 +118,9 @@ namespace CYBERNUKE.MVVM.View
         // On click, inserts data from third character into appropriate textboxes
         private void Character2_Click(object sender, RoutedEventArgs e)
         {
+            EquipmentStackPanel.Children.Clear(); // Clear equipment change children
+            EquipmentStackPanel.Visibility = Visibility.Collapsed; // Collapses stack panel
+
             charName.Text = "Name: " + characterList[2].getName(); // Name: <Enter Name Here>
 
             HPBar.Maximum = characterList[2].getMaxHP();
@@ -135,6 +144,9 @@ namespace CYBERNUKE.MVVM.View
         // On click, inserts data from fourth character into appropriate textboxes.
         private void Character3_Click(object sender, RoutedEventArgs e)
         {
+            EquipmentStackPanel.Children.Clear(); // Clear equipment change children
+            EquipmentStackPanel.Visibility = Visibility.Collapsed; // Collapses stack panel
+
             charName.Text = "Name: " + characterList[3].getName(); // Name: <Enter Name Here>
 
             HPBar.Maximum = characterList[3].getMaxHP();
