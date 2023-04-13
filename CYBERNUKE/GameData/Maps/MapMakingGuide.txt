@@ -8,12 +8,36 @@ Interactable Object	- ❕
 Empty Space			- (　)
 Newline				- &#x0a;
 
+//Map name is the map's name (displayed on overworld view)
+//Map width/height is the max width and height for the map array
+//Min and max encounter chance is the randomized chance for enemy encounters
+//Locations is for map teleports and town entry
+//Npcs is for interactable npcs
+//Objects is for interactable objects
+
 Map variables declared in this order (spacing and newlines included):
-MAP_WIDTH MAP_HEIGHT 
-MIN_ENCOUNTER_CHANCE MAX_ENCOUNTER_CHANCE
-//LOCATION_AMOUNTS LOCATION1: X,Y LOCATION2: X,Y etc etc (?)
-//TODO: Locations for Town Gates
-//TODO: Locations for NPCs
-//TODO: Locations for Objects
-//TODO: Get all of these to somehow interact with player
-MAP_DATA
+1. MAP_NAME
+2. MAP_WIDTH MAP_HEIGHT 
+3. MIN_ENCOUNTER_CHANCE MAX_ENCOUNTER_CHANCE
+4. AMOUNT_LOCATIONS X Y
+//AMOUNT_LOCATIONS LOCATION1: X,Y LOCATION2: X,Y etc etc (?)
+5. AMOUNT_NPCS
+6. AMOUNT_OBJECTS
+7. MAP_DATA
+
+//Need a way to set start location
+// needs to know previous map/town and spawn in a set location based on that
+// Solution: global value for current map, check against next map's set spawns
+//  and use an if statement to set spawn dynamically.
+//Need a way to store object/npc data
+// and need to be able to run event when interacting with object/npc
+
+//Need a way in OverworldView to load maps when switching maps and 
+// switch to town view
+
+Exam 3:
+AGILE
+USER STORY
+DESIGN PATTERNS
+READINGS (EXAM3)
+FERPA

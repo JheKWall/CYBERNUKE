@@ -24,6 +24,7 @@ namespace CYBERNUKE.MVVM.View
     {
         string mapToLoad;
 
+
         public OverworldView()
         {
             InitializeComponent();

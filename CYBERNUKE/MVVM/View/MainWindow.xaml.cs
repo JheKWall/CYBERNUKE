@@ -24,6 +24,9 @@ namespace CYBERNUKE
     {
         public string enemyPartyName = "LesserZombieHorde";
         public string mapToLoad = "Backstreets1";
+        public string currentMap = "Town1";
+        public string townToLoad = "";
+        public string currentTown = "";
 
         public MainWindow()
         {
