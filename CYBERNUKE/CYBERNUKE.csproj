@@ -306,5 +306,8 @@
   <ItemGroup>
     <Resource Include="GameData\Maps\MapMakingGuide.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Credits.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
