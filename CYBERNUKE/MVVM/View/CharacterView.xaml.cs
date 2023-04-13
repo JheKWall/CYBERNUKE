@@ -229,16 +229,19 @@ namespace CYBERNUKE.MVVM.View
             EquipmentStackPanel.Children.Add(button);
         }
 
+        // Sets current character's equipped outfit to the passed item
         private void ChangeSelectedOutfit(Item item)
         {
             currentCharacter.setEquippedOutfit((MainArmor)item);
         }
 
+        // Sets current character's equipped Melee weapon to the passed item
         private void ChangeSelectedMeleeWeapon(Item item)
         {
             currentCharacter.setEquippedMeleeWeapon((MeleeWeapon)item);
         }
 
+        // Sets current character's equipped ranged weapon to the passed item
         private void ChangeSelectedRangedWeapon(Item item)
         {
             currentCharacter.setEquippedRangedWeapon((RangedWeapon)item);
