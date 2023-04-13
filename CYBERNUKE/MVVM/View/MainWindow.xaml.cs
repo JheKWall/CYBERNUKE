@@ -24,6 +24,8 @@ namespace CYBERNUKE
     public partial class MainWindow : Window
     {
         public List<Character> CharacterList = new List<Character>();
+        public List<Item> EquipmentList = new List<Item>();
+        public List<Item> ConsumableList = new List<Item>();
 
         public MainWindow()
         {

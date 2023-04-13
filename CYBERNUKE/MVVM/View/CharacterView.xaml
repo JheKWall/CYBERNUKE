@@ -56,9 +56,9 @@
         <TextBlock x:Name="OutfitTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="32,436,0,0" TextWrapping="Wrap" Text="Outfit: None" VerticalAlignment="Top" Height="30" Width="317" FontSize="20"/>
         <TextBlock x:Name="MeleeWeaponTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="32,500,0,0" TextWrapping="Wrap" Text="Melee Weapon: None" VerticalAlignment="Top" Height="30" Width="317" FontSize="20"/>
         <TextBlock x:Name="RangedWeaponTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="32,564,0,0" TextWrapping="Wrap" Text="Ranged Weapon: None" VerticalAlignment="Top" Height="30" Width="317" FontSize="20"/>
-        <Button Grid.Column="1" x:Name="OutfitChangeButton" Content="Change" HorizontalAlignment="Left" Margin="354,441,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Column="1" x:Name="MeleeWeaponChangeButton" Content="Change" HorizontalAlignment="Left" Margin="354,505,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Column="1" x:Name="RangedWeaponChangeButton" Content="Change" HorizontalAlignment="Left" Margin="354,569,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="1" x:Name="OutfitChangeButton" Content="Change" HorizontalAlignment="Left" Margin="354,441,0,0" VerticalAlignment="Top" Click="OutfitChangeButton_Click"/>
+        <Button Grid.Column="1" x:Name="MeleeWeaponChangeButton" Content="Change" HorizontalAlignment="Left" Margin="354,505,0,0" VerticalAlignment="Top" Click="MeleeWeaponChangeButton_Click"/>
+        <Button Grid.Column="1" x:Name="RangedWeaponChangeButton" Content="Change" HorizontalAlignment="Left" Margin="354,569,0,0" VerticalAlignment="Top" Click="RangedWeaponChangeButton_Click"/>
         <ListView Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="20" Visibility="Hidden">
             <ListView.View>
                 <GridView>
@@ -66,5 +66,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <StackPanel x:Name="EquipmentStackPanel" Grid.Column="2" Visibility="Collapsed"/>
     </Grid>
 </UserControl>
