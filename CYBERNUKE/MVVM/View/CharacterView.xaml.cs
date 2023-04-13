@@ -394,6 +394,7 @@ namespace CYBERNUKE.MVVM.View
 
         private void Exit_Game_Click(object sender, RoutedEventArgs e)
         {
+            // future plan to have a prompt show up. For now, it does at it says.
             System.Windows.Application.Current.Shutdown();
         }
     }
