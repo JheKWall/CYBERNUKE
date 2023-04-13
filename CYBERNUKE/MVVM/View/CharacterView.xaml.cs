@@ -28,7 +28,7 @@ namespace CYBERNUKE.MVVM.View
 
         // On load, set the character list to the list of characters in the main window
         // and set the equipment and consumable lists to the lists in the main window
-        // Then, hide the buttons for characters that don't exist
+        // Then, hide the buttons for characters that don't exist to prevent errors and crashes.
         public CharacterView()
         {
             InitializeComponent();
@@ -168,12 +168,12 @@ namespace CYBERNUKE.MVVM.View
         {
             EquipmentStackPanel.Visibility = Visibility.Visible;
             
-            // Dynamically add buttons to EquipmentStackPanel
+            // Loop through each appropriate item and dynamically add equipment-switch buttons to EquipmentStackPanel
             foreach (Item i in equipmentList) 
             {
                 if(i is MainArmor)
                 {
-                    CreateArmorButton((MainArmor)i, ChangeSelectedOutfit);
+                    CreateButton((MainArmor)i, ChangeSelectedOutfit);
                 }
             }
         }
@@ -181,17 +181,37 @@ namespace CYBERNUKE.MVVM.View
         // On click, opens a side "panel" where available equipment options are available in the form of buttons for the player to click and equip.
         private void MeleeWeaponChangeButton_Click(object sender, RoutedEventArgs e)
         {
+            EquipmentStackPanel.Visibility = Visibility.Visible;
 
+            // Loop through each appropriate item and dynamically add equipment-switch buttons to EquipmentStackPanel
+            foreach (Item i in equipmentList)
+            {
+                if (i is MeleeWeapon)
+                {
+                    CreateButton((MeleeWeapon)i, ChangeSelectedMeleeWeapon);
+                }
+            }
         }
 
         // On click, opens a side "panel" where available equipment options are available in the form of buttons for the player to click and equip.
         private void RangedWeaponChangeButton_Click(object sender, RoutedEventArgs e)
         {
+            EquipmentStackPanel.Visibility = Visibility.Visible;
 
+            // Loop through each appropriate item and dynamically add equipment-switch buttons to EquipmentStackPanel
+            foreach (Item i in equipmentList)
+            {
+                if (i is RangedWeapon)
+                {
+                    CreateButton((RangedWeapon)i, ChangeSelectedRangedWeapon);
+                }
+            }
         }
 
-        // Used to populate EquipmentStackPanel with dynamically-generated buttons
-        private void CreateArmorButton(Item item, Action<Item> buttonAction)
+        // Used to populate EquipmentStackPanel with dynamically-generated buttons, 
+        // and the button commands depend on the argued function.
+        // Each xChangeButton_Click button will do a different argued function
+        private void CreateButton(Item item, Action<Item> buttonAction)
         {
             Button button = new Button();
             button.Content = item.getName() + ": " + item.getDescription();
