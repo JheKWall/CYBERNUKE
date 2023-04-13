@@ -96,7 +96,7 @@
         <!-- 2D Map Display Col-13, Row-0 -->
         <Grid Grid.Row="0" Grid.RowSpan="19" Grid.Column="13">
             <TextBlock x:Name="MapDisplay_Text" Style="{StaticResource MapDisplay_TextBlock}" TextAlignment="Center" VerticalAlignment="Center"
-                       Text="⬛⬛⬛⬛⬛⬛⬛⛶⬛⬛⬛⬛⬛⬛⬛&#x0a;⬛⬜⬜⬜⛹⬜⬜⬜⬜⬜⛹⬜⬜⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜☢⬜⬜⬜⬜❕⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜❕⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛&#x0a;⬛⬛⬛⬛⬛⬛⬛☖⬛⬛⬛⬛⬛⬛⬛"/>
+                       Text="⬛⬛⬛⬛⬛⬛⬛⛶⬛⬛⬛⬛⬛⬛⬛&#x0a;⬛⬜⬜⬜⛹⬜⬜⬜⬜⬜⛹⬜⬜⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜☢⬜⬜⬜⬜❕⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜❕⬜⬛&#x0a;⬛⬜　　⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛&#x0a;⬛⬛⬛⬛⬛⬛⬛☖⬛⬛⬛⬛⬛⬛⬛"/>
         </Grid>
 
         <!-- Player Boxes -->

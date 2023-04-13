@@ -5,6 +5,7 @@ Player Tile			- ☯
 Town Entrance		- ☖
 NPC					- ⛹
 Interactable Object	- ❕
+Empty Space			- (　)
 Newline				- &#x0a;
 
 Map variables declared in this order (spacing and newlines included):
