@@ -235,6 +235,9 @@
   <data name="OverworldMenu_PlayerBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\images\overworldmenu\overworldmenu_playerbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="unifont_15_0_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\fonts\unifont-15.0.01.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Unispace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\unispace.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

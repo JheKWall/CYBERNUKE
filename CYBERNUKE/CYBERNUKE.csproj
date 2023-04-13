@@ -186,6 +186,9 @@
     <Resource Include="GameData\Fonts\Unispace.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="GameData\Fonts\unifont-15.0.01.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -216,7 +219,6 @@
     <Folder Include="GameData\Items\Consumables\" />
     <Folder Include="GameData\Items\Quest\" />
     <Folder Include="GameData\Items\Weapons\" />
-    <Folder Include="GameData\Maps\" />
     <Folder Include="GameData\Towns\" />
     <Folder Include="MVVM\Model\" />
   </ItemGroup>
@@ -297,6 +299,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_PlayerBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Maps\TestMap.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Maps\MapMakingGuide.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

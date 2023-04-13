@@ -479,6 +479,16 @@ namespace CYBERNUKE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] unifont_15_0_01 {
+            get {
+                object obj = ResourceManager.GetObject("unifont_15_0_01", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Unispace {
             get {
                 object obj = ResourceManager.GetObject("Unispace", resourceCulture);

@@ -1,0 +1,18 @@
+﻿Wall Tile			- ⬛
+Floor Tile			- ⬜
+Door Tile			- ⛶
+Player Tile			- ☯
+Town Entrance		- ☖
+NPC					- ⛹
+Interactable Object	- ❕
+Newline				- &#x0a;
+
+Map variables declared in this order (spacing and newlines included):
+MAP_WIDTH MAP_HEIGHT 
+MIN_ENCOUNTER_CHANCE MAX_ENCOUNTER_CHANCE
+//LOCATION_AMOUNTS LOCATION1: X,Y LOCATION2: X,Y etc etc (?)
+//TODO: Locations for Town Gates
+//TODO: Locations for NPCs
+//TODO: Locations for Objects
+//TODO: Get all of these to somehow interact with player
+MAP_DATA
