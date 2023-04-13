@@ -176,6 +176,7 @@ namespace CYBERNUKE.MVVM.View
         // On click, opens a side "panel" where available equipment options are available in the form of buttons for the player to click and equip.
         private void OutfitChangeButton_Click(object sender, RoutedEventArgs e)
         {
+            EquipmentStackPanel.Children.Clear(); // clears any previous buttons. Prevents infinite buttons from being generated and clears the space
             EquipmentStackPanel.Visibility = Visibility.Visible;
             
             // Loop through each appropriate item and dynamically add equipment-switch buttons to EquipmentStackPanel
@@ -191,6 +192,7 @@ namespace CYBERNUKE.MVVM.View
         // On click, opens a side "panel" where available equipment options are available in the form of buttons for the player to click and equip.
         private void MeleeWeaponChangeButton_Click(object sender, RoutedEventArgs e)
         {
+            EquipmentStackPanel.Children.Clear(); // clears any previous buttons. Prevents infinite buttons from being generated and clears the space
             EquipmentStackPanel.Visibility = Visibility.Visible;
 
             // Loop through each appropriate item and dynamically add equipment-switch buttons to EquipmentStackPanel
@@ -206,6 +208,7 @@ namespace CYBERNUKE.MVVM.View
         // On click, opens a side "panel" where available equipment options are available in the form of buttons for the player to click and equip.
         private void RangedWeaponChangeButton_Click(object sender, RoutedEventArgs e)
         {
+            EquipmentStackPanel.Children.Clear(); // clears any previous buttons. Prevents infinite buttons from being generated and clears the space
             EquipmentStackPanel.Visibility = Visibility.Visible;
 
             // Loop through each appropriate item and dynamically add equipment-switch buttons to EquipmentStackPanel
