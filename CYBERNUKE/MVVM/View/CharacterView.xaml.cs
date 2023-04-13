@@ -30,6 +30,22 @@ namespace CYBERNUKE.MVVM.View
             characterList = ((MainWindow)Application.Current.MainWindow).CharacterList;
 
             Character0.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+
+            if (characterList.Count == 1)
+            {
+                Character1.Visibility = Visibility.Hidden;
+                Character2.Visibility = Visibility.Hidden;
+                Character3.Visibility = Visibility.Hidden;
+            }
+            else if (characterList.Count == 2)
+            {
+                Character2.Visibility = Visibility.Hidden;
+                Character3.Visibility = Visibility.Hidden;
+            }
+            else if (characterList.Count == 3)
+            {
+                Character3.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Character0_Click(object sender, RoutedEventArgs e)
