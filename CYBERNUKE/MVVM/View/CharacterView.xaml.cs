@@ -26,6 +26,8 @@ namespace CYBERNUKE.MVVM.View
         List<Item> equipmentList = new List<Item>();
         List<Item> consumableList = new List<Item>();
 
+        Character currentCharacter = null;
+
         // On load, set the character list to the list of characters in the main window
         // and set the equipment and consumable lists to the lists in the main window
         // Then, hide the buttons for characters that don't exist to prevent errors and crashes.
@@ -80,6 +82,8 @@ namespace CYBERNUKE.MVVM.View
             OutfitTextBox.Text = "Outfit: " + characterList[0].getEquippedOutfit();
             MeleeWeaponTextBox.Text = "Melee Weapon: " + characterList[0].getEquippedMeleeWeapon();
             RangedWeaponTextBox.Text = "Ranged Weapon: " + characterList[0].getEquippedRangedWeapon();
+
+            currentCharacter = characterList[0];
         }
 
         // On click, inserts data from second character into appropriate textboxes.
@@ -101,6 +105,8 @@ namespace CYBERNUKE.MVVM.View
             OutfitTextBox.Text = "Outfit: " + characterList[1].getEquippedOutfit();
             MeleeWeaponTextBox.Text = "Melee Weapon: " + characterList[1].getEquippedMeleeWeapon();
             RangedWeaponTextBox.Text = "Ranged Weapon: " + characterList[1].getEquippedRangedWeapon();
+
+            currentCharacter = characterList[1];
         }
 
         // On click, inserts data from third character into appropriate textboxes
@@ -122,6 +128,8 @@ namespace CYBERNUKE.MVVM.View
             OutfitTextBox.Text = "Outfit: " + characterList[2].getEquippedOutfit();
             MeleeWeaponTextBox.Text = "Melee Weapon: " + characterList[2].getEquippedMeleeWeapon();
             RangedWeaponTextBox.Text = "Ranged Weapon: " + characterList[2].getEquippedRangedWeapon();
+
+            currentCharacter = characterList[2];
         }
 
         // On click, inserts data from fourth character into appropriate textboxes.
@@ -143,6 +151,8 @@ namespace CYBERNUKE.MVVM.View
             OutfitTextBox.Text = "Outfit: " + characterList[3].getEquippedOutfit();
             MeleeWeaponTextBox.Text = "Melee Weapon: " + characterList[3].getEquippedMeleeWeapon();
             RangedWeaponTextBox.Text = "Ranged Weapon: " + characterList[3].getEquippedRangedWeapon();
+
+            currentCharacter = characterList[3];
         }
 
         // Have to have this or else build fails. Because the HP bar won't change while this View is open, don't need to code it.
@@ -221,17 +231,17 @@ namespace CYBERNUKE.MVVM.View
 
         private void ChangeSelectedOutfit(Item item)
         {
-
+            currentCharacter.setEquippedOutfit((MainArmor)item);
         }
 
         private void ChangeSelectedMeleeWeapon(Item item)
         {
-
+            currentCharacter.setEquippedMeleeWeapon((MeleeWeapon)item);
         }
 
         private void ChangeSelectedRangedWeapon(Item item)
         {
-
+            currentCharacter.setEquippedRangedWeapon((RangedWeapon)item);
         }
     }
 }
