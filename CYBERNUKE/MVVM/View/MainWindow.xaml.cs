@@ -36,6 +36,18 @@ namespace CYBERNUKE
             mainCharacter.setMaxHP(500);
             mainCharacter.setMaxSP(100);
             CharacterList.Add(mainCharacter);
+
+            MeleeWeapon testWeapon = new MeleeWeapon();
+            testWeapon.setName("Destroyer of Worlds");
+            testWeapon.setDamage(700);
+
+            MeleeWeapon testWeapon1 = new MeleeWeapon();
+            testWeapon.setName("Umbrella");
+            testWeapon.setDamage(3);
+
+            EquipmentList.Add(testWeapon);
+            EquipmentList.Add(testWeapon1);
+
         }
     }
 }
