@@ -37,6 +37,8 @@ namespace CYBERNUKE
             mainCharacter.setMaxSP(100);
             CharacterList.Add(mainCharacter);
 
+            // The rest of this stuff is for testing
+
             MainArmor testArmor = new MainArmor();
             testArmor.setName("Test Armor");
             testArmor.setDefense(100);

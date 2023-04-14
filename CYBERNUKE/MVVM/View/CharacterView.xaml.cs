@@ -26,6 +26,11 @@ namespace CYBERNUKE.MVVM.View
         List<Item> equipmentList = new List<Item>();
         List<Item> consumableList = new List<Item>();
 
+        // Going to be used for the options menu
+        readonly double[] ListResolutionWidth = new double[3] { 1366, 1600, 1920 };
+        readonly double[] ListResolutionHeight = new double[3] { 768, 900, 1080 };
+        int ResolutionIndex;
+
         Character currentCharacter = null;
 
         // On load, set the character list to the list of characters in the main window
@@ -372,11 +377,6 @@ namespace CYBERNUKE.MVVM.View
 
         }
 
-        private void Skills_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Map_Click(object sender, RoutedEventArgs e)
         {
 
@@ -387,15 +387,99 @@ namespace CYBERNUKE.MVVM.View
 
         }
 
+        // Options CharacterView Button
         private void Options_Click(object sender, RoutedEventArgs e)
         {
+            CharacterView_OptionsMenu.Visibility = Visibility.Visible;
+        }
 
+        private void OptionsMenu_Resolution_ButtonLeft_Click(object sender, RoutedEventArgs e)
+        {
+            if (ResolutionIndex > 0)
+            {
+                ResolutionIndex--;
+                UpdateScreenResolution(ListResolutionWidth[ResolutionIndex], ListResolutionHeight[ResolutionIndex]);
+            }
+        }
+
+        private void OptionsMenu_Resolution_ButtonRight_Click(object sender, RoutedEventArgs e)
+        {
+            if (ResolutionIndex < 2)
+            {
+                ResolutionIndex++;
+                UpdateScreenResolution(ListResolutionWidth[ResolutionIndex], ListResolutionHeight[ResolutionIndex]);
+            }
+        }
+
+        // Options Menu: Fullscreen/Windowed Button
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            //Updates User Setting
+            Properties.Settings.Default.UserIsFullScreen = true;
+
+            //Fullscreens the game
+            Application.Current.MainWindow.WindowStyle = WindowStyle.None;
+            Application.Current.MainWindow.WindowState = WindowState.Maximized;
+
+            //Updates resolution (updates to your screen's max resolution since its fullscreen)
+            UpdateScreenResolution(System.Windows.SystemParameters.PrimaryScreenWidth, System.Windows.SystemParameters.PrimaryScreenHeight);
+        }
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            //Updates User Setting
+            Properties.Settings.Default.UserIsFullScreen = false;
+
+            //Windows the game
+            Application.Current.MainWindow.WindowStyle = WindowStyle.SingleBorderWindow;
+            Application.Current.MainWindow.WindowState = WindowState.Normal;
+
+            //Updates resolution (updates to current resolution after it windows)
+            UpdateScreenResolution(Application.Current.MainWindow.Width, Application.Current.MainWindow.Height);
+        }
+
+        // Options Menu: Back Button
+        private void OptionsMenu_BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Hide Options Menu
+            CharacterView_OptionsMenu.Visibility = Visibility.Hidden;
+        }
+
+
+        // Exit Button
+
+        private void ExitPrompt_YesButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Quit Game
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        private void ExitPrompt_NoButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Hide Exit Prompt
+            CharacterView_ExitPrompt.Visibility = Visibility.Hidden;
+        }
+
+
+        // Call to update screen resolution
+        private void UpdateScreenResolution(double ResolutionWidth, double ResolutionHeight)
+        {
+            //Changes resolution
+            Application.Current.MainWindow.Width = ResolutionWidth;
+            Application.Current.MainWindow.Height = ResolutionHeight;
+
+            //Updates all resolution displays (text saying what resolution you are using)
+            OptionsMenu_Resolution_DisplayText.Text = ResolutionHeight.ToString() + "x" + ResolutionWidth.ToString();
+
+            //Updates UserResolutionIndex in Application Settings
+            Properties.Settings.Default.UserResolutionIndex = ResolutionIndex;
         }
 
         private void Exit_Game_Click(object sender, RoutedEventArgs e)
         {
-            // future plan to have a prompt show up. For now, it does at it says.
-            System.Windows.Application.Current.Shutdown();
+            //Show Quit Prompt
+            CharacterView_ExitPrompt.Visibility = Visibility.Visible;
+
+            //System.Windows.Application.Current.Shutdown();
         }
     }
 }
