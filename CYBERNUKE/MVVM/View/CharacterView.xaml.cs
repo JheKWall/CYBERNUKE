@@ -374,22 +374,48 @@ namespace CYBERNUKE.MVVM.View
 
         private void Character_Click(object sender, RoutedEventArgs e)
         {
-
+            // Doesn't do Anything atm 
         }
 
         private void Map_Click(object sender, RoutedEventArgs e)
         {
-
+            // Will show just an image of the overarching game map (probably the mockup)
         }
 
         private void Close_Menu_Click(object sender, RoutedEventArgs e)
         {
-
+            // Unimplemented because it depends on Overworld View implementation
         }
 
         // Options CharacterView Button
+        // Hide all UI elements (that clog up the screen)
         private void Options_Click(object sender, RoutedEventArgs e)
         {
+            // Hide other UI elements
+            CharacterPanel.Visibility = Visibility.Collapsed;
+            MenuButtons.Visibility = Visibility.Collapsed;
+            charName.Visibility = Visibility.Collapsed;
+            HPBar.Visibility = Visibility.Collapsed;
+            SPBar.Visibility = Visibility.Collapsed;
+            ExpBar.Visibility = Visibility.Collapsed;
+            StrengthTextBox.Visibility = Visibility.Collapsed;
+            DexterityTextBox.Visibility = Visibility.Collapsed;
+            EnduranceTextBox.Visibility = Visibility.Collapsed;
+            IntelligenceTextBox.Visibility = Visibility.Collapsed;
+            OutfitTextBox.Visibility = Visibility.Collapsed;
+            MeleeWeaponTextBox.Visibility = Visibility.Collapsed;
+            RangedWeaponTextBox.Visibility= Visibility.Collapsed;
+            OutfitChangeButton.Visibility = Visibility.Collapsed;
+            MeleeWeaponChangeButton.Visibility = Visibility.Collapsed;
+            RangedWeaponChangeButton.Visibility = Visibility.Collapsed;
+            EquipmentStackPanel.Visibility = Visibility.Collapsed;
+            HPTextBlock.Visibility = Visibility.Collapsed;
+            SPTextBlock.Visibility = Visibility.Collapsed;
+            ExpTextBlock.Visibility = Visibility.Collapsed;
+            StatsPrecursorTextBlock.Visibility = Visibility.Collapsed;
+            EquippedItemsPrecursorTextBlock.Visibility = Visibility.Collapsed;
+
+            // Reveal hidden Options menu
             CharacterView_OptionsMenu.Visibility = Visibility.Visible;
         }
 
@@ -438,8 +464,33 @@ namespace CYBERNUKE.MVVM.View
         }
 
         // Options Menu: Back Button
+        // Rereveal UI elements on Click
         private void OptionsMenu_BackButton_Click(object sender, RoutedEventArgs e)
         {
+            // Reveal hidden UI elements
+            CharacterPanel.Visibility = Visibility.Visible;
+            MenuButtons.Visibility = Visibility.Visible;
+            charName.Visibility = Visibility.Visible;
+            HPBar.Visibility = Visibility.Visible;
+            SPBar.Visibility = Visibility.Visible;
+            ExpBar.Visibility = Visibility.Visible;
+            StrengthTextBox.Visibility = Visibility.Visible;
+            DexterityTextBox.Visibility = Visibility.Visible;
+            EnduranceTextBox.Visibility = Visibility.Visible;
+            IntelligenceTextBox.Visibility = Visibility.Visible;
+            OutfitTextBox.Visibility = Visibility.Visible;
+            MeleeWeaponTextBox.Visibility = Visibility.Visible;
+            RangedWeaponTextBox.Visibility = Visibility.Visible;
+            OutfitChangeButton.Visibility = Visibility.Visible;
+            MeleeWeaponChangeButton.Visibility = Visibility.Visible;
+            RangedWeaponChangeButton.Visibility = Visibility.Visible;
+            EquipmentStackPanel.Visibility = Visibility.Visible;
+            HPTextBlock.Visibility = Visibility.Visible;
+            SPTextBlock.Visibility = Visibility.Visible;
+            ExpTextBlock.Visibility = Visibility.Visible;
+            StatsPrecursorTextBlock.Visibility = Visibility.Visible;
+            EquippedItemsPrecursorTextBlock.Visibility = Visibility.Visible;
+
             //Hide Options Menu
             CharacterView_OptionsMenu.Visibility = Visibility.Hidden;
         }
@@ -455,6 +506,30 @@ namespace CYBERNUKE.MVVM.View
 
         private void ExitPrompt_NoButton_Click(object sender, RoutedEventArgs e)
         {
+            // Reveal hidden UI elements
+            CharacterPanel.Visibility = Visibility.Visible;
+            MenuButtons.Visibility = Visibility.Visible;
+            charName.Visibility = Visibility.Visible;
+            HPBar.Visibility = Visibility.Visible;
+            SPBar.Visibility = Visibility.Visible;
+            ExpBar.Visibility = Visibility.Visible;
+            StrengthTextBox.Visibility = Visibility.Visible;
+            DexterityTextBox.Visibility = Visibility.Visible;
+            EnduranceTextBox.Visibility = Visibility.Visible;
+            IntelligenceTextBox.Visibility = Visibility.Visible;
+            OutfitTextBox.Visibility = Visibility.Visible;
+            MeleeWeaponTextBox.Visibility = Visibility.Visible;
+            RangedWeaponTextBox.Visibility = Visibility.Visible;
+            OutfitChangeButton.Visibility = Visibility.Visible;
+            MeleeWeaponChangeButton.Visibility = Visibility.Visible;
+            RangedWeaponChangeButton.Visibility = Visibility.Visible;
+            EquipmentStackPanel.Visibility = Visibility.Visible;
+            HPTextBlock.Visibility = Visibility.Visible;
+            SPTextBlock.Visibility = Visibility.Visible;
+            ExpTextBlock.Visibility = Visibility.Visible;
+            StatsPrecursorTextBlock.Visibility = Visibility.Visible;
+            EquippedItemsPrecursorTextBlock.Visibility = Visibility.Visible;
+
             //Hide Exit Prompt
             CharacterView_ExitPrompt.Visibility = Visibility.Hidden;
         }
@@ -476,6 +551,30 @@ namespace CYBERNUKE.MVVM.View
 
         private void Exit_Game_Click(object sender, RoutedEventArgs e)
         {
+            // Hide other UI elements
+            CharacterPanel.Visibility = Visibility.Collapsed;
+            MenuButtons.Visibility = Visibility.Collapsed;
+            charName.Visibility = Visibility.Collapsed;
+            HPBar.Visibility = Visibility.Collapsed;
+            SPBar.Visibility = Visibility.Collapsed;
+            ExpBar.Visibility = Visibility.Collapsed;
+            StrengthTextBox.Visibility = Visibility.Collapsed;
+            DexterityTextBox.Visibility = Visibility.Collapsed;
+            EnduranceTextBox.Visibility = Visibility.Collapsed;
+            IntelligenceTextBox.Visibility = Visibility.Collapsed;
+            OutfitTextBox.Visibility = Visibility.Collapsed;
+            MeleeWeaponTextBox.Visibility = Visibility.Collapsed;
+            RangedWeaponTextBox.Visibility = Visibility.Collapsed;
+            OutfitChangeButton.Visibility = Visibility.Collapsed;
+            MeleeWeaponChangeButton.Visibility = Visibility.Collapsed;
+            RangedWeaponChangeButton.Visibility = Visibility.Collapsed;
+            EquipmentStackPanel.Visibility = Visibility.Collapsed;
+            HPTextBlock.Visibility = Visibility.Collapsed;
+            SPTextBlock.Visibility = Visibility.Collapsed;
+            ExpTextBlock.Visibility = Visibility.Collapsed;
+            StatsPrecursorTextBlock.Visibility = Visibility.Collapsed;
+            EquippedItemsPrecursorTextBlock.Visibility = Visibility.Collapsed;
+
             //Show Quit Prompt
             CharacterView_ExitPrompt.Visibility = Visibility.Visible;
 
