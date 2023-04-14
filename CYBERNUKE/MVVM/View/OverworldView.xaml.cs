@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,15 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class OverworldView : UserControl
     {
+        //File reader
+        private StreamReader input;
+        //Map data
         string mapToLoad;
-
+        char[,] mapData;
+        int mapWidth;
+        int mapHeight;
+        int encounterMin;
+        int encounterMax;
 
         public OverworldView()
         {
@@ -35,10 +43,56 @@ namespace CYBERNUKE.MVVM.View
             Read_Map_Data(mapToLoad);
         }
 
-        //Private method for reading in map data from a map txt file
-        private void Read_Map_Data(string map)
+        //Private method for handling character movement and map updates
+        private void Map_Movement()
         {
 
+        }
+
+        //Private method for loading a map to the overworldview
+        private void Load_Map()
+        {
+            for (int i = 0; i < mapHeight; i++)
+            {
+                for (int j = 0; j < mapWidth; j++)
+                {
+                    MapDisplay.Text += mapData[i, j];
+                }
+            }
+        }
+
+        //Private method for reading in map data from a map txt file
+        private void Read_Map_Data(string mapName)
+        {
+            // Initialize StreamReader to MapData.txt
+            input = new StreamReader("GameData/Maps/" + mapName + ".txt");
+
+            // Read Map Name
+            MapDisplay_Location.Text = input.ReadLine();
+
+            // Initialize map char array to map size
+            mapWidth = Int32.Parse(input.ReadLine());
+            mapHeight = Int32.Parse(input.ReadLine());
+            mapData = new char[mapHeight, mapWidth];
+
+            // Encounter Chances
+            encounterMin = Int32.Parse(input.ReadLine());
+            encounterMax = Int32.Parse(input.ReadLine());
+
+            // Input map data
+            for (int i = 0; i < mapHeight; i++)
+            {
+                for (int j = 0; j < mapWidth; j++)
+                {
+                    mapData[i, j] = (char)input.Read();
+                }
+            }
+
+            // Update current map
+            ((MainWindow)Application.Current.MainWindow).currentMap = mapName;
+
+            // Load Map
+            Load_Map();
         }
 
         private void Button_Menu_Click(object sender, RoutedEventArgs e)

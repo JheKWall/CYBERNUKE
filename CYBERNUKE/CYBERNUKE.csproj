@@ -301,10 +301,14 @@
     <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_PlayerBox.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Maps\TestMap.txt" />
+    <None Include="GameData\Maps\TestMap.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Maps\MapMakingGuide.txt" />
+    <None Include="GameData\Maps\MapMakingGuide.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Credits.txt" />

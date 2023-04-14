@@ -49,7 +49,6 @@
             <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
             <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
             <Setter Property="VerticalAlignment" Value="Bottom"/>
-            <Setter Property="Padding" Value="5,0,0,0"/>
         </Style>
 
     </UserControl.Resources>
@@ -105,11 +104,13 @@
 
         <!-- 2D Map Display Col-13, Row-0 -->
         <Grid Grid.Row="0" Grid.RowSpan="19" Grid.Column="13">
-            <TextBlock x:Name="MapDisplay_Text" Style="{StaticResource MapDisplay_TextBlock}" TextAlignment="Center" VerticalAlignment="Center"
-                       Text="⬛⬛⬛⬛⬛⬛⬛⛶⬛⬛⬛⬛⬛⬛⬛&#x0a;⬛⬜⬜⬜⛹⬜⬜⬜⬜⬜⛹⬜⬜⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜☢⬜⬜⬜⬜❕⬜⬛&#x0a;⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜❕⬜⬛&#x0a;⬛⬜　　⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛&#x0a;⬛⬛⬛⬛⬛⬛⬛☖⬛⬛⬛⬛⬛⬛⬛"/>
+            <TextBlock x:Name="MapDisplay" Style="{StaticResource MapDisplay_TextBlock}" TextAlignment="Center" VerticalAlignment="Center"
+                       Text=""/>
         </Grid>
-        <TextBlock x:Name="MapDisplay_Location" Style="{StaticResource MapDisplay_Location_TextBlock}" Grid.Row="19" Grid.Column="13"
+        <TextBlock x:Name="MapDisplay_Location" Style="{StaticResource MapDisplay_Location_TextBlock}" Grid.Row="19" Grid.Column="13" Padding="5,0,0,0"
                    Text="Backstreets"/>
+        <TextBlock x:Name="MapDisplay_EncounterChance" Style="{StaticResource MapDisplay_Location_TextBlock}" Grid.Row="19" Grid.Column="13" Padding="0,0,5,0" HorizontalAlignment="Right"
+                   Text="50%"/>
 
         <!-- Player Boxes -->
         <StackPanel x:Name="PlayerBox_Panel" Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="11"/>
