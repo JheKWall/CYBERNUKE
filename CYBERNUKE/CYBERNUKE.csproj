@@ -95,6 +95,10 @@
     <Compile Include="GameData\UserControls\TurnOrderBox.xaml.cs">
       <DependentUpon>TurnOrderBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\Model\LocationData.cs" />
+    <Compile Include="MVVM\Model\Map.cs" />
+    <Compile Include="MVVM\Model\NPCData.cs" />
+    <Compile Include="MVVM\Model\ObjectData.cs" />
     <Compile Include="MVVM\ViewModel\CombatViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OverworldViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TownViewModel.cs" />
@@ -220,7 +224,6 @@
     <Folder Include="GameData\Items\Quest\" />
     <Folder Include="GameData\Items\Weapons\" />
     <Folder Include="GameData\Towns\" />
-    <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_1.png" />

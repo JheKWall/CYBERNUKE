@@ -1,7 +1,7 @@
 ﻿Wall Tile			- ⬛
 Floor Tile			- ⬜
 Door Tile			- ⛶
-Player Tile			- ☯
+Player Tile			- ☢
 Town Entrance		- ☖
 NPC					- ⛹
 Interactable Object	- ❕
@@ -17,14 +17,26 @@ Newline				- &#x0a;
 
 Map variables declared in this order (spacing and newlines included):
 1. MAP_NAME
-2. MAP_WIDTH MAP_HEIGHT 
-3. MIN_ENCOUNTER_CHANCE MAX_ENCOUNTER_CHANCE
-4. START_LOCATION_X START_LOCATION_Y
-//4. AMOUNT_LOCATIONS X Y
-//AMOUNT_LOCATIONS LOCATION1: X,Y LOCATION2: X,Y etc etc (?)
-//5. AMOUNT_NPCS
-//6. AMOUNT_OBJECTS
-7. MAP_DATA
+2. MAP_WIDTH 
+3. MAP_HEIGHT 
+4. MIN_ENCOUNTER_CHANCE 
+5. MAX_ENCOUNTER_CHANCE
+6. AMOUNT_LOCATIONS 
+7. LOCATION_1_NAME
+8. LOCATION_1_X 
+9. LOCATION_1_Y
+...
+10. AMOUNT_NPCS
+11. NPC_1_NAME
+12. NPC_1_X
+13. NPC_1_Y
+...
+14. AMOUNT_OBJECTS
+15. OBJECT_1_NAME
+16. OBJECT_1_X
+17. OBJECT_1_Y
+...
+18. MAP_DATA
 
 //Need a way to set start location
 // needs to know previous map/town and spawn in a set location based on that

@@ -109,8 +109,6 @@
         </Grid>
         <TextBlock x:Name="MapDisplay_Location" Style="{StaticResource MapDisplay_Location_TextBlock}" Grid.Row="19" Grid.Column="13" Padding="5,0,0,0"
                    Text="Backstreets"/>
-        <TextBlock x:Name="MapDisplay_EncounterChance" Style="{StaticResource MapDisplay_Location_TextBlock}" Grid.Row="19" Grid.Column="13" Padding="0,0,5,0" HorizontalAlignment="Right"
-                   Text="50%"/>
 
         <!-- Player Boxes -->
         <StackPanel x:Name="PlayerBox_Panel" Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="11"/>
