@@ -202,6 +202,42 @@
   <data name="OCRAEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\ocraext.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="OverworldMenu_Button_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_button_a.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_Button_C" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_button_c.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_Button_D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_button_d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_Button_Q" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_button_q.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_Button_S" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_button_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_Button_W" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_button_w.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_Button_X" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_button_x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_ControlPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_controlpanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_Display" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_display.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_LeftPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_leftpanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_PlayerBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_playerbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unifont_15_0_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\fonts\unifont-15.0.01.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Unispace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\unispace.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

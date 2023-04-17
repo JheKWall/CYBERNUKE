@@ -5,6 +5,7 @@ Fonts:
 // Microsoft Himalaya - Microsoft Beijing
 // OCR-A - American Type Founders
 // Unispace - Typodermic Fonts (https://www.typodermicfonts.com/)
+// Unifont - GNU Unifont Glyphs (http://unifoundry.com/unifont/index.html)
 
 Images:
 // Kenneth W.

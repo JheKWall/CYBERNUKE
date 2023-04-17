@@ -367,6 +367,126 @@ namespace CYBERNUKE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_Button_A {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_Button_A", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_Button_C {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_Button_C", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_Button_D {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_Button_D", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_Button_Q {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_Button_Q", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_Button_S {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_Button_S", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_Button_W {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_Button_W", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_Button_X {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_Button_X", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_ControlPanel {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_ControlPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_Display {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_Display", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_LeftPanel {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_LeftPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_PlayerBox {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_PlayerBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] unifont_15_0_01 {
+            get {
+                object obj = ResourceManager.GetObject("unifont_15_0_01", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] Unispace {

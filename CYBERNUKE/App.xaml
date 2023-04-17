@@ -29,6 +29,7 @@
 
         <!-- Font Resources -->
         <FontFamily x:Key="Unispace">./GameData/Fonts/Unispace.ttf#Unispace</FontFamily>
+        <FontFamily x:Key="Unifont">./GameData/Fonts/unifont-15.0.01.ttf#Unifont</FontFamily>
 
     </Application.Resources>
 </Application>
