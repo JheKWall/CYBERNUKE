@@ -45,6 +45,10 @@
             <Button Content="Town"
                     Height="25"
                     Command="{Binding NavigateTownViewCommand}"/>
+            
+            <Button Content="Character"
+                    Height="25"
+                    Command="{Binding NavigateCharacterViewCommand}"/>
         </StackPanel>
 
     </Grid>

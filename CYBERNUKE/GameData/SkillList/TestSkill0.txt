@@ -1,0 +1,5 @@
+﻿Name: Test Skill 0
+SPCost: 10
+Damage: 50
+typeDamage: Blunt
+Description: Just a Test Skill

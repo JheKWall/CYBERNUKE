@@ -30,6 +30,7 @@ namespace CYBERNUKE.MVVM.ViewModel
         public RelayCommand NavigateMainMenuViewCommand { get; set; }
         public RelayCommand NavigateOverworldViewCommand { get; set; }
         public RelayCommand NavigateTownViewCommand { get; set; }
+        public RelayCommand NavigateCharacterViewCommand { get; set; }
 
         //View Model Constructor, Navigate Implementation
         public MainViewModel(INavigationService navService)
@@ -42,6 +43,7 @@ namespace CYBERNUKE.MVVM.ViewModel
             NavigateMainMenuViewCommand = new RelayCommand(o => Navigation.NavigateTo<MainMenuViewModel>(), o => true);
             NavigateOverworldViewCommand = new RelayCommand(o => Navigation.NavigateTo<OverworldViewModel>(), o => true);
             NavigateTownViewCommand = new RelayCommand(o => Navigation.NavigateTo<TownViewModel>(), o => true);
+            NavigateCharacterViewCommand = new RelayCommand(o => Navigation.NavigateTo<CharacterViewModel>(), o => true);
         }
     }
 }

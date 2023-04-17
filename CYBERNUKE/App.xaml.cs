@@ -40,6 +40,7 @@ namespace CYBERNUKE
             services.AddSingleton<MainMenuViewModel>();
             services.AddSingleton<OverworldViewModel>();
             services.AddSingleton<TownViewModel>();
+            services.AddSingleton<CharacterViewModel>();
 
             //Delegate for viewModelType, Nav. Service Registry
             services.AddSingleton<Func<Type, ViewModel>>(ServiceProvider => viewModelType => (ViewModel)ServiceProvider.GetRequiredService(viewModelType));
