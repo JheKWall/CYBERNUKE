@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -40,8 +41,8 @@ namespace CYBERNUKE.MVVM.View
         int mapHeight;
 
         //Player Vars
-        int playerPosX;
         int playerPosY;
+        int playerPosX;
         bool hasControl;
 
         public OverworldView()
@@ -94,8 +95,8 @@ namespace CYBERNUKE.MVVM.View
 
             // Set Player Spawn on dynamicMap
             int spawnIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Spawn_Index(currentMap);
-            playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].locationData[spawnIndex].locationCoordX;
             playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].locationData[spawnIndex].locationCoordY;
+            playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].locationData[spawnIndex].locationCoordX;
             dynamicMap[playerPosY, playerPosX] = '☢';
 
             // Render Map to Screen
@@ -148,7 +149,8 @@ namespace CYBERNUKE.MVVM.View
         }
 
         //Private method for validating player moves
-        private void Validate_Move()
+        //1 == up, 2 == left, 3 == right, 4 == down
+        private bool Validate_Move(int move)
         {
 
         }

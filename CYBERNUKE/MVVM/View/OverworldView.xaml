@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              d:DesignHeight="768" 
              d:DesignWidth="1366"
-             Background="Black" Loaded="UserControl_Loaded">
+             Background="Black" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
 
     <!-- UserControl Resources -->
     <UserControl.Resources>

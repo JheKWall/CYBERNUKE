@@ -8,13 +8,13 @@ namespace CYBERNUKE.MVVM.Model
 {
     public class LocationData
     {
-        public int locationCoordX;
         public int locationCoordY;
+        public int locationCoordX;
 
         public LocationData(int x, int y)
         {
-            locationCoordX = x;
             locationCoordY = y;
+            locationCoordX = x;
         }
     }
 }
