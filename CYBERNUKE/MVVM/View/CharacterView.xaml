@@ -1,4 +1,6 @@
 ﻿<UserControl x:Class="CYBERNUKE.MVVM.View.CharacterView"
+        x:Name="CharacterViewUserControl"
+        Visibility="Visible"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,6 +9,7 @@
         mc:Ignorable="d"
         Background="Red"
         Height="731" Width="1300">
+
     <Grid>
         <!-- Options Menu -->
         <StackPanel x:Name="CharacterView_OptionsMenu" Grid.ColumnSpan="3" Grid.Row="3" VerticalAlignment="Center" Visibility="Hidden">
@@ -113,5 +116,7 @@
             </ListView>
             <StackPanel x:Name="EquipmentStackPanel" Grid.Column="2" Visibility="Collapsed"/>
         </Grid>
+        <Image x:Name="CybernukeMap" Stretch="Fill" Source="/CYBERNUKE;component/GameData/Images/CharacterMenu/CYBERNUKE_CITY_MAP.png" HorizontalAlignment="Center" Height="{Binding ElementName=CharacterViewUserControl, Path=Height}"   VerticalAlignment="Center" Width="{Binding ElementName=CharacterViewUserControl, Path=Width}" Visibility="Hidden"/>
+        <Button x:Name="MapClose" Content="Close Map" FontSize="30"  Width="250" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Hidden" Click="MapClose_Click"/>
     </Grid>
 </UserControl>

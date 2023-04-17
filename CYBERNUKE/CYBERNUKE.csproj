@@ -267,5 +267,8 @@
     <Resource Include="GameData\Images\capybara %286%29.png" />
     <Resource Include="GameData\Images\capybara %287%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\CharacterMenu\CYBERNUKE_CITY_MAP.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

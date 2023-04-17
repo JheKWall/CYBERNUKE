@@ -39,7 +39,11 @@ namespace CYBERNUKE.MVVM.View
         public CharacterView()
         {
             InitializeComponent();
+            LoadCharacterInformation();
+        }
 
+        private void LoadCharacterInformation()
+        {
             characterList = ((MainWindow)Application.Current.MainWindow).CharacterList;
 
             equipmentList = ((MainWindow)Application.Current.MainWindow).EquipmentList;
@@ -380,11 +384,20 @@ namespace CYBERNUKE.MVVM.View
         private void Map_Click(object sender, RoutedEventArgs e)
         {
             // Will show just an image of the overarching game map (probably the mockup)
+            CybernukeMap.Visibility = Visibility.Visible;
+            MapClose.Visibility = Visibility.Visible;
+
+        }
+
+        private void MapClose_Click(object sender, RoutedEventArgs e)
+        {
+            CybernukeMap.Visibility = Visibility.Hidden;
+            MapClose.Visibility = Visibility.Hidden;
         }
 
         private void Close_Menu_Click(object sender, RoutedEventArgs e)
         {
-            // Unimplemented because it depends on Overworld View implementation
+            CharacterViewUserControl.Visibility = Visibility.Hidden;
         }
 
         // Options CharacterView Button
