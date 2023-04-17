@@ -92,6 +92,13 @@
     <Compile Include="GameData\UserControls\EnemyBox.xaml.cs">
       <DependentUpon>EnemyBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\Model\Character.cs" />
+    <Compile Include="MVVM\Model\Item.cs" />
+    <Compile Include="MVVM\Model\MainArmor.cs" />
+    <Compile Include="MVVM\Model\MeleeWeapon.cs" />
+    <Compile Include="MVVM\Model\RangedWeapon.cs" />
+    <Compile Include="MVVM\Model\Skill.cs" />
+    <Compile Include="MVVM\ViewModel\CharacterViewModel.cs" />
     <Compile Include="GameData\UserControls\TurnOrderBox.xaml.cs">
       <DependentUpon>TurnOrderBox.xaml</DependentUpon>
     </Compile>
@@ -102,6 +109,9 @@
     <Compile Include="MVVM\ViewModel\CombatViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OverworldViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TownViewModel.cs" />
+    <Compile Include="MVVM\View\CharacterView.xaml.cs">
+      <DependentUpon>CharacterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\CombatView.xaml.cs">
       <DependentUpon>CombatView.xaml</DependentUpon>
     </Compile>
@@ -120,6 +130,10 @@
     <Page Include="GameData\UserControls\EnemyBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\CharacterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="GameData\UserControls\TurnOrderBox.xaml">
       <SubType>Designer</SubType>
@@ -312,6 +326,9 @@
     <None Include="GameData\Maps\MapMakingGuide.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\CharacterMenu\CYBERNUKE_CITY_MAP.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Credits.txt" />
