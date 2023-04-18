@@ -24,15 +24,9 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class OverworldView : UserControl
     {
-        /// <summary>
-        /// ERROR 1:
-        /// playerPosX and playerPosY are not reset when you move, switch windows, and switch back causing
-        /// index overflow.
-        /// </summary>
-
-
-
         //Map Vars
+        Window overworldWindow;
+
         //string mapToLoad;
         char[,] mapData;
         char[,] dynamicMap;
@@ -150,7 +144,7 @@ namespace CYBERNUKE.MVVM.View
 
         //Private method for validating player moves
         //1 == up, 2 == left, 3 == right, 4 == down
-        private bool Validate_Move(int move)
+        private void Validate_Move(int move)
         {
 
         }
@@ -259,6 +253,7 @@ namespace CYBERNUKE.MVVM.View
             {
                 // potential memory leak if not unloaded ? (uncertain question mark)
                 var window = Window.GetWindow(this);
+                overworldWindow = window;
                 window.KeyDown += HandleKeyPress;
             }
         }
@@ -299,6 +294,11 @@ namespace CYBERNUKE.MVVM.View
                 default:
                     break;
             }
+        }
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            overworldWindow.KeyDown -= HandleKeyPress;
         }
     }
 }

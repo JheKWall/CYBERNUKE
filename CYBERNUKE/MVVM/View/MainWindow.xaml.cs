@@ -47,29 +47,7 @@ namespace CYBERNUKE
             // Initialize lists
             mapList = new List<Map>();
             loadedMaps = new List<string>();
-        }
 
-        //Public method for creating and accessing maps in the mapList
-        public int Get_Map()
-        {
-            int index;
-
-            //Checks array for maps
-            bool has = loadedMaps.Contains(mapToLoad);
-
-            if (!has) //If not in list
-            {
-                //Add map to loaded list, create new map
-                loadedMaps.Add(mapToLoad);
-                mapList.Add(new Map());
-                index = loadedMaps.IndexOf(mapToLoad);
-            }
-            else //If it is in the list
-            {
-                index = loadedMaps.IndexOf(mapToLoad);
-            }
-
-            return index;
 
             Character mainCharacter = new Character(); // test character for character view. Will remove later.
             mainCharacter.setName("Test Character");
@@ -109,7 +87,29 @@ namespace CYBERNUKE
             EquipmentList.Add(testArmor1);
             EquipmentList.Add(testRangedWeapon);
             EquipmentList.Add(testRangedWeapon1);
+        }
 
+        //Public method for creating and accessing maps in the mapList
+        public int Get_Map()
+        {
+            int index;
+
+            //Checks array for maps
+            bool has = loadedMaps.Contains(mapToLoad);
+
+            if (!has) //If not in list
+            {
+                //Add map to loaded list, create new map
+                loadedMaps.Add(mapToLoad);
+                mapList.Add(new Map());
+                index = loadedMaps.IndexOf(mapToLoad);
+            }
+            else //If it is in the list
+            {
+                index = loadedMaps.IndexOf(mapToLoad);
+            }
+
+            return index;
         }
     }
 }

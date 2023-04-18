@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CYBERNUKE.GameData.UserControls;
+using CYBERNUKE.MVVM.Model;
 
 namespace CYBERNUKE.MVVM.View
 {
@@ -39,8 +40,9 @@ namespace CYBERNUKE.MVVM.View
         int enemyCount; //Number of enemies in combat
         int playerCount; //Number of players in combat
 
-        //string[] ListPlayerTargets; //List of all player targets (Max 4)
+        Character[] ListPlayerTargets = new Character[4]; //List of all player targets (Max 4)
         EnemyBox[] ListEnemyTargets = new EnemyBox[6]; //List of all enemy targets (Max 6)
+        List<TurnOrderBox> TurnOrderBoxList = new List<TurnOrderBox>();
 
         //string[] ListPlayerSkills; //List of the current character's skills, initialized on turn start
         //string[] ListInventory; //List of usable items
@@ -53,13 +55,21 @@ namespace CYBERNUKE.MVVM.View
 
             playerCount = 0;
 
-            /*
+            // Get Players
+            for (int i = 0; i < 3; i++)
+            {
+                if (((MainWindow)Application.Current.MainWindow).CharacterList[i] != null)
+                {
+                    ListPlayerTargets[i] = ((MainWindow)Application.Current.MainWindow).CharacterList[i];
+                    playerCount++;
+                }
+            }
+
             // Add Players
-            // TODO: File input(?) for player characters & stats
             for (int i = 0; i < playerCount; i++)
             {
                 AddPlayer();
-            }*/
+            }
 
             // Initialize StreamReader to Enemy Party file
             // enemyParty is pulled from MainWindow.xaml.cs
@@ -78,6 +88,11 @@ namespace CYBERNUKE.MVVM.View
             input.Close();
             // Combat Start Text
             ControlPanel_Left_TextBlock.Text = "!! COMBAT START !!";
+        }
+
+        private void TurnOrder_Init()
+        {
+            
         }
 
         //Private method for resizing CombatMenu_EnemyBoxPanel UniformGrid

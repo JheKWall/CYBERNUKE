@@ -92,6 +92,9 @@
     <Compile Include="GameData\UserControls\EnemyBox.xaml.cs">
       <DependentUpon>EnemyBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameData\UserControls\PlayerBox.xaml.cs">
+      <DependentUpon>PlayerBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\Model\Character.cs" />
     <Compile Include="MVVM\Model\Item.cs" />
     <Compile Include="MVVM\Model\MainArmor.cs" />
@@ -128,6 +131,10 @@
     </Compile>
     <Compile Include="Services\NavigationService.cs" />
     <Page Include="GameData\UserControls\EnemyBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameData\UserControls\PlayerBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
