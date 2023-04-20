@@ -52,7 +52,6 @@ namespace CYBERNUKE.GameData.UserControls
             Name.Text = name;
         }
 
-
         //Private classes for scaling text with resolution
         private void ScaleText()
         {

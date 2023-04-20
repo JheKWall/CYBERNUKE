@@ -92,6 +92,12 @@
     <Compile Include="GameData\UserControls\EnemyBox.xaml.cs">
       <DependentUpon>EnemyBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameData\UserControls\OverworldBox.xaml.cs">
+      <DependentUpon>OverworldBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameData\UserControls\PauseMenu.xaml.cs">
+      <DependentUpon>PauseMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameData\UserControls\PlayerBox.xaml.cs">
       <DependentUpon>PlayerBox.xaml</DependentUpon>
     </Compile>
@@ -131,6 +137,14 @@
     </Compile>
     <Compile Include="Services\NavigationService.cs" />
     <Page Include="GameData\UserControls\EnemyBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameData\UserControls\OverworldBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameData\UserControls\PauseMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -339,6 +353,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Credits.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\PauseMenu\PauseMenu_MainBG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

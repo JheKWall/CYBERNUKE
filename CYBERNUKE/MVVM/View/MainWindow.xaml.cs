@@ -23,9 +23,12 @@ namespace CYBERNUKE
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Character> CharacterList = new List<Character>();
         public List<Item> EquipmentList = new List<Item>();
         public List<Item> ConsumableList = new List<Item>();
+
+        //Player Variables
+        public int numPartyMembers;
+        public List<Character> CharacterList = new List<Character>();
 
         //Map Variables
         public string mapToLoad = "TestMap";
@@ -50,13 +53,16 @@ namespace CYBERNUKE
 
 
             Character mainCharacter = new Character(); // test character for character view. Will remove later.
-            mainCharacter.setName("Test Character");
-            mainCharacter.setMaxHP(500);
-            mainCharacter.setMaxSP(100);
+            mainCharacter.setName("PROTO");
+            mainCharacter.setMaxHP(222);
+            mainCharacter.setCurrentHP(222);
+            mainCharacter.setMaxSP(111);
+            mainCharacter.setCurrentSP(111);
             CharacterList.Add(mainCharacter);
 
-            // The rest of this stuff is for testing
+            numPartyMembers = 1;
 
+            /* The rest of this stuff is for testing
             MainArmor testArmor = new MainArmor();
             testArmor.setName("Test Armor");
             testArmor.setDefense(100);
@@ -86,7 +92,7 @@ namespace CYBERNUKE
             EquipmentList.Add(testArmor);
             EquipmentList.Add(testArmor1);
             EquipmentList.Add(testRangedWeapon);
-            EquipmentList.Add(testRangedWeapon1);
+            EquipmentList.Add(testRangedWeapon1);*/
         }
 
         //Public method for creating and accessing maps in the mapList

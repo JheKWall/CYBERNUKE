@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="CYBERNUKE.GameData.UserControls.PauseMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CYBERNUKE.GameData.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="731" d:DesignWidth="878">
+
+    <!-- Styles -->
+    <UserControl.Resources>
+        
+    </UserControl.Resources>
+    
+    <!-- Main Grid -->
+    <Grid>
+        <!-- Font Size Variable -->
+        <TextBlock x:Name="MapDisplayFontSize" FontSize="32" Visibility="Hidden"/>
+
+        <!-- Left Panel -->
+        <Image x:Name="PauseMenu_BG" Source="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_MainBG.png" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+
+    </Grid>
+</UserControl>

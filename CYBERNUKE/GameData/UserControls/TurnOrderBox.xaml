@@ -9,15 +9,6 @@
 
     <!-- Styles -->
     <UserControl.Resources>
-        <!-- TextBlock Style -->
-        <Style x:Key="TurnOrder_TextBlock" TargetType="TextBlock">
-            <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#Microsoft Himalaya"/>
-            <Setter Property="FontSize" Value="32"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
-        </Style>
         <!-- Index TextBlock Style -->
         <Style x:Key="TurnOrder_Index_TextBlock" TargetType="TextBlock">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -71,6 +62,7 @@
                 <ColumnDefinition Width="17*"/>
                 <ColumnDefinition Width="90*"/>
             </Grid.ColumnDefinitions>
+            
             <!-- Index -->
             <TextBlock x:Name="Index" Text="0" Style="{StaticResource TurnOrder_Index_TextBlock}" Foreground="#ff0000" Height="29" VerticalAlignment="Center" Grid.Row="1">
                 <TextBlock.Effect>

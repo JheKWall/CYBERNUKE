@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CYBERNUKE.GameData.UserControls;
+using CYBERNUKE.MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
@@ -24,6 +26,10 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class OverworldView : UserControl
     {
+        //Character Menu
+        PauseMenu pauseMenu;
+        bool pauseMenuOpen = false;
+        
         //Map Vars
         Window overworldWindow;
 
@@ -38,12 +44,19 @@ namespace CYBERNUKE.MVVM.View
         int playerPosY;
         int playerPosX;
         bool hasControl;
+        int playerCount = 0;
+
+        List<Character> ListCharacters = new List<Character>();
 
         public OverworldView()
         {
             InitializeComponent();
             ScaleText();
             Map_First_Render();
+            Load_Player_Boxes();
+
+            pauseMenu = new PauseMenu();
+            OverworldView_CharacterMenuContainer.Children.Add(pauseMenu);
 
             hasControl = true;
         }
@@ -54,6 +67,34 @@ namespace CYBERNUKE.MVVM.View
             ((MainWindow)Application.Current.MainWindow).mapToLoad = mapName;
             ((MainWindow)Application.Current.MainWindow).Get_Map();
             Map_First_Render();
+        }
+
+        //Private method for loading player boxes
+        private void Load_Player_Boxes()
+        {
+            playerCount = ((MainWindow)Application.Current.MainWindow).numPartyMembers;
+            ListCharacters.Capacity = playerCount;
+
+            // Get Players
+            for (int i = 0; i < playerCount; i++)
+            {
+                ListCharacters.Add(((MainWindow)Application.Current.MainWindow).CharacterList[i]);
+            }
+
+            // Add Overworld Boxes
+            for (int i = 0; i < playerCount; i++)
+            {
+                // Create Overworld Box
+                string name = ListCharacters[i].getName();
+                int currenthp = ListCharacters[i].getCurrentHP();
+                int maxhp = ListCharacters[i].getMaxHP();
+                int currentsp = ListCharacters[i].getCurrentSP();
+                int maxsp = ListCharacters[i].getMaxSP();
+
+                OverworldBox overworldbox = new OverworldBox(name, currenthp, maxhp, currentsp, maxsp);
+
+                PlayerBox_Panel.Children.Add(overworldbox);
+            }
         }
 
         //Private method for loading a map to the overworldview
@@ -144,9 +185,51 @@ namespace CYBERNUKE.MVVM.View
 
         //Private method for validating player moves
         //1 == up, 2 == left, 3 == right, 4 == down
-        private void Validate_Move(int move)
+        private bool Validate_Move(int move)
         {
-
+            bool valid;
+            switch (move)
+            {
+                case 1:
+                    valid = Check_Coordinates(playerPosY - 1, playerPosX);
+                    if (valid)
+                    {
+                        return true;
+                    }
+                    return false;
+                case 2:
+                    valid = Check_Coordinates(playerPosY, playerPosX - 1);
+                    if (valid)
+                    {
+                        return true;
+                    }
+                    return false;
+                case 3:
+                    valid = Check_Coordinates(playerPosY, playerPosX + 1);
+                    if (valid)
+                    {
+                        return true;
+                    }
+                    return false;
+                case 4:
+                    valid = Check_Coordinates(playerPosY + 1, playerPosX);
+                    if (valid)
+                    {
+                        return true;
+                    }
+                    return false;
+                default:
+                    break;
+            }
+            return true;
+        }
+        private bool Check_Coordinates(int Y, int X)
+        {
+            if (dynamicMap[Y, X] == '⬛')
+            {
+                return false;
+            }
+            return true;
         }
 
         //Private method for updates on player move
@@ -164,31 +247,40 @@ namespace CYBERNUKE.MVVM.View
 
         private void Button_Menu_Click(object sender, RoutedEventArgs e)
         {
-            // Open Pause Menu
+            if (pauseMenuOpen) // If Pause Menu Open, Close
+            {
+                PauseMenuOverlayContainer.Visibility = Visibility.Hidden;
+                pauseMenuOpen = false;
+                hasControl = true;
+            }
+            else // If Pause Menu Closed, Open
+            {
+                PauseMenuOverlayContainer.Visibility = Visibility.Visible;
+                pauseMenuOpen = true;
+                hasControl = false;
+            }
         }
         private void Button_Up_Click(object sender, RoutedEventArgs e)
         {
             // Validate movement method
-            
+            bool valid = Validate_Move(1);
             // Move Up
-            playerPosY--;
-
-            // Call Player Move
-
-            // Update Map
-            Map_Update_Render();
+            if (valid)
+            {
+                playerPosY--;
+                Map_Update_Render();
+            }
         }
         private void Button_Left_Click(object sender, RoutedEventArgs e)
         {
             // Validate movement method
-
+            bool valid = Validate_Move(2);
             // Move Left
-            playerPosX--;
-
-            // Call Player Move
-
-            // Update Map
-            Map_Update_Render();
+            if (valid)
+            {
+                playerPosX--;
+                Map_Update_Render();
+            }
         }
         private void Button_Interact_Click(object sender, RoutedEventArgs e)
         {
@@ -197,26 +289,24 @@ namespace CYBERNUKE.MVVM.View
         private void Button_Right_Click(object sender, RoutedEventArgs e)
         {
             // Validate movement method
-
+            bool valid = Validate_Move(3);
             // Move Right
-            playerPosX++;
-
-            // Call Player Move
-
-            // Update Map
-            Map_Update_Render();
+            if (valid)
+            {
+                playerPosX++;
+                Map_Update_Render();
+            }
         }
         private void Button_Down_Click(object sender, RoutedEventArgs e)
         {
             // Validate movement method
-
+            bool valid = Validate_Move(4);
             // Move Down
-            playerPosY++;
-
-            // Call Player Move
-
-            // Update Map
-            Map_Update_Render();
+            if (valid)
+            {
+                playerPosY++;
+                Map_Update_Render();
+            }
         }
         private void Button_Map_Click(object sender, RoutedEventArgs e)
         {
@@ -295,7 +385,6 @@ namespace CYBERNUKE.MVVM.View
                     break;
             }
         }
-
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
             overworldWindow.KeyDown -= HandleKeyPress;

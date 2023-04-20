@@ -40,7 +40,7 @@
             <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#Unifont"/>
             <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
         </Style>
-        
+
         <!-- Map Display Location TextBox -->
         <Style x:Key="MapDisplay_Location_TextBlock" TargetType="TextBlock">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -73,7 +73,7 @@
             <RowDefinition Height="63*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="63*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="49*"/>
         </Grid.RowDefinitions>
@@ -90,60 +90,66 @@
             <ColumnDefinition Width="63*"/>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="22*"/>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="1053*"/>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="1034*"/>
+            <ColumnDefinition Width="18*"/>
         </Grid.ColumnDefinitions>
 
         <!-- Font Size Variable -->
         <TextBlock x:Name="MapDisplayFontSize" FontSize="32" Visibility="Hidden"/>
 
-        <!-- Left Panel -->
-        <Image x:Name="OverworldMenu_BG_1" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_LeftPanel.png" Stretch="Fill" Grid.ColumnSpan="14" Grid.RowSpan="19" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,0,-0.204"/>
-        <Image x:Name="OverworldMenu_BG_2" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_ControlPanel.png" Stretch="Fill" Grid.ColumnSpan="14" Grid.RowSpan="19" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,0,-0.204"/>
 
-        <!-- 2D Map Display Col-13, Row-0 -->
-        <Grid Grid.Row="0" Grid.RowSpan="19" Grid.Column="13">
+        <!-- Left Panel -->
+        <Image x:Name="OverworldMenu_BG_1" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_LeftPanel.png" Stretch="Fill" Grid.ColumnSpan="15" Grid.RowSpan="19" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        <Image x:Name="OverworldMenu_BG_2" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_ControlPanel.png" Stretch="Fill" Grid.ColumnSpan="15" Grid.RowSpan="19" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+
+        <!-- 2D Map Display -->
+        <Grid Grid.Row="0" Grid.RowSpan="19" Grid.Column="13" Grid.ColumnSpan="2">
             <TextBlock x:Name="MapDisplay" Style="{StaticResource MapDisplay_TextBlock}" TextAlignment="Center" VerticalAlignment="Center"
                        Text=""/>
         </Grid>
-        <TextBlock x:Name="MapDisplay_Location" Style="{StaticResource MapDisplay_Location_TextBlock}" Grid.Row="19" Grid.Column="13" Padding="5,0,0,0"
-                   Text="Backstreets"/>
+        <TextBlock x:Name="MapDisplay_Location" Style="{StaticResource MapDisplay_Location_TextBlock}" Grid.Row="18" Grid.Column="13" Padding="5,0,0,0"
+                   Text="Backstreets" Grid.ColumnSpan="2" Height="33"/>
 
         <!-- Player Boxes -->
         <StackPanel x:Name="PlayerBox_Panel" Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="11"/>
 
         <!-- Control Panel Buttons -->
-        <Button x:Name="Button_Menu" Style="{StaticResource ControlPanel_Button}" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="3"
-                Click="Button_Menu_Click" Margin="0,0.204,0,4.796">
+        <Button x:Name="Button_Menu" Style="{StaticResource ControlPanel_Button}" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                Click="Button_Menu_Click">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_Q.png"/>
         </Button>
         <Button x:Name="Button_Up" Style="{StaticResource ControlPanel_Button}" Grid.Column="6" Grid.Row="11"
-                Click="Button_Up_Click" Margin="0,0.204,0,4.796" Grid.RowSpan="2">
+                Click="Button_Up_Click">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_W.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>
         <Button x:Name="Button_Left" Style="{StaticResource ControlPanel_Button}" Grid.Column="4" Grid.Row="13"
-                Click="Button_Left_Click" Margin="0,0.204,0,4.796" Grid.RowSpan="2">
+                Click="Button_Left_Click">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_A.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>
         <Button x:Name="Button_Interact" Style="{StaticResource ControlPanel_Button}" Grid.Column="6" Grid.Row="13"
-                Click="Button_Interact_Click" Margin="0,0.204,0,4.796" Grid.RowSpan="2">
+                Click="Button_Interact_Click">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_S.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>
         <Button x:Name="Button_Right" Style="{StaticResource ControlPanel_Button}" Grid.Column="8" Grid.Row="13"
-                Click="Button_Right_Click" Margin="0,0.204,0,4.796" Grid.RowSpan="2">
+                Click="Button_Right_Click">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_D.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>
         <Button x:Name="Button_Down" Style="{StaticResource ControlPanel_Button}" Grid.Column="6" Grid.Row="15"
-                Click="Button_Down_Click" Margin="0,0.204,0,7.796" Grid.RowSpan="2">
+                Click="Button_Down_Click">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_X.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>
-        <Button x:Name="Button_Map" Style="{StaticResource ControlPanel_Button}" Grid.Column="8" Grid.Row="15" Grid.ColumnSpan="2" Grid.RowSpan="3"
-                Click="Button_Map_Click" Margin="0,0.204,0,4.796">
+        <Button x:Name="Button_Map" Style="{StaticResource ControlPanel_Button}" Grid.Column="8" Grid.Row="15" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                Click="Button_Map_Click">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_C.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>
 
-
+        <!-- Character Menu Container -->
+        <Grid x:Name="PauseMenuOverlayContainer" Grid.ColumnSpan="16" Grid.RowSpan="19" Visibility="Hidden">
+            <Rectangle Fill="#7F000000"/>
+            <Grid x:Name="OverworldView_CharacterMenuContainer" Grid.ColumnSpan="16" Grid.RowSpan="19" Margin="224,18.5,224,18.5"/>
+        </Grid>
 
     </Grid>
 </UserControl>

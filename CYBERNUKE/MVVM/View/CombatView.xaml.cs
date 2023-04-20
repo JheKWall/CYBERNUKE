@@ -24,22 +24,14 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class CombatView : UserControl
     {
-        /// <summary>
-        /// TERMINOLOGY: Each set of buttons is called a "MENU" not to be confused with the combat MENU
-        /// 
-        /// TODO LIST:
-        /// 1. Generating Buttons that each have different functionality
-        /// 2. Determine which menu to display
-        /// 3. Generate Enemy/Player Boxes
-        /// 4. Link Enemy/Player Boxes to their respective Turn Order Boxes
-        /// </summary>
-
         //File reader
         private StreamReader input;
 
+        //Vars
         int enemyCount; //Number of enemies in combat
         int playerCount; //Number of players in combat
 
+        //Arrays/Lists
         Character[] ListPlayerTargets = new Character[4]; //List of all player targets (Max 4)
         EnemyBox[] ListEnemyTargets = new EnemyBox[6]; //List of all enemy targets (Max 6)
         List<TurnOrderBox> TurnOrderBoxList = new List<TurnOrderBox>();
@@ -47,13 +39,10 @@ namespace CYBERNUKE.MVVM.View
         //string[] ListPlayerSkills; //List of the current character's skills, initialized on turn start
         //string[] ListInventory; //List of usable items
 
-        //TODO: Initialize player/enemy count on combat start
         public CombatView()
         {
             InitializeComponent();
             ScaleText();
-
-            playerCount = 0;
 
             // Get Players
             for (int i = 0; i < 3; i++)
