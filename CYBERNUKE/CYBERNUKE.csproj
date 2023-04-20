@@ -98,6 +98,7 @@
     <Compile Include="MVVM\Model\MeleeWeapon.cs" />
     <Compile Include="MVVM\Model\RangedWeapon.cs" />
     <Compile Include="MVVM\Model\Skill.cs" />
+    <Compile Include="MVVM\Model\Town.cs" />
     <Compile Include="MVVM\ViewModel\CharacterViewModel.cs" />
     <Compile Include="GameData\UserControls\TurnOrderBox.xaml.cs">
       <DependentUpon>TurnOrderBox.xaml</DependentUpon>
