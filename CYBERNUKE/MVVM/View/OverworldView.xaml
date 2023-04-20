@@ -116,7 +116,7 @@
         <StackPanel x:Name="PlayerBox_Panel" Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="11"/>
 
         <!-- Control Panel Buttons -->
-        <Button x:Name="Button_Menu" Style="{StaticResource ControlPanel_Button}" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2"
+        <Button x:Name="Button_Menu" Style="{StaticResource ControlPanel_Button}" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="1"
                 Click="Button_Menu_Click">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_Q.png"/>
         </Button>
@@ -140,7 +140,7 @@
                 Click="Button_Down_Click">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_X.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>
-        <Button x:Name="Button_Map" Style="{StaticResource ControlPanel_Button}" Grid.Column="8" Grid.Row="15" Grid.ColumnSpan="2" Grid.RowSpan="2"
+        <Button x:Name="Button_Map" Style="{StaticResource ControlPanel_Button}" Grid.Column="8" Grid.Row="15" Grid.ColumnSpan="2" Grid.RowSpan="1"
                 Click="Button_Map_Click">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_C.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>

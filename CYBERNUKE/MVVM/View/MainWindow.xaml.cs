@@ -60,7 +60,23 @@ namespace CYBERNUKE
             mainCharacter.setCurrentSP(111);
             CharacterList.Add(mainCharacter);
 
-            numPartyMembers = 1;
+            Character secondCharacter = new Character(); // test character for character view. Will remove later.
+            secondCharacter.setName("MAST");
+            secondCharacter.setMaxHP(111);
+            secondCharacter.setCurrentHP(101);
+            secondCharacter.setMaxSP(222);
+            secondCharacter.setCurrentSP(181);
+            CharacterList.Add(secondCharacter);
+
+            Character thirdCharacter = new Character(); // test character for character view. Will remove later.
+            thirdCharacter.setName("KELPY");
+            thirdCharacter.setMaxHP(999);
+            thirdCharacter.setCurrentHP(888);
+            thirdCharacter.setMaxSP(120);
+            thirdCharacter.setCurrentSP(120);
+            CharacterList.Add(thirdCharacter);
+
+            numPartyMembers = 3;
 
             /* The rest of this stuff is for testing
             MainArmor testArmor = new MainArmor();

@@ -24,6 +24,16 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class CombatView : UserControl
     {
+        /// <summary>
+        /// 1. Load Players into ListPlayerTargets
+        /// 2. Load Enemies into ListEnemyTargets
+        /// 3. Gather all Dexterity Stats
+        /// 4. Insert into TurnOrderBoxList from highest to lowest Dex
+        /// 5. Render TurnOrderBoxList
+        /// 6. Call UpdateList each turn
+        /// 7. Remove enemy/player from list when killed
+        /// </summary>
+
         //File reader
         private StreamReader input;
 
@@ -35,6 +45,7 @@ namespace CYBERNUKE.MVVM.View
         Character[] ListPlayerTargets = new Character[4]; //List of all player targets (Max 4)
         EnemyBox[] ListEnemyTargets = new EnemyBox[6]; //List of all enemy targets (Max 6)
         List<TurnOrderBox> TurnOrderBoxList = new List<TurnOrderBox>();
+        int numTurnOrderBoxes = 0;
 
         //string[] ListPlayerSkills; //List of the current character's skills, initialized on turn start
         //string[] ListInventory; //List of usable items
@@ -44,7 +55,7 @@ namespace CYBERNUKE.MVVM.View
             InitializeComponent();
             ScaleText();
 
-            // Get Players
+            // Get Players, add them to ListPlayerTargets
             for (int i = 0; i < 3; i++)
             {
                 if (((MainWindow)Application.Current.MainWindow).CharacterList[i] != null)
@@ -53,11 +64,10 @@ namespace CYBERNUKE.MVVM.View
                     playerCount++;
                 }
             }
-
-            // Add Players
+            // Add PlayersBoxes
             for (int i = 0; i < playerCount; i++)
             {
-                AddPlayer();
+                AddPlayerBox(i);
             }
 
             // Initialize StreamReader to Enemy Party file
@@ -66,22 +76,71 @@ namespace CYBERNUKE.MVVM.View
             input = new StreamReader("GameData/EnemyData/EnemyParty/" + enemyParty + ".txt");
             enemyCount = Int32.Parse(input.ReadLine());
             ResizeEnemyGrid();
-
-            // Add Enemies
+            // Add EnemyBoxes
             for (int i = 0; i < enemyCount; i++)
             {
-                AddEnemy(input.ReadLine(), i);
+                AddEnemyBox(input.ReadLine(), i);
             }
 
             // Close StreamReader
             input.Close();
             // Combat Start Text
             ControlPanel_Left_TextBlock.Text = "!! COMBAT START !!";
+            // Turn Order Update
         }
 
         private void TurnOrder_Init()
         {
-            
+            //Sort elements by dex stat
+        }
+        private void TurnOrder_Update()
+        {
+            // Flush turn order display
+            CombatMenu_TurnOrderPanel.Children.Clear();
+
+            //1. Get first item in list
+            TurnOrderBox temp = TurnOrderBoxList.First();
+            //2. Add it to the end of the list
+            TurnOrderBoxList.Add(temp);
+            //3. Remove it from the front of the list
+            TurnOrderBoxList.RemoveAt(0);
+
+            // Display new list on screen
+            for (int i = 0; i < numTurnOrderBoxes; i++)
+            {
+                CombatMenu_TurnOrderPanel.Children.Add(TurnOrderBoxList[i]);
+            }
+        }
+        private void AddTurnOrder(TurnOrderBox box)
+        {
+            // Add box to boxlist
+            TurnOrderBoxList.Add(box);
+        }
+
+        //Private method for adding an enemy from a file and with an index
+        private void AddEnemyBox(string enemyName, int index)
+        {
+            // Initialize new enemy, assign it to index
+            EnemyBox enemy = new EnemyBox(enemyName, index);
+            ListEnemyTargets[index] = enemy;
+
+            CombatMenu_EnemyBoxPanel.Children.Add(enemy);
+        }
+
+        //
+        private void AddPlayerBox(int index)
+        {
+            // Player vars
+            string name = ListPlayerTargets[index].getName();
+            int currenthp = ListPlayerTargets[index].getCurrentHP();
+            int maxhp = ListPlayerTargets[index].getMaxHP();
+            int currentsp = ListPlayerTargets[index].getCurrentSP();
+            int maxsp = ListPlayerTargets[index].getMaxSP();
+
+            // Create new player box
+            PlayerBox player = new PlayerBox(name, currenthp, maxhp, currentsp, maxsp);
+
+            CombatMenu_PlayerBoxPanel.Children.Add(player);
         }
 
         //Private method for resizing CombatMenu_EnemyBoxPanel UniformGrid
@@ -124,30 +183,6 @@ namespace CYBERNUKE.MVVM.View
             }
         }
 
-        //Private method for adding an enemy from a file and with an index
-        private void AddEnemy(string enemyName, int index)
-        {
-            // Initialize new enemy, assign it to index
-            EnemyBox enemy = new EnemyBox(enemyName, index);
-            ListEnemyTargets[index] = enemy;
-
-            CombatMenu_EnemyBoxPanel.Children.Add(enemy);
-            
-            // Create new turn order box for that enemy
-
-        }
-
-        //
-        //TODO: Take file input for a character
-        private void AddPlayer()
-        {
-            // Create new player box
-
-            // Create new turn order box for that player
-
-        }
-
-
         //Private classes for scaling text with resolution
         private void ScaleText()
         {
@@ -170,7 +205,6 @@ namespace CYBERNUKE.MVVM.View
             ControlPanelFontSize.FontSize = size;
             ControlPanelFontSize.Margin = new Thickness(0, size + 8, 0, 0);
         }
-
 
         ///Main Option Buttons
         private void CPBP_MAIN_FIGHT_Click(object sender, RoutedEventArgs e)
@@ -220,7 +254,6 @@ namespace CYBERNUKE.MVVM.View
 
         }
 
-
         ///Fight Option Buttons 
         private void CPBP_FIGHT_MELEE_Click(object sender, RoutedEventArgs e)
         {
@@ -258,6 +291,5 @@ namespace CYBERNUKE.MVVM.View
             // Show Main Menu
             ControlPanel_ButtonPanel_MAIN.Visibility = Visibility.Visible;
         }
-
     }
 }
