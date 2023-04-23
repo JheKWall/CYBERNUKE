@@ -25,7 +25,7 @@ namespace CYBERNUKE.GameData.UserControls
             InitializeComponent();
 
             // Get Name
-            Name.Text = name;
+            PlayerName.Text = name;
 
             // Get HP
             HP_Display.Text = "HP: " + currenthp.ToString() + "/" + maxhp.ToString();

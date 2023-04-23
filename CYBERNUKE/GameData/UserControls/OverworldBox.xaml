@@ -57,7 +57,7 @@
         <!-- Character Text -->
         <StackPanel Grid.Row="0" Grid.RowSpan="5" Grid.Column="3" Margin="5,0,0,0">
             <!-- Name -->
-            <TextBlock x:Name="Name" Style="{StaticResource OverworldBox_Name_TextBlock}" TextAlignment="Left" Margin="0,7,0,0"
+            <TextBlock x:Name="PlayerName" Style="{StaticResource OverworldBox_Name_TextBlock}" TextAlignment="Left" Margin="0,7,0,0"
                        Text="NAME" Foreground="#400000" HorizontalAlignment="Left" TextTrimming="CharacterEllipsis">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>

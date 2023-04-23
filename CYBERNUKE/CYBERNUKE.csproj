@@ -104,9 +104,7 @@
     <Compile Include="MVVM\Model\Character.cs" />
     <Compile Include="MVVM\Model\Item.cs" />
     <Compile Include="MVVM\Model\MainArmor.cs" />
-    <Compile Include="MVVM\Model\MeleeWeapon.cs" />
-    <Compile Include="MVVM\Model\RangedWeapon.cs" />
-    <Compile Include="MVVM\Model\Skill.cs" />
+    <Compile Include="MVVM\Model\MainWeapon.cs" />
     <Compile Include="MVVM\ViewModel\CharacterViewModel.cs" />
     <Compile Include="GameData\UserControls\TurnOrderBox.xaml.cs">
       <DependentUpon>TurnOrderBox.xaml</DependentUpon>
@@ -152,11 +150,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\CharacterView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="GameData\UserControls\TurnOrderBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\CharacterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,8 +211,8 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="GameData\Fonts\himalaya.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -301,7 +299,7 @@
     <Resource Include="GameData\Images\capybara %287%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GameData\EnemyData\Lesser_Zombie.txt">
+    <None Include="GameData\EnemyData\Zombie.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -311,15 +309,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Images\EnemyPortrait\Lesser_Zombie_Portrait.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="GameData\EnemyData\EnemyParty\EnemyPartyGuide.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GameData\EnemyData\EnemyParty\LesserZombieHorde.txt">
+    <None Include="GameData\EnemyData\EnemyParty\ZombieHorde.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -356,6 +351,32 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\PauseMenu\PauseMenu_MainBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\ZombieGroup.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\Mutant.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\ZombieMutant.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\EnemyData\EnemyParty\MutantGroup.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\EnemyPortrait\Zombie_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\EnemyPortrait\Mutant_Portrait.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

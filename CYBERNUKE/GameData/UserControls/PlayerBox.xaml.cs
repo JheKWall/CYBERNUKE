@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CYBERNUKE.MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,13 +21,17 @@ namespace CYBERNUKE.GameData.UserControls
     /// </summary>
     public partial class PlayerBox : UserControl
     {
-        int currenthp;
-        int currentsp;
+        //int currenthp;
+        //int currentsp;
         bool isActive = false;
 
-        public PlayerBox(string name, int currenthp, int maxhp, int currentsp, int maxsp)
+        //Reference
+        Character tiedChar;
+
+        public PlayerBox(string name, int currenthp, int maxhp, int currentsp, int maxsp, Character character)
         {
             InitializeComponent();
+            ScaleText();
 
             // Name
             MainBG_Name.Text = name;
@@ -37,14 +42,16 @@ namespace CYBERNUKE.GameData.UserControls
             ActiveBG_HP_Bar.Maximum = maxhp;
             ActiveBG_HP_Bar.Value = currenthp;
 
-            this.currenthp = currenthp;
+            //this.currenthp = currenthp;
             // SP
             MainBG_SP_Bar.Maximum = maxsp;
             MainBG_SP_Bar.Value = currentsp;
             ActiveBG_SP_Bar.Maximum = maxsp;
             ActiveBG_SP_Bar.Value = currentsp;
 
-            this.currentsp = currentsp;
+            //this.currentsp = currentsp;
+
+            tiedChar = character;
         }
 
         public void ToggleActive()
@@ -68,6 +75,52 @@ namespace CYBERNUKE.GameData.UserControls
                 // Set ActiveBG Visible
                 PlayerBoxInfo_ActiveBG.Visibility = Visibility.Visible;
                 PlayerBox_ActiveBG.Visibility = Visibility.Visible;
+            }
+        }
+
+        //Public method for updating values
+        public void UpdateVals()
+        {
+            MainBG_HP_Bar.Value = tiedChar.getCurrentHP();
+            ActiveBG_HP_Bar.Value = tiedChar.getCurrentHP();
+            MainBG_SP_Bar.Value = tiedChar.getCurrentSP();
+            ActiveBG_SP_Bar.Value = tiedChar.getCurrentSP();
+        }
+
+        //Private methods for scaling text with resolution
+        private void ScaleText()
+        {
+            switch (Application.Current.MainWindow.Width)
+            {
+                case 1366:
+                    ChangeFontSize(0);
+                    break;
+                case 1600:
+                    ChangeFontSize(1);
+                    break;
+                case 1920:
+                    ChangeFontSize(2);
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void ChangeFontSize(int size)
+        {
+            switch (size)
+            {
+                case 0: //1366
+                    FontSizeVar.FontSize = 32;
+                    BarFontSizeVar.FontSize = 25;
+                    break;
+                case 1: //1600
+                    FontSizeVar.FontSize = 36;
+                    BarFontSizeVar.FontSize = 29;
+                    break;
+                case 2: //1920
+                    FontSizeVar.FontSize = 41;
+                    BarFontSizeVar.FontSize = 33;
+                    break;
             }
         }
     }

@@ -12,31 +12,6 @@ statDexterity (int)
 statEndurance (int)
 statIntelligence (int)
 
-//resistances
-//Weak = 2.0
-//Normal = 1.0
-//Endured = 0.5
-resSlash (double)
-resPierce (double)
-resBlunt (double)
-resFire (double)
-resWater (double)
-resIce (double)
-resElectric (double)
-resEarth (double)
-resWind (double)
-
 //attack effect
 amountDamage (int)
 costSP (int)
-
-//attack type
-isSlash (bool)
-isPierce (bool)
-isBlunt (bool)
-isFire (bool)
-isWater (bool)
-isIce (bool)
-isElectric (bool)
-isEarth (bool)
-isWind (bool)

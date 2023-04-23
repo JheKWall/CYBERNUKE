@@ -10,19 +10,10 @@
     <!-- Styles -->
     <UserControl.Resources>
         <!-- Index TextBlock Style -->
-        <Style x:Key="TurnOrder_Index_TextBlock" TargetType="TextBlock">
+        <Style x:Key="TurnOrder_TextBlock" TargetType="TextBlock">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="FontFamily" Value="OCR A Extended"/>
-            <Setter Property="FontSize" Value="{Binding ElementName=TurnOrderIndexFontSize, Path=FontSize}"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
-        </Style>
-        <!-- Index TextBlock Style -->
-        <Style x:Key="TurnOrder_Name_TextBlock" TargetType="TextBlock">
-            <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="FontFamily" Value="OCR A Extended"/>
-            <Setter Property="FontSize" Value="{Binding ElementName=TurnOrderNameFontSize, Path=FontSize}"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=FontSizeVar, Path=FontSize}"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
@@ -44,9 +35,8 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Font Size Variables -->
-        <TextBlock x:Name="TurnOrderIndexFontSize" FontSize="28" Visibility="Hidden"/>
-        <TextBlock x:Name="TurnOrderNameFontSize" FontSize="24" Visibility="Hidden"/>
+        <!-- Font Size Variable -->
+        <TextBlock x:Name="FontSizeVar" FontSize="24" Visibility="Hidden" Grid.RowSpan="2"/>
 
         <!-- Turn Order Box Image -->
         <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_TurnOrder_Box.PNG" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
@@ -54,24 +44,20 @@
         <!-- Turn Order Box Text -->
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="25*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="17*"/>
                 <ColumnDefinition Width="90*"/>
             </Grid.ColumnDefinitions>
-            
+
             <!-- Index -->
-            <TextBlock x:Name="Index" Text="0" Style="{StaticResource TurnOrder_Index_TextBlock}" Foreground="#ff0000" Height="29" VerticalAlignment="Center" Grid.Row="1">
-                <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
-                </TextBlock.Effect>
-            </TextBlock>
+            <TextBlock x:Name="Index" Text="0" Style="{StaticResource TurnOrder_TextBlock}" Foreground="#ff0000" Padding="2,2,0,0"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
 
             <!-- Name -->
-            <TextBlock x:Name="Name" Text="Name" Style="{StaticResource TurnOrder_Name_TextBlock}" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" TextAlignment="Right"/>
+            <TextBlock x:Name="CombatantName" Text="NAME" Style="{StaticResource TurnOrder_TextBlock}" Foreground="#ffffff" Padding="3,2,0,0"
+                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" TextAlignment="Left" TextTrimming="CharacterEllipsis"/>
         </Grid>
 
     </Grid>

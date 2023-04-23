@@ -28,36 +28,21 @@ namespace CYBERNUKE.GameData.UserControls
         private StreamReader input;
 
         //Vars
-        bool IsDead = false;
+        string name;
+        public bool IsDead = false;
 
         //Stats
-        int defense;
-        int statStrength;
-        int statDexterity;
-        int statEndurance;
-        int statIntelligence;
-        int amountDamage;
-        int costSP;
-        double resSlash;
-        double resPierce;
-        double resBlunt;
-        double resFire;
-        double resWater;
-        double resIce;
-        double resElectric;
-        double resEarth;
-        double resWind;
-        bool isSlash;
-        bool isPierce;
-        bool isBlunt;
-        bool isFire;
-        bool isWater;
-        bool isIce;
-        bool isElectric;
-        bool isEarth;
-        bool isWind;
+        public int defense;
+        public int statStrength;
+        public int statDexterity;
+        public int statEndurance;
+        public int statIntelligence;
+        public int amountDamage;
+        public int costSP;
 
-        //TODO: Use file as input to initialize
+        //References
+        public TurnOrderBox currentTurnOrder;
+
         public EnemyBox(string enemyName, int index)
         {
             InitializeComponent();
@@ -71,11 +56,11 @@ namespace CYBERNUKE.GameData.UserControls
             // Initialize StreamReader toe EnemyData.txt
             input = new StreamReader("GameData/EnemyData/" + enemyName + ".txt");
 
-            // Index
-            Index.Text = index.ToString();
+            // Name & Index
+            name = input.ReadLine();
+            EnemyName.Text = index.ToString() + " // " + name;
 
             // Read in all enemy data (sorry for coding)
-            this.Name.Text = input.ReadLine();
             defense = Int32.Parse(input.ReadLine());
             HP_Bar.Maximum = Double.Parse(input.ReadLine());
             HP_Bar.Value = HP_Bar.Maximum;
@@ -87,47 +72,18 @@ namespace CYBERNUKE.GameData.UserControls
             statEndurance = Int32.Parse(input.ReadLine());
             statIntelligence = Int32.Parse(input.ReadLine());
 
-            resSlash = Double.Parse(input.ReadLine());
-            resPierce = Double.Parse(input.ReadLine());
-            resBlunt = Double.Parse(input.ReadLine());
-            resFire = Double.Parse(input.ReadLine());
-            resWater = Double.Parse(input.ReadLine());
-            resIce = Double.Parse(input.ReadLine());
-            resElectric = Double.Parse(input.ReadLine());
-            resEarth = Double.Parse(input.ReadLine());
-            resWind = Double.Parse(input.ReadLine());
-
             amountDamage = Int32.Parse(input.ReadLine());
             costSP = Int32.Parse(input.ReadLine());
 
-            isSlash = input.ReadLine() == "1";
-            isPierce = input.ReadLine() == "1";
-            isBlunt = input.ReadLine() == "1";
-            isFire = input.ReadLine() == "1";
-            isWater = input.ReadLine() == "1";
-            isIce = input.ReadLine() == "1";
-            isElectric = input.ReadLine() == "1";
-            isEarth = input.ReadLine() == "1";
-            isWind = input.ReadLine() == "1";
-
             // Initialize Portrait
             Portrait.Source = new BitmapImage(new Uri("pack://application:,,,/CYBERNUKE;component/GameData/Images/EnemyPortrait/" + enemyName + "_Portrait.png"));
-
-            // Initialize Skills
-
-            // Read in all skill data
-            //TODO: Skills (maybe a list?)
 
             // End Read
             input.Close();
         }
 
-
         //Public class for attacking players
         //TODO: Attack player method
-
-        //Public class for using skills
-        //TODO: Use skill method
 
         //Public class for modifying enemy's HP
         public void ModifyHP(int AmountHP)
@@ -139,17 +95,18 @@ namespace CYBERNUKE.GameData.UserControls
             }
 
             // Modify HP
-            HP_Bar.Value += AmountHP;
+            HP_Bar.Value -= AmountHP;
 
             // Check if Dead
             if (HP_Bar.Value <= 0)
             {
                 IsDead = true;
+                DestroyEnemy();
             }
         }
 
         //Public class for modifying enemy's SP
-        public void ModifySP(int AmountSP)
+        private void ModifySP(int AmountSP, int action) //2nd val is (0 == lose sp) (1 == gain sp)
         {
             // Check if dead
             if (IsDead)
@@ -157,8 +114,15 @@ namespace CYBERNUKE.GameData.UserControls
                 throw new Exception("Enemy is dead");
             }
 
-            // Modify SP
-            HP_Bar.Value += AmountSP;
+            switch (action)
+            {
+                case 0:
+                    SP_Bar.Value -= AmountSP;
+                    break;
+                case 1:
+                    SP_Bar.Value += AmountSP;
+                    break;
+            }
         }
 
         //Private class for destroying the enemy
@@ -182,32 +146,63 @@ namespace CYBERNUKE.GameData.UserControls
         {
             return (int)SP_Bar.Value;
         }
+        public void RechargeSP(int rechargeAmount)
+        {
+            if (GetSP() < (SP_Bar.Maximum - rechargeAmount))
+            {
+                ModifySP(rechargeAmount, 1);
+            }
+        }
+        public void AttackLoseSP()
+        {
+            ModifySP(costSP, 0);
+        }
+
+        //Public class for getting name
+        public string GetName()
+        {
+            return name;
+        }
+
+        //Public class for turn order
+        public void Set_TurnOrder(TurnOrderBox turnOrder)
+        {
+            currentTurnOrder = turnOrder;
+        }
 
 
-
-        //Private classes for scaling text with resolution
+        //Private methods for scaling text with resolution
         private void ScaleText()
         {
             switch (Application.Current.MainWindow.Width)
             {
                 case 1366:
+                    ChangeFontSize(0);
                     break;
                 case 1600:
-                    ChangeFontSize(37);
+                    ChangeFontSize(1);
                     break;
                 case 1920:
-                    ChangeFontSize(46);
+                    ChangeFontSize(2);
                     break;
                 default:
                     break;
             }
         }
-        private void ChangeFontSize(double size)
+        private void ChangeFontSize(int size)
         {
-            Name.FontSize = size;
-            Index.FontSize = size;
-            HP_Text.FontSize = size;
-            SP_Text.FontSize = size;
+            switch (size)
+            {
+                case 0: //1366
+                    FontSizeVar.FontSize = 32;
+                    break;
+                case 1: //1600
+                    FontSizeVar.FontSize = 38;
+                    break;
+                case 2: //1920
+                    FontSizeVar.FontSize = 44;
+                    break;
+            }
         }
     }
 }
