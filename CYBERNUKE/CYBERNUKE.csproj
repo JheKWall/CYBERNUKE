@@ -111,8 +111,6 @@
     </Compile>
     <Compile Include="MVVM\Model\LocationData.cs" />
     <Compile Include="MVVM\Model\Map.cs" />
-    <Compile Include="MVVM\Model\NPCData.cs" />
-    <Compile Include="MVVM\Model\ObjectData.cs" />
     <Compile Include="MVVM\ViewModel\CombatViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OverworldViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TownViewModel.cs" />
@@ -395,9 +393,31 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GameData\Maps\42ndStreet.txt">
+    <None Include="GameData\Maps\GroveStreet.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\EnemyPortrait\GangstaDuck_Portrait.png" />
+    <Resource Include="GameData\Images\EnemyPortrait\MrBones_Portrait.png" />
+    <Resource Include="GameData\Images\EnemyPortrait\Phantom_Portrait.png" />
+    <Resource Include="GameData\Images\EnemyPortrait\PinkSlime_Portrait.png" />
+    <Resource Include="GameData\Images\EnemyPortrait\V1_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PinkSlime_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\V1_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GangstaDuck_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MrBones_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Phantom_Portrait.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

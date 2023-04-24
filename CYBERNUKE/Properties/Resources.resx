@@ -253,4 +253,19 @@
   <data name="OverworldMenu_PromptBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OverworldMenu_PromptBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GangstaDuck_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GangstaDuck_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MrBones_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MrBones_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Phantom_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Phantom_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PinkSlime_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PinkSlime_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="V1_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\V1_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

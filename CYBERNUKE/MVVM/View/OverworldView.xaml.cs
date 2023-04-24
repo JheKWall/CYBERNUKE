@@ -165,8 +165,16 @@ namespace CYBERNUKE.MVVM.View
             else
             {
                 int spawnIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Spawn_Index(currentMap);
-                playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].locationData[spawnIndex].locationCoordY;
-                playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].locationData[spawnIndex].locationCoordX;
+                if (spawnIndex == -1) //-1 means it couldnt find the mapname in the location data, so it defaults to default spawn location
+                {
+                    playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].defaultSpawnY;
+                    playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].defaultSpawnX;
+                }
+                else
+                {
+                    playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].teleportLocationData[spawnIndex].locationCoordY;
+                    playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].teleportLocationData[spawnIndex].locationCoordX;
+                }
             }
             dynamicMap[playerPosY, playerPosX] = '☢';
             ((MainWindow)Application.Current.MainWindow).returnToSavedPos = false;
@@ -375,6 +383,27 @@ namespace CYBERNUKE.MVVM.View
                 Encounter_Chance();
             }
 
+            //0 == teleport, 1 == npc, 2 == object, 3 == enemy
+            int tile = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Check_Player_Pos(playerPosX, playerPosY);
+            
+            switch (tile)
+            {
+                case -1: //not on a special tile
+                    break;
+
+                case 0: //Teleport
+                    break;
+
+                case 1: //NPC
+                    break;
+
+                case 2: //Object
+                    break;
+
+                case 3: //Enemy
+                    break;
+            }
+
             //if lands on area teleport
             //1. show prompt and ask user if they want to go
             //yes = teleport (call Next_Map with the map to load)
@@ -382,13 +411,15 @@ namespace CYBERNUKE.MVVM.View
 
             //if lands on npc
             //1. show dialogue box and put npc dialogue in
-            //2. click to skip dialogue/next dialogue/exit dialogue
-            //3. hide dialogue box
 
             //if lands on object
             //1. show prompt and ask user choice about item
             //yes = do thing
             //no = do nothing
+
+            //if lands on enemy
+            //1. set enemyParty in MainWindow
+            //2. start combat
         }
 
         //Private method for starting combat

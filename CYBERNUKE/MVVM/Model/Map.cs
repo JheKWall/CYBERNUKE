@@ -16,20 +16,19 @@ namespace CYBERNUKE.MVVM.Model
         //Map Vars
         public string mapToLoad;
         public char[,] mapData;
-        public LocationData[] locationData;
-        public List<string> locationNames;
-        //objectdata
-        //npcdata
+        public LocationData[] teleportLocationData;
+        public LocationData[] objectLocationData;
+        public LocationData[] npcLocationData;
+        public LocationData[] enemyLocationData;
         public int mapWidth;
         public int mapHeight;
         public int encounterChance;
         public string mapName;
+        public int defaultSpawnX;
+        public int defaultSpawnY;
 
         public Map()
         {
-            // Initialize list
-            locationNames = new List<string>();
-
             // Get map to load
             mapToLoad = ((MainWindow)Application.Current.MainWindow).mapToLoad;
             // Read that map's data
@@ -53,24 +52,69 @@ namespace CYBERNUKE.MVVM.Model
             // Encounter Chances
             encounterChance = Int32.Parse(input.ReadLine());
 
-            // Location Input
+            // Default Spawn
+            defaultSpawnX = Int32.Parse(input.ReadLine());
+            defaultSpawnY = Int32.Parse(input.ReadLine());
+
+            #region Spawn Location Input
             int numLocations = Int32.Parse(input.ReadLine());
-            locationData = new LocationData[numLocations];
-            locationNames.Capacity = numLocations;
+            teleportLocationData = new LocationData[numLocations];
             if (numLocations != 0)
             {
                 for (int i = 0; i < numLocations; i++)
                 {
-                    locationNames.Add(input.ReadLine());
+                    string name = input.ReadLine();
                     int x = Int32.Parse(input.ReadLine());
                     int y = Int32.Parse(input.ReadLine());
-                    locationData[i] = new LocationData(x, y);
+                    teleportLocationData[i] = new LocationData(name, x, y);
                 }
             }
+            #endregion
 
-            // NPC Location Input
+            #region NPC Location Input
+            numLocations = Int32.Parse(input.ReadLine());
+            objectLocationData = new LocationData[numLocations];
+            if (numLocations != 0)
+            {
+                for (int i = 0; i < numLocations; i++)
+                {
+                    string name = input.ReadLine();
+                    int x = Int32.Parse(input.ReadLine());
+                    int y = Int32.Parse(input.ReadLine());
+                    objectLocationData[i] = new LocationData(name, x, y);
+                }
+            }
+            #endregion
 
-            // Object Location Input
+            #region Object Location Input
+            numLocations = Int32.Parse(input.ReadLine());
+            npcLocationData = new LocationData[numLocations];
+            if (numLocations != 0)
+            {
+                for (int i = 0; i < numLocations; i++)
+                {
+                    string name = input.ReadLine();
+                    int x = Int32.Parse(input.ReadLine());
+                    int y = Int32.Parse(input.ReadLine());
+                    npcLocationData[i] = new LocationData(name, x, y);
+                }
+            }
+            #endregion
+
+            #region Enemy Location Input
+            numLocations = Int32.Parse(input.ReadLine());
+            enemyLocationData = new LocationData[numLocations];
+            if (numLocations != 0)
+            {
+                for (int i = 0; i < numLocations; i++)
+                {
+                    string name = input.ReadLine();
+                    int x = Int32.Parse(input.ReadLine());
+                    int y = Int32.Parse(input.ReadLine());
+                    enemyLocationData[i] = new LocationData(name, x, y);
+                }
+            }
+            #endregion
 
             // Input map data
             for (int i = 0; i < mapHeight; i++)
@@ -85,20 +129,102 @@ namespace CYBERNUKE.MVVM.Model
             ((MainWindow)Application.Current.MainWindow).currentMap = mapToLoad;
         }
 
-        public int Get_Spawn_Index(string locationName)
+        public int Get_Spawn_Index(string spawnLocationName)
         {
-            int index;
-
-            //Checks array for maps
-            bool has = locationNames.Contains(locationName);
-
-            if (!has) //If not in list
+            //Check location array for map
+            for (int i = 0; i < teleportLocationData.Length; i++)
             {
-                return index = 0;
+                if (teleportLocationData[i].locationName == spawnLocationName)
+                {
+                    return i;
+                }
             }
-            //else
-            return index = locationNames.IndexOf(locationName);
+            return -1;
         }
-        
+
+        //Public methods for checking player position against 
+        public int Check_Player_Pos(int posX, int posY)
+        {
+            //0 == teleport, 1 == npc, 2 == object, 3 == enemy
+            int inspector;
+
+            //Teleport Location Check
+            inspector = Get_Teleport_Pos(posX, posY);
+            if (inspector != -1)
+            {
+                return 0;
+            }
+
+            //NPC Check
+            inspector = Get_NPC_Pos(posX, posY);
+            if (inspector != -1)
+            {
+                return 1;
+            }
+
+            //Object Check
+            inspector = Get_Object_Pos(posX, posY);
+            if (inspector != -1)
+            {
+                return 2;
+            }
+
+            //Enemy Check
+            inspector = Get_Enemy_Pos(posX, posY);
+            if (inspector != -1)
+            {
+                return 3;
+            }
+
+            return -1;
+        }
+        public int Get_Teleport_Pos(int posX, int posY)
+        {
+            //Teleport Location Get
+            for (int i = 0; i < teleportLocationData.Length; i++)
+            {
+                if ((posX == teleportLocationData[i].locationCoordX) && (posY == teleportLocationData[i].locationCoordY))
+                {
+                    return i;
+                }
+            }
+            return -1; //not found
+        }
+        public int Get_NPC_Pos(int posX, int posY)
+        {
+            //NPC Location Get
+            for (int i = 0; i < npcLocationData.Length; i++)
+            {
+                if ((posX == npcLocationData[i].locationCoordX) && (posY == npcLocationData[i].locationCoordY))
+                {
+                    return i;
+                }
+            }
+            return -1; //not found
+        }
+        public int Get_Object_Pos(int posX, int posY)
+        {
+            //Object Location Get
+            for (int i = 0; i < objectLocationData.Length; i++)
+            {
+                if ((posX == objectLocationData[i].locationCoordX) && (posY == objectLocationData[i].locationCoordY))
+                {
+                    return i;
+                }
+            }
+            return -1; //not found
+        }
+        public int Get_Enemy_Pos(int posX, int posY)
+        {
+            //Enemy Location Get
+            for (int i = 0; i < enemyLocationData.Length; i++)
+            {
+                if ((posX == enemyLocationData[i].locationCoordX) && (posY == enemyLocationData[i].locationCoordY))
+                {
+                    return i;
+                }
+            }
+            return -1; //not found
+        }
     }
 }
