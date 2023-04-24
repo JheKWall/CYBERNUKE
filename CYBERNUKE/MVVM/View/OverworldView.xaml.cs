@@ -29,8 +29,7 @@ namespace CYBERNUKE.MVVM.View
         private StreamReader input;
 
         //Prompt Vars
-        //I HATE THREADING!!! I HATE THREADING!!! I HATE THREADING!!! I HATE THREADING!!! I HATE THREADING!!! I HATE THREADING!!! I HATE THREADING!!! 
-        bool inPrompt = false;
+        //I HATE THREADING!!! I HATE THREADING!!! I HATE THREADING!!! I HATE THREADING!!! I HATE THREADING!!! I HATE THREADING!!! I HATE THREADING!!!
         int numPromptRuns; //How many times the prompt needs to run
         int promptIndex; //Current run index
 
@@ -44,8 +43,8 @@ namespace CYBERNUKE.MVVM.View
         //Map Vars
         Window overworldWindow;
         int encounterChance;
-
-        //string mapToLoad;
+        string mapTeleport;
+        string townTeleport;
         char[,] mapData;
         char[,] dynamicMap;
         int currentIndex;
@@ -294,6 +293,7 @@ namespace CYBERNUKE.MVVM.View
             return true;
         }
 
+        #region DialoguePrompt
         //Public & private method for displaying popups
         public void Init_Dialogue(string dialogueName) //Call when starting prompt
         {
@@ -341,6 +341,8 @@ namespace CYBERNUKE.MVVM.View
                 hasControl = true;
             }
         }
+        #endregion
+        #region CombatPrompt
         private void Display_Prompt_Combat()
         {
             //0. Remove Player Control
@@ -350,25 +352,41 @@ namespace CYBERNUKE.MVVM.View
             PopUpContainer.Visibility = Visibility.Visible;
             CombatPromptContainer.Visibility = Visibility.Visible;
         }
-        private void Display_Prompt_Town()
+        #endregion
+        #region TownPrompt
+        private void Display_Prompt_Town(string townName) //Ex: TranquilityTown (NameTown)
         {
-            //0. Remove Player Control
+            // Set mapTeleport
+            mapTeleport = townName;
+
+            // Remove Player Control
             hasControl = false;
 
-            //1. Show Town Prompt
+            // Show Town Prompt
             PopUpContainer.Visibility = Visibility.Visible;
             TownPromptContainer.Visibility = Visibility.Visible;
+        }
 
-            //1.5 Set Town Prompt & Values Correctly
+        //Map Prompts
+        private void Prompt_Yes_Click(object sender, RoutedEventArgs e)
+        {
+            // Set mapdata in MainWindow
+            ((MainWindow)Application.Current.MainWindow).townToLoad = townTeleport;
 
-            //(Continues if player chooses 'No')
-            //2. Hide Town Prompt
+            // Switch window
+
+        }
+        private void Prompt_No_Click(object sender, RoutedEventArgs e)
+        {
+            // Hide Town Prompt
             PopUpContainer.Visibility = Visibility.Hidden;
             TownPromptContainer.Visibility = Visibility.Hidden;
 
-            //3. Give Player Control back
+            // Give Player Control back
             hasControl = true;
         }
+        #endregion
+
         //Private method for prompting user (yes/no question)
         private void Display_Prompt()
         {
@@ -385,6 +403,7 @@ namespace CYBERNUKE.MVVM.View
 
             //0 == teleport, 1 == npc, 2 == object, 3 == enemy
             int tile = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Check_Player_Pos(playerPosX, playerPosY);
+            int locationIndex;
             
             switch (tile)
             {
@@ -392,15 +411,20 @@ namespace CYBERNUKE.MVVM.View
                     break;
 
                 case 0: //Teleport
+                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Teleport_Pos(playerPosX, playerPosY);
+                    Init_TownPrompt(((MainWindow)Application.Current.MainWindow).mapList[currentIndex].teleportLocationData[locationIndex].locationName);
                     break;
 
                 case 1: //NPC
+                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_NPC_Pos(playerPosX, playerPosY);
                     break;
 
                 case 2: //Object
+                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Object_Pos(playerPosX, playerPosY);
                     break;
 
                 case 3: //Enemy
+                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Enemy_Pos(playerPosX, playerPosY);
                     break;
             }
 
@@ -525,15 +549,6 @@ namespace CYBERNUKE.MVVM.View
             }
         }
 
-        //Map Prompts
-        private void Prompt_Yes_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Prompt_No_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         //Dialogue Continue Button
         private void DialogueContinue_Click(object sender, RoutedEventArgs e)

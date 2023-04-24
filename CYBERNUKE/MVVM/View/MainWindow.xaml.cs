@@ -28,7 +28,7 @@ namespace CYBERNUKE
         public List<Character> CharacterList = new List<Character>();
 
         //Map Variables
-        public string mapToLoad = "TranquilityCheckpoint";
+        public string mapToLoad = "GroveStreet";
         public string currentMap = "";
         public List<Map> mapList;
         private List<string> loadedMaps; //contains all loaded map names

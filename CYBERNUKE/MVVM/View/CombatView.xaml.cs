@@ -458,7 +458,7 @@ namespace CYBERNUKE.MVVM.View
         {
             //Victim: Defense (10)
             //Attacker: AttackPower, Strength (40, 6)
-            //ATTACK FORMULA: (int)Damage = (AttackPower + (AttackerPower * (Strength / 10))) - (Defense)
+            //ATTACK FORMULA: (int)Damage = (AttackPower + (AttackPower * (Strength / 5))) - (Defense)
             //Ex: (40 + (40 * (6 / 10))) - 10 = 54 Damage
 
             int damage = (attack + (attack * (strength / 10))) - defense;

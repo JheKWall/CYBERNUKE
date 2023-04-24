@@ -59,7 +59,13 @@ namespace CYBERNUKE.MVVM.Model
             this.statEndurance = statEndurance;
             this.statIntelligence = statIntelligence;
             equippedWeapon = w;
-            equippedOutfit = a;
+            Equip_Armor(a);
+        }
+
+        public void Equip_Armor(MainArmor armor)
+        {
+            equippedOutfit = armor;
+            setDefense(armor.getDefense());
         }
 
         public void setName(string name)
