@@ -26,27 +26,33 @@ Map variables declared in this order (spacing and newlines included):
 //Add +2 to final width value to account for '\r' and '\n'
 4. ENCOUNTER_CHANCE
 //No enemies = (=0), Low = (<=20), Med = (<=40), High = (<=60), Enemy every step = (=100)
-4.8 DEFAULT_SPAWN_X
-4.9 DEFAULT_SPAWN_Y
-5. AMOUNT_LOCATIONS
-6. LOCATION_1_NAME (map filename) ?
-7. LOCATION_1_X
-8. LOCATION_1_Y
+5 DEFAULT_SPAWN_X
+6 DEFAULT_SPAWN_Y
 ...
-9. AMOUNT_NPCS
-10. NPC_1_NAME (dialogue filename)
-11. NPC_1_X
-12. NPC_1_Y
+7. AMOUNT_LOCATIONS //map to map teleport
+8. LOCATION_1_NAME (map filename) ?
+9. LOCATION_1_X
+10. LOCATION_1_Y
 ...
-13. AMOUNT_OBJECTS
-14. OBJECT_1_NAME (its filename)
-15. OBJECT_1_X
-16. OBJECT_1_Y
+11. AMOUNT_TOWNS //map to town teleport
+12. TOWN_1_NAME
+13. TOWN_1_X
+14. TOWN_1_Y
 ...
-17. AMOUNT_ENEMIES
-18. ENEMY_1_NAME (enemy party filename)
-19. ENEMY_1_X
-20. ENEMY_1_Y
+15. AMOUNT_NPCS
+16. NPC_1_NAME (dialogue filename)
+17. NPC_1_X
+18. NPC_1_Y
 ...
-21. MAP_DATA
+19. AMOUNT_OBJECTS
+20. OBJECT_1_NAME (its filename)
+21. OBJECT_1_X
+22. OBJECT_1_Y
+...
+23. AMOUNT_ENEMIES
+24. ENEMY_1_NAME (enemy party filename)
+25. ENEMY_1_X
+26. ENEMY_1_Y
+...
+27. MAP_DATA
 (Include extra empty line at bottom)

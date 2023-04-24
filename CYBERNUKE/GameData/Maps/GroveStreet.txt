@@ -4,13 +4,37 @@
 30
 21
 14
+//MAP TELEPORT LOCATIONS
 1
-TranquilityTown
+TranquilityCheckpoint
 22
 14
+//TOWN TELEPORT LOCATIONS
 0
+//NPC LOCATIONS
+2
+Shopkeeper
+22
+1
+Insaneman
+4
+4
+//OBJECT LOCATIONS
 0
-0
+//ENEMY LOCATIONS
+4
+EncounterMrBones
+14
+2
+EncounterPhantom
+3
+10
+EncounterPinkSlime
+25
+2
+EncounterV1
+13
+10
 　　⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛　　
 　　⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛❕⬛⬜⬜⬜⬜⬜⬜⛹⬛⬜⬛⬛　　
 　　⬛⬜⬜⬜⬛⬜⬜⬜⬜⬜❕⬛⚠⬛⬜⬜⬜⬜⬜⬛⬛⬛⬜⚠⬛　　

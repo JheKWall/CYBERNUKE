@@ -1,5 +1,6 @@
 ﻿using CYBERNUKE.GameData.UserControls;
 using CYBERNUKE.MVVM.Model;
+using CYBERNUKE.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -71,59 +72,13 @@ namespace CYBERNUKE.MVVM.View
             hasControl = true;
         }
 
-        //Private method for loading into another map
-        private void Next_Map(string mapName)
-        {
-            ((MainWindow)Application.Current.MainWindow).mapToLoad = mapName;
-            ((MainWindow)Application.Current.MainWindow).Get_Map();
-            Map_First_Render();
-        }
-
-        //Private method for loading player boxes
-        private void Load_Player_Boxes()
-        {
-            playerCount = ((MainWindow)Application.Current.MainWindow).numPartyMembers;
-            ListCharacters.Capacity = playerCount;
-
-            // Get Players
-            for (int i = 0; i < playerCount; i++)
-            {
-                ListCharacters.Add(((MainWindow)Application.Current.MainWindow).CharacterList[i]);
-            }
-
-            // Add Overworld Boxes
-            for (int i = 0; i < playerCount; i++)
-            {
-                // Create Overworld Box
-                string name = ListCharacters[i].getName();
-                int currenthp = ListCharacters[i].getCurrentHP();
-                int maxhp = ListCharacters[i].getMaxHP();
-                int currentsp = ListCharacters[i].getCurrentSP();
-                int maxsp = ListCharacters[i].getMaxSP();
-
-                OverworldBox overworldbox = new OverworldBox(name, currenthp, maxhp, currentsp, maxsp);
-
-                switch (i)
-                {
-                    case 0:
-                        OV_PB_Pos1.Children.Add(overworldbox);
-                        break;
-                    case 1:
-                        OV_PB_Pos2.Children.Add(overworldbox);
-                        break;
-                    case 2:
-                        OV_PB_Pos3.Children.Add(overworldbox);
-                        break;
-                    case 3:
-                        OV_PB_Pos4.Children.Add(overworldbox);
-                        break;
-                }
-            }
-        }
-
+        #region Map Loading Methods
         //Private method for loading a map to the overworldview
         private void Map_First_Render()
         {
+            // Clear isEncounter
+            ((MainWindow)Application.Current.MainWindow).isEncounter = false;
+
             // Clear MapDisplay
             MapDisplay.Text = "";
 
@@ -171,12 +126,23 @@ namespace CYBERNUKE.MVVM.View
                 }
                 else
                 {
-                    playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].teleportLocationData[spawnIndex].locationCoordY;
-                    playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].teleportLocationData[spawnIndex].locationCoordX;
+                    //If coming from Town
+                    if (((MainWindow)Application.Current.MainWindow).TownToMap)
+                    {
+                        playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].townTeleportLocationData[spawnIndex].locationCoordY;
+                        playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].townTeleportLocationData[spawnIndex].locationCoordX;
+                    }
+                    //Else you're coming from another map/just spawning in
+                    else
+                    {
+                        playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].teleportLocationData[spawnIndex].locationCoordY;
+                        playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].teleportLocationData[spawnIndex].locationCoordX;
+                    }
                 }
             }
             dynamicMap[playerPosY, playerPosX] = '☢';
             ((MainWindow)Application.Current.MainWindow).returnToSavedPos = false;
+            ((MainWindow)Application.Current.MainWindow).TownToMap = false;
 
             // Render Map to Screen
             for (int i = 0; i < mapHeight; i++)
@@ -190,23 +156,6 @@ namespace CYBERNUKE.MVVM.View
             // Set new current map
             ((MainWindow)Application.Current.MainWindow).currentMap = ((MainWindow)Application.Current.MainWindow).mapToLoad;
         }
-
-        private void Encounter_Chance()
-        {
-            //1. Generate a number from 0 to 100
-            //2. If it falls below the encounter chance, congrats you are being attacked
-            //3. Else, continue on with your day
-            Random rand = new Random();
-            int chance = rand.Next(0, 100);
-            if (chance <= encounterChance)
-            {
-                //4. Get random enemy party
-                int index = rand.Next(((MainWindow)Application.Current.MainWindow).enemyPartyList.Count);
-                string enemyParty = ((MainWindow)Application.Current.MainWindow).enemyPartyList[index];
-                Start_Combat(enemyParty);
-            }
-        }
-
         //Private method for updating the on-screen map
         private void Map_Update_Render()
         {
@@ -238,7 +187,181 @@ namespace CYBERNUKE.MVVM.View
             // Run Player Move (for events)
             Player_Move();
         }
+        //Private method for loading into another map
+        private void Next_Map()
+        {
+            //Called when map navigate is prompted (Display_Prompt_Map)
+            //((MainWindow)Application.Current.MainWindow).mapToLoad = mapTeleport;
+            //((MainWindow)Application.Current.MainWindow).Get_Map();
+            Map_First_Render();
+        }
+        #endregion
 
+        #region Player-Related Methods
+        //Private method for loading player boxes
+        private void Load_Player_Boxes()
+        {
+            playerCount = ((MainWindow)Application.Current.MainWindow).numPartyMembers;
+            ListCharacters.Capacity = playerCount;
+
+            // Get Players
+            for (int i = 0; i < playerCount; i++)
+            {
+                ListCharacters.Insert(i, ((MainWindow)Application.Current.MainWindow).CharacterList[i]);
+            }
+
+            // Add Overworld Boxes
+            for (int i = 0; i < playerCount; i++)
+            {
+                // Create Overworld Box
+                string name = ListCharacters[i].getName();
+                int currenthp = ListCharacters[i].getCurrentHP();
+                int maxhp = ListCharacters[i].getMaxHP();
+                int currentsp = ListCharacters[i].getCurrentSP();
+                int maxsp = ListCharacters[i].getMaxSP();
+
+                OverworldBox overworldbox = new OverworldBox(name, currenthp, maxhp, currentsp, maxsp);
+
+                switch (i)
+                {
+                    case 0:
+                        OV_PB_Pos1.Children.Add(overworldbox);
+                        break;
+                    case 1:
+                        OV_PB_Pos2.Children.Add(overworldbox);
+                        break;
+                    case 2:
+                        OV_PB_Pos3.Children.Add(overworldbox);
+                        break;
+                    case 3:
+                        OV_PB_Pos4.Children.Add(overworldbox);
+                        break;
+                }
+            }
+        }
+        //Private method for updating overworld boxes
+        private void Update_Player_Boxes()
+        {
+            OV_PB_Pos1.Children.Clear();
+            OV_PB_Pos2.Children.Clear();
+            OV_PB_Pos3.Children.Clear();
+            OV_PB_Pos4.Children.Clear();
+
+            for (int i = 0; i < playerCount; i++)
+            {
+                // Create Overworld Box
+                string name = ListCharacters[i].getName();
+                int currenthp = ListCharacters[i].getCurrentHP();
+                int maxhp = ListCharacters[i].getMaxHP();
+                int currentsp = ListCharacters[i].getCurrentSP();
+                int maxsp = ListCharacters[i].getMaxSP();
+
+                OverworldBox overworldbox = new OverworldBox(name, currenthp, maxhp, currentsp, maxsp);
+
+                switch (i)
+                {
+                    case 0:
+                        OV_PB_Pos1.Children.Add(overworldbox);
+                        break;
+                    case 1:
+                        OV_PB_Pos2.Children.Add(overworldbox);
+                        break;
+                    case 2:
+                        OV_PB_Pos3.Children.Add(overworldbox);
+                        break;
+                    case 3:
+                        OV_PB_Pos4.Children.Add(overworldbox);
+                        break;
+                }
+            }
+        }
+        //Private method for regenerating player SP
+        private void Regenerate_Player_SP()
+        {
+            for (int i = 0; i < playerCount; i++)
+            {
+                ListCharacters[i].rechargeSP(30);
+            }
+        }
+        //Private method for healing players
+        private void Heal_Player_HP()
+        {
+            for (int i = 0; i < playerCount; i++)
+            {
+                ListCharacters[i].healHP(15);
+            }
+        }
+        #endregion
+
+        #region Player Move Update Methods
+        //Private method for updates on player move
+        private void Player_Move()
+        {
+            //Regenerate Player SP every step
+            Regenerate_Player_SP();
+            Heal_Player_HP();
+            Update_Player_Boxes();
+
+            if (encounterChance != 0)
+            {
+                Encounter_Chance();
+            }
+
+            //0 == teleport, 1 == town teleport, 2 == npc, 3 == object, 4 == enemy
+            int tile = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Check_Player_Pos(playerPosX, playerPosY);
+            int locationIndex;
+
+            switch (tile)
+            {
+                case -1: //not on a special tile
+                    break;
+
+                case 0: //Teleport
+                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Teleport_Pos(playerPosX, playerPosY);
+                    Display_Prompt_Map(((MainWindow)Application.Current.MainWindow).mapList[currentIndex].teleportLocationData[locationIndex].locationName);
+                    break;
+
+                case 1: // Town Teleport
+                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_TownTeleport_Pos(playerPosX, playerPosY);
+                    Display_Prompt_Town(((MainWindow)Application.Current.MainWindow).mapList[currentIndex].townTeleportLocationData[locationIndex].locationName);
+                    break;
+
+                case 2: //NPC
+                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_NPC_Pos(playerPosX, playerPosY);
+                    Init_Dialogue(((MainWindow)Application.Current.MainWindow).mapList[currentIndex].npcLocationData[locationIndex].locationName);
+                    break;
+
+                case 3: //Object
+                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Object_Pos(playerPosX, playerPosY);
+                    break;
+
+                case 4: //Enemy
+                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Enemy_Pos(playerPosX, playerPosY);
+                    ((MainWindow)Application.Current.MainWindow).isEncounter = true;
+                    Display_Prompt_Combat(((MainWindow)Application.Current.MainWindow).mapList[currentIndex].enemyLocationData[locationIndex].locationName);
+                    break;
+            }
+
+            //if lands on object
+            //1. show prompt and ask user choice about item
+            //yes = do thing
+            //no = do nothing
+        }
+        private void Encounter_Chance()
+        {
+            //1. Generate a number from 0 to 100
+            //2. If it falls below the encounter chance, congrats you are being attacked
+            //3. Else, continue on with your day
+            Random rand = new Random();
+            int chance = rand.Next(0, 200);
+            if (chance <= encounterChance)
+            {
+                //4. Get random enemy party
+                int index = rand.Next(((MainWindow)Application.Current.MainWindow).enemyPartyList.Count);
+                string enemyParty = ((MainWindow)Application.Current.MainWindow).enemyPartyList[index];
+                Display_Prompt_Combat(enemyParty);
+            }
+        }
         //Private method for validating player moves
         //1 == up, 2 == left, 3 == right, 4 == down
         private bool Validate_Move(int move)
@@ -292,11 +415,16 @@ namespace CYBERNUKE.MVVM.View
             }
             return true;
         }
+        #endregion
 
         #region DialoguePrompt
         //Public & private method for displaying popups
         public void Init_Dialogue(string dialogueName) //Call when starting prompt
         {
+            //Weird bug sometimes where spamming 'Interact' at a teleport spot opens combat and teleport prompt which fucks index and crashes
+            PopUpContainer.Visibility = Visibility.Hidden;
+            CombatPromptContainer.Visibility = Visibility.Hidden;
+
             #region Get Dialogue
             input = new StreamReader("GameData/Dialogue/" + dialogueName + ".txt");
             numPromptRuns = Int32.Parse(input.ReadLine());
@@ -341,26 +469,60 @@ namespace CYBERNUKE.MVVM.View
                 hasControl = true;
             }
         }
+        //Dialogue Continue Button
+        private void DialogueContinue_Click(object sender, RoutedEventArgs e)
+        {
+            // Increment Prompt Index
+            promptIndex++;
+
+            // Hide button
+            DialogueContinue.Visibility = Visibility.Hidden;
+
+            // Call Display Dialogue again
+            Display_Dialogue();
+        }
         #endregion
         #region CombatPrompt
-        private void Display_Prompt_Combat()
+        private void Display_Prompt_Combat(string enemyParty)
         {
             //0. Remove Player Control
             hasControl = false;
 
-            //1. Show Combat Prompt
+            //1. Set enemyParty to fight
+            ((MainWindow)Application.Current.MainWindow).enemyPartyName = enemyParty;
+
+            //2.. Show Combat Prompt
             PopUpContainer.Visibility = Visibility.Visible;
             CombatPromptContainer.Visibility = Visibility.Visible;
+        }
+        private void CombatContinue_Click(object sender, RoutedEventArgs e)
+        {
+            // Set true, return to this position when combat is over (if you win that is, hehe)
+            ((MainWindow)Application.Current.MainWindow).returnToSavedPos = true;
+
+            // Switch to combat view
+            var viewModel = (OverworldViewModel)DataContext;
+            if (viewModel.NavigateCombatViewCommand.CanExecute(null))
+            {
+                viewModel.NavigateCombatViewCommand.Execute(null);
+            }
         }
         #endregion
         #region TownPrompt
         private void Display_Prompt_Town(string townName) //Ex: TranquilityTown (NameTown)
         {
-            // Set mapTeleport
-            mapTeleport = townName;
+            // Hide Combat Prompt //Weird bug sometimes where spamming 'Interact' at a teleport spot opens combat and teleport prompt which fucks index and crashes
+            PopUpContainer.Visibility = Visibility.Hidden;
+            CombatPromptContainer.Visibility = Visibility.Hidden;
+
+            // Set townTeleport 
+            townTeleport = townName;
 
             // Remove Player Control
             hasControl = false;
+
+            // Set Town Prompt
+            Town_Prompt.Text = "ENTER THE TOWN OF TRANQUILITY?";
 
             // Show Town Prompt
             PopUpContainer.Visibility = Visibility.Visible;
@@ -368,15 +530,19 @@ namespace CYBERNUKE.MVVM.View
         }
 
         //Map Prompts
-        private void Prompt_Yes_Click(object sender, RoutedEventArgs e)
+        private void Town_Prompt_Yes_Click(object sender, RoutedEventArgs e)
         {
             // Set mapdata in MainWindow
             ((MainWindow)Application.Current.MainWindow).townToLoad = townTeleport;
 
-            // Switch window
-
+            // Switch to town view
+            var viewModel = (OverworldViewModel)DataContext;
+            if (viewModel.NavigateTownViewCommand.CanExecute(null))
+            {
+                viewModel.NavigateTownViewCommand.Execute(null);
+            }
         }
-        private void Prompt_No_Click(object sender, RoutedEventArgs e)
+        private void Town_Prompt_No_Click(object sender, RoutedEventArgs e)
         {
             // Hide Town Prompt
             PopUpContainer.Visibility = Visibility.Hidden;
@@ -386,80 +552,58 @@ namespace CYBERNUKE.MVVM.View
             hasControl = true;
         }
         #endregion
-
-        //Private method for prompting user (yes/no question)
-        private void Display_Prompt()
+        #region MapPrompt
+        private void Display_Prompt_Map(string mapName)
         {
+            // Hide Combat Prompt //Weird bug sometimes where spamming 'Interact' at a teleport spot opens combat and teleport prompt which fucks index and crashes
+            PopUpContainer.Visibility = Visibility.Hidden;
+            CombatPromptContainer.Visibility = Visibility.Hidden;
 
+            // Set mapTeleport
+            mapTeleport = mapName;
+
+            // Remove Player Control
+            hasControl = false;
+
+            // Call GetMap() in MainWindow to init map
+            ((MainWindow)Application.Current.MainWindow).mapToLoad = mapTeleport;
+            int mapIndex = ((MainWindow)Application.Current.MainWindow).Get_Map();
+
+            // Set Map Prompt
+            string nextMapName = ((MainWindow)Application.Current.MainWindow).mapList[mapIndex].mapName;
+            Map_Prompt.Text = "GO TO " + nextMapName.ToUpper() + "?";
+
+            // Show Map Prompt
+            PopUpContainer.Visibility = Visibility.Visible;
+            MapPromptContainer.Visibility = Visibility.Visible;
         }
-
-        //Private method for updates on player move
-        private void Player_Move()
+        private void Map_Prompt_Yes_Click(object sender, RoutedEventArgs e)
         {
-            if (encounterChance != 0)
-            {
-                Encounter_Chance();
-            }
+            // Hide Map Prompt
+            PopUpContainer.Visibility = Visibility.Hidden;
+            MapPromptContainer.Visibility = Visibility.Hidden;
 
-            //0 == teleport, 1 == npc, 2 == object, 3 == enemy
-            int tile = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Check_Player_Pos(playerPosX, playerPosY);
-            int locationIndex;
-            
-            switch (tile)
-            {
-                case -1: //not on a special tile
-                    break;
+            // Set mapToLoad in MainWindow with mapTeleport
+            ((MainWindow)Application.Current.MainWindow).mapToLoad = mapTeleport;
 
-                case 0: //Teleport
-                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Teleport_Pos(playerPosX, playerPosY);
-                    Init_TownPrompt(((MainWindow)Application.Current.MainWindow).mapList[currentIndex].teleportLocationData[locationIndex].locationName);
-                    break;
+            // Call Next_Map()
+            Next_Map();
 
-                case 1: //NPC
-                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_NPC_Pos(playerPosX, playerPosY);
-                    break;
-
-                case 2: //Object
-                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Object_Pos(playerPosX, playerPosY);
-                    break;
-
-                case 3: //Enemy
-                    locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Enemy_Pos(playerPosX, playerPosY);
-                    break;
-            }
-
-            //if lands on area teleport
-            //1. show prompt and ask user if they want to go
-            //yes = teleport (call Next_Map with the map to load)
-            //no = do nothing
-
-            //if lands on npc
-            //1. show dialogue box and put npc dialogue in
-
-            //if lands on object
-            //1. show prompt and ask user choice about item
-            //yes = do thing
-            //no = do nothing
-
-            //if lands on enemy
-            //1. set enemyParty in MainWindow
-            //2. start combat
+            // Return Control
+            hasControl = true;
         }
-
-        //Private method for starting combat
-        private void Start_Combat(string enemyParty)
+        private void Map_Prompt_No_Click(object sender, RoutedEventArgs e)
         {
-            // Set true, return to this position when combat is over (if you win that is, hehe)
-            ((MainWindow)Application.Current.MainWindow).returnToSavedPos = true;
+            // Hide Map Prompt
+            PopUpContainer.Visibility = Visibility.Hidden;
+            MapPromptContainer.Visibility = Visibility.Hidden;
 
-            // Set enemyParty to fight
-            ((MainWindow)Application.Current.MainWindow).enemyPartyName = enemyParty;
-
-            // Switch to combat menu
-            Display_Prompt_Combat();
+            // Return Control
+            hasControl = true;
         }
+        #endregion
 
-        //Control Panel Buttons
+        #region Control Panel Buttons
         private void Button_Menu_Click(object sender, RoutedEventArgs e)
         {
             if (hasControl)
@@ -548,24 +692,9 @@ namespace CYBERNUKE.MVVM.View
                 // Open local map
             }
         }
+        #endregion
 
-
-        //Dialogue Continue Button
-        private void DialogueContinue_Click(object sender, RoutedEventArgs e)
-        {
-            // Increment Prompt Index
-            promptIndex++;
-
-            // Hide button
-            DialogueContinue.Visibility = Visibility.Hidden;
-
-            // Call Display Dialogue again
-            Display_Dialogue();
-        }
-
-        //Town No Button
-
-
+        #region Meta Methods
         //Private methods for scaling text with resolution
         private void ScaleText()
         {
@@ -672,5 +801,6 @@ namespace CYBERNUKE.MVVM.View
         {
             overworldWindow.KeyDown -= HandleKeyPress;
         }
+        #endregion
     }
 }

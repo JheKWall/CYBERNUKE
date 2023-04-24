@@ -85,6 +85,17 @@ namespace CYBERNUKE.MVVM.Model
         {
             this.currentHP = currentHP;
         }
+        public void healHP(int healAmount)
+        {
+            if (currentHP < maxHP)
+            {
+                currentHP += healAmount;
+            }
+            if (currentHP > maxHP)
+            {
+                currentHP = maxHP;
+            }
+        }
         public void setMaxSP(int maxSP)
         {
             this.maxSP = maxSP;
@@ -95,9 +106,13 @@ namespace CYBERNUKE.MVVM.Model
         }
         public void rechargeSP(int rechargeAmount)
         {
-            if (currentSP < (maxSP - rechargeAmount))
+            if (currentSP < maxSP)
             {
                 currentSP += rechargeAmount;
+            }
+            if (currentSP > maxSP)
+            {
+                currentSP = maxSP;
             }
         }
         public void setDefense(int defense)

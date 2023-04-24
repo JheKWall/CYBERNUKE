@@ -4,16 +4,31 @@
 0
 4
 8
-2
+//MAP TELEPORT LOCATIONS
+1
 GroveStreet
 4
+1
+//TOWN TELEPORT LOCATIONS
 1
 TranquilityTown
 8
 8
+//NPC LOCATIONS
+2
+Gatekeeper
+5
+2
+SleepingGuard
+2
+6
+//OBJECT LOCATIONS
 0
-0
-0
+//ENEMY LOCATIONS
+1
+EncounterGangstaDuck
+1
+8
 ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛
 ⬛⬜⬜⬛⛶⬛⬜⬜⬜⬛
 ⬛❕⬜⬜⬜⛹⬜⬜⬜⬛

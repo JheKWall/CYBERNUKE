@@ -27,8 +27,11 @@ namespace CYBERNUKE
         public int numPartyMembers;
         public List<Character> CharacterList = new List<Character>();
 
+        //Player Status
+        public bool TownToMap = false; //Used for identifying which spawn index to look for
+
         //Map Variables
-        public string mapToLoad = "GroveStreet";
+        public string mapToLoad = "TranquilityCheckpoint";
         public string currentMap = "";
         public List<Map> mapList;
         private List<string> loadedMaps; //contains all loaded map names
@@ -38,6 +41,7 @@ namespace CYBERNUKE
 
         //Combat Variables
         public string enemyPartyName = "ZombieGroup";
+        public bool isEncounter;
 
         //Town Variables
         public string townToLoad = "TranquilityTown";
@@ -48,7 +52,7 @@ namespace CYBERNUKE
         public List<MainArmor> ArmorList = new List<MainArmor>();
 
         //Enemy Variables
-        public List<string> enemyPartyList = new List<string>();
+        public List<string> enemyPartyList = new List<string>(); //Enemy parties encountered randomly while walking
 
         public MainWindow()
         {

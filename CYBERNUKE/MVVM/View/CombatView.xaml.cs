@@ -50,6 +50,12 @@ namespace CYBERNUKE.MVVM.View
             InitializeComponent();
             ScaleText();
 
+            //0. If this is an Encounter, Disable Flee Button
+            if (((MainWindow)Application.Current.MainWindow).isEncounter)
+            {
+                CPBP_MAIN_ESCAPE.IsEnabled = false;
+            }
+
             //1. Load Players into ListPlayerTargets
             // Get Players, add them to ListPlayerTargets
             for (int i = 0; i < 3; i++)
@@ -452,7 +458,7 @@ namespace CYBERNUKE.MVVM.View
             ControlPanel_ButtonPanel_MAIN.Visibility = Visibility.Hidden;
             ControlPanel_ButtonPanel_ATTACK.Visibility = Visibility.Hidden;
             //6. END TURN
-            TurnOrder_Update();
+            EndTurn();
         }
         private int CalculateAttack(int defense, int attack, int strength)
         {
@@ -462,6 +468,10 @@ namespace CYBERNUKE.MVVM.View
             //Ex: (40 + (40 * (6 / 10))) - 10 = 54 Damage
 
             int damage = (attack + (attack * (strength / 10))) - defense;
+            if (damage < 0)
+            {
+                damage = 0;
+            }
             return damage;
         }
 
@@ -679,7 +689,7 @@ namespace CYBERNUKE.MVVM.View
             ControlPanel_ButtonPanel_MAIN.Visibility = Visibility.Hidden;
             ControlPanel_ButtonPanel_ATTACK.Visibility = Visibility.Hidden;
             // END TURN
-            TurnOrder_Update();
+            EndTurn();
         }
         private void CPBP_MAIN_ESCAPE_Click(object sender, RoutedEventArgs e)
         {

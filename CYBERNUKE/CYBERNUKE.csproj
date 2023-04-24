@@ -380,17 +380,14 @@
     <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_PromptBox.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\OverworldMenu_PromptBox.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="GameData\Dialogue\LockedDoor.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Dialogue\DialogueGuide.txt">
+    <None Include="GameData\Dialogue\DialogueGuide.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="GameData\Maps\GroveStreet.txt">
@@ -405,19 +402,82 @@
     <Resource Include="GameData\Images\EnemyPortrait\V1_Portrait.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PinkSlime_Portrait.png" />
+    <None Include="GameData\Dialogue\Gatekeeper.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\V1_Portrait.png" />
+    <None Include="GameData\Dialogue\SleepingGuard.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GangstaDuck_Portrait.png" />
+    <None Include="GameData\Dialogue\Shopkeeper.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MrBones_Portrait.png" />
+    <None Include="GameData\Dialogue\Insaneman.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Phantom_Portrait.png" />
+    <None Include="GameData\EnemyData\EnemyParty\EncounterMrBones.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\EncounterPinkSlime.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\EncounterPhantom.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\EncounterV1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\EncounterGangstaDuck.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\V1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\PinkSlime.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\MrBones.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\Phantom.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\GangstaDuck.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GangstaDuck_Portrait.png" />
+    <Resource Include="Resources\MrBones_Portrait.png" />
+    <Resource Include="Resources\OverworldMenu_PromptBox.png" />
+    <Resource Include="Resources\Phantom_Portrait.png" />
+    <Resource Include="Resources\PinkSlime_Portrait.png" />
+    <Resource Include="Resources\V1_Portrait.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

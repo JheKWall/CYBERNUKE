@@ -235,27 +235,7 @@
                 </Grid.ColumnDefinitions>
                 <Image Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_PromptBox.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
 
-                <!-- For Prompts -->
-                <Grid x:Name="PromptContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="122*"/>
-                        <RowDefinition Height="60*"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.ColumnSpan="2">
-                        <TextBlock x:Name="Overworld_Prompt" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
-                           Text="PROMPT"/>
-                    </Grid>
-                    <Button x:Name="Prompt_Yes" Grid.Column="0" Grid.Row="2" Style="{StaticResource Map_Prompt_Button}"
-                            Content="YES" Click="Prompt_Yes_Click"/>
-                    <Button x:Name="Prompt_No" Grid.Column="1" Grid.Row="2" Style="{StaticResource Map_Prompt_Button}"
-                            Content="NO" Click="Prompt_No_Click"/>
-                </Grid>
-                <!-- For Dialogue -->
+                <!-- Dialogue Prompt -->
                 <Grid x:Name="DialogueContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="122*"/>
@@ -282,7 +262,7 @@
                            Text="ENEMIES ENCOUNTERED"/>
                     </Grid>
                     <Button x:Name="CombatContinue" Grid.Column="0" Grid.Row="1" Style="{StaticResource Map_Prompt_Button}"
-                            Content="CLICK TO FIGHT" Command="{Binding NavigateCombatViewCommand}"/>
+                            Content="CLICK TO FIGHT" Click="CombatContinue_Click"/>
                 </Grid>
 
                 <!-- Town Navigation Prompt -->
@@ -301,9 +281,30 @@
                            Text="ENTER TOWN PROMPT"/>
                     </Grid>
                     <Button x:Name="Town_Prompt_Yes" Grid.Column="0" Grid.Row="2" Style="{StaticResource Map_Prompt_Button}"
-                            Content="YES" Command="{Binding NavigateTownViewCommand}"/>
+                            Content="YES" Click="Town_Prompt_Yes_Click"/>
                     <Button x:Name="Town_Prompt_No" Grid.Column="1" Grid.Row="2" Style="{StaticResource Map_Prompt_Button}"
-                            Content="NO" Click="Prompt_No_Click"/>
+                            Content="NO" Click="Town_Prompt_No_Click"/>
+                </Grid>
+
+                <!-- Map Navigation Prompt -->
+                <Grid x:Name="MapPromptContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.ColumnSpan="2">
+                        <TextBlock x:Name="Map_Prompt" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="ENTER MAP PROMPT"/>
+                    </Grid>
+                    <Button x:Name="Map_Prompt_Yes" Grid.Column="0" Grid.Row="2" Style="{StaticResource Map_Prompt_Button}"
+                            Content="YES" Click="Map_Prompt_Yes_Click"/>
+                    <Button x:Name="Map_Prompt_No" Grid.Column="1" Grid.Row="2" Style="{StaticResource Map_Prompt_Button}"
+                            Content="NO" Click="Map_Prompt_No_Click"/>
                 </Grid>
             </Grid>
         </Grid>
