@@ -28,21 +28,27 @@ namespace CYBERNUKE
         public List<Character> CharacterList = new List<Character>();
 
         //Map Variables
-        public string mapToLoad = "TestMap";
+        public string mapToLoad = "TranquilityCheckpoint";
         public string currentMap = "";
         public List<Map> mapList;
         private List<string> loadedMaps; //contains all loaded map names
+        public int currentPosX = 0;
+        public int currentPosY = 0;
+        public bool returnToSavedPos = false;
 
         //Combat Variables
         public string enemyPartyName = "ZombieGroup";
 
         //Town Variables
-        public string townToLoad = "Tranquility";
+        public string townToLoad = "TranquilityTown";
         public string currentTown = "";
 
         //Item Variables
         public List<MainWeapon> WeaponList = new List<MainWeapon>();
         public List<MainArmor> ArmorList = new List<MainArmor>();
+
+        //Enemy Variables
+        public List<string> enemyPartyList = new List<string>();
 
         public MainWindow()
         {
@@ -52,7 +58,14 @@ namespace CYBERNUKE
             mapList = new List<Map>();
             loadedMaps = new List<string>();
 
-            // Main Weapon Init
+            #region Enemy Party List Init
+            enemyPartyList.Add("MutantGroup");
+            enemyPartyList.Add("ZombieGroup");
+            enemyPartyList.Add("ZombieHorde");
+            enemyPartyList.Add("ZombieMutant");
+            #endregion
+
+            #region Main Weapon Init
             MainWeapon weaponOne = new MainWeapon("Holosword", 42, 15, "A hilt that projects a large 4 foot blade. It almost feels weightless.");
             MainWeapon weaponTwo = new MainWeapon("Daemonbrand", 60, 35, "A hefty blade infused with the souls of daemons.");
             MainWeapon weaponThree = new MainWeapon("A Cute Plushie", 1, 1, "A stuffed animal that has seen better days.");
@@ -67,8 +80,9 @@ namespace CYBERNUKE
             WeaponList.Add(weaponFive);
             WeaponList.Add(weaponSix);
             WeaponList.Add(weaponSeven);
+            #endregion
 
-            // Main Armor Init
+            #region Main Armor Init
             MainArmor armorOne = new MainArmor("Labrat Suit", 20, "The suit of those who are forgotten at birth and experimented on relentlessly.");
             MainArmor armorTwo = new MainArmor("Medieval Armor", 10, "In this day and age, metal plates won't get you far when you're up against energy weapons.");
             MainArmor armorThree = new MainArmor("Corporate Standard", 20, "Offers surprising protection, probably because nobody likes bureaucrats.");
@@ -83,14 +97,16 @@ namespace CYBERNUKE
             ArmorList.Add(armorFive);
             ArmorList.Add(armorSix);
             ArmorList.Add(armorSeven);
+            #endregion
 
-            //Character Init
+            #region Character Init
             Character charOne = new Character("PROTO", 175, 175, 5, 5, 5, 5, WeaponList[0], ArmorList[0]);
             Character charTwo = new Character("MAST", 200, 150, 7, 3, 6, 6, WeaponList[1], ArmorList[1]);
             Character charThree = new Character("KELPY", 140, 300, 4, 7, 4, 2, WeaponList[6], ArmorList[2]);
             CharacterList.Add(charOne);
             CharacterList.Add(charTwo);
             CharacterList.Add(charThree);
+            #endregion
 
             numPartyMembers = 3;
         }

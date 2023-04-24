@@ -22,8 +22,7 @@ namespace CYBERNUKE.MVVM.Model
         //npcdata
         public int mapWidth;
         public int mapHeight;
-        public int encounterMin;
-        public int encounterMax;
+        public int encounterChance;
         public string mapName;
 
         public Map()
@@ -47,13 +46,12 @@ namespace CYBERNUKE.MVVM.Model
             mapName = input.ReadLine();
 
             // Initialize map char array to map size
-            mapWidth = Int32.Parse(input.ReadLine());
             mapHeight = Int32.Parse(input.ReadLine());
+            mapWidth = Int32.Parse(input.ReadLine());
             mapData = new char[mapHeight, mapWidth];
 
             // Encounter Chances
-            encounterMin = Int32.Parse(input.ReadLine());
-            encounterMax = Int32.Parse(input.ReadLine());
+            encounterChance = Int32.Parse(input.ReadLine());
 
             // Location Input
             int numLocations = Int32.Parse(input.ReadLine());

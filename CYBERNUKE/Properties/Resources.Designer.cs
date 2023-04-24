@@ -453,6 +453,16 @@ namespace CYBERNUKE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_PromptBox {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_PromptBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PauseMenu_MainBG {
             get {
                 object obj = ResourceManager.GetObject("PauseMenu_MainBG", resourceCulture);

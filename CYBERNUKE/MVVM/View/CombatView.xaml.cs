@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -16,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CYBERNUKE.GameData.UserControls;
 using CYBERNUKE.MVVM.Model;
+using CYBERNUKE.MVVM.ViewModel;
 
 namespace CYBERNUKE.MVVM.View
 {
@@ -24,21 +26,14 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class CombatView : UserControl
     {
-        /// <summary>
-        /// 1. Load Players into ListPlayerTargets
-        /// 2. Load Enemies into ListEnemyTargets
-        /// 3. Insert into TurnOrderBoxList from highest to lowest Dex
-        /// 4. Render TurnOrderBoxList
-        /// 5. Call UpdateList each turn
-        /// 6. Remove enemy/player from list when killed
-        /// </summary>
-
         //File reader
         private StreamReader input;
 
         //Vars
         int enemyCount; //Number of enemies in combat
         int playerCount; //Number of players in combat
+        int numEnemyDead = 0; //Number of enemies dead
+        int numPlayerDead = 0; //Number of players dead
 
         //Arrays/Lists
         Character[] ListPlayerTargets = new Character[4]; //List of all player targets (Max 4)
@@ -184,6 +179,14 @@ namespace CYBERNUKE.MVVM.View
 
             // Flush turn order display
             Clear_TO_Boxes();
+
+            //0. Verify Turn Order Integrity
+            if (turnOrderIndex >= totalTurnOrder)  
+            {
+                //Rare bug, basically this is needed because if someone dies
+                //and the turnOrderIndex is at the last element the turnOrderIndex enters this method with an invalid index
+                turnOrderIndex--;
+            }
 
             //1. Get first combatant in list w/ index
             TurnOrderBox temp = TurnOrderBoxList[turnOrderIndex];
@@ -341,6 +344,7 @@ namespace CYBERNUKE.MVVM.View
                     TurnOrderBoxList.RemoveAt(playerTurnOrderIndex);
 
                     totalTurnOrder--;
+                    numPlayerDead++;
                 }
 
                 // END TURN
@@ -441,6 +445,7 @@ namespace CYBERNUKE.MVVM.View
                 TurnOrderBoxList.RemoveAt(enemyTurnOrderIndex);
 
                 totalTurnOrder--;
+                numEnemyDead++;
             }
 
             //5. Remove control
@@ -462,16 +467,53 @@ namespace CYBERNUKE.MVVM.View
 
         private void EndTurn()
         {
-            // Make sure players dont have control
-            ControlPanel_ButtonPanel_MAIN.Visibility = Visibility.Hidden;
-            ControlPanel_ButtonPanel_ATTACK.Visibility = Visibility.Hidden;
+            // Check if all enemies or player are dead
+            // If all players dead, game over
+            if (numPlayerDead == playerCount)
+            {
+                EnemyEndCombat();
+            }
+            // If all enemies dead, win
+            if (numEnemyDead == enemyCount)
+            {
+                PlayerEndCombat();
+            }
+            else
+            {
+                // Make sure players dont have control
+                ControlPanel_ButtonPanel_MAIN.Visibility = Visibility.Hidden;
+                ControlPanel_ButtonPanel_ATTACK.Visibility = Visibility.Hidden;
 
-            TurnOrder_Update();
+                TurnOrder_Update();
+            }
         }
-        private void EndCombat()
+        private void PlayerEndCombat() //Player victory or Escaped
         {
-            //Apply all damage (hp) and exhaustion (sp) to players and switch to overworld view. (hopefully you saved the last position)
+            //Apply all damage, sp changes, etc
+            for (int i = 0; i < playerCount; i++)
+            {
+                if (ListPlayerTargets[i].getIsUnconscious())
+                {
+                    ListPlayerTargets[i].setCurrentHP(10);
+                    ListPlayerTargets[i].setIsUnconscious(false);
+                }
+            }
 
+            //Return to overworld view
+            var viewModel = (CombatViewModel)DataContext;
+            if (viewModel.NavigateOverworldViewCommand.CanExecute(null))
+            {
+                viewModel.NavigateOverworldViewCommand.Execute(null);
+            }
+        }
+        private void EnemyEndCombat() //Enemy victory, game over
+        {
+            //Show game over screen, kick player to main menu
+            var viewModel = (CombatViewModel)DataContext;
+            if (viewModel.NavigateMainMenuViewCommand.CanExecute(null))
+            {
+                viewModel.NavigateMainMenuViewCommand.Execute(null);
+            }
         }
 
         //Private method for adding an enemy from a file and with an index
@@ -644,7 +686,7 @@ namespace CYBERNUKE.MVVM.View
             // Remove control
             ControlPanel_ButtonPanel_ATTACK.Visibility = Visibility.Hidden;
             // END COMBAT
-            EndCombat();
+            PlayerEndCombat();
         }
 
         ///Attack Option Buttons (Enemy Targets)

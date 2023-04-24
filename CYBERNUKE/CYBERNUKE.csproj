@@ -331,10 +331,7 @@
     <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_LeftPanel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_PlayerBox.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="GameData\Maps\TestMap.txt">
+    <None Include="GameData\Maps\TranquilityCheckpoint.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -368,15 +365,39 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\EnemyData\EnemyParty\MutantGroup.txt">
+    <None Include="GameData\EnemyData\EnemyParty\MutantGroup.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\EnemyPortrait\Zombie_Portrait.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\EnemyPortrait\Mutant_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_PlayerBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_PromptBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OverworldMenu_PromptBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\LockedDoor.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Dialogue\DialogueGuide.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Maps\42ndStreet.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

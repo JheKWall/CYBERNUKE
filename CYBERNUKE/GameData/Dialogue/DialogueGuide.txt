@@ -1,0 +1,12 @@
+﻿GUIDE to Dialoging:
+
+//1. Number of pages of dialogue
+(for when you need to split the dialogue into multiple pages cause they dont fit in the box)
+//2. DIALOGUE_TEXT
+//3. DIALOGUE_TEXT_2 (if you have multiple pages)
+
+ex:
+
+2
+ACCORDING TO ALL KNOWN LAWS OF AVIATION...
+BEES SHOULD NOT BE ABLE TO FLY.

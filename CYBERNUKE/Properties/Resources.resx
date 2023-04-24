@@ -232,9 +232,6 @@
   <data name="OverworldMenu_LeftPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\images\overworldmenu\overworldmenu_leftpanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OverworldMenu_PlayerBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\gamedata\images\overworldmenu\overworldmenu_playerbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="unifont_15_0_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\unifont-15.0.01.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -249,5 +246,11 @@
   </data>
   <data name="Mutant_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GameData\Images\EnemyPortrait\Mutant_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_PlayerBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_playerbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_PromptBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OverworldMenu_PromptBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

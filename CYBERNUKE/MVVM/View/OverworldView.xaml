@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CYBERNUKE.MVVM.View"
+             xmlns:local="clr-namespace:CYBERNUKE.MVVM.View" 
+             xmlns:viewmodel="clr-namespace:CYBERNUKE.MVVM.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:OverworldViewModel}"
              mc:Ignorable="d"
              d:DesignHeight="768" 
              d:DesignWidth="1366"
@@ -41,14 +43,57 @@
             <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
         </Style>
 
-        <!-- Map Display Location TextBox -->
-        <Style x:Key="MapDisplay_Location_TextBlock" TargetType="TextBlock">
+        <!-- Map Display HUD TextBox -->
+        <Style x:Key="MapDisplay_HUD_TextBlock" TargetType="TextBlock">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Foreground" Value="#f0f0f0"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
             <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
             <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+
+        <!-- Map Prompt TextBox -->
+        <Style x:Key="Map_Prompt_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Map Prompt Button -->
+        <Style x:Key="Map_Prompt_Button" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Name="container" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="container" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="container" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Margin" Value="10"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
     </UserControl.Resources>
@@ -75,7 +120,8 @@
             <RowDefinition Height="63*"/>
             <RowDefinition Height="7*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="49*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="33*"/>
         </Grid.RowDefinitions>
         <!-- Vertical Grid -->
         <Grid.ColumnDefinitions>
@@ -98,22 +144,39 @@
 
         <!-- Font Size Variable -->
         <TextBlock x:Name="MapDisplayFontSize" FontSize="32" Visibility="Hidden"/>
-
+        <TextBlock x:Name="MapClickAnywhereFontSize" FontSize="22" Visibility="Hidden"/>
 
         <!-- Left Panel -->
-        <Image x:Name="OverworldMenu_BG_1" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_LeftPanel.png" Stretch="Fill" Grid.ColumnSpan="15" Grid.RowSpan="19" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
-        <Image x:Name="OverworldMenu_BG_2" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_ControlPanel.png" Stretch="Fill" Grid.ColumnSpan="15" Grid.RowSpan="19" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        <Image x:Name="OverworldMenu_BG_1" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_LeftPanel.png" Stretch="Fill" Grid.ColumnSpan="15" Grid.RowSpan="20" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        <Image x:Name="OverworldMenu_BG_2" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_ControlPanel.png" Stretch="Fill" Grid.ColumnSpan="15" Grid.RowSpan="20" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
 
         <!-- 2D Map Display -->
-        <Grid Grid.Row="0" Grid.RowSpan="19" Grid.Column="13" Grid.ColumnSpan="2">
+        <ScrollViewer Grid.Row="0" Grid.RowSpan="20" Grid.Column="13" Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
             <TextBlock x:Name="MapDisplay" Style="{StaticResource MapDisplay_TextBlock}" TextAlignment="Center" VerticalAlignment="Center"
                        Text=""/>
-        </Grid>
-        <TextBlock x:Name="MapDisplay_Location" Style="{StaticResource MapDisplay_Location_TextBlock}" Grid.Row="18" Grid.Column="13" Padding="5,0,0,0"
-                   Text="Backstreets" Grid.ColumnSpan="2" Height="33"/>
+        </ScrollViewer>
+        <TextBlock x:Name="MapDisplay_Location" Style="{StaticResource MapDisplay_HUD_TextBlock}" Grid.Row="19" Grid.Column="13" Padding="10,0,0,0"
+                   Text="VOID"/>
+        <TextBlock x:Name="MapDisplay_EnemyPercent" Style="{StaticResource MapDisplay_HUD_TextBlock}" Grid.Row="19" Grid.Column="13"
+                   Text="0% ENCOUNTER" TextAlignment="Right"/>
 
         <!-- Player Boxes -->
-        <StackPanel x:Name="PlayerBox_Panel" Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="11"/>
+        <Grid Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="11">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="110*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="110*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="110*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="OV_PB_Pos1"/>
+            <Grid x:Name="OV_PB_Pos2" Grid.Row="2"/>
+            <Grid x:Name="OV_PB_Pos3" Grid.Row="4"/>
+            <Grid x:Name="OV_PB_Pos4" Grid.Row="6"/>
+        </Grid>
 
         <!-- Control Panel Buttons -->
         <Button x:Name="Button_Menu" Style="{StaticResource ControlPanel_Button}" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2"
@@ -145,11 +208,113 @@
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_C.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>
 
-        <!-- Character Menu Container -->
-        <Grid x:Name="PauseMenuOverlayContainer" Grid.ColumnSpan="16" Grid.RowSpan="19" Visibility="Hidden">
+        <!-- PopUp Box -->
+        <Grid x:Name="PopUpContainer" Grid.Column="13" Grid.ColumnSpan="2" Grid.RowSpan="20" 
+              Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="346*"/>
+                <ColumnDefinition Width="360*"/>
+                <ColumnDefinition Width="346*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="288*"/>
+                <RowDefinition Height="192*"/>
+                <RowDefinition Height="288*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="OverworldView_PromptBox" Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="182*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_PromptBox.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+
+                <!-- For Prompts -->
+                <Grid x:Name="PromptContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.ColumnSpan="2">
+                        <TextBlock x:Name="Overworld_Prompt" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="PROMPT"/>
+                    </Grid>
+                    <Button x:Name="Prompt_Yes" Grid.Column="0" Grid.Row="2" Style="{StaticResource Map_Prompt_Button}"
+                            Content="YES" Click="Prompt_Yes_Click"/>
+                    <Button x:Name="Prompt_No" Grid.Column="1" Grid.Row="2" Style="{StaticResource Map_Prompt_Button}"
+                            Content="NO" Click="Prompt_No_Click"/>
+                </Grid>
+                <!-- For Dialogue -->
+                <Grid x:Name="DialogueContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="Dialogue_Text" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="DIALOGUE"/>
+                    <Button x:Name="DialogueContinue" Grid.Column="0" Grid.Row="1" Style="{StaticResource Map_Prompt_Button}"
+                            Content="CONTINUE..." Click="DialogueContinue_Click" Visibility="Hidden"/>
+                </Grid>
+
+                <!-- Combat Prompt -->
+                <Grid x:Name="CombatPromptContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <TextBlock x:Name="Combat_Prompt" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="ENEMIES ENCOUNTERED"/>
+                    </Grid>
+                    <Button x:Name="CombatContinue" Grid.Column="0" Grid.Row="1" Style="{StaticResource Map_Prompt_Button}"
+                            Content="CLICK TO FIGHT" Command="{Binding NavigateCombatViewCommand}"/>
+                </Grid>
+
+                <!-- Town Navigation Prompt -->
+                <Grid x:Name="TownPromptContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.ColumnSpan="2">
+                        <TextBlock x:Name="Town_Prompt" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="ENTER TOWN PROMPT"/>
+                    </Grid>
+                    <Button x:Name="Town_Prompt_Yes" Grid.Column="0" Grid.Row="2" Style="{StaticResource Map_Prompt_Button}"
+                            Content="YES" Command="{Binding NavigateTownViewCommand}"/>
+                    <Button x:Name="Town_Prompt_No" Grid.Column="1" Grid.Row="2" Style="{StaticResource Map_Prompt_Button}"
+                            Content="NO" Click="Prompt_No_Click"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <!-- Pause Menu Container -->
+        <Grid x:Name="PauseMenuOverlayContainer" Grid.ColumnSpan="15" Grid.RowSpan="20" Visibility="Hidden">
             <Rectangle Fill="#7F000000"/>
             <Grid x:Name="OverworldView_CharacterMenuContainer" Grid.ColumnSpan="16" Grid.RowSpan="19" Margin="224,18.5,224,18.5"/>
         </Grid>
 
+        <!-- Main Menu Navigation -->
+        <Button x:Name="NavigateToMainMenu" Command="{Binding NavigateMainMenuViewCommand}" Visibility="Hidden"/>
     </Grid>
 </UserControl>

@@ -59,8 +59,7 @@ namespace CYBERNUKE.MVVM.View
         }
         private void StartPrompt_YesButton_Click(object sender, RoutedEventArgs e)
         {
-            //Start New Game
-
+            //Send to Overworld (Command in xaml)
         }
         private void StartPrompt_NoButton_Click(object sender, RoutedEventArgs e)
         {

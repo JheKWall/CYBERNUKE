@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CYBERNUKE.GameData.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="114" d:DesignWidth="265">
+             d:DesignHeight="110" d:DesignWidth="265">
 
     <!-- Styles -->
     <UserControl.Resources>
@@ -31,56 +31,57 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="80*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="14*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="80*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="162*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="158*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
         <!-- Font Size Variables -->
-        <TextBlock x:Name="OverworldBoxNameFontSize" FontSize="48" Visibility="Hidden" Grid.ColumnSpan="5" Grid.RowSpan="5"/>
-        <TextBlock x:Name="OverworldBoxStatFontSize" FontSize="38" Visibility="Hidden" Grid.ColumnSpan="5" Grid.RowSpan="5"/>
+        <TextBlock x:Name="OverworldBoxNameFontSize" FontSize="46" Visibility="Hidden" Grid.ColumnSpan="5" Grid.RowSpan="6"/>
+        <TextBlock x:Name="OverworldBoxStatFontSize" FontSize="36" Visibility="Hidden" Grid.ColumnSpan="5" Grid.RowSpan="6"/>
 
         <!-- Overworld Box Image -->
-        <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_PlayerBox.png" Grid.ColumnSpan="5" Grid.RowSpan="5"/>
+        <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_PlayerBox.png" Grid.ColumnSpan="5" Grid.RowSpan="6"/>
 
         <!-- Character Portrait -->
 
         <!-- Character Text -->
-        <StackPanel Grid.Row="0" Grid.RowSpan="5" Grid.Column="3" Margin="5,0,0,0">
+        <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
             <!-- Name -->
-            <TextBlock x:Name="PlayerName" Style="{StaticResource OverworldBox_Name_TextBlock}" TextAlignment="Left" Margin="0,7,0,0"
+            <TextBlock x:Name="PlayerName" Style="{StaticResource OverworldBox_Name_TextBlock}" TextAlignment="Left"
                        Text="NAME" Foreground="#400000" HorizontalAlignment="Left" TextTrimming="CharacterEllipsis">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                 </TextBlock.Effect>
             </TextBlock>
-
+        </Grid>
+        <Grid Grid.Column="3" Grid.Row="3">
             <!-- HP -->
-            <TextBlock x:Name="HP_Display" Style="{StaticResource OverworldBox_Stat_TextBlock}" TextAlignment="Left" Margin="0,-9,0,0"
+            <TextBlock x:Name="HP_Display" Style="{StaticResource OverworldBox_Stat_TextBlock}" TextAlignment="Left"
                        Text="HP: 0/0" Foreground="#400000" HorizontalAlignment="Left">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                 </TextBlock.Effect>
             </TextBlock>
-
+        </Grid>
+        <Grid Grid.Column="3" Grid.Row="4">
             <!-- SP -->
-            <TextBlock x:Name="SP_Display" Style="{StaticResource OverworldBox_Stat_TextBlock}" TextAlignment="Left" Margin="0,-10,0,0"
+            <TextBlock x:Name="SP_Display" Style="{StaticResource OverworldBox_Stat_TextBlock}" TextAlignment="Left"
                        Text="SP: 0/0" Foreground="#400000" HorizontalAlignment="Left">
                 <TextBlock.Effect>
                     <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                 </TextBlock.Effect>
             </TextBlock>
-
-        </StackPanel>
-
+        </Grid>
     </Grid>
 </UserControl>

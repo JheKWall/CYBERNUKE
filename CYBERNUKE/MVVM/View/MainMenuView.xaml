@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CYBERNUKE.MVVM.View" 
-             xmlns:core="clr-namespace:CYBERNUKE.Core"
+             xmlns:core="clr-namespace:CYBERNUKE.Core" 
+             xmlns:viewmodel="clr-namespace:CYBERNUKE.MVVM.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:MainMenuViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="768" 
              d:DesignWidth="1366" 
@@ -156,7 +158,8 @@
                        TextDecorations="{x:Null}" TextAlignment="Center" FontWeight="Bold" TextWrapping="Wrap"/>
 
             <Button x:Name="StartPrompt_YesButton" Style="{StaticResource MainMenuButton}" Content="YES" FontFamily="Microsoft Himalaya" FontSize="36" 
-                    BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" Margin="0,15,0,0"  Height="27" Click="StartPrompt_YesButton_Click"/>
+                    BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" Margin="0,15,0,0"  Height="27" 
+                    Command="{Binding NavigateOverworldViewCommand}"/>
 
             <Button x:Name="StartPrompt_NoButton" Style="{StaticResource MainMenuButton}" Content="NO" FontFamily="Microsoft Himalaya" FontSize="36"
                     BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" Margin="0,15,0,0"  Height="27" Click="StartPrompt_NoButton_Click"/>
