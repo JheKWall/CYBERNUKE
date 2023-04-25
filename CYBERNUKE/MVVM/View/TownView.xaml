@@ -143,7 +143,7 @@
 
         <TextBlock Text="Town View Test" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="50" Visibility="Hidden" Height="67" Width="334" Margin="416,178,0,0"/>
         <Image Source="/CYBERNUKE;component/GameData/Towns/CYBERNUKE_TOWN_TRANQUILITY.png" Margin="-21,-58,0,0" Grid.ColumnSpan="3" Grid.RowSpan="2" Stretch="UniformToFill"/>
-        <Rectangle Fill="White" Grid.Column="1" Stroke="Black" Grid.Row="1" Margin="183,0,183,0"/>
+        <Image Source="/CYBERNUKE;component/GameData/Images/TownMenu/townviewpanel.png" Grid.Column="1" Grid.Row="1" Margin="183,0,183,0"/>
 
 
 
@@ -159,7 +159,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="TownNameTextBlock" FontWeight="Bold" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Grid.ColumnSpan="2" Height="45" Width="746" Margin="10,0,0,0" FontFamily="Microsoft Himalaya" FontSize="60" Text="-- Tranquility --" Foreground="Red"/>
+            <TextBlock x:Name="TownNameTextBlock" FontWeight="Bold" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Grid.ColumnSpan="2" Height="45" Width="746" Margin="0,0,0,0" FontFamily="Microsoft Himalaya" FontSize="60" Text="-- Tranquility --" Foreground="Black"/>
             <StackPanel x:Name="TownButtonsStackPanel1" Grid.Row="1" Margin="203,5,202,5" Grid.ColumnSpan="2">
                 <Button x:Name="ButtonLeave" Style="{StaticResource MainMenuButton}" FontWeight="Bold" Content="1. Leave" Height="45" FontFamily="Microsoft Himalaya" FontSize="64" Margin="5" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonLeave_Click"/>
                 <Button x:Name="ButtonNPC1" Style="{StaticResource MainMenuButton}" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Content="2. Old Man" Height="45" FontFamily="Microsoft Himalaya" FontSize="64" Margin="5" Click="ButtonNPC1_Click"/>
