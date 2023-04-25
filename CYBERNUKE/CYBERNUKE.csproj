@@ -506,5 +506,15 @@
   <ItemGroup>
     <Resource Include="GameData\Images\TownMenu\townviewpanel.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\OldMan_Tranquility.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\Guard_Tranquility.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -139,7 +139,7 @@
             <ColumnDefinition Width="766"/>
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
-
+        
 
         <TextBlock Text="Town View Test" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="50" Visibility="Hidden" Height="67" Width="334" Margin="416,178,0,0"/>
         <Image Source="/CYBERNUKE;component/GameData/Towns/CYBERNUKE_TOWN_TRANQUILITY.png" Margin="-21,-58,0,0" Grid.ColumnSpan="3" Grid.RowSpan="2" Stretch="UniformToFill"/>
@@ -168,20 +168,64 @@
             </StackPanel>
 
         </Grid>
-        <!-- Dialogue Prompt -->
-        <Grid x:Name="DialogueContainer" Grid.Column="1" Grid.Row="0" Visibility="Hidden">
+        <!-- PopUp Box -->
+        <Grid x:Name="PopUpContainer" Grid.Column="1"
+              Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="346*"/>
+                <ColumnDefinition Width="360*"/>
+                <ColumnDefinition Width="346*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="122*"/>
-                <RowDefinition Height="60*"/>
+                <RowDefinition Height="288*"/>
+                <RowDefinition Height="192*"/>
+                <RowDefinition Height="288*"/>
             </Grid.RowDefinitions>
 
+            <Grid x:Name="OverworldView_PromptBox" Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="352*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="184*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <Image Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_PromptBox.png" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor" 
+                       Grid.ColumnSpan="3" Grid.RowSpan="3"/>
 
-            <TextBlock x:Name="Dialogue_Text" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                <!-- Dialogue Prompt -->
+                <Grid x:Name="DialogueContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock x:Name="Dialogue_Text" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
                            Text="DIALOGUE"/>
-            <Button x:Name="DialogueContinue" Grid.Row="1" Style="{StaticResource Map_Prompt_Button}"
+                    <Button x:Name="DialogueContinue" Grid.Row="1" Style="{StaticResource Map_Prompt_Button}"
                             Content="CONTINUE..." Click="DialogueContinue_Click" Visibility="Hidden"/>
+                </Grid>
+
+                <!-- Combat Prompt -->
+                <Grid x:Name="CombatPromptContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <TextBlock x:Name="Combat_Prompt" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="ENEMIES ENCOUNTERED"/>
+                    </Grid>
+                </Grid>
+            </Grid>
         </Grid>
-
-
     </Grid>
 </UserControl>

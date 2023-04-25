@@ -448,7 +448,7 @@ namespace CYBERNUKE.MVVM.View
         //Public & private method for displaying popups
         public void Init_Dialogue(string dialogueName) //Call when starting prompt
         {
-            //Weird bug sometimes where spamming 'Interact' at a teleport spot opens combat and teleport prompt which fucks index and crashes
+            //Weird bug sometimes where spamming 'Interact' at a teleport spot opens combat and teleport prompt which messes up index and crashes
             PopUpContainer.Visibility = Visibility.Hidden;
             CombatPromptContainer.Visibility = Visibility.Hidden;
 
