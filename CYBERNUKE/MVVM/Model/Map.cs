@@ -192,7 +192,34 @@ namespace CYBERNUKE.MVVM.Model
                     enemyLocationData.RemoveAt(index);
                     break;
             }
-        }
+        } //Using Location
+
+        public void Remove_Location(int type, int index) //Using Index
+        {
+            //0 == teleport, 1 == town teleport, 2 == npc, 3 == object, 4 == enemy
+            switch (type)
+            {
+                case 0:
+                    teleportLocationData.RemoveAt(index);
+                    break;
+
+                case 1:
+                    townTeleportLocationData.RemoveAt(index);
+                    break;
+
+                case 2:
+                    npcLocationData.RemoveAt(index);
+                    break;
+
+                case 3:
+                    objectLocationData.RemoveAt(index);
+                    break;
+
+                case 4:
+                    enemyLocationData.RemoveAt(index);
+                    break;
+            }
+        } //Using Location
 
         public int Get_Spawn_Index(string spawnLocationName)
         {

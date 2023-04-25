@@ -364,7 +364,12 @@ namespace CYBERNUKE.MVVM.View
                 case 3: //Object
                     locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Object_Pos(playerPosX, playerPosY);
                     objectIndex = locationIndex;
-                    Display_Object_Prompt(((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData[locationIndex].locationName);
+
+                    //Check if object is activated, if it isnt then proceed
+                    if (!((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData[locationIndex].boolVar)
+                    {
+                        Display_Object_Prompt(((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData[locationIndex].locationName);
+                    }
                     break;
 
                 case 4: //Enemy

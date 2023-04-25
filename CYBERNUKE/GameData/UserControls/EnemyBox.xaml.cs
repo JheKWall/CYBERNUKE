@@ -148,9 +148,13 @@ namespace CYBERNUKE.GameData.UserControls
         }
         public void RechargeSP(int rechargeAmount)
         {
-            if (GetSP() < (SP_Bar.Maximum - rechargeAmount))
+            if (GetSP() < SP_Bar.Maximum)
             {
                 ModifySP(rechargeAmount, 1);
+            }
+            if (GetSP() > (SP_Bar.Maximum - rechargeAmount))
+            {
+                SP_Bar.Value = SP_Bar.Maximum;
             }
         }
         public void AttackLoseSP()

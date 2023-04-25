@@ -44,6 +44,7 @@ namespace CYBERNUKE.MVVM.View
         int totalTurnOrder = 0; //Total number of turn order instances
         int turnOrderIndex = 0; //Current "first" position in turn order
         bool isPlayerTurn = false; //For deciding if user has control or not
+        bool allPlayersDead = false;
 
         public CombatView()
         {
@@ -310,7 +311,7 @@ namespace CYBERNUKE.MVVM.View
             {
                 // USE RANDOM TO TARGET A RANDOM PLAYER
                 Random rand = new Random();
-                int target = rand.Next(0, playerCount);
+                int target = rand.Next(0, (playerCount - 1) - numPlayerDead);
 
                 // GET PLAYER'S POSITION IN TURN ORDER LIST
                 int playerTurnOrderIndex = 0;
@@ -481,6 +482,7 @@ namespace CYBERNUKE.MVVM.View
             // If all players dead, game over
             if (numPlayerDead == playerCount)
             {
+                allPlayersDead = true;
                 EnemyEndCombat();
             }
             // If all enemies dead, win
@@ -490,11 +492,14 @@ namespace CYBERNUKE.MVVM.View
             }
             else
             {
-                // Make sure players dont have control
-                ControlPanel_ButtonPanel_MAIN.Visibility = Visibility.Hidden;
-                ControlPanel_ButtonPanel_ATTACK.Visibility = Visibility.Hidden;
+                if (!allPlayersDead)
+                {
+                    // Make sure players dont have control
+                    ControlPanel_ButtonPanel_MAIN.Visibility = Visibility.Hidden;
+                    ControlPanel_ButtonPanel_ATTACK.Visibility = Visibility.Hidden;
 
-                TurnOrder_Update();
+                    TurnOrder_Update();
+                }
             }
         }
         private void PlayerEndCombat() //Player victory or Escaped
@@ -518,7 +523,9 @@ namespace CYBERNUKE.MVVM.View
         }
         private void EnemyEndCombat() //Enemy victory, game over
         {
-            //Show game over screen, kick player to main menu
+            //Show game over screen
+
+            //kick player to main menu
             var viewModel = (CombatViewModel)DataContext;
             if (viewModel.NavigateMainMenuViewCommand.CanExecute(null))
             {
