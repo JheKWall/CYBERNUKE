@@ -1,5 +1,6 @@
 ﻿using CYBERNUKE.Core;
 using CYBERNUKE.MVVM.Model;
+using CYBERNUKE.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,21 +23,24 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class TownView : UserControl
     {
-        List<Button> buttons = new List<Button>();
-
         public TownView()
         {
             InitializeComponent();
-            //TownNameTextBlock.Text = 
         }
 
         private void ButtonLeave_Click(object sender, RoutedEventArgs e)
         {
-
+            //Return to overworld view
+            var viewModel = (TownViewModel)DataContext;
+            if (viewModel.NavigateOverworldViewCommand.CanExecute(null))
+            {
+                viewModel.NavigateOverworldViewCommand.Execute(null);
+            }
         }
 
         private void ButtonNPC1_Click(object sender, RoutedEventArgs e)
         {
+
 
         }
 
@@ -46,6 +50,11 @@ namespace CYBERNUKE.MVVM.View
         }
 
         private void ButtonRest_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DialogueContinue_Click(object sender, RoutedEventArgs e)
         {
 
         }

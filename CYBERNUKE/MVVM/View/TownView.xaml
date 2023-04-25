@@ -84,6 +84,47 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!-- Map Prompt TextBox -->
+        <Style x:Key="Map_Prompt_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Map Prompt Button -->
+        <Style x:Key="Map_Prompt_Button" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Margin" Value="10"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
 
     <Grid>
@@ -127,7 +168,19 @@
             </StackPanel>
 
         </Grid>
+        <!-- Dialogue Prompt -->
+        <Grid x:Name="DialogueContainer" Grid.Column="1" Grid.Row="0" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="122*"/>
+                <RowDefinition Height="60*"/>
+            </Grid.RowDefinitions>
 
+
+            <TextBlock x:Name="Dialogue_Text" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="DIALOGUE"/>
+            <Button x:Name="DialogueContinue" Grid.Row="1" Style="{StaticResource Map_Prompt_Button}"
+                            Content="CONTINUE..." Click="DialogueContinue_Click" Visibility="Hidden"/>
+        </Grid>
 
 
     </Grid>
