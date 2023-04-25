@@ -23,7 +23,12 @@ SleepingGuard
 2
 6
 //OBJECT LOCATIONS
-0
+1
+GatehouseKey
+1
+2
+1
+5
 //ENEMY LOCATIONS
 1
 EncounterGangstaDuck

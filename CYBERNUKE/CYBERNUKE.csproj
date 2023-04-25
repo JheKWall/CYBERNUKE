@@ -479,5 +479,20 @@
     <Resource Include="Resources\PinkSlime_Portrait.png" />
     <Resource Include="Resources\V1_Portrait.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\GatehouseKey.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\AsylumKey.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\PauseMenu\PauseMenu_CharacterBG.png" />
+    <Resource Include="GameData\Images\PauseMenu\PauseMenu_CharacterInfoBG.png" />
+    <Resource Include="GameData\Images\PauseMenu\PauseMenu_PortraitFrame.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,6 +46,8 @@ namespace CYBERNUKE.MVVM.View
         int encounterChance;
         string mapTeleport;
         string townTeleport;
+        string objectActivate;
+        int objectIndex;
         char[,] mapData;
         char[,] dynamicMap;
         int currentIndex;
@@ -66,7 +68,7 @@ namespace CYBERNUKE.MVVM.View
             Map_First_Render();
             Load_Player_Boxes();
 
-            pauseMenu = new PauseMenu();
+            pauseMenu = new PauseMenu(PauseMenuOverlayContainer);
             OverworldView_CharacterMenuContainer.Children.Add(pauseMenu);
 
             hasControl = true;
@@ -76,9 +78,6 @@ namespace CYBERNUKE.MVVM.View
         //Private method for loading a map to the overworldview
         private void Map_First_Render()
         {
-            // Clear isEncounter
-            ((MainWindow)Application.Current.MainWindow).isEncounter = false;
-
             // Clear MapDisplay
             MapDisplay.Text = "";
 
@@ -92,24 +91,16 @@ namespace CYBERNUKE.MVVM.View
             string currentMap = ((MainWindow)Application.Current.MainWindow).currentMap;
             encounterChance = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].encounterChance;
 
-            // Initialize map data lists
-            mapData = new char[mapHeight, mapWidth];
-            dynamicMap = new char[mapHeight, mapWidth];
-            mapData = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].mapData;
-            // Deep copy of mapdata into dynamicmap
-            for (int i = 0; i < mapHeight; i++)
-            {
-                for (int j = 0; j < mapWidth; j++)
-                {
-                    dynamicMap[i, j] = mapData[i, j];
-                }
-            }
-
             // Set Map Name & Encounter %
             MapDisplay_Location.Text = mapName;
             MapDisplay_EnemyPercent.Text = encounterChance + "%";
 
-            // Set Player Spawn on dynamicMap
+            // Initialize map data lists
+            mapData = new char[mapHeight, mapWidth];
+            dynamicMap = new char[mapHeight, mapWidth];
+            mapData = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].mapData;
+
+            #region Set Player Spawn on dynamicMap
             // Check if "returnToSavedPos" is true (set when entering combat)
             if (((MainWindow)Application.Current.MainWindow).returnToSavedPos)
             {
@@ -140,11 +131,49 @@ namespace CYBERNUKE.MVVM.View
                     }
                 }
             }
-            dynamicMap[playerPosY, playerPosX] = '☢';
+            #endregion
             ((MainWindow)Application.Current.MainWindow).returnToSavedPos = false;
             ((MainWindow)Application.Current.MainWindow).TownToMap = false;
 
-            // Render Map to Screen
+            #region Remove Encounter Tile if Enemy is Defeated
+            // If you return as isEncounter is true, remove the encounter at your position
+            if (((MainWindow)Application.Current.MainWindow).isEncounter)
+            {
+                int locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Enemy_Pos(playerPosX, playerPosY);
+                ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Remove_Location(4, playerPosX, playerPosY);
+                mapData[playerPosY, playerPosX] = '⬜';
+            }
+            #endregion
+            // Clear isEncounter
+            ((MainWindow)Application.Current.MainWindow).isEncounter = false;
+
+            #region Remove Object Tile & their Target if Object is Activated
+            for (int i = 0; i < ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData.Count; i++)
+            {
+                if (((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData[i].boolVar)
+                {
+                    mapData[((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData[i].locationCoordY,
+                        ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData[i].locationCoordX] = '⬜';
+
+                    mapData[((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData[i].targetCoordY,
+                        ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData[i].targetCoordX] = '⬜';
+                }
+            }
+            #endregion
+
+            #region Copy mapData to dynamicMap
+            // Deep copy of mapdata into dynamicmap
+            for (int i = 0; i < mapHeight; i++)
+            {
+                for (int j = 0; j < mapWidth; j++)
+                {
+                    dynamicMap[i, j] = mapData[i, j];
+                }
+            }
+            #endregion
+            dynamicMap[playerPosY, playerPosX] = '☢';
+
+            #region Render Map to Screen
             for (int i = 0; i < mapHeight; i++)
             {
                 for (int j = 0; j < mapWidth; j++)
@@ -152,6 +181,7 @@ namespace CYBERNUKE.MVVM.View
                     MapDisplay.Text += dynamicMap[i, j];
                 }
             }
+            #endregion
 
             // Set new current map
             ((MainWindow)Application.Current.MainWindow).currentMap = ((MainWindow)Application.Current.MainWindow).mapToLoad;
@@ -333,6 +363,8 @@ namespace CYBERNUKE.MVVM.View
 
                 case 3: //Object
                     locationIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Object_Pos(playerPosX, playerPosY);
+                    objectIndex = locationIndex;
+                    Display_Object_Prompt(((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData[locationIndex].locationName);
                     break;
 
                 case 4: //Enemy
@@ -341,11 +373,6 @@ namespace CYBERNUKE.MVVM.View
                     Display_Prompt_Combat(((MainWindow)Application.Current.MainWindow).mapList[currentIndex].enemyLocationData[locationIndex].locationName);
                     break;
             }
-
-            //if lands on object
-            //1. show prompt and ask user choice about item
-            //yes = do thing
-            //no = do nothing
         }
         private void Encounter_Chance()
         {
@@ -602,6 +629,63 @@ namespace CYBERNUKE.MVVM.View
             hasControl = true;
         }
         #endregion
+        #region ObjectPrompt
+        private void Display_Object_Prompt(string objectName)
+        {
+            // Hide Combat Prompt //Weird bug sometimes where spamming 'Interact' at a teleport spot opens combat and teleport prompt which fucks index and crashes
+            PopUpContainer.Visibility = Visibility.Hidden;
+            CombatPromptContainer.Visibility = Visibility.Hidden;
+
+            // Set objectActivate
+            objectActivate = objectName;
+
+            // Remove Player Control
+            hasControl = false;
+
+            #region Get Dialogue
+            input = new StreamReader("GameData/Dialogue/" + objectName + ".txt");
+            #endregion
+
+            // Set Prompt Dialogue
+            input.ReadLine();
+            Object_Prompt.Text = input.ReadLine();
+
+            // Close Streamreader
+            input.Close();
+
+            // Show Object Prompt
+            PopUpContainer.Visibility = Visibility.Visible;
+            ObjectPromptContainer.Visibility = Visibility.Visible;
+        }
+
+        private void Object_Prompt_Yes_Click(object sender, RoutedEventArgs e)
+        {
+            // Toggle Object
+            ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].objectLocationData[objectIndex].boolVar = true;
+
+            // returnToSavedPos true
+            ((MainWindow)Application.Current.MainWindow).returnToSavedPos = true;
+
+            // Hide Object Prompt
+            PopUpContainer.Visibility = Visibility.Hidden;
+            ObjectPromptContainer.Visibility = Visibility.Hidden;
+
+            // Return Control
+            hasControl = true;
+
+            // Map_First_Render()
+            Map_First_Render();
+        }
+        private void Object_Prompt_No_Click(object sender, RoutedEventArgs e)
+        {
+            // Hide Object Prompt
+            PopUpContainer.Visibility = Visibility.Hidden;
+            ObjectPromptContainer.Visibility = Visibility.Hidden;
+
+            // Return Control
+            hasControl = true;
+        }
+        #endregion
 
         #region Control Panel Buttons
         private void Button_Menu_Click(object sender, RoutedEventArgs e)
@@ -747,6 +831,12 @@ namespace CYBERNUKE.MVVM.View
             // If the pause menu is closed and player has control, then they can hit any button.
             // If the pause menu is open then the player can only hit the menu button to close it
             // If the player has no control then no buttons can be pressed
+
+            // Just incase pause menu is bugged
+            if (PauseMenuOverlayContainer.Visibility == Visibility.Hidden)
+            {
+                pauseMenuOpen = false;
+            }
 
             if (!pauseMenuOpen && hasControl) //If the pause menu is closed and player has control
             {

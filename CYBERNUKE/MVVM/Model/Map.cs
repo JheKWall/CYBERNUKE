@@ -16,11 +16,11 @@ namespace CYBERNUKE.MVVM.Model
         //Map Vars
         public string mapToLoad;
         public char[,] mapData;
-        public LocationData[] teleportLocationData; //mapTeleport
-        public LocationData[] townTeleportLocationData;
-        public LocationData[] npcLocationData;
-        public LocationData[] objectLocationData;
-        public LocationData[] enemyLocationData;
+        public List<LocationData> teleportLocationData;
+        public List<LocationData> townTeleportLocationData;
+        public List<LocationData> npcLocationData;
+        public List<LocationData> objectLocationData;
+        public List<LocationData> enemyLocationData;
         public int mapWidth;
         public int mapHeight;
         public int encounterChance;
@@ -60,7 +60,8 @@ namespace CYBERNUKE.MVVM.Model
             input.ReadLine();
             #region 7-10. MAP <-> MAP TELEPORT LOCATIONS
             int numLocations = Int32.Parse(input.ReadLine());
-            teleportLocationData = new LocationData[numLocations];
+            //teleportLocationData = new LocationData[numLocations];
+            teleportLocationData = new List<LocationData>();
             if (numLocations != 0)
             {
                 for (int i = 0; i < numLocations; i++)
@@ -68,7 +69,9 @@ namespace CYBERNUKE.MVVM.Model
                     string name = input.ReadLine();
                     int x = Int32.Parse(input.ReadLine());
                     int y = Int32.Parse(input.ReadLine());
-                    teleportLocationData[i] = new LocationData(name, x, y);
+
+                    LocationData temp = new LocationData(name, x, y);
+                    teleportLocationData.Add(temp);
                 }
             }
             #endregion
@@ -76,7 +79,7 @@ namespace CYBERNUKE.MVVM.Model
             input.ReadLine();
             #region 11-14. MAP <-> TOWN TELEPORT LOCATIONS
             numLocations = Int32.Parse(input.ReadLine());
-            townTeleportLocationData = new LocationData[numLocations];
+            townTeleportLocationData = new List<LocationData>();
             if (numLocations != 0)
             {
                 for (int i = 0; i < numLocations; i++)
@@ -84,7 +87,9 @@ namespace CYBERNUKE.MVVM.Model
                     string name = input.ReadLine();
                     int x = Int32.Parse(input.ReadLine());
                     int y = Int32.Parse(input.ReadLine());
-                    townTeleportLocationData[i] = new LocationData(name, x, y);
+
+                    LocationData temp = new LocationData(name, x, y);
+                    townTeleportLocationData.Add(temp);
                 }
             }
             #endregion
@@ -92,7 +97,7 @@ namespace CYBERNUKE.MVVM.Model
             input.ReadLine();
             #region 15-18. NPC LOCATIONS
             numLocations = Int32.Parse(input.ReadLine());
-            npcLocationData = new LocationData[numLocations];
+            npcLocationData = new List<LocationData>();
             if (numLocations != 0)
             {
                 for (int i = 0; i < numLocations; i++)
@@ -100,7 +105,9 @@ namespace CYBERNUKE.MVVM.Model
                     string name = input.ReadLine();
                     int x = Int32.Parse(input.ReadLine());
                     int y = Int32.Parse(input.ReadLine());
-                    npcLocationData[i] = new LocationData(name, x, y);
+
+                    LocationData temp = new LocationData(name, x, y);
+                    npcLocationData.Add(temp);
                 }
             }
             #endregion
@@ -108,7 +115,7 @@ namespace CYBERNUKE.MVVM.Model
             input.ReadLine();
             #region 19-22. OBJECT LOCATIONS
             numLocations = Int32.Parse(input.ReadLine());
-            objectLocationData = new LocationData[numLocations];
+            objectLocationData = new List<LocationData>();
             if (numLocations != 0)
             {
                 for (int i = 0; i < numLocations; i++)
@@ -116,7 +123,11 @@ namespace CYBERNUKE.MVVM.Model
                     string name = input.ReadLine();
                     int x = Int32.Parse(input.ReadLine());
                     int y = Int32.Parse(input.ReadLine());
-                    objectLocationData[i] = new LocationData(name, x, y);
+                    int targetx = Int32.Parse(input.ReadLine());
+                    int targety = Int32.Parse(input.ReadLine());
+
+                    LocationData temp = new LocationData(name, x, y, targetx, targety);
+                    objectLocationData.Add(temp);
                 }
             }
             #endregion
@@ -124,7 +135,7 @@ namespace CYBERNUKE.MVVM.Model
             input.ReadLine();
             #region 23-26. ENEMY LOCATIONS
             numLocations = Int32.Parse(input.ReadLine());
-            enemyLocationData = new LocationData[numLocations];
+            enemyLocationData = new List<LocationData>();
             if (numLocations != 0)
             {
                 for (int i = 0; i < numLocations; i++)
@@ -132,7 +143,9 @@ namespace CYBERNUKE.MVVM.Model
                     string name = input.ReadLine();
                     int x = Int32.Parse(input.ReadLine());
                     int y = Int32.Parse(input.ReadLine());
-                    enemyLocationData[i] = new LocationData(name, x, y);
+
+                    LocationData temp = new LocationData(name, x, y);
+                    enemyLocationData.Add(temp);
                 }
             }
             #endregion
@@ -147,10 +160,44 @@ namespace CYBERNUKE.MVVM.Model
             }
         }
 
+        public void Remove_Location(int type, int posX, int posY)
+        {
+            int index;
+
+            //0 == teleport, 1 == town teleport, 2 == npc, 3 == object, 4 == enemy
+            switch (type)
+            {
+                case 0:
+                    index = Get_Teleport_Pos(posX, posY);
+                    teleportLocationData.RemoveAt(index);
+                    break;
+
+                case 1:
+                    index = Get_TownTeleport_Pos(posX, posY);
+                    townTeleportLocationData.RemoveAt(index);
+                    break;
+
+                case 2:
+                    index = Get_NPC_Pos(posX, posY);
+                    npcLocationData.RemoveAt(index);
+                    break;
+
+                case 3:
+                    index = Get_Object_Pos(posX, posY);
+                    objectLocationData.RemoveAt(index);
+                    break;
+
+                case 4:
+                    index = Get_Enemy_Pos(posX, posY);
+                    enemyLocationData.RemoveAt(index);
+                    break;
+            }
+        }
+
         public int Get_Spawn_Index(string spawnLocationName)
         {
             //Check for map teleport location
-            for (int i = 0; i < teleportLocationData.Length; i++)
+            for (int i = 0; i < teleportLocationData.Count; i++)
             {
                 if (teleportLocationData[i].locationName == spawnLocationName)
                 {
@@ -158,7 +205,7 @@ namespace CYBERNUKE.MVVM.Model
                 }
             }
             //Check for town teleport location
-            for (int i = 0; i < townTeleportLocationData.Length; i++)
+            for (int i = 0; i < townTeleportLocationData.Count; i++)
             {
                 if (townTeleportLocationData[i].locationName == spawnLocationName)
                 {
@@ -168,7 +215,7 @@ namespace CYBERNUKE.MVVM.Model
             return -1;
         }
 
-        //Public methods for checking player position against 
+        #region Public methods for checking player position against 
         public int Check_Player_Pos(int posX, int posY)
         {
             //0 == teleport, 1 == town teleport, 2 == npc, 3 == object, 4 == enemy
@@ -214,7 +261,7 @@ namespace CYBERNUKE.MVVM.Model
         public int Get_Teleport_Pos(int posX, int posY)
         {
             //Teleport Location Get
-            for (int i = 0; i < teleportLocationData.Length; i++)
+            for (int i = 0; i < teleportLocationData.Count; i++)
             {
                 if ((posX == teleportLocationData[i].locationCoordX) && (posY == teleportLocationData[i].locationCoordY))
                 {
@@ -226,7 +273,7 @@ namespace CYBERNUKE.MVVM.Model
         public int Get_TownTeleport_Pos(int posX, int posY)
         {
             //Teleport Location Get
-            for (int i = 0; i < townTeleportLocationData.Length; i++)
+            for (int i = 0; i < townTeleportLocationData.Count; i++)
             {
                 if ((posX == townTeleportLocationData[i].locationCoordX) && (posY == townTeleportLocationData[i].locationCoordY))
                 {
@@ -238,7 +285,7 @@ namespace CYBERNUKE.MVVM.Model
         public int Get_NPC_Pos(int posX, int posY)
         {
             //NPC Location Get
-            for (int i = 0; i < npcLocationData.Length; i++)
+            for (int i = 0; i < npcLocationData.Count; i++)
             {
                 if ((posX == npcLocationData[i].locationCoordX) && (posY == npcLocationData[i].locationCoordY))
                 {
@@ -250,7 +297,7 @@ namespace CYBERNUKE.MVVM.Model
         public int Get_Object_Pos(int posX, int posY)
         {
             //Object Location Get
-            for (int i = 0; i < objectLocationData.Length; i++)
+            for (int i = 0; i < objectLocationData.Count; i++)
             {
                 if ((posX == objectLocationData[i].locationCoordX) && (posY == objectLocationData[i].locationCoordY))
                 {
@@ -262,7 +309,7 @@ namespace CYBERNUKE.MVVM.Model
         public int Get_Enemy_Pos(int posX, int posY)
         {
             //Enemy Location Get
-            for (int i = 0; i < enemyLocationData.Length; i++)
+            for (int i = 0; i < enemyLocationData.Count; i++)
             {
                 if ((posX == enemyLocationData[i].locationCoordX) && (posY == enemyLocationData[i].locationCoordY))
                 {
@@ -271,5 +318,6 @@ namespace CYBERNUKE.MVVM.Model
             }
             return -1; //not found
         }
+        #endregion
     }
 }

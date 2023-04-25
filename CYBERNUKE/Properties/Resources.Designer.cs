@@ -483,9 +483,39 @@ namespace CYBERNUKE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PauseMenu_CharacterBG {
+            get {
+                object obj = ResourceManager.GetObject("PauseMenu_CharacterBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PauseMenu_CharacterInfoBG {
+            get {
+                object obj = ResourceManager.GetObject("PauseMenu_CharacterInfoBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PauseMenu_MainBG {
             get {
                 object obj = ResourceManager.GetObject("PauseMenu_MainBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PauseMenu_PortraitFrame {
+            get {
+                object obj = ResourceManager.GetObject("PauseMenu_PortraitFrame", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

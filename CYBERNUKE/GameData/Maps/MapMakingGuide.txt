@@ -45,14 +45,16 @@ Map variables declared in this order (spacing and newlines included):
 18. NPC_1_Y
 ...
 19. AMOUNT_OBJECTS
-20. OBJECT_1_NAME (its filename)
+20. OBJECT_1_NAME (dialogue filename)
 21. OBJECT_1_X
 22. OBJECT_1_Y
+23. OBJECT_1_TARGET_X
+24. OBJECT_1_TARGET_Y
 ...
-23. AMOUNT_ENEMIES
-24. ENEMY_1_NAME (enemy party filename)
-25. ENEMY_1_X
-26. ENEMY_1_Y
+25. AMOUNT_ENEMIES
+26. ENEMY_1_NAME (enemy party filename)
+27. ENEMY_1_X
+28. ENEMY_1_Y
 ...
-27. MAP_DATA
+29. MAP_DATA
 (Include extra empty line at bottom)
