@@ -134,6 +134,9 @@
 
             <!-- InfoBG -->
             <Image Source="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_CharacterInfoBG.png" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Column="3" Grid.Row="1" Grid.RowSpan="7"/>
+            <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="7">
+                
+            </Grid>
 
             <!-- Selection BG -->
             <Rectangle x:Name="Char_One_Select" Fill="Red" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"
@@ -142,7 +145,6 @@
                        Visibility="Hidden"/>
             <Rectangle x:Name="Char_Three_Select" Fill="Red" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6"
                        Visibility="Hidden"/>
-
 
             <!-- Portrait Grid -->
             <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="7">

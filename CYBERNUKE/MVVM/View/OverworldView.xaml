@@ -235,7 +235,7 @@
                        Grid.ColumnSpan="3" Grid.RowSpan="3"/>
 
                 <!-- Dialogue Prompt -->
-                <Grid x:Name="DialogueContainer" Grid.Column="1" Grid.Row="1" Visibility="Visible">
+                <Grid x:Name="DialogueContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="122*"/>
                         <RowDefinition Height="60*"/>
@@ -332,7 +332,7 @@
         </Grid>
 
         <!-- Pause Menu Container -->
-        <Grid x:Name="PauseMenuOverlayContainer" Grid.ColumnSpan="15" Grid.RowSpan="20" Visibility="Visible">
+        <Grid x:Name="PauseMenuOverlayContainer" Grid.ColumnSpan="15" Grid.RowSpan="20" Visibility="Hidden">
             <Grid Height="768" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1366"/>
             <Rectangle Fill="#7F000000"/>
             <Grid x:Name="OverworldView_CharacterMenuContainer" Grid.ColumnSpan="16" Grid.RowSpan="19" Margin="244,19,244,18"/>

@@ -26,6 +26,7 @@ namespace CYBERNUKE.GameData.UserControls
         public PauseMenu(Grid pauseMenuContainer)
         {
             InitializeComponent();
+            ScaleText();
 
             this.pauseMenuContainer = pauseMenuContainer;
         }
@@ -140,6 +141,42 @@ namespace CYBERNUKE.GameData.UserControls
         private void Character_Four_Click(object sender, RoutedEventArgs e)
         {
             //didnt bother since we only have 3 for demo
+        }
+        #endregion
+
+        #region Text Scaling
+        //Private methods for scaling text with resolution
+        private void ScaleText()
+        {
+            switch (Application.Current.MainWindow.Width)
+            {
+                case 1366:
+                    ChangeFontSize(0);
+                    break;
+                case 1600:
+                    ChangeFontSize(1);
+                    break;
+                case 1920:
+                    ChangeFontSize(2);
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void ChangeFontSize(int size)
+        {
+            switch (size)
+            {
+                case 0: //1366
+                    FontSizeVar.FontSize = 38;
+                    break;
+                case 1: //1600
+                    FontSizeVar.FontSize = 42;
+                    break;
+                case 2: //1920
+                    FontSizeVar.FontSize = 46;
+                    break;
+            }
         }
         #endregion
     }
