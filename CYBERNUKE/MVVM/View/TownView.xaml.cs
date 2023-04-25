@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CYBERNUKE.Core;
+using CYBERNUKE.MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,32 @@ namespace CYBERNUKE.MVVM.View
     /// </summary>
     public partial class TownView : UserControl
     {
+        List<Button> buttons = new List<Button>();
+
         public TownView()
         {
             InitializeComponent();
+            //TownNameTextBlock.Text = 
+        }
+
+        private void ButtonLeave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonNPC1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonNPC2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonRest_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
