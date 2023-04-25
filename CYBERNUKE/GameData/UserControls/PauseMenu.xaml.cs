@@ -94,19 +94,52 @@ namespace CYBERNUKE.GameData.UserControls
         #region Character Buttons
         private void Character_One_Click(object sender, RoutedEventArgs e)
         {
+            //Hide Other Selects
+            Char_One_Select.Visibility = Visibility.Hidden;
+            Char_Two_Select.Visibility = Visibility.Hidden;
+            Char_Three_Select.Visibility = Visibility.Hidden;
+
+            //Show Select
+            Char_One_Select.Visibility = Visibility.Visible;
+
+            //Hide Other Character Info
+
+            //Show Character Info
 
         }
         private void Character_Two_Click(object sender, RoutedEventArgs e)
         {
+            //Hide Other Selects
+            Char_One_Select.Visibility = Visibility.Hidden;
+            Char_Two_Select.Visibility = Visibility.Hidden;
+            Char_Three_Select.Visibility = Visibility.Hidden;
+
+            //Show Select
+            Char_Two_Select.Visibility = Visibility.Visible;
+
+            //Hide Other Character Info
+
+            //Show Character Info
 
         }
         private void Character_Three_Click(object sender, RoutedEventArgs e)
         {
+            //Hide Other Selects
+            Char_One_Select.Visibility = Visibility.Hidden;
+            Char_Two_Select.Visibility = Visibility.Hidden;
+            Char_Three_Select.Visibility = Visibility.Hidden;
+
+            //Show Select
+            Char_Three_Select.Visibility = Visibility.Visible;
+
+            //Hide Other Character Info
+
+            //Show Character Info
 
         }
         private void Character_Four_Click(object sender, RoutedEventArgs e)
         {
-
+            //didnt bother since we only have 3 for demo
         }
         #endregion
     }

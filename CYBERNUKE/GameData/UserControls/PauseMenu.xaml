@@ -115,22 +115,37 @@
         <Grid x:Name="Character_Menu_Display" Visibility="Visible" Grid.Column="5" Grid.Row="1" Grid.RowSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="21*"/>
-                <RowDefinition Height="685*"/>
+                <RowDefinition Height="56*"/>
+                <RowDefinition Height="138*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="138*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="138*"/>
+                <RowDefinition Height="201*"/>
                 <RowDefinition Height="21*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="145*"/>
+                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition Width="134*"/>
                 <ColumnDefinition Width="25*"/>
-                <ColumnDefinition Width="435*"/>
+                <ColumnDefinition Width="434*"/>
                 <ColumnDefinition Width="21*"/>
             </Grid.ColumnDefinitions>
 
-
             <!-- InfoBG -->
-            <Image Source="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_CharacterInfoBG.png" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Column="2" Grid.Row="1"/>
+            <Image Source="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_CharacterInfoBG.png" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Column="3" Grid.Row="1" Grid.RowSpan="7"/>
+
+            <!-- Selection BG -->
+            <Rectangle x:Name="Char_One_Select" Fill="Red" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"
+                       Visibility="Hidden"/>
+            <Rectangle x:Name="Char_Two_Select" Fill="Red" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4"
+                       Visibility="Hidden"/>
+            <Rectangle x:Name="Char_Three_Select" Fill="Red" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6"
+                       Visibility="Hidden"/>
+
 
             <!-- Portrait Grid -->
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="7">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="15*"/>
                     <ColumnDefinition Width="130*"/>
