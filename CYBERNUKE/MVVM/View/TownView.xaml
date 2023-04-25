@@ -84,6 +84,47 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!-- Map Prompt TextBox -->
+        <Style x:Key="Map_Prompt_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Map Prompt Button -->
+        <Style x:Key="Map_Prompt_Button" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Margin" Value="10"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
 
     <Grid>
@@ -98,11 +139,11 @@
             <ColumnDefinition Width="766"/>
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
-
+        
 
         <TextBlock Text="Town View Test" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="50" Visibility="Hidden" Height="67" Width="334" Margin="416,178,0,0"/>
         <Image Source="/CYBERNUKE;component/GameData/Towns/CYBERNUKE_TOWN_TRANQUILITY.png" Margin="-21,-58,0,0" Grid.ColumnSpan="3" Grid.RowSpan="2" Stretch="UniformToFill"/>
-        <Rectangle Fill="White" Grid.Column="1" Stroke="Black" Grid.Row="1" Margin="183,0,183,0"/>
+        <Image Source="/CYBERNUKE;component/GameData/Images/TownMenu/townviewpanel.png" Grid.Column="1" Grid.Row="1" Margin="183,0,183,0"/>
 
 
 
@@ -118,7 +159,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="TownNameTextBlock" FontWeight="Bold" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Grid.ColumnSpan="2" Height="45" Width="746" Margin="10,0,0,0" FontFamily="Microsoft Himalaya" FontSize="60" Text="-- Tranquility --" Foreground="Red"/>
+            <TextBlock x:Name="TownNameTextBlock" FontWeight="Bold" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Grid.ColumnSpan="2" Height="45" Width="746" Margin="0,0,0,0" FontFamily="Microsoft Himalaya" FontSize="60" Text="-- Tranquility --" Foreground="Black"/>
             <StackPanel x:Name="TownButtonsStackPanel1" Grid.Row="1" Margin="203,5,202,5" Grid.ColumnSpan="2">
                 <Button x:Name="ButtonLeave" Style="{StaticResource MainMenuButton}" FontWeight="Bold" Content="1. Leave" Height="45" FontFamily="Microsoft Himalaya" FontSize="64" Margin="5" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonLeave_Click"/>
                 <Button x:Name="ButtonNPC1" Style="{StaticResource MainMenuButton}" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Content="2. Old Man" Height="45" FontFamily="Microsoft Himalaya" FontSize="64" Margin="5" Click="ButtonNPC1_Click"/>
@@ -127,8 +168,64 @@
             </StackPanel>
 
         </Grid>
+        <!-- PopUp Box -->
+        <Grid x:Name="PopUpContainer" Grid.Column="1"
+              Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="346*"/>
+                <ColumnDefinition Width="360*"/>
+                <ColumnDefinition Width="346*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="288*"/>
+                <RowDefinition Height="192*"/>
+                <RowDefinition Height="288*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="OverworldView_PromptBox" Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="352*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="184*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <Image Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_PromptBox.png" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor" 
+                       Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+
+                <!-- Dialogue Prompt -->
+                <Grid x:Name="DialogueContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
 
 
+                    <TextBlock x:Name="Dialogue_Text" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="DIALOGUE"/>
+                    <Button x:Name="DialogueContinue" Grid.Row="1" Style="{StaticResource Map_Prompt_Button}"
+                            Content="CONTINUE..." Click="DialogueContinue_Click" Visibility="Hidden"/>
+                </Grid>
 
+                <!-- Combat Prompt -->
+                <Grid x:Name="CombatPromptContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <TextBlock x:Name="Combat_Prompt" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="ENEMIES ENCOUNTERED"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

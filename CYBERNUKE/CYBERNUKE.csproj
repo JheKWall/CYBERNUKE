@@ -248,7 +248,6 @@
   <ItemGroup>
     <Folder Include="GameData\Images\CharacterPortrait\" />
     <Folder Include="GameData\Images\CutsceneMenu\" />
-    <Folder Include="GameData\Images\TownMenu\" />
     <Folder Include="GameData\Items\Armor\" />
     <Folder Include="GameData\Items\Artifacts\" />
     <Folder Include="GameData\Items\Consumables\" />
@@ -500,6 +499,22 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Towns\CYBERNUKE_TOWN_TRANQUILITY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\townviewpanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\TownMenu\townviewpanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\OldMan_Tranquility.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\Guard_Tranquility.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
