@@ -494,5 +494,10 @@
     <Resource Include="GameData\Images\PauseMenu\PauseMenu_CharacterInfoBG.png" />
     <Resource Include="GameData\Images\PauseMenu\PauseMenu_PortraitFrame.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\PlayerPortrait\KELPY_Portrait.png" />
+    <Resource Include="GameData\Images\PlayerPortrait\MAST_Portrait.png" />
+    <Resource Include="GameData\Images\PlayerPortrait\PROTO_Portrait.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

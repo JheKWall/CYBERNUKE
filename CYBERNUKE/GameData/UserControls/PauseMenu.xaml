@@ -9,7 +9,7 @@
 
     <!-- Styles -->
     <UserControl.Resources>
-        <!-- Side Panel Button -->
+        <!-- Side Panel ToggleButton -->
         <Style x:Key="Side_Panel_ToggleButton" TargetType="ToggleButton">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Foreground" Value="White"/>
@@ -41,7 +41,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <Image Name="button_image" Source="{TemplateBinding Button.Content}" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0"/>
+                            <Image Name="button_image" Source="{TemplateBinding Button.Content}" RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="Fill"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -125,14 +125,15 @@
                 <ColumnDefinition Width="21*"/>
             </Grid.ColumnDefinitions>
 
+
             <!-- InfoBG -->
             <Image Source="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_CharacterInfoBG.png" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Column="2" Grid.Row="1"/>
 
             <!-- Portrait Grid -->
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="15"/>
-                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="130*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60*"/>
@@ -148,18 +149,18 @@
 
                 <Button x:Name="Character_One" Grid.Column="1" Grid.Row="1" Style="{StaticResource Character_Button}"
                         Visibility="Visible" Click="Character_One_Click">
-                    <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_PortraitFrame.png"/>
+                    <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/PlayerPortrait/PROTO_Portrait.png"/>
                 </Button>
                 <Button x:Name="Character_Two" Grid.Column="1" Grid.Row="3" Style="{StaticResource Character_Button}"
                         Visibility="Visible" Click="Character_Two_Click">
-                    <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_PortraitFrame.png"/>
+                    <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/PlayerPortrait/MAST_Portrait.png"/>
                 </Button>
                 <Button x:Name="Character_Three" Grid.Column="1" Grid.Row="5" Style="{StaticResource Character_Button}"
                         Visibility="Visible" Click="Character_Three_Click">
-                    <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_PortraitFrame.png"/>
+                    <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/PlayerPortrait/KELPY_Portrait.png"/>
                 </Button>
                 <Button x:Name="Character_Four" Grid.Column="1" Grid.Row="7" Style="{StaticResource Character_Button}"
-                        Visibility="Visible" Click="Character_Four_Click">
+                        Visibility="Hidden" Click="Character_Four_Click">
                     <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_PortraitFrame.png"/>
                 </Button>
             </Grid>

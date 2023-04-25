@@ -277,4 +277,13 @@
   <data name="PauseMenu_PortraitFrame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\images\pausemenu\pausemenu_portraitframe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="KELPY_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\playerportrait\kelpy_portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MAST_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\playerportrait\mast_portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PROTO_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\playerportrait\proto_portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
