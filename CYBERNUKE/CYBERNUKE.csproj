@@ -238,7 +238,6 @@
     <Folder Include="GameData\Items\Consumables\" />
     <Folder Include="GameData\Items\Quest\" />
     <Folder Include="GameData\Items\Weapons\" />
-    <Folder Include="GameData\Towns\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_1.png" />
@@ -333,6 +332,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Credits.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Towns\CYBERNUKE_TOWN_TRANQUILITY.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

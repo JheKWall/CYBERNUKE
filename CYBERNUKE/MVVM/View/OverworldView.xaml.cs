@@ -152,7 +152,7 @@ namespace CYBERNUKE.MVVM.View
         //1 == up, 2 == left, 3 == right, 4 == down
         private bool Validate_Move(int move)
         {
-
+            return false;
         }
 
         //Private method for updates on player move

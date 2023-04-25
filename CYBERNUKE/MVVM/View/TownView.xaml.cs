@@ -30,5 +30,24 @@ namespace CYBERNUKE.MVVM.View
             //TownNameTextBlock.Text = 
         }
 
+        private void ButtonLeave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonNPC1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonNPC2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonRest_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
