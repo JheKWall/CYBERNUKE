@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CYBERNUKE.MVVM.View"
+             xmlns:local="clr-namespace:CYBERNUKE.MVVM.View" 
+             xmlns:viewmodel="clr-namespace:CYBERNUKE.MVVM.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:CombatViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="768" 
              d:DesignWidth="1366"
-             Background="#300000">
+             Background="#300000" Unloaded="UserControl_Unloaded">
 
     <!-- UserControl Resources -->
     <UserControl.Resources>
@@ -17,7 +19,7 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
-            <Setter Property="FontSize" Value="{Binding ElementName=ControlPanelFontSize, Path=FontSize}"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=FontSizeVar, Path=FontSize}"/>
         </Style>
 
         <!-- Control Panel Button -->
@@ -25,7 +27,7 @@
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
-            <Setter Property="FontSize" Value="{Binding ElementName=ControlPanelFontSize, Path=FontSize}"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=FontSizeVar, Path=FontSize}"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -38,6 +40,9 @@
                                 <Setter TargetName="border" Property="Background" Value="Red"/>
                                 <Setter Property="Foreground" Value="Black"/>
                                 <Setter Property="Margin" Value="15,0,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="Gray"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -52,26 +57,27 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
-            <Setter Property="FontSize" Value="{Binding ElementName=ControlPanelFontSize, Path=FontSize}"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=FontSizeVar, Path=FontSize}"/>
         </Style>
 
     </UserControl.Resources>
 
     <!-- UI Element Grid -->
     <Grid>
-        <!-- Horizontal Grid -->
+        <!-- Rows -->
         <Grid.RowDefinitions>
             <RowDefinition Height="22*"/>
-            <RowDefinition Height="13*"/>
+            <RowDefinition Height="14*"/>
             <RowDefinition Height="35*"/>
             <RowDefinition Height="370*"/>
-            <RowDefinition Height="40*"/>
+            <RowDefinition Height="39*"/>
             <RowDefinition Height="266*"/>
             <RowDefinition Height="22*"/>
         </Grid.RowDefinitions>
-        <!-- Vertical Grid -->
+        <!-- Columns -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="210*"/>
+            <ColumnDefinition Width="173*"/>
+            <ColumnDefinition Width="37*"/>
             <ColumnDefinition Width="161*"/>
             <ColumnDefinition Width="312*"/>
             <ColumnDefinition Width="312*"/>
@@ -81,71 +87,259 @@
         </Grid.ColumnDefinitions>
 
         <!-- Font Size Variable -->
-        <TextBlock x:Name="ControlPanelFontSize" FontSize="28" Margin="0,36,0,0" Visibility="Hidden"/>
+        <TextBlock x:Name="FontSizeVar" FontSize="28" Margin="0,1,0,34" Visibility="Hidden" Grid.ColumnSpan="2" Grid.Row="2"/>
+
+        <!-- Window Navigation -->
+        <Button x:Name="NavigateToOverworld" Command="{Binding NavigateOverworldViewCommand}" Visibility="Hidden"/>
+        <Button x:Name="NavigateToMainMenu" Command="{Binding NavigateMainMenuViewCommand}" Visibility="Hidden"/>
+        <Button x:Name="NavigateToCutscene" Command="{Binding NavigateCutsceneViewCommand}" Visibility="Hidden"/>
 
         <!-- Main Background -->
-        <Image x:Name="CombatMenu_BG_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <Image x:Name="CombatMenu_BG_2_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_2_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <Image x:Name="CombatMenu_BG_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <Image x:Name="CombatMenu_BG_1_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_3_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <Image x:Name="CombatMenu_BG_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_3.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_BG_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_1.png" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_BG_2_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_2_2.png" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_BG_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_2.png" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_BG_1_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_3_2.png" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_BG_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_Background_3.png" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="7"/>
 
         <!-- Control Panel -->
-        <Image x:Name="CombatMenu_CP_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_3.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <Image x:Name="CombatMenu_CP_2_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <Image x:Name="CombatMenu_CP_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <Image x:Name="CombatMenu_CP_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_3" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_3.png" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_2_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2_2.png" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_2" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_2.png" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="7"/>
+        <Image x:Name="CombatMenu_CP_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_ControlPanel_1.png" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="7"/>
 
         <!-- Player Box Display -->
-        <StackPanel x:Name="CombatMenu_PlayerBoxPanel" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Width="205" Height="405" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <!-- Turn Order Display -->
-        <Image x:Name="CombatMenu_TO_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_TurnOrder_1.png" Stretch="Fill" Grid.ColumnSpan="7" Grid.RowSpan="7"/>
-        <StackPanel x:Name="CombatMenu_TurnOrderPanel" Grid.Column="6" Grid.Row="3" Height="370" VerticalAlignment="Top"/>
-        <!-- Enemy Box Display -->
-        <UniformGrid x:Name="CombatMenu_EnemyBoxPanel" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3"
-                     Columns="3" Rows="2"/>
+        <Grid Grid.Row="2" Grid.RowSpan="2">
+            <!-- Rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="73*"/>
+            </Grid.RowDefinitions>
+            <!-- Player 1 Position-->
+            <Grid x:Name="CM_Player1_Pos"/>
+            <!-- Player 2 Position-->
+            <Grid x:Name="CM_Player2_Pos" Grid.Row="1"/>
+            <!-- Player 3 Position-->
+            <Grid x:Name="CM_Player3_Pos" Grid.Row="2"/>
+            <!-- Player 4 Position-->
+            <Grid x:Name="CM_Player4_Pos" Grid.Row="3"/>
+        </Grid>
 
+        <!-- Turn Order Display -->
+        <Image x:Name="CombatMenu_TO_1" Source="/CYBERNUKE;component/GameData/Images/CombatMenu/CombatMenu_TurnOrder_1.png" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="7" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        <Grid Grid.Column="7" Grid.Row="3">
+            <!-- Rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="35*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Positions -->
+            <Grid x:Name="TO_Pos1" Grid.Row="1"/>
+            <Grid x:Name="TO_Pos2" Grid.Row="3"/>
+            <Grid x:Name="TO_Pos3" Grid.Row="5"/>
+            <Grid x:Name="TO_Pos4" Grid.Row="7"/>
+            <Grid x:Name="TO_Pos5" Grid.Row="9"/>
+            <Grid x:Name="TO_Pos6" Grid.Row="11"/>
+            <Grid x:Name="TO_Pos7" Grid.Row="13"/>
+            <Grid x:Name="TO_Pos8" Grid.Row="15"/>
+            <Grid x:Name="TO_Pos9" Grid.Row="17"/>
+            <Grid x:Name="TO_Pos10" Grid.Row="19"/>
+        </Grid>
+
+        <!-- Enemy Box Display -->
+        <!-- 1 Enemy Panel -->
+        <Grid Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2">
+            <!-- Rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="103"/>
+                <RowDefinition Height="199"/>
+                <RowDefinition Height="103"/>
+            </Grid.RowDefinitions>
+            <!-- Columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="210*"/>
+                <ColumnDefinition Width="204*"/>
+                <ColumnDefinition Width="210*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="EBD_1_1" Grid.Column="1" Grid.Row="1"/>
+        </Grid>
+        <!-- 2 Enemy Panel -->
+        <Grid Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2">
+            <!-- Rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="103*"/>
+                <RowDefinition Height="199*"/>
+                <RowDefinition Height="103*"/>
+            </Grid.RowDefinitions>
+            <!-- Columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="204*"/>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="204*"/>
+                <ColumnDefinition Width="72*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="EBD_2_1" Grid.Column="1" Grid.Row="1"/>
+            <Grid x:Name="EBD_2_2" Grid.Column="3" Grid.Row="1"/>
+        </Grid>
+        <!-- 3 Enemy Panel -->
+        <Grid Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2">
+            <!-- Rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="103*"/>
+                <RowDefinition Height="199*"/>
+                <RowDefinition Height="103*"/>
+            </Grid.RowDefinitions>
+            <!-- Columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="204*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="204*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="204*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="EBD_3_1" Grid.Row="1"/>
+            <Grid x:Name="EBD_3_2" Grid.Column="2" Grid.Row="1"/>
+            <Grid x:Name="EBD_3_3" Grid.Column="4" Grid.Row="1"/>
+        </Grid>
+        <!-- 4 Enemy Panel -->
+        <Grid Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2">
+            <!-- Rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="199*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="199*"/>
+            </Grid.RowDefinitions>
+            <!-- Columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="204*"/>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="204*"/>
+                <ColumnDefinition Width="72*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="EBD_4_1" Grid.Column="1"/>
+            <Grid x:Name="EBD_4_2" Grid.Column="3"/>
+            <Grid x:Name="EBD_4_3" Grid.Column="1" Grid.Row="2"/>
+            <Grid x:Name="EBD_4_4" Grid.Column="3" Grid.Row="2"/>
+        </Grid>
+        <!-- 5 Enemy Panel -->
+        <Grid Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2">
+            <!-- Rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="199*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="199*"/>
+            </Grid.RowDefinitions>
+            <!-- Columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72"/>
+                <ColumnDefinition Width="132"/>
+                <ColumnDefinition Width="6"/>
+                <ColumnDefinition Width="66"/>
+                <ColumnDefinition Width="72"/>
+                <ColumnDefinition Width="66"/>
+                <ColumnDefinition Width="6"/>
+                <ColumnDefinition Width="132"/>
+                <ColumnDefinition Width="72"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="EBD_5_1" Grid.ColumnSpan="2"/>
+            <Grid x:Name="EBD_5_2" Grid.Column="3" Grid.ColumnSpan="3"/>
+            <Grid x:Name="EBD_5_3" Grid.Column="7" Grid.ColumnSpan="2"/>
+            <Grid x:Name="EBD_5_4" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2"/>
+            <Grid x:Name="EBD_5_5" Grid.Column="5" Grid.ColumnSpan="3" Grid.Row="2"/>
+        </Grid>
+        <!-- 6 Enemy Panel -->
+        <Grid Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2">
+            <!-- Rows -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="199*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="199*"/>
+            </Grid.RowDefinitions>
+            <!-- Columns -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="204*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="204*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="204*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="EBD_6_1"/>
+            <Grid x:Name="EBD_6_2" Grid.Column="2"/>
+            <Grid x:Name="EBD_6_3" Grid.Column="5"/>
+            <Grid x:Name="EBD_6_4" Grid.Row="2"/>
+            <Grid x:Name="EBD_6_5" Grid.Column="2" Grid.Row="2"/>
+            <Grid x:Name="EBD_6_6" Grid.Column="5" Grid.Row="2"/>
+        </Grid>
 
         <!-- Control Panel Display -->
-        <StackPanel x:Name="CombatMenu_ControlPanelLeft" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5">
+        <StackPanel x:Name="CombatMenu_ControlPanelLeft" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5">
         </StackPanel>
 
-        <!-- Control Panel TextBlock Leftside -->
-        <TextBlock x:Name="ControlPanel_Left_TextBlock" Style="{StaticResource ControlPanel_TextBlock}"
-                   Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Height="266" VerticalAlignment="Top"/>
-        <!-- Control Panel TextBlock Rightside -->
-        <TextBlock x:Name="ControlPanel_Right_TextBlock" Style="{StaticResource ControlPanel_TextBlock}"
-                   Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5" Height="266" VerticalAlignment="Top"/>
+        <!-- Control Panel TextBlock -->
+        <ScrollViewer x:Name="ControlPanel_ScrollViewer" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="5" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+            <TextBlock x:Name="ControlPanel_Right_TextBlock" Style="{StaticResource ControlPanel_TextBlock}" TextWrapping="Wrap"/>
+        </ScrollViewer>
 
         <!-- Control Panel Button Panels -->
         <!-- CPBP MAIN MENU -->
-        <StackPanel x:Name="ControlPanel_ButtonPanel_MAIN" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="{Binding ElementName=ControlPanelFontSize, Path=Margin}" 
-                    Visibility="Visible">
+        <StackPanel x:Name="ControlPanel_ButtonPanel_MAIN" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Margin="{Binding ElementName=ControlPanelFontSize, Path=Margin}" 
+                    Visibility="Hidden">
             <TextBlock Style="{StaticResource ControlPanel_TextBlock}" Text="SELECT COMMAND:"/>
             <Button x:Name="CPBP_MAIN_FIGHT" Style="{StaticResource ControlPanel_Button}"
-                        Content="0. FIGHT" Click="CPBP_MAIN_FIGHT_Click"/>
-            <Button x:Name="CPBP_MAIN_ITEM" Style="{StaticResource ControlPanel_Button}"
-                        Content="1. ITEM" Click="CPBP_MAIN_ITEM_Click"/>
-            <Button x:Name="CPBP_MAIN_GUARD" Style="{StaticResource ControlPanel_Button}"
-                        Content="2. GUARD" Click="CPBP_MAIN_GUARD_Click"/>
-            <Button x:Name="CPBP_MAIN_ANALYZE" Style="{StaticResource ControlPanel_Button}"
-                        Content="3. ANALYZE" Click="CPBP_MAIN_ANALYZE_Click"/>
+                        Content="0. ATTACK" Click="CPBP_MAIN_FIGHT_Click"/>
+            <Button x:Name="CPBP_MAIN_WAIT" Style="{StaticResource ControlPanel_Button}"
+                        Content="1. WAIT" Click="CPBP_MAIN_WAIT_Click"/>
             <Button x:Name="CPBP_MAIN_ESCAPE" Style="{StaticResource ControlPanel_Button}"
-                        Content="4. ESCAPE" Click="CPBP_MAIN_ESCAPE_Click"/>
+                        Content="2. ESCAPE" Click="CPBP_MAIN_ESCAPE_Click"/>
         </StackPanel>
 
         <!-- CPBP FIGHT MENU -->
-        <StackPanel x:Name="ControlPanel_ButtonPanel_FIGHT" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="{Binding ElementName=ControlPanelFontSize, Path=Margin}" 
+        <StackPanel x:Name="ControlPanel_ButtonPanel_ATTACK" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Margin="{Binding ElementName=ControlPanelFontSize, Path=Margin}" 
                     Visibility="Hidden">
-            <TextBlock Style="{StaticResource ControlPanel_TextBlock}" Text="SELECT COMMAND:"/>
-            <Button x:Name="CPBP_FIGHT_MELEE" Style="{StaticResource ControlPanel_Button}"
-                        Content="0. MELEE WEAPON" Click="CPBP_FIGHT_MELEE_Click"/>
-            <Button x:Name="CPBP_FIGHT_RANGED" Style="{StaticResource ControlPanel_Button}"
-                        Content="1. RANGED WEAPON" Click="CPBP_FIGHT_RANGED_Click"/>
-            <Button x:Name="CPBP_FIGHT_SKILL" Style="{StaticResource ControlPanel_Button}"
-                        Content="2. SKILL" Click="CPBP_FIGHT_SKILL_Click"/>
-            <Button x:Name="CPBP_FIGHT_RETURN" Style="{StaticResource ControlPanel_Button}"
-                        Content="3. RETURN" Click="CPBP_FIGHT_RETURN_Click"/>
+            <TextBlock Style="{StaticResource ControlPanel_TextBlock}" Text="SELECT TARGET:"/>
+            <Button x:Name="CPBP_ATTACK_ENEMYONE" Style="{StaticResource ControlPanel_Button}"
+                        Content="[0] ENEMY" Click="CPBP_ATTACK_ENEMYONE_Click" Visibility="Visible"/>
+            <Button x:Name="CPBP_ATTACK_ENEMYTWO" Style="{StaticResource ControlPanel_Button}"
+                        Content="[1] ENEMY" Click="CPBP_ATTACK_ENEMYTWO_Click" Visibility="Visible"/>
+            <Button x:Name="CPBP_ATTACK_ENEMYTHREE" Style="{StaticResource ControlPanel_Button}"
+                        Content="[2] ENEMY" Click="CPBP_ATTACK_ENEMYTHREE_Click" Visibility="Visible"/>
+            <Button x:Name="CPBP_ATTACK_ENEMYFOUR" Style="{StaticResource ControlPanel_Button}"
+                        Content="[3] ENEMY" Click="CPBP_ATTACK_ENEMYFOUR_Click" Visibility="Visible"/>
+            <Button x:Name="CPBP_ATTACK_ENEMYFIVE" Style="{StaticResource ControlPanel_Button}"
+                        Content="[4] ENEMY" Click="CPBP_ATTACK_ENEMYFIVE_Click" Visibility="Visible"/>
+            <Button x:Name="CPBP_ATTACK_ENEMYSIX" Style="{StaticResource ControlPanel_Button}"
+                        Content="[5] ENEMY" Click="CPBP_ATTACK_ENEMYSIX_Click" Visibility="Visible"/>
+            <Button x:Name="CPBP_ATTACK_RETURN" Style="{StaticResource ControlPanel_Button}"
+                        Content="&lt;&lt; BACK" Click="CPBP_ATTACK_Return_Click" Visibility="Visible"/>
         </StackPanel>
 
     </Grid>

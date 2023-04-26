@@ -181,12 +181,6 @@
   <data name="himalaya" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\himalaya.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Lesser_Zombie" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\gamedata\enemydata\lesser_zombie.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Lesser_Zombie_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\gamedata\images\enemyportrait\lesser_zombie_portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="MainMenu_CityParallax_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\images\mainmenu\mainmenu_cityparallax_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -238,13 +232,67 @@
   <data name="OverworldMenu_LeftPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\images\overworldmenu\overworldmenu_leftpanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OverworldMenu_PlayerBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\gamedata\images\overworldmenu\overworldmenu_playerbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="unifont_15_0_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\unifont-15.0.01.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Unispace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gamedata\fonts\unispace.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PauseMenu_MainBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\pausemenu\pausemenu_mainbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Zombie_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\enemyportrait\zombie_portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mutant_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GameData\Images\EnemyPortrait\Mutant_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_PlayerBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\overworldmenu\overworldmenu_playerbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverworldMenu_PromptBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OverworldMenu_PromptBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GangstaDuck_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GangstaDuck_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MrBones_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MrBones_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Phantom_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Phantom_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PinkSlime_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PinkSlime_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="V1_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\V1_Portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PauseMenu_CharacterBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\pausemenu\pausemenu_characterbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PauseMenu_CharacterInfoBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\pausemenu\pausemenu_characterinfobg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PauseMenu_PortraitFrame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\pausemenu\pausemenu_portraitframe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KELPY_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\playerportrait\kelpy_portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MAST_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\playerportrait\mast_portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PROTO_Portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\gamedata\images\playerportrait\proto_portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KELPY_Portrait2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KELPY_Portrait2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MAST_Portrait2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MAST_Portrait2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PROTO_Portrait2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PROTO_Portrait2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -7,24 +7,227 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" 
              d:DesignWidth="1366"
-             Background="Orange">
+             Background="AntiqueWhite">
+    <!-- UserControl Resources -->
+    <UserControl.Resources>
+        <!-- Main Menu Button Style -->
+        <Style x:Key="MainMenuButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <!-- Setter Property="Margin" Value="5"/ -->
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Main Menu Arrow Button Style -->
+        <Style x:Key="MainMenuArrowButton" TargetType="Button">
+            <Setter Property="BorderBrush" Value="Red"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <!-- 32,0 4,13 32,26 -->
+                        <Grid>
+                            <Polygon Points="28,0 0,13, 28,26" Fill="Red"/>
+                            <Polygon Name="arrow_fill" Points="26,4 5,13, 26,22" Fill="Black"/>
+                            <Rectangle Name="border_fill" Margin="30,0,0,0" Fill="Black"/>
+                            <Border Margin="0,0,0,0" BorderBrush="Red" BorderThickness="2" Width="10" Height="26" HorizontalAlignment="Right"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="arrow_fill" Property="Fill" Value="Red"/>
+                                <Setter TargetName="border_fill" Property="Fill" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Main Menu Checkbox Style -->
+        <Style x:Key="MainMenuCheckbox" TargetType="CheckBox">
+            <Setter Property="BorderBrush" Value="Red"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <StackPanel Name="panel" Orientation="Horizontal" Background="Transparent" HorizontalAlignment="Stretch">
+                            <Border Name="border" Margin="2,0,0,0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Width="20" Height="20">
+                                <Path Stretch="Uniform" Width="15" Height="15" Fill="Red" Name="checkmark" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z" Visibility="Collapsed"/>
+                            </Border>
+                            <TextBlock Margin="8,2,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Right" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}"></TextBlock>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="panel" Property="Background" Value="Red"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="checkmark" Property="Fill" Value="Black"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="checkmark" Property="Visibility" Value="Visible"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Map Prompt TextBox -->
+        <Style x:Key="Map_Prompt_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Map Prompt Button -->
+        <Style x:Key="Map_Prompt_Button" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=MapDisplayFontSize, Path=FontSize}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Margin" Value="10"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
         <!-- Horizontal Grid -->
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition/>
+            <RowDefinition Height="241*"/>
+            <RowDefinition Height="143*"/>
         </Grid.RowDefinitions>
         <!-- Vertical Grid -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="301*"/>
+            <ColumnDefinition Width="175*"/>
+            <ColumnDefinition Width="414*"/>
+            <ColumnDefinition Width="175*"/>
+            <ColumnDefinition Width="301*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Town View Test" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
-        <Image Source="/CYBERNUKE;component/GameData/Images/capybara (6).png" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
+        <TextBlock Text="Town View Test" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="50" Visibility="Hidden" Height="67" Width="334" Margin="326,178,0,0" Grid.ColumnSpan="3"/>
+        <Image Source="/CYBERNUKE;component/GameData/Towns/CYBERNUKE_TOWN_TRANQUILITY.png" Grid.ColumnSpan="5" Grid.RowSpan="2" Stretch="UniformToFill"/>
+        <Image Source="/CYBERNUKE;component/GameData/Images/TownMenu/townviewpanel.png" Grid.Column="1" Grid.Row="1" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.ColumnSpan="3" Height="286" VerticalAlignment="Top"/>
+
+
+
+
+        <Image Source="/CYBERNUKE;component/GameData/Images/capybara (6).png" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Hidden" Height="334" Width="342" Margin="322,195,0,0" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+        <StackPanel x:Name="ButtonStackPanel" Grid.Column="1" Grid.Row="1" Margin="10,70,10,10" Grid.ColumnSpan="3"/>
+        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TownNameTextBlock" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Grid.ColumnSpan="2" Margin="0,5,18,5" FontFamily="Microsoft Himalaya" FontSize="60" Text="-- Tranquility --" Foreground="Black"/>
+            <StackPanel x:Name="TownButtonsStackPanel1" Grid.Row="1" Margin="203,5,202,5" Grid.ColumnSpan="2">
+                <Button x:Name="ButtonLeave" Style="{StaticResource MainMenuButton}" FontWeight="Bold" Content="1. Leave" Height="45" FontFamily="Microsoft Himalaya" FontSize="64" Margin="5" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonLeave_Click"/>
+                <Button x:Name="ButtonNPC1" Style="{StaticResource MainMenuButton}" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Content="2. Old Man" Height="45" FontFamily="Microsoft Himalaya" FontSize="64" Margin="5" Click="ButtonNPC1_Click"/>
+                <Button x:Name="ButtonNPC2" Style="{StaticResource MainMenuButton}" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Content="3. Town Guard" Height="45" FontFamily="Microsoft Himalaya" FontSize="64" Margin="5" Click="ButtonNPC2_Click" />
+                <Button Visibility="Hidden" x:Name="ButtonRest" Style="{StaticResource MainMenuButton}" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Content="Take A Rest" Height="45" FontFamily="Microsoft Himalaya" FontSize="64" Margin="5"/>
+            </StackPanel>
+
+        </Grid>
+        <!-- PopUp Box -->
+        <Grid x:Name="PopUpContainer" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5"
+              Visibility="Hidden" Grid.ColumnSpan="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="346*"/>
+                <ColumnDefinition Width="360*"/>
+                <ColumnDefinition Width="346*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="288*"/>
+                <RowDefinition Height="192*"/>
+                <RowDefinition Height="288*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="OverworldView_PromptBox" Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="352*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="184*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <Image Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_PromptBox.png" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor" 
+                       Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+
+                <!-- Dialogue Prompt -->
+                <Grid x:Name="DialogueContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock x:Name="Dialogue_Text" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="DIALOGUE"/>
+                    <Button x:Name="DialogueContinue" Grid.Row="1" Style="{StaticResource Map_Prompt_Button}"
+                            Content="CONTINUE..." Click="DialogueContinue_Click" Visibility="Hidden"/>
+                </Grid>
+
+                <!-- Combat Prompt -->
+                <Grid x:Name="CombatPromptContainer" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="122*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <TextBlock x:Name="Combat_Prompt" Style="{StaticResource Map_Prompt_TextBlock}" VerticalAlignment="Center"
+                           Text="ENEMIES ENCOUNTERED"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

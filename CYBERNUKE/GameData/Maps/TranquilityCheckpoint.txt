@@ -1,0 +1,46 @@
+﻿Tranquility Checkpoint
+10
+12
+0
+4
+8
+//MAP TELEPORT LOCATIONS
+1
+GroveStreet
+4
+1
+//TOWN TELEPORT LOCATIONS
+1
+TranquilityTown
+8
+8
+//NPC LOCATIONS
+2
+Gatekeeper
+5
+2
+SleepingGuard
+2
+6
+//OBJECT LOCATIONS
+1
+GatehouseKey
+1
+2
+1
+5
+//ENEMY LOCATIONS
+1
+EncounterGangstaDuck
+1
+8
+⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛
+⬛⬜⬜⬛⛶⬛⬜⬜⬜⬛
+⬛❕⬜⬜⬜⛹⬜⬜⬜⬛
+⬛⬜⬜⬜⬜⬜⬜⬜⬛⬛
+⬛⬜⬜⬜⬜⬜⬜⬜⬜⬛
+⬛⛞⬛⬛⬜⬜⬜⬜⬜⬛
+⬛⬜⛹⬛⬜⬜⬜⬜⬜⬛
+⬛⬛⬛⬛⬜⬜⬜⬜⬛⬛
+⬛⚠⬜⬜⬜⬜⬜⬜☖⬛
+⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛

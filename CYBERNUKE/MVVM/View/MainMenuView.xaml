@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CYBERNUKE.MVVM.View" 
-             xmlns:core="clr-namespace:CYBERNUKE.Core"
+             xmlns:core="clr-namespace:CYBERNUKE.Core" 
+             xmlns:viewmodel="clr-namespace:CYBERNUKE.MVVM.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:MainMenuViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="768" 
              d:DesignWidth="1366" 
@@ -120,33 +122,28 @@
         <Image x:Name="MainMenuBG_1" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/CYBERNUKE;component/GameData/Images/MainMenu/MainMenu_CityParallax_1.png" RenderTransformOrigin="0.499,0.458" Margin="-100,-120,-100,0"/>
 
         <!-- Title Text -->
-        <TextBlock x:Name="MainMenu_TitleText" TextWrapping="Wrap" Text="CYBERNUKE" FontFamily="{StaticResource Unispace}" FontWeight="Bold" Foreground="Red" TextAlignment="Center" FontSize="70" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,10" Grid.RowSpan="2"/>
+        <TextBlock x:Name="MainMenu_TitleText" TextWrapping="Wrap" Text="CYBERNUKE" FontFamily="{StaticResource Unispace}" FontWeight="Bold" Foreground="Red" TextAlignment="Center" FontSize="70" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
 
         <!-- Bottom Text "CYBERNUKE PROJECT," "AUTHORS" -->
-        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="CYBERNUKE PROJECT 2023" VerticalAlignment="Bottom" FontFamily="Microsoft Himalaya" FontSize="24" Foreground="Red"/>
-        <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="3" TextWrapping="Wrap" Text="KENNETH W. VANCE B." VerticalAlignment="Bottom" FontFamily="Microsoft Himalaya" FontSize="24" Foreground="Red" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="CYBERNUKE DEMO 2023" VerticalAlignment="Bottom" FontFamily="Microsoft Himalaya" FontSize="24" Foreground="Red"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="3" TextWrapping="Wrap" Text="KENNETH W. + VANCE B." VerticalAlignment="Bottom" FontFamily="Microsoft Himalaya" FontSize="24" Foreground="Red" Grid.Column="2"/>
 
         <!-- Main Menu Options Highlights -->
         <Viewbox x:Name="MainMenu_OptionsHighlight" Grid.ColumnSpan="3" Margin="0,26,0,0" Grid.Row="3" Stretch="Fill" Height="131" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <Grid Height="131" Width="1366">
                 <Rectangle x:Name="Highlight_StartGame_1" Fill="Red" Height="4" Margin="0,0,817,0" VerticalAlignment="Top"/>
                 <Rectangle x:Name="Highlight_StartGame_2" Fill="Red" Height="4" Margin="817,0,0,0" VerticalAlignment="Top"/>
-                <Rectangle x:Name="Highlight_LoadGame_1" Fill="Red" Height="4" Margin="0,42,817,0" VerticalAlignment="Top"/>
-                <Rectangle x:Name="Highlight_LoadGame_2" Fill="Red" Height="4" Margin="817,42,0,0" VerticalAlignment="Top"/>
-                <Rectangle x:Name="Highlight_Options_1" Fill="Red" Height="4" Margin="0,85,817,0" VerticalAlignment="Top"/>
-                <Rectangle x:Name="Highlight_Options_2" Fill="Red" Height="4" Margin="817,85,0,0" VerticalAlignment="Top"/>
-                <Rectangle x:Name="Highlight_ExitGame_1" Fill="Red" Height="4" Margin="0,127,817,0" VerticalAlignment="Top"/>
-                <Rectangle x:Name="Highlight_ExitGame_2" Fill="Red" Height="4" Margin="817,127,0,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_Options_1" Fill="Red" Height="4" Margin="0,42,817,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_Options_2" Fill="Red" Height="4" Margin="817,42,0,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_ExitGame_1" Fill="Red" Height="4" Margin="0,85,817,0" VerticalAlignment="Top"/>
+                <Rectangle x:Name="Highlight_ExitGame_2" Fill="Red" Height="4" Margin="817,85,0,0" VerticalAlignment="Top"/>
             </Grid>
         </Viewbox>
 
         <!-- Main Menu Options -->
         <StackPanel x:Name="MainMenu_OptionsPanel" Grid.ColumnSpan="3" Grid.Row="3" Height="243" VerticalAlignment="Top">
-            <Button x:Name="MainMenu_StartGameButton" Style="{StaticResource MainMenuButton}" Content="START GAME" FontFamily="Microsoft Himalaya" FontSize="36" 
+            <Button x:Name="MainMenu_StartGameButton" Style="{StaticResource MainMenuButton}" Content="START DEMO" FontFamily="Microsoft Himalaya" FontSize="36" 
                     BorderBrush="{x:Null}" Background="{x:Null}" Margin="0,15,0,0" FontWeight="Bold" Click="MainMenu_StartGameButton_Click" Height="27"/>
-
-            <Button x:Name="MainMenu_LoadGameButton" Style="{StaticResource MainMenuButton}" Content="LOAD GAME" FontFamily="Microsoft Himalaya" FontSize="36" 
-                    BorderBrush="{x:Null}" Background="{x:Null}" Margin="0,15,0,0" FontWeight="Bold" Click="MainMenu_LoadGameButton_Click" Height="27"/>
 
             <Button x:Name="MainMenu_OptionsButton" Style="{StaticResource MainMenuButton}" Content="OPTIONS" FontFamily="Microsoft Himalaya" FontSize="36" 
                     BorderBrush="{x:Null}" Background="{x:Null}" Margin="0,15,0,0" FontWeight="Bold" Click="MainMenu_OptionsButton_Click" Height="27"/>
@@ -155,21 +152,19 @@
                     BorderBrush="{x:Null}" Background="{x:Null}" Margin="0,15,0,0" FontWeight="Bold" Click="MainMenu_ExitGameButton_Click" Height="27"/>
         </StackPanel>
 
-        <!-- Start Game Prompt -->
+        <!-- Start Demo Prompt -->
         <StackPanel x:Name="MainMenu_StartPrompt" Grid.Column="1" Grid.Row="3" Height="243" VerticalAlignment="Top" Visibility="Hidden">
-            <TextBlock x:Name="StartPrompt_Text" Text="START NEW GAME?" Foreground="Red" FontFamily="Microsoft Himalaya" FontSize="42" Margin="0,15,0,0" 
+            <TextBlock x:Name="StartPrompt_Text" Text="START DEMO?" Foreground="Red" FontFamily="Microsoft Himalaya" FontSize="42" Margin="0,15,0,0" 
                        TextDecorations="{x:Null}" TextAlignment="Center" FontWeight="Bold" TextWrapping="Wrap"/>
 
             <Button x:Name="StartPrompt_YesButton" Style="{StaticResource MainMenuButton}" Content="YES" FontFamily="Microsoft Himalaya" FontSize="36" 
-                    BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" Margin="0,15,0,0"  Height="27" Click="StartPrompt_YesButton_Click"/>
+                    BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" Margin="0,15,0,0"  Height="27" 
+                    Click="StartPrompt_YesButton_Click"/>
 
             <Button x:Name="StartPrompt_NoButton" Style="{StaticResource MainMenuButton}" Content="NO" FontFamily="Microsoft Himalaya" FontSize="36"
                     BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" Margin="0,15,0,0"  Height="27" Click="StartPrompt_NoButton_Click"/>
         </StackPanel>
 
-        <!-- Load Game Menu -->
-
-        
         <!-- Options Menu -->
         <StackPanel x:Name="MainMenu_OptionsMenu" Grid.ColumnSpan="3" Grid.Row="3" VerticalAlignment="Top" Visibility="Hidden">
             <TextBlock x:Name="OptionsMenu_Resolution_HeaderText" Text="RESOLUTION" Foreground="Red" FontFamily="Microsoft Himalaya" FontSize="36"
@@ -215,7 +210,5 @@
             <Button x:Name="ExitPrompt_NoButton" Style="{StaticResource MainMenuButton}" Content="NO" FontFamily="Microsoft Himalaya" FontSize="36"
                     BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" Margin="0,15,0,0" Height="27" Click="ExitPrompt_NoButton_Click"/>
         </StackPanel>
-    
-        
     </Grid>
 </UserControl>

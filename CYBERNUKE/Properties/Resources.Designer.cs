@@ -19,7 +19,7 @@ namespace CYBERNUKE.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -261,6 +261,16 @@ namespace CYBERNUKE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GangstaDuck_Portrait {
+            get {
+                object obj = ResourceManager.GetObject("GangstaDuck_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] himalaya {
@@ -271,47 +281,21 @@ namespace CYBERNUKE.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LESSER ZOMBIE
-        ///0
-        ///75
-        ///50
-        ///3
-        ///2
-        ///3
-        ///1
-        ///2.0
-        ///2.0
-        ///2.0
-        ///2.0
-        ///2.0
-        ///2.0
-        ///2.0
-        ///2.0
-        ///2.0
-        ///30
-        ///5
-        ///0
-        ///0
-        ///1
-        ///0
-        ///0
-        ///0
-        ///0
-        ///1
-        ///0.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static string Lesser_Zombie {
+        internal static System.Drawing.Bitmap KELPY_Portrait {
             get {
-                return ResourceManager.GetString("Lesser_Zombie", resourceCulture);
+                object obj = ResourceManager.GetObject("KELPY_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Lesser_Zombie_Portrait {
+        internal static System.Drawing.Bitmap KELPY_Portrait2 {
             get {
-                object obj = ResourceManager.GetObject("Lesser_Zombie_Portrait", resourceCulture);
+                object obj = ResourceManager.GetObject("KELPY_Portrait2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -367,26 +351,52 @@ namespace CYBERNUKE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MAST_Portrait {
+            get {
+                object obj = ResourceManager.GetObject("MAST_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MAST_Portrait2 {
+            get {
+                object obj = ResourceManager.GetObject("MAST_Portrait2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MrBones_Portrait {
+            get {
+                object obj = ResourceManager.GetObject("MrBones_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mutant_Portrait {
+            get {
+                object obj = ResourceManager.GetObject("Mutant_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] OCRAEXT {
             get {
                 object obj = ResourceManager.GetObject("OCRAEXT", resourceCulture);
                 return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Name: Test Skill 0
-        ///SPCost: 10
-        ///Damage: 50
-        ///typeDamage: Blunt
-        ///Description: Just a Test Skill
-        ///.
-        /// </summary>
-        internal static string TestSkill0 {
-            get {
-                return ResourceManager.GetString("TestSkill0", resourceCulture);
             }
         }
         
@@ -501,6 +511,110 @@ namespace CYBERNUKE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverworldMenu_PromptBox {
+            get {
+                object obj = ResourceManager.GetObject("OverworldMenu_PromptBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PauseMenu_CharacterBG {
+            get {
+                object obj = ResourceManager.GetObject("PauseMenu_CharacterBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PauseMenu_CharacterInfoBG {
+            get {
+                object obj = ResourceManager.GetObject("PauseMenu_CharacterInfoBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PauseMenu_MainBG {
+            get {
+                object obj = ResourceManager.GetObject("PauseMenu_MainBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PauseMenu_PortraitFrame {
+            get {
+                object obj = ResourceManager.GetObject("PauseMenu_PortraitFrame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Phantom_Portrait {
+            get {
+                object obj = ResourceManager.GetObject("Phantom_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PinkSlime_Portrait {
+            get {
+                object obj = ResourceManager.GetObject("PinkSlime_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PROTO_Portrait {
+            get {
+                object obj = ResourceManager.GetObject("PROTO_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PROTO_Portrait2 {
+            get {
+                object obj = ResourceManager.GetObject("PROTO_Portrait2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name: Test Skill 0
+        ///SPCost: 10
+        ///Damage: 50
+        ///typeDamage: Blunt
+        ///Description: Just a Test Skill
+        ///.
+        /// </summary>
+        internal static string TestSkill0 {
+            get {
+                return ResourceManager.GetString("TestSkill0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] unifont_15_0_01 {
@@ -517,6 +631,26 @@ namespace CYBERNUKE.Properties {
             get {
                 object obj = ResourceManager.GetObject("Unispace", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap V1_Portrait {
+            get {
+                object obj = ResourceManager.GetObject("V1_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Zombie_Portrait {
+            get {
+                object obj = ResourceManager.GetObject("Zombie_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

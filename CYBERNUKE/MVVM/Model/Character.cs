@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CYBERNUKE.GameData.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,36 +9,30 @@ namespace CYBERNUKE.MVVM.Model
 {
     public class Character
     {
+        //Vars
         private string name;
-        private int level;
         private bool isUnconscious;
+
+        //Stats
         private int maxHP;
         private int currentHP;
         private int maxSP;
         private int currentSP;
         private int defense;
-        private List<Skill> skillList;
         private int statStrength;
         private int statDexterity;
         private int statEndurance;
         private int statIntelligence;
-        private MeleeWeapon equippedMeleeWeapon;
-        private RangedWeapon equippedRangedWeapon;
+        private MainWeapon equippedWeapon;
         private MainArmor equippedOutfit;
-        private double resSlash;
-        private double resPierce;
-        private double resBlunt;
-        private double resFire;
-        private double resWater;
-        private double resIce;
-        private double resElectric;
-        private double resEarth;
-        private double resWind;
+
+        //References
+        public TurnOrderBox currentTurnOrder;
+        public PlayerBox currentPlayerBox;
 
         public Character()
         {
             name = null;
-            level = 0;
             isUnconscious = false;
             maxHP = 0;
             currentHP = 0;
@@ -48,24 +43,13 @@ namespace CYBERNUKE.MVVM.Model
             statDexterity = 0;
             statEndurance = 0;
             statIntelligence = 0;
-            equippedMeleeWeapon = null;
-            equippedRangedWeapon = null;
+            equippedWeapon = null;
             equippedOutfit = null;
-            resSlash = 0;
-            resPierce = 0;
-            resBlunt = 0;
-            resFire = 0;
-            resWater = 0;
-            resIce = 0;
-            resElectric = 0;
-            resEarth = 0;
-            resWind = 0;
         }
 
-        public Character(string name, int level, int maxHP, int maxSP, int statStrength, int statDexterity, int statEndurance, int statIntelligence, MeleeWeapon m, RangedWeapon r, MainArmor a)
+        public Character(string name, int maxHP, int maxSP, int statStrength, int statDexterity, int statEndurance, int statIntelligence, MainWeapon w, MainArmor a)
         {
             this.name = name;
-            this.level = level;
             this.maxHP = maxHP;
             currentHP = maxHP;
             this.maxSP = maxSP;
@@ -74,29 +58,20 @@ namespace CYBERNUKE.MVVM.Model
             this.statDexterity = statDexterity;
             this.statEndurance = statEndurance;
             this.statIntelligence = statIntelligence;
-            equippedMeleeWeapon = m;
-            equippedRangedWeapon = r;
-            equippedOutfit = a;
-            resSlash = 0;
-            resPierce = 0;
-            resBlunt = 0;
-            resFire = 0;
-            resWater = 0;
-            resIce = 0;
-            resElectric = 0;
-            resEarth = 0;
-            resWind = 0;
+            equippedWeapon = w;
+            Equip_Armor(a);
+        }
+
+        public void Equip_Armor(MainArmor armor)
+        {
+            equippedOutfit = armor;
+            setDefense(armor.getDefense());
         }
 
         public void setName(string name)
         {
             this.name = name;
         }
-
-        public void setLevel(int level) { 
-            this.level = level;
-        }
-
         public void setIsUnconscious(bool isUnconscious)
         {
             this.isUnconscious = isUnconscious;
@@ -106,234 +81,176 @@ namespace CYBERNUKE.MVVM.Model
         {
             this.maxHP = maxHP;
         }
-
         public void setCurrentHP(int currentHP)
         {
             this.currentHP = currentHP;
         }
-
+        public void healHP(int healAmount)
+        {
+            if (currentHP < maxHP)
+            {
+                currentHP += healAmount;
+            }
+            if (currentHP > maxHP)
+            {
+                currentHP = maxHP;
+            }
+        }
         public void setMaxSP(int maxSP)
         {
             this.maxSP = maxSP;
         }
-
         public void setCurrentSP(int currentSP)
         {
             this.currentSP = currentSP;
         }
-
+        public void rechargeSP(int rechargeAmount)
+        {
+            if (currentSP < maxSP)
+            {
+                currentSP += rechargeAmount;
+            }
+            if (currentSP > maxSP)
+            {
+                currentSP = maxSP;
+            }
+        }
         public void setDefense(int defense)
         {
             this.defense = defense;
-        }
-
-        public void addSkill(Skill skill)
-        {
-            skillList.Add(skill);
         }
 
         public void setStatStrength(int statStrength)
         {
             this.statStrength = statStrength;
         }
-
         public void setStatDexterity(int statDexterity)
         {
             this.statDexterity = statDexterity;
         }
-
         public void setStatEndurance(int statEndurance)
         {
             this.statEndurance = statEndurance;
         }
-
         public void setStatIntelligence(int statIntelligence)
         {
             this.statIntelligence = statIntelligence;
         }
 
-        public void setResSlash(double resSlash)
+        public void setEquippedWeapon(MainWeapon w)
         {
-            this.resSlash = resSlash;
+            this.equippedWeapon = w;
         }
-
-        public void setResPierce(double resPierce)
+        public MainWeapon getEquippedWeapon()
         {
-            this.resPierce = resPierce;
+            return equippedWeapon;
         }
-
-        public void setResBlunt(double resBlunt)
+        public int getMainWeaponDamage()
         {
-            this.resBlunt = resBlunt;
+            return equippedWeapon.getDamage();
         }
-
-        public void setResFire(double resFire)
+        public void incurWeaponSPCost()
         {
-            this.resFire = resFire;
+            currentSP -= equippedWeapon.getSPCost();
         }
-
-        public void setResWater(double resWater)
+        public int getMainWeaponSPCost()
         {
-            this.resWater = resWater;
+            return equippedWeapon.getSPCost();
         }
-
-        public void setResIce(double resIce)
-        {
-            this.resIce = resIce;
-        }
-
-        public void setResElectric(double resElectric)
-        {
-            this.resElectric = resElectric;
-        }
-
-        public void setResEarth(double resEarth)
-        {
-            this.resEarth = resEarth;
-        }
-
-        public void setResWind(double resWind)
-        {
-            this.resWind = resWind;
-        }
-
-        public void setEquippedMeleeWeapon(MeleeWeapon m)
-        {
-            this.equippedMeleeWeapon = m;
-        }
-
-        public MeleeWeapon getEquippedMeleeWeapon()
-        {
-            return this.equippedMeleeWeapon;
-        }
-
-        public void setEquippedRangedWeapon(RangedWeapon r)
-        {
-            equippedRangedWeapon = r;
-        }
-
-        public RangedWeapon getEquippedRangedWeapon()
-        {
-            return this.equippedRangedWeapon;
-        }
-
         public void setEquippedOutfit(MainArmor a)
         {
             this.equippedOutfit = a;
         }
-
         public MainArmor getEquippedOutfit()
         {
             return this.equippedOutfit;
+        }
+        public int getMainArmorDefense()
+        {
+            return equippedOutfit.getDefense();
         }
 
         public string getName()
         {
             return name;
         }
-
-        public int getLevel()
-        {
-            return level;
-        }
-
         public bool getIsUnconscious()
         {
             return isUnconscious;
+        }
+        public void takeDamage(int damage)
+        {
+            // Check if unconscious
+            if (isUnconscious)
+            {
+                throw new Exception("Player is unconscious.");
+            }
+
+            // Modify HP
+            currentHP -= damage;
+
+            // Check if Dead
+            if (currentHP <= 0)
+            {
+                currentHP = 0;
+                isUnconscious = true;
+            }
         }
 
         public int getMaxHP()
         {
             return maxHP;
         }
-
         public int getCurrentHP()
         {
             return currentHP;
         }
-
         public int getMaxSP()
         {
             return maxSP;
         }
-
         public int getCurrentSP()
         {
             return currentSP;
         }
-
         public int getDefense()
         {
             return defense;
-        }
-
-        public List<Skill> getSkillList()
-        {
-            return skillList;
         }
 
         public int getStatStrength()
         {
             return statStrength;
         }
-
         public int getStatDexterity()
         {
             return statDexterity;
         }
-
         public int getStatEndurance()
         {
             return statEndurance;
         }
-
         public int getStatIntelligence()
         {
             return statIntelligence;
         }
 
-        public double getResSlash()
+        public void Set_TurnOrder(TurnOrderBox turnOrder)
         {
-            return resSlash;
+            currentTurnOrder = turnOrder;
+        }
+        public void Clear_TurnOrder()
+        {
+            currentTurnOrder = null;
         }
 
-        public double getResPierce()
+        public void Set_PlayerBox(PlayerBox playerBox)
         {
-            return resPierce;
+            currentPlayerBox = playerBox;
         }
-
-        public double getResBlunt()
+        public void Clear_PlayerBox()
         {
-            return resBlunt;
-        }
-
-        public double getResFire()
-        {
-            return resFire;
-        }
-
-        public double getResWater() {
-            return resWater;
-        }
-
-        public double getResIce()
-        {
-            return resIce;
-        }
-
-        public double getResElectric()
-        {
-            return resElectric;
-        }
-
-        public double getResEarth()
-        {
-            return resEarth;
-        }
-
-        public double getResWind()
-        {
-            return resWind;
+            currentPlayerBox = null;
         }
     }
 }

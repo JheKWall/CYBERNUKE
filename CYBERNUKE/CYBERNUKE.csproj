@@ -92,20 +92,25 @@
     <Compile Include="GameData\UserControls\EnemyBox.xaml.cs">
       <DependentUpon>EnemyBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameData\UserControls\OverworldBox.xaml.cs">
+      <DependentUpon>OverworldBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameData\UserControls\PauseMenu.xaml.cs">
+      <DependentUpon>PauseMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameData\UserControls\PlayerBox.xaml.cs">
+      <DependentUpon>PlayerBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\Model\Character.cs" />
     <Compile Include="MVVM\Model\Item.cs" />
     <Compile Include="MVVM\Model\MainArmor.cs" />
-    <Compile Include="MVVM\Model\MeleeWeapon.cs" />
-    <Compile Include="MVVM\Model\RangedWeapon.cs" />
-    <Compile Include="MVVM\Model\Skill.cs" />
+    <Compile Include="MVVM\Model\MainWeapon.cs" />
     <Compile Include="MVVM\ViewModel\CharacterViewModel.cs" />
     <Compile Include="GameData\UserControls\TurnOrderBox.xaml.cs">
       <DependentUpon>TurnOrderBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Model\LocationData.cs" />
     <Compile Include="MVVM\Model\Map.cs" />
-    <Compile Include="MVVM\Model\NPCData.cs" />
-    <Compile Include="MVVM\Model\ObjectData.cs" />
     <Compile Include="MVVM\ViewModel\CombatViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OverworldViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TownViewModel.cs" />
@@ -131,11 +136,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\CharacterView.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="GameData\UserControls\OverworldBox.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameData\UserControls\PauseMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameData\UserControls\PlayerBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GameData\UserControls\TurnOrderBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\CharacterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,8 +209,8 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="GameData\Fonts\himalaya.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -231,13 +248,11 @@
   <ItemGroup>
     <Folder Include="GameData\Images\CharacterPortrait\" />
     <Folder Include="GameData\Images\CutsceneMenu\" />
-    <Folder Include="GameData\Images\TownMenu\" />
     <Folder Include="GameData\Items\Armor\" />
     <Folder Include="GameData\Items\Artifacts\" />
     <Folder Include="GameData\Items\Consumables\" />
     <Folder Include="GameData\Items\Quest\" />
     <Folder Include="GameData\Items\Weapons\" />
-    <Folder Include="GameData\Towns\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Images\MainMenu\MainMenu_CityParallax_1.png" />
@@ -280,7 +295,7 @@
     <Resource Include="GameData\Images\capybara %287%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GameData\EnemyData\Lesser_Zombie.txt">
+    <None Include="GameData\EnemyData\Zombie.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -290,15 +305,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Images\EnemyPortrait\Lesser_Zombie_Portrait.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="GameData\EnemyData\EnemyParty\EnemyPartyGuide.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GameData\EnemyData\EnemyParty\LesserZombieHorde.txt">
+    <None Include="GameData\EnemyData\EnemyParty\ZombieHorde.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -315,10 +327,7 @@
     <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_LeftPanel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_PlayerBox.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="GameData\Maps\TestMap.txt">
+    <None Include="GameData\Maps\TranquilityCheckpoint.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -332,6 +341,214 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GameData\Credits.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\PauseMenu\PauseMenu_MainBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\ZombieGroup.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\Mutant.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\ZombieMutant.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\MutantGroup.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\EnemyPortrait\Zombie_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\EnemyPortrait\Mutant_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_PlayerBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\OverworldMenu\OverworldMenu_PromptBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\LockedDoor.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\DialogueGuide.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Maps\GroveStreet.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\EnemyPortrait\GangstaDuck_Portrait.png" />
+    <Resource Include="GameData\Images\EnemyPortrait\MrBones_Portrait.png" />
+    <Resource Include="GameData\Images\EnemyPortrait\Phantom_Portrait.png" />
+    <Resource Include="GameData\Images\EnemyPortrait\PinkSlime_Portrait.png" />
+    <Resource Include="GameData\Images\EnemyPortrait\V1_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\Gatekeeper.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\SleepingGuard.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\Shopkeeper.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\Insaneman.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\EncounterMrBones.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\EncounterPinkSlime.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\EncounterPhantom.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\EncounterV1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\EnemyParty\EncounterGangstaDuck.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\V1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\PinkSlime.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\MrBones.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\Phantom.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\EnemyData\GangstaDuck.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GangstaDuck_Portrait.png" />
+    <Resource Include="Resources\MrBones_Portrait.png" />
+    <Resource Include="Resources\OverworldMenu_PromptBox.png" />
+    <Resource Include="Resources\Phantom_Portrait.png" />
+    <Resource Include="Resources\PinkSlime_Portrait.png" />
+    <Resource Include="Resources\V1_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\GatehouseKey.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\AsylumKey.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\PauseMenu\PauseMenu_CharacterBG.png" />
+    <Resource Include="GameData\Images\PauseMenu\PauseMenu_CharacterInfoBG.png" />
+    <Resource Include="GameData\Images\PauseMenu\PauseMenu_PortraitFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\PlayerPortrait\KELPY_Portrait.png" />
+    <Resource Include="GameData\Images\PlayerPortrait\MAST_Portrait.png" />
+    <Resource Include="GameData\Images\PlayerPortrait\PROTO_Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Towns\CYBERNUKE_TOWN_TRANQUILITY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\townviewpanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\TownMenu\townviewpanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\OldMan_Tranquility.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\Guard_Tranquility.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\PlayerPortrait\KELPY_Portrait2.png" />
+    <Resource Include="GameData\Images\PlayerPortrait\MAST_Portrait2.png" />
+    <Resource Include="GameData\Images\PlayerPortrait\PROTO_Portrait2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PROTO_Portrait2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KELPY_Portrait2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAST_Portrait2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\Cutscene_Intro.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\Cutscene_Win.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\Cutscene_Gameover.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameData\Dialogue\Cutscene_Escape.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

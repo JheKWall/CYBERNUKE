@@ -1,4 +1,5 @@
 ﻿using CYBERNUKE.Core;
+using CYBERNUKE.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,8 +60,18 @@ namespace CYBERNUKE.MVVM.View
         }
         private void StartPrompt_YesButton_Click(object sender, RoutedEventArgs e)
         {
-            //Start New Game
+            //set cutscene name
+            ((MainWindow)Application.Current.MainWindow).cutsceneToLoad = "Intro";
 
+            //set menu to load (overworld)
+            ((MainWindow)Application.Current.MainWindow).menuToLoad = 1;
+
+            //switch to cutscene view
+            var viewModel = (MainMenuViewModel)DataContext;
+            if (viewModel.NavigateCutsceneViewCommand.CanExecute(null))
+            {
+                viewModel.NavigateCutsceneViewCommand.Execute(null);
+            }
         }
         private void StartPrompt_NoButton_Click(object sender, RoutedEventArgs e)
         {
@@ -190,5 +201,6 @@ namespace CYBERNUKE.MVVM.View
             //Updates UserResolutionIndex in Application Settings
             Properties.Settings.Default.UserResolutionIndex = ResolutionIndex;
         }
+
     }
 }
