@@ -120,71 +120,25 @@
 % http://www.ctan.org/tex-archive/macros/latex/contrib/url/
 % Basically, \url{my_url_here}.
 
-\usepackage{fancyvrb}
-%              --------------------------------------------------
-%              |                   `fancyvrb'                   |
-%              |                                                |
-%              | Timothy Van Zandt (Princeton University - USA) |
-%              |                                                |
-%              |     Packaging, documentation and support       |
-%              |       Denis Girou (CNRS/IDRIS - France)        |
-%              |            <Denis.Girou@idris.fr>              |
-%              |        Sebastian Rahtz (Elsevier - GB)         |
-%              |       Herbert Voss, Berlin (hvoss@tug.org)     |
-%              --------------------------------------------------
-%% This package may be distributed under the terms of the LaTeX Project Public
-%% License, as described in lppl.txt in the base LaTeX distribution.
-%% Either version 1.3 or, at your option, any later version.
-
-% ************************************************************************************** %
-% END LEGAL DISCLAIMERS & CREDITS
-% ************************************************************************************** %
-
-
 
 
 \begin{document}
 
+% TITLE ************************************************************************* %
+
 % Title
 \begin{figure}
-
-% Splash Art
 \centering
-\begin{footnotesize}
-\begin{BVerbatim}
- .d8888b. Y88b   d88P 888888b.   8888888888 8888888b.  888b    888 888    888 888    d8P  8888888888 
-d88P  Y88b Y88b d88P  888  "88b  888        888   Y88b 8888b   888 888    888 888   d8P   888        
-888    888  Y88o88P   888  .88P  888        888    888 88888b  888 888    888 888  d8P    888        
-888          Y888P    8888888K.  8888888    888   d88P 888Y88b 888 888    888 888d88K     8888888    
-888           888     888  "Y88b 888        8888888P"  888 Y88b888 888    888 8888888b    888        
-888    888    888     888    888 888        888 T88b   888  Y88888 888    888 888  Y88b   888        
-Y88b  d88P    888     888   d88P 888        888  T88b  888   Y8888 Y88b..d88P 888   Y88b  888        
- "Y8888P"     888     8888888P"  8888888888 888   T88b 888    Y888  "Y8888P"  888    Y88b 8888888888 
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-\end{BVerbatim}
-\end{footnotesize}
-
-% Title, Sub-title, Authors
-CYBERNUKE\\
-{\small POST-APOCALYPTIC CYBERPUNK ROGUELITE}\\
+{\Huge CYBERNUKE}\\
+POST-APOCALYPTIC CYBERPUNK ROGUELITE\\
 J. Kenneth Wallace, Vance Brender-A-Brandis\\
 \end{figure}
-
-% Old Title, Authors
-%\title{{\Huge CYBERNUKE}\\Post-Apocalyptic Cyberpunk Roguelite}
-%\author{J. Kenneth Wallace, Vance Brenderabrandis\\}
-
 % Abstract
 \IEEEtitleabstractindextext{
 \begin{abstract}
 CYBERNUKE is a roguelite game developed in the C\# WPF framework. You play as an amnesiac cyborg who awakens in the middle of a destroyed futuristic city and must recover their memories. The game combines a post-apocalyptic and cyberpunk setting to create a unique atmosphere not previously explored by other games. The setting of the game is inspired by popular stories such as \emph{Fallout}, \emph{Cyberpunk 2077}, and other game series like \emph{Dark Souls} and \emph{Megami Tensei}.
 \end{abstract}
 }
-
-
-% Title Area
-%\maketitle
 \IEEEdisplaynontitleabstractindextext
 \IEEEpeerreviewmaketitle
 
@@ -193,9 +147,9 @@ CYBERNUKE is a roguelite game developed in the C\# WPF framework. You play as an
 % INTRODUCTION ************************************************************************* %
 \section{Introduction}
 
-For this project we aim to create a video game to gain experience with C\#, WPF, and game design. We called the game "CYBERNUKE," combining the game's cyberpunk and post-apocalyptic elements into a single title.
+For this project we aim to create a video game to gain experience with C\#, WPF, and game design. We called the game CYBERNUKE, combining the game's cyberpunk and post-apocalyptic elements into a single title.
 
-The setting of the game is rooted in the cyberpunk genre, taking place in a massive futuristic city where buildings as tall as the Burj Khalifa are commonplace, gangs are armed with high-tech laser guns, and the wealth gap is at its widest. On a peaceful day in the twenty-first century, the city is attacked by an unknown power, which is followed by a nuclear explosion and the displacement of the entire city into another dimension. The story's cyberpunk portion is inspired by the game \emph{Cyberpunk 2077}, while the post-apocalyptic portion is inspired by \emph{Fallout} and other post-apocalyptic games. 
+The setting of the game is rooted in the cyberpunk genre, taking place in a massive futuristic city where buildings as tall as the Empire State Building are commonplace, gangs are armed with high-tech laser guns, and the wealth gap is at its widest. On a peaceful day in the twenty-first century, the city is attacked by an unknown power, which is followed by a nuclear explosion and the displacement of the entire city into another dimension. The story's cyberpunk portion is inspired by the game \emph{Cyberpunk 2077}, while the post-apocalyptic portion is inspired by \emph{Fallout} and other post-apocalyptic games. 
 
 CYBERNUKE's gameplay is influenced by games such as the \emph{Shin Megami} and \emph{Dark Souls} series. Shin Megami inspired the game's turn-based combat, while Dark Souls inspired the overworld map and exploration. Moreover, CYBERNUKE is heavily influenced by the roguelike genre, particularly games like \emph{Slay the Spire}, \emph{The Binding of Isaac}, and \emph{FTL: Faster Than Light}.
 
@@ -207,7 +161,7 @@ CYBERNUKE has a diverse setting, story, and gameplay that draws inspiration from
 %Cosmetic Page Break
 \pagebreak
 \subsection{Background}
-CYBERNUKE is inspired by roguelike games, but it does not completely follow them, making CYBERNUKE a rogue-\emph{lite}. Roguelite games are a subgenre of roguelike games. The Berlin Interpretation of a "roguelike," developed at the 2008 International Roguelike Development Conference, is the most widely accepted definition. It specifies that all roguelikes must have the following characteristics:\cite{IEEEhowto:roguelite_2}
+CYBERNUKE is inspired by roguelike games, but it does not completely follow them, making CYBERNUKE a rogue-\emph{lite}. Roguelite games are a subgenre of roguelike games. The Berlin Interpretation of a “roguelike,” developed at the 2008 International Roguelike Development Conference, is the most widely accepted definition. It specifies that all roguelikes must have the following characteristics\cite{IEEEhowto:roguelite_2}:
 \begin{enumerate}
 \item Permadeath: the player has one life per game.
 \item Random environment generation: no map or encounter is ever the same.
@@ -245,6 +199,376 @@ The most serious issue is that we have no experience designing games. There is a
 % SCOPE ******************************************************************************** %
 \section{Scope}
 In order of importance, these are the fundamental game mechanics that must be implemented for \emph{CYBERNUKE} to be considered functional:
+\begin{flushleft}
+1. Operational Interfaces:
+The Operational Interfaces are the menus that the player uses to interact with the game. (Main Menu, Combat Menu, Town Menu, Overworld Menu, Cutscene Menu).
+
+2. Menu Switching: The ability to switch between Menus.
+
+3. Secondary Interfaces: The Secondary Interfaces are other menus that are accessed within other menus (Pause Menu).
+
+4. Enemies: Enemies and Enemy party files to load in enemies and groups of those enemies from.
+
+5. Overworld Maps: The ability to create Overworld maps and render them onto the screen from a file.
+
+6. Character-Map Interaction: The ability to move a player's character while they are on the map and the ability to interact with parts of that map as the player.
+
+7. Enemy Encounters: Enemies are the monsters/humans that the player will encounter throughout the game. Enemy Encounters refers to how you will find monsters in the first place, which is primarily done through a "percent encounter" system akin to the old \textit{Pokemon} games.
+
+8. Combat: Combat refers to fights between the player character and enemies in this game, which will be turn-based. Combat happens inside the Combat Menu.
+
+9. Companions and Party System: Multiple player characters (up to 4) to bring into combat.
+
+10. Basic Item System: A bare-bones item equip system that lets players equip different armor and weapons.
+\end{flushleft}
+
+
+After the fundamental game mechanics are in place, additional features that flesh out the game can be added.
+
+Possible stretch-goal features:
+\begin{flushleft}
+1. Items, Loot, Weapons, Armor: A fully fleshed out equipment and item system.
+
+2. Currency and Merchants: A money system with merchants you can find in Towns and buy items from.
+
+3. Leveling System: Leveling system for players and enemies that scale in difficulty the higher the level you are.
+
+4. More Enemy Types: Different types of unique enemies.
+
+5. Saving and Loading: The ability to save and load the game, with an autosave for when you need to quit in the overworld and a proper save-load in the towns.
+
+6. Hacking Puzzles: In-game puzzles that allow you to access certain areas of the map.
+
+7. Story Content: A story tied to the game.
+\end{flushleft}
+
+
+
+\subsection{Requirements}
+The required mechanics for the game to function at a basic level are defined in the first part of the scope. These mechanics are required as they are the foundation of the game's most basic actions such as traversing menus, moving around the map, viewing your character's stats, and fighting enemies.
+
+The non-required mechanics for the game are defined in the second part of the scope. These are taken from other finished roguelite games and are not required for the game to function but for fleshing the game out into a more appealing state for the audience. They build upon the foundation laid by the functional mechanics to create something more than a roguelite mockup.
+
+\subsubsection{Functional}
+\begin{itemize}
+\item User must be able to navigate the main menu.
+\item User must be able to interact with the overworld menu.
+\item User must be able to examine the stats of their character(s).
+\item User must be able to interact with the combat menu.
+\item User must be able to interact with the town menu.
+\end{itemize}
+
+\subsubsection{Non-Functional}
+\begin{itemize}
+\item User must be able to manage their inventory (Equip armor \& weapons, use items).
+\item User must be able to shop with merchants in towns.
+\item User must be able to upgrade their base stats when leveling up.
+\item User must be able to save and load in the town menu.
+\item Game must be able to autosave when leaving while user is in overworld menu.
+\end{itemize}
+
+\subsection{Use Cases}
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
+\hline \hline
+1 & Main Menu: Start Demo & Player & Low & 1\\
+\hline
+2 & Main Menu: Change Options & Player & Med & 1\\
+\hline
+3 & Main Menu: Exit Game & Player & Low & 1\\
+\hline
+4 & Overworld Menu: Move Player & Player & Med & 1\\
+\hline
+5 & Overworld Menu: Toggle Pause Menu & Player & Low & 1\\
+\hline
+6 & Overworld Menu: Toggle Map & Player & Low & 1\\
+\hline
+7 & Overworld Menu: Interact & Player & Med & 1\\
+\hline
+8 & Pause Menu: Equip Item & Player & Med & 3\\
+\hline
+9 & Pause Menu: View Map & Player & Low & 3\\
+\hline
+10 & Pause Menu: Close Menu & Player & Low & 1\\
+\hline
+11 & Pause Menu: Exit Game & Player & Low & 1\\
+\hline
+12 & Combat Menu: Attack Enemy & Player & Med & 1\\
+\hline
+13 & Combat Menu: Wait & Player & Low & 1\\
+\hline
+14 & Combat Menu: Flee & Player & Low & 1\\
+\hline
+15 & Town Menu: Interact with NPC & Player & Low & 1\\
+\hline
+16 & Town Menu: Exit Town & Player & Low & 1\\
+\hline
+
+\end{tabular}
+\caption{Cybernuke use case table}
+\label{tab:useCaseIndex}
+\end{table}
+
+
+\begin{itemize}
+\item[Use Case Number:] 1
+\item[Use Case Name:] Start Demo
+\item[Description:] Player is in the main menu and wants to start the demo.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the main menu.
+\item Player clicks on “Start Demo”.
+\item The main menu is closed and the overworld menu is opened.
+\item[Termination Outcome:] The demo is started for the player.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 2
+\item[Use Case Name:] Change Options
+\item[Description:] Player is in the main menu and wants to change the screen resolution.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the main menu.
+\item Player clicks on “Options”.
+\item Player clicks on Left or Right arrows under “Resolution” to change resolution.
+\item Player clicks on “Fullscreen” to toggle fullscreen mode.
+\item [Termination Outcome:] Player has changed the screen resolution or left it alone.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 3
+\item[Use Case Name:] Exit Game
+\item[Description:] Player is in the main menu and wants to exit the game.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the main menu.
+\item Player clicks “Exit Game”.
+\item Player clicks “Yes” when prompted to exit the game.
+\item [Termination Outcome:] The game is exited.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 4
+\item[Use Case Name:] Move Player
+\item[Description:] Player is in the overworld menu and wants to move around the map.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the overworld menu.
+\item The player can press or click “W” to move up.
+\item The player can press or click “A” to move left.
+\item The player can press or click “X” to move down.
+\item The player can press or click “D” to move right.
+\item [Termination Outcome:] The player moves on the overworld menu's map.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 5
+\item[Use Case Name:] Toggle Pause Menu
+\item[Description:] Player is in the overworld menu and wants to open the pause menu.
+\end{itemize}
+\begin{enumerate}
+\item Player is within the overworld menu.
+\item The player can press “Q” to toggle the pause menu.
+\item [Termination Outcome:] The pause menu is toggled open or closed.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 6
+\item[Use Case Name:] Toggle Map
+\item[Description:] Player is in the overworld menu and wants to open the map.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the overworld menu.
+\item The player can press “C” to toggle the map that shows the layout of the current map.
+\item [Termination Outcome:] The map is toggled open or closed.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 7
+\item[Use Case Name:] Interact
+\item[Description:] Player is in the overworld menu and wants to interact with an element on the map.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the overworld menu.
+\item The player can press “S” while on top of an element to interact with it.
+\item [Termination Outcome:] The object the player is standing on is interacted with.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 8
+\item[Use Case Name:] Equip Item
+\item[Description:] Player is in the pause menu and wants to change their character's equipment.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the pause menu.
+\item Player selects the “Character” sidebar option on the left side of the pause menu.
+\item Player selects the character they want to change the equipment of.
+\item Player clicks the “Armor” or “Weapon” drop-down box on the lower-half of the screen.
+\item Player can freely switch out equipment they have.
+\item [Termination Outcome:] The equipment of a character or characters are changed.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 9
+\item[Use Case Name:] View Map
+\item[Description:] Player is in the pause menu and wants to view the map.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the pause menu.
+\item Player can click the “Map” sidebar option on the left side of the pause menu.
+\item [Termination Outcome:] The map showing the current layout of the map is displayed in the pause menu.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 10
+\item[Use Case Name:] Close Menu
+\item[Description:] Player is in the pause menu and wants to close it.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the pause menu.
+\item Player can click the “Close Menu” sidebar option on the left side of the pause menu.
+\item Alternatively, the player can also press “Q“ to toggle the pause menu.
+\item [Termination Outcome:] The pause menu is closed.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 11
+\item[Use Case Name:] Exit Game
+\item[Description:] Player is in the pause menu and wants to exit the game.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the pause menu.
+\item Player can click the “Exit Game” sidebar option on the left side of the pause menu.
+\item [Termination Outcome:] The entire game exits.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 12
+\item[Use Case Name:] Attack Enemy
+\item[Description:] Player is in the combat menu and wants to attack an enemy.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the combat menu.
+\item It must be one of the player character's turns.
+\item The player can select “Attack” on the control panel.
+\item The player can select one of the enemies to attack.
+\item [Termination Outcome:] The selected enemy is attacked by the current player character.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 13
+\item[Use Case Name:] Wait
+\item[Description:] Player is in the combat menu and wants to skip their turn.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the combat menu.
+\item It must be one of the player character's turns.
+\item The player can select “Wait” on the control panel.
+\item [Termination Outcome:] The player character's turn is skipped.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 14
+\item[Use Case Name:] Flee
+\item[Description:] Player is in the combat menu and wants to flee the fight.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the combat menu.
+\item It must be one of the player character's turns.
+\item The player can select “Escape” on the control panel.
+\item [Termination Outcome:] The player flees the fight.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 15
+\item[Use Case Name:] Interact with NPC
+\item[Description:] Player is in the town menu and wants to interact with an NPC.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the town menu.
+\item The player can select one of the NPC options in the town menu.
+\item [Termination Outcome:] The player interacts with the NPC.
+\end{enumerate}
+
+\begin{itemize}
+\item[Use Case Number:] 16
+\item[Use Case Name:] Exit Town
+\item[Description:] Player is in the town menu and wants to leave the town.
+\end{itemize}
+\begin{enumerate}
+\item Player is in the town menu.
+\item The player can select “Exit Town” option in the town menu.
+\item [Termination Outcome:] The player leaves the town and returns to the overworld menu.
+\end{enumerate}
+
+%Page Break Mockup
+\pagebreak
+\subsection{Interface Mockups}
+
+The following is a mock-up of CYBERNUKE's main menu screen [\ref{main_menu_mockup}].
+\begin{figure}[ht!]
+\centering
+\includegraphics[height=462px, width=500px]{Mockups/CYBERNUKE_MAIN_MENU_2.png}
+\caption{CYBERNUKE Main Menu Screen Mockup. Where “Start Game” would start a new game for the player, “Load Game” would allow the player to load a previously saved game, “Options” would allow the player to change options like screen resolution and volume, and “Exit Game” would let the player exit the game.}
+\label{main_menu_mockup}
+\end{figure}
+
+%Summon Page Break
+\pagebreak
+The following is a mock-up of CYBERNUKE's combat screen.
+\begin{figure}[ht!]
+\centering
+\includegraphics[height=281.25px, width=500px]{Mockups/CYBERNUKE_COMBAT_MOCKUP.png}
+\caption{CYBERNUKE Combat Screen Mockup. Where “Attack” lets the player attack an enemy, “Skill” lets the player use a skill, “Item” lets the player use an item from the inventory, “Analyze” lets the player view the stats of a friendly or enemy, “Guard” lets the player raise their defense and end their turn, “Wait” lets the player skip their turn, “Escape” lets the player flee the battle, and “Auto” repeats the character's last action.}
+\label{combat_mockup}
+\end{figure}
+
+
+%Ultimate Page Break Attack
+\pagebreak
+% PROJECT TIMELINE ********************************************************************* %
+\section{Project Timeline}
+
+\underline{1. Requirements}
+\vspace{5px}
+
+Feb. 4 Proposal Draft: The first requirements we identified were based on a set of games we wanted to combine. 
+
+This included features such as:
+\begin{enumerate}
+\item Operational Interfaces (Main Menu, Option Menu)
+\item Maps
+\item User Interface (Map Screen, Player HUD)
+\item Character Movement, Interaction
+\item Character Interface (Name, Stats)
+\item Enemies, Enemy Encounters
+\item Combat, Combat Interface
+\item Player Saves \& Load Menu
+\end{enumerate}
+
+Along with stretch-goals such as:
+\begin{enumerate}
+\item Companions and Party System
+\item Hacking Puzzles
+\item More Enemy Types
+\item More Story Content
+\item Items, Loot, Weapons, Armor, etc.
+\item Cybernetic Augmentation
+\item Leveling System
+\item Currency and Merchants
+\item Expanded Character Creation (Species, Backstory, etc.)\\
+\end{enumerate}
+
+Feb. 28 Proposal Update: 
+No changes in requirements from the proposed draft.\\
+
+Apr. 10 Project Update: 
+Implementation was started and we changed the requirements to better the fit MVVM design pattern we had adopted for CYBERNUKE.
+
+Updated requirements:
 \begin{enumerate}
 \item Operational Interfaces (Main Menu, Combat Menu, Town Menu, etc.)
 \item Menu-switching Functionality
@@ -256,408 +580,150 @@ In order of importance, these are the fundamental game mechanics that must be im
 \item Player Saves \& Load Menu
 \end{enumerate}
 
-\begin{flushleft}
-1. The Operational Interfaces are the menus that the player uses to interact with the game. (Main Menu, Combat Menu, Town Menu, Overworld Menu, Cutscene Menu).
+The stretch-goals were not updated.\\
 
-2. The ability to switch between Menus.
+Apr. 21 Penultimate Update: 
+Due to time constraints we removed unnecessary features and made them stretch-goals.
 
-3. The Secondary Interfaces are other menus that are accessed within other menus. (Character Menu, Inventory Menu).
-
-4. Enemies and Enemy Data.
-
-5. The ability to create Overworld maps and render them onto the screen.
-
-6. The ability to move a player's character while they are on the map and the ability to interact with parts of that map as the player.
-
-7. Enemies are the monsters/humans that the player will encounter throughout the game. Enemy Encounters refers to how you will find monsters in the first place, which is primarily done through a "percent encounter" system akin to the old \textit{Pokemon} games. There may also be opportunities for pre-scripted encounters.
-
-8. Combat refers to fights between the player character and enemies in this game, which will be turn-based. Actual combat is made possible by the Combat Interface.
-
-9. Players can save their state (at specific points in the game) and load back in at a later time using Player Saves and the Load Menu.
-\end{flushleft}
-
-After the fundamental game mechanics are in place, additional features that flesh out the game can be added.
-
-Possible stretch-goal features (In no particular order):
+Updated requirements:
 \begin{enumerate}
+\item Operational Interfaces (Main Menu, Combat Menu, Town Menu, Overworld Menu, Cutscene Menu)
+\item Menu Switching
+\item Secondary Interfaces (Pause Menu)
+\item Enemies \& Enemy Party \& Enemy Data Files
+\item Overworld Maps
+\item Character-Map Interaction
+\item Enemy Encounters
+\item Combat
 \item Companions and Party System
-\item Hacking Puzzles
-\item More Enemy Types
-\item More Story Content
-\item Items, Loot, Weapons, Armor, etc.
-\item Cybernetic Augmentation
-\item Leveling System
+\item Basic Item System
+\end{enumerate}
+
+Updated stretch-goals:
+\begin{enumerate}
+\item Items, Loot, Weapons, Armor
 \item Currency and Merchants
-\item Expanded Character Creation (Species, Backstory, etc.)
+\item Leveling System
+\item More Enemy Types
+\item Saving and Loading
+\item Hacking Puzzles
+\item Story Content\\
 \end{enumerate}
 
+Apr. 28 Final Presentation: Not reached
 
-\subsection{Requirements}
-The required mechanics for the game to function at a basic level are defined in the first part of the scope. These mechanics are required as they are the foundation of the game's most basic actions such as traversing menus, moving around the map, viewing your character's stats, and fighting enemies.
-
-The non-required mechanics for the game are defined in the second part of the scope. These mechanics are not required for the game to function, but are for fleshing the game out into a more playable state. They build upon the foundation laid by the functional mechanics to create something more than a roguelite mockup.
-
-%As part of fleshing out the scope of your requirements, you'll also need to keep in mind both your functional and non-functional requirements.  These should be listed, and explained in detail as necessary.  Use this area to explain how you gathered these requirements.
-
-\subsubsection{Functional}
-\begin{itemize}
-\item User needs to be able to start a new game as well as load a previous game if one exists. \item Additionally, User must be able to save their game while playing 
-\item User must be able to move around the game world - both on normal map and overworld map
-\item User must be able to participate in combat by performing actions like attacking, guarding, using items, etc.
-\item User must be able to interact with NPCs, like for shopping or for progressing the story
-\item User must be able to manage inventory - dropping or equipping/using items, using quest items, etc.
-\item User must be able to see and examine their character's stats - each stat should have a description of what it affects 
-\item User must be able to manage companions - change order, dismiss or recruit, check equipment and skills of, etc.
-\end{itemize}
-
-\subsubsection{Non-Functional}
-\begin{itemize}
-\item Autosaves - User should have automatic saving in case of crashing, failing battles, and general convenience
-\item Simple Combat AI - Enemies should be able to attack, use skills, etc. during battle through use of algorithms or basic attack sequences
-\item Shop Stock - Basic inventory stocked so User can buy various items at different times (can reset shop every nth battle if we want)
-\item Map autoscrolling - Camera should center on User and map should scroll as User moves around
-\item I didn't know what else to put here.
-\end{itemize}
-
-\subsection{Use Cases}
-This subsection is arguably part of how you define your project scope (why it is in the Scope section...).  In a traditional Waterfall approach, as part of your requirements gathering phase (what does the product actually \emph{need} to do?), you will typically sit down with a user to develop use cases.
-
-You should have a table listing all use cases discussed in the document, the ID is just the order it is listed in, the name should be indicative of what should happen, the primary actor is typically most important in an application where you may have different levels of users (think admin vs normal user), complexity is a best-guess on your part as to how hard it should be.  A lower number in priority indicates that it needs to happen sooner rather than later.  A sample table, or Use Case Index can be seen in Table \ref{tab:useCaseIndex}.
-
-
-\begin{table}
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
-\hline \hline
-1 & Start New Game & Player & Low & 1\\
-\hline
-2 & Save Game & Player & Low & 1\\
-\hline
-3 & Load Game & Player & Low & 1\\
-\hline
-4 & Movement & Player & Med & 1\\
-\hline
-5 & Combat & Player & Med & 1\\
-\hline
-6 & Talk to NPCs & Player & Low & 3\\
-\hline
-7 & Manage Inventory & Player & Low & 3\\
-\hline
-8 & Check Character Stats & Player & Low & 3\\
-\hline
-9 & Manage Companions & Player & Med & 1\\
-\hline
-
-\end{tabular}
-\caption{Cybernuke use case table}
-\label{tab:useCaseIndex}
-\end{table}
-
-
-\begin{itemize}
-\item[Use Case Number:] 1
-\item[Use Case Name:] Start New Game
-\item[Description:] A player has opened the game and wishes to start a new save. They will click on a "New Game" button. This will start the process to start a new game.
-\end{itemize}
-
-%You will then go on to (minimally) discuss a basic flow for the process:
-
-\begin{enumerate}
-\item Player opens game to the Main Menu
-\item Player left-clicks on ``Start Game" button.
-\item A new save is created and the Player is shunted into the game world
-\item[Termination Outcome:] A new game will be started for the Player
-\end{enumerate}
-
-
-%You will often also need to include pictures or diagrams.  It is quite common to see use-case diagrams in such write-ups.  To properly reference an image, you will need to use the \texttt{figure} environment and will need to reference it in your text (via the \texttt{ref} command) (see Figure \ref{combat_mockup}).  NOTE: this is not a use case diagram, but a capybara.
-
-
-\begin{itemize}
-\item[Use Case Number:] 2
-\item[Use Case Name:] Save Game
-\item[Description:] Player has achieved a goal or wishes to save their progress before stepping away.  They will click on a ``Save Game" button.  This will kick off a process to record map position, inventory, character stats and companions, etc. etc.
-\end{itemize}
-
-\begin{enumerate}
-\item Player opens the pause menu (presumably with ESC key).
-\item Player left-clicks on ``Save Game" button.
-\item The Player's progress and status is recorded into a file and saved to a dedicated "saves" folder
-\item [Termination Outcome:] A new saved game is recorded and exported to a "saves" folder for future loading
-\end{enumerate}
-
-\begin{itemize}
-\item[Use Case Number:] 3
-\item[Use Case Name:] Load Game
-\item[Description:] Player has died or has opened the game and wishes to load their previously saved progress. They will click on a ``Load Game" button. This will kick off a process to load their saved status and start from where they left off.
-\end{itemize}
-
-\begin{enumerate}
-\item Player opens the game
-\item Player left-clicks on "Load Game" button
-\item Player chooses from a list of saves from within their "saves" folder
-\item [Termination Outcome:] Player loads their saved game and is returned to the point where they saved their game with their status, equipment, stats, etc. the same as when they saved.
-\end{enumerate}
-
-Alternative: Player is within the game world and is alive
-\begin{enumerate}
-\item Player opens the pause menu
-\item Player left-clicks on "Load Game" button
-\item Player chooses from a list of saves
-\item [Termination Outcome:] Player loads their saved game from within the game world and is returned to the point where they saved their game with all faculties the same as when they saved
-\end{enumerate}
-
-Alternative: Player is within the game world and died in combat
-\begin{enumerate}
-\item Player has arrived on death screen
-\item Player left-clicks on "Load Game" button
-\item Player chooses from a list of saves
-\item [Termination Outcome:] Player loads their saved game from the death screen and is returned to the point their saved game was created with all faculties the same as when they saved
-\end{enumerate}
-
-\begin{itemize}
-\item[Use Case Number:] 4
-\item[Use Case Name:] Movement
-\item[Description:] Player wishes to move their sprite on the game world or overworld. They will press one of the assigned "movement keys" (arrows: Up, Down, Left, Right). This will kick off a process to move the character sprite from where they started to where the character wishes to move.
-\end{itemize}
-
-\begin{enumerate}
-\item Player is in the game world or overworld
-\item Player presses one of the movement keys
-\item [Termination Outcome:] The Player's sprite is moved from where they started to one space in the direction they wished to move
-\end{enumerate}
-
-\begin{itemize}
-\item[Use Case Number:] 5
-\item[Use Case Name:] Combat
-\item[Description:] Combat with Player is initiated. Player wishes to perform a variety of actions like: 
-\begin{enumerate}
-\item Attacking with Melee or Ranged
-\item Guard / Defend
-\item Use Skill
-\item Analyze Enemy
-\item Wait
-\item Escape
-\item Autobattle
-\end{enumerate}
-Player will access these functions by typing the corresponding number into a UI console.
-\end{itemize}
-
-\begin{enumerate}
-\item Player is within the Combat UI
-\item Player enters their preferred action in the lower console
-\item Player selects an enemy or companion to attack or use a skill or item on if required. Otherwise, action is performed on themselves (like wait, guard, etc.).
-\item [Termination Outcome:] Player performs an action in combat, which will continue until Player dies or all of the enemies to the Player die.
-\end{enumerate}
-
-\begin{itemize}
-\item[Use Case Number:] 6
-\item[Use Case Name:] Talk to NPCs
-\item[Description:] Player wishes to talk to an NPC, like shopkeepers or story NPCs, or companions. They will press an "Interact" key while near the NPC. This kicks off the process to push text into a text box for the Player to read and react to
-\end{itemize}
-
-\begin{enumerate}
-\item Player presses the interact key while one space away from an NPC they wish to talk to
-\item NPC text is inserted into a text box for the Player to read
-\item [Termination Outcome:] Player can read the NPCs text
-\end{enumerate}
-
-Alternative: Player is talking to a Shop NPC or a Story NPC
-\begin{enumerate}
-\item Player presses the interact key while one space away from the Shopkeeper NPC or Story NPC
-\item A list of choices for the Player appears
-\item Player selects a choice (Shop, Talk, etc.)
-\item Player is guided to the Shopkeeper's inventory if "Shop" is selected or engages in conversation with the NPC if "Talk" is selected
-\item [Termination Outcome:] Player has chatted with the NPC or is entered into the Shopkeeper's shop menu
-\end{enumerate}
-
-\begin{itemize}
-\item[Use Case Number:] 7
-\item[Use Case Name:] Manage Inventory
-\item[Description:] Player wishes to access their own items or switch their equipped equipment. They will click on an "Inventory" button. This will kick off a process to manage their inventory.
-\end{itemize}
-
-\begin{enumerate}
-\item Player opens their inventory using a pre-defined "Inventory" hotkey, displaying a menu which holds the Player's currently worn and used equipment, a list of "consumable" items, and a list of unused equipment
-\item Player can select on consumable items to use them, can select on equipped items to unequip them, and click on unequipped items to switch to or initially wear
-\end{enumerate}
-
-\begin{itemize}
-\item[Use Case Number:] 8
-\item[Use Case Name:] Check Character Stats
-\item[Description:] Player wishes to check their stats and a description of what said stats do. They will open a "Character" menu by pressing a pre-defined hotkey. This will kick of a process to display said menu and allow the character to read a description of their stats by clicking on the names of the stat
-\end{itemize}
-
-\begin{enumerate}
-\item Player opens their "Character" menu using a certain hotkey
-\item "Character" menu displays Player's current stats, health and skill points, and current resistances and weaknesses. Also current status effects.
-\item [Termination Outcome:] Player can click on stat names to see a description of said stats as well as observe their current status in the form of HP and SP as well as resistances and weaknesses.
-\end{enumerate}
-
-\begin{itemize}
-\item[Use Case Number:] 9
-\item[Use Case Name:] Manage Companions
-\item[Description:] Player wishes to manage their companions, by either dismissing, recruiting, or observing companions' stats and skills. They click on a companion portrait. This kicks off a process to access said information and choices
-\end{itemize}
-
-\begin{enumerate}
-\item Player clicks on a companion portrait to manage them or talks to a dismissed companion
-\item A menu is displayed which offers the options to "Dismiss" them from the party or "Recruit them to the party if they were dismissed
-\item In this menu, Player can observe said companion's stats and skills, as well as HP, SP, resistances, and weaknesses.
-\item [Termination Outcome:] Player has managed their companion by observing their status as well as being able to recruit or dismiss them
-\end{enumerate}
-
-%Page Break Mockup
-\pagebreak
-\subsection{Interface Mockups}
-%At first, this will largely be completely made up, as you get further along in your project, and closer to a final product, this will typically become simple screenshots of your running application.
-%In this subsection, you will be showing what the screen should look like as the user moves through various use cases (make sure to tie the interface mockups back to the specific use cases they illustrate).
-
-The following is a mock-up of CYBERNUKE's main menu screen. The main menu is tied to use cases 1 (Start New Game), 3 (Load Game), and use cases for the Options Menu and Exit Game.
-\begin{figure}[ht!]
-\centering
-\includegraphics[height=462px, width=500px]{Mockups/CYBERNUKE_MAIN_MENU_2.png}
-\caption{CYBERNUKE Main Menu Screen Mockup}
-\label{main_menu_mockup}
-\end{figure}
-
-%Summon Page Break
-\pagebreak
-The following is a mock-up of CYBERNUKE's combat screen. The combat screen is tied to use case 5 (Combat).
-\begin{figure}[ht!]
-\centering
-\includegraphics[height=281.25px, width=500px]{Mockups/CYBERNUKE_COMBAT_MOCKUP.png}
-\caption{CYBERNUKE Combat Screen Mockup}
-\label{combat_mockup}
-\end{figure}
-
-
-%Ultimate Page Break Attack
-\pagebreak
-% PROJECT TIMELINE ********************************************************************* %
-\section{Project Timeline}
-%Go back to your notes and look up a typical project development life cycle for the Waterfall approach.  How will you follow this life cycle over the remainder of this semester?  This will usually involve a chart showing your proposed timeline, with specific milestones plotted out.  Make sure you have deliverable dates from the course schedule listed, with a plan to meet them (NOTE: these are generally optimistic deadlines).
-
-\underline{1. Requirements}
 \vspace{5px}
-
-We identified the requirements in the early parts of the project's lifetime (near the beginning of the semester.) Those requirements would later be revised as we realized we were running out of time to implement all of the features we originally planned for.
-
 \underline{2. Design}
 \vspace{5px}
 
+Feb. 4 Proposal Draft: Design drafts were made on paper.\\
+
+Feb. 28 Proposal Update: UML design was started.\\
+
+Apr. 10 Project Update: UML was re-factored for the new MVVM design pattern being used.\\
+
+Apr. 21 Penultimate Update: UML was worked on to accomodate new implementations.\\
+
+Apr. 28 Final Presentation: Not reached
+
+
 This stage resulted in the creation of the first UML diagram for CYBERNUKE.
 
+\vspace{5px}
 \underline{3. Implementation}
 \vspace{5px}
 
-Implementation was started during Spring Break with Kenneth creating the Main Menu and implementing the MVVM pattern for window operation. Kenneth then implemented the Combat Menu and Enemies, and Vance implemented the Character Menu and Characters.
+Feb. 4 Proposal Draft: No implementation done.\\
 
+Feb. 28 Proposal Update: No implementation done.\\
+
+Apr. 10 Project Update: By this point we had the main menu 90\% done, it was missing functionality that let it switch between windows on its own. The combat menu was bare-bones and non-functional. The town, overworld, and cutscene menus were un-implemented but their framework was ready.\\
+
+Apr. 21 Penultimate Update: The combat menu, overworld menu, and town menu were being worked on with the overworld menu being the closest to finished.\\
+
+Apr. 28 Final Presentation: Not reached
+
+\vspace{5px}
 \underline{4. Testing}
 \vspace{5px}
 
-Testing has been done as we worked on implementation due to time constraints with the project.
+Feb. 4 Proposal Draft: No testing done.\\
 
+Feb. 28 Proposal Update: No testing done.\\
+
+Apr. 10 Project Update: Main menu functionality was verified.\\
+
+Apr. 21 Penultimate Update: Overworld functionality was verified. Testing began on combat and town menus.\\
+
+Apr. 28 Final Presentation: Not reached
+
+\vspace{5px}
 \underline{5. Maintenance}
 \vspace{5px}
 
-Omitted, project does not need to be maintained after completed.
+OMITTED.
 
 
 % PROJECT STRUCTURE ******************************************************************** %
 \section{Project Structure}
-%At first, this will be a little empty (it will need to be filled in by the time you turn in your final report).  This is your chance to discuss all of your design decisions (consider this the README's big brother).
 
-The basis of Cybernuke's structure is built on top of the MVVM (Model-View-ViewModel) pattern. Views in this project are essentially the menus or windows that allow the user to actually play the game. For instance, the MainMenuView is graphically the main menu of the game, and the CombatView is graphically the GUI and functions used in facilitating combat between the player and npcs. The main code and functionality for the views is located in each view's ViewModel.cs code file. Each View will have functionality that allows said view to navigate to other views: for example, the CombatView will be able to navigate to the OverworldView, and vice versa upon finishing and starting combat. 
-Refer to Figure 3 in the UML Outline subsection (the subsection below this one) to see a visual representation of this.
+The basis of Cybernuke's structure is built on top of the MVVM (Model-View-ViewModel) pattern, a variant of the Observer design pattern. MVVM allows us to build Windows, referred to as “Views”, that contain the functionality of a menu. For instance, the MainMenuView is graphically the main menu of the game, and the CombatView is graphically the GUI and functions used in facilitating combat between the player and enemies. The main code and functionality for the views is located in each view's xaml.cs file. Each View will have functionality that allows said view to navigate to other views: for example, the CombatView will be able to navigate to the OverworldView, and vice versa upon finishing and starting combat.
 
-For the MainMenuView, (which is opened as the initial menu available to the player upon launching the game) it must connect to the CutsceneView, the TownView, and the OverworldView through use of the main menu's load menu, as starting the game fresh with a new game or loading a previous saved game will lead into one of these views after data is initialized and loaded.
-Refer to Figure 4 and Figure 5 in the UML Outline subsection to see the class-specific markup of the MainMenuView and the functions it contains.
+\begin{itemize}
 
-For the CombatView which will be used during combat with rng-determined battles or scripted boss battles, a list of enemy targets and list of players (main character and companions) is used to track turn order and actions and effects in combat. Character and companion data will be pulled from lists initialized in the MainWindowView (not MainMenuView) and referenced constantly throughout gameplay to track equipment, stats, hp, sp, and so on. Enemy data and the potential enemy lineup during combat will be loaded through file at the beginning of combat based on a randomly generated number system.
-Refer to Figure 6 in the UML Outline subsection.
+\item The MainMenuView, (which is opened as the initial menu available to the player upon launching the game) it connects to the CutsceneView and OverworldView when starting the game.
 
-For the OverworldView, this will serve as the player's method for moving throughout the game's world and exploring locations and places of interest. This is done through use of a grid-like movement system where the player can move one tile each action to cover distance. During each movement step, chances of a random encounter will be factored depending on the location the player is in (for instance, the player will not have random encounters in a safe-designated area while having lots of encounters in "dungeons").
+\item The CombatView is connected to the OverworldView which randomly decides enemy encounters using a randomized percent-based system where each step you take has a random chance to start an enemy encounter depending on the values set in the map's file. Inside the CombatView, data is pulled from the MainWindow which stores all of the persistent data such as character information, what map you're on, etc. It then stores that information locally within the CombatView and uses it throughout the battle.
 
-From the OverworldView, the player can open the PauseMenuView, which functions to allow the player to examine skills, character info, and the more general map (of the entire world, not where the player currently is and is moving on), as well as configuring options, closing the View, and exiting the game.
+\item For the OverworldView, this will serve as the player's method for moving throughout the game's world and exploring locations and places of interest. This is done through use of a grid-like movement system where the player can move one tile each action to cover distance. During each movement step, chances of a random encounter will be factored depending on the location the player is in (for instance, the player will not have random encounters in a safe-designated area while having lots of encounters in "dungeons").
 
-For the TownView (accessed upon reaching a town), the user will use a sequence of buttons to access features the town holds. For example, to visit certain NPCs, clickable buttons will be used to do that. To visit shops and leave the town, buttons will be used for that as well. The ability to save and load game is available here as well.
-Refer to Figure 7 in the UML Outline subsection.
+\item From the OverworldView, the player can open the Pause Menu, which functions to allow the player to examine character info, and the more general map (of the current map's layout), as well as closing the Pause Menu and exiting the game.
 
-For the CutsceneView, this is essentially using premade videos to deliver exposition and important story events to the player through use of a content presenter on the MainWindow that is hidden after the cutscene finishes and control is granted back to the player.
-Refer to Figure 8 in the UML Outline subsection.
+\item For the TownView (accessed upon reaching a town in the OverworldView), the user will use a sequence of buttons to access features the town holds. For example, to visit certain NPCs, clickable buttons will be used to do that. To visit shops and leave the town, buttons will be used for that as well. The ability to save and load game is available here as well.
 
-\pagebreak
-%For formatting
+\item Finally, the CutsceneView relies on data files to display images and text dialogue.
+
+\end{itemize}
 
 \subsection{UML Outline}
-%Show the full structure of your program.  Make sure to keep on updating this section as your project evolves (you often start out with one plan, but end up modifying things as you move along).  As a note, while Dia fails miserably at generating pdfs (probably my fault), I have had much success with png files.  Make sure to wrap your images in a \texttt{figure} environment, and to reference with the \texttt{ref} command.  For example, see Figure \ref{main_menu_mockup}.
-
-This UML contains the Views and Windows that are utilized in the Cybernuke project, as well as the NavigationService interface which is used to actually do the navigation between views:
+This is the entire UML for CYBERNUKE so far:
 
 \begin{figure}[h]
 \centering
-\includegraphics[height=300px, width=500px]{UML/UML Screenshots for Deliverable/MVVM_views_and_models.png}
-\caption{UML for the Views and Windows used in the Cybernuke project}
+\includegraphics[height=300px, width=500px]{UML/UML Screenshots for Deliverable/CYBERNUKE_UML_REVAMP.png}
+\caption{Entire UML for the CYBERNUKE project, divided into sections depending on the folder the actual code file is in}
 \label{uml_view}
 \end{figure}
 
-\pagebreak
+As listed in the caption, each section of the UML is sorted based on the folder and function the classes serve. As is evident, all of the Views for CYBERNUKE are contained in the [View] section, the User Controls in the [UserControls] section, and so on.
 
-\begin{figure}[h]
-\centering
-\includegraphics[height=300px, width=500px]{UML/UML Screenshots for Deliverable/MVVM_mainmenuresolution.png}
-\caption{This UML shows how resolution was handled for the Cybernuke project}
-\label{uml_mainmenuresolution}
-\end{figure}
+\begin{itemize}
 
-\pagebreak
+\item First, in the top-left, the Model-View-ViewModel Manager (MVVM) section. This portion of the UML holds the classes used to handle switching from view to view. The NavigationService inherits from the INavigationService interface and from the ObservableObject class, and is primarily used to manage the current view of the program as well as navigating to other views as required. The ViewModel class, though without implementation inside the classes, are registered within the program on startup and link View to View. The RelayCommand class is used to program the navigation between the Views, but only after the Singletons from the ViewModels are registered.
 
-This UML contains the MainMenuView's UML representation:
+\item Next, in the bottom-left, the View section holds all the Views (and the Main Window) used in CYBERNUKE. Each View correlates to a different part of CYBERNUKE's gameplay elements. 
 
-\begin{figure}[h]
-\centering
-\includegraphics[height=350px, width=500px]{UML/UML Screenshots for Deliverable/MVVM_mainmenuview.png}
-\caption{UML for the MainMenuView functionality used in the Cybernuke project}
-\label{uml_mainmenuview}
-\end{figure}
+	\begin{enumerate}
 
-\pagebreak
+	\item The MainMenuView correlates to the Main Menu that is loaded upon starting CYBERNUKE and holds its functionality: Starting the game, loading a game, configuring options, and leaving. 
 
-This UML contains the CombatView's UML representation:
+	\item The OverworldView correlates to the game world and handles rendering the player's movement, the player interacting with objects, and random encounters that occur as the player moves about the world.
 
-\begin{figure}[h]
-\centering
-\includegraphics[height=500px, width=500px]{UML/UML Screenshots for Deliverable/MVVM_combatview.png}
-\caption{UML for the CombatView functionality used in the Cybernuke project}
-\label{uml_combatview}
-\end{figure}
+	\item From there, the CombatView manages combat: counting the number of players (the player and their companions) and the number of enemies the players are facing. It is also responsible for handling actions the player takes throughout combat, like attacking, guarding, fleeing, and so forth. 
 
-\pagebreak
+	\item The CharacterView is essentially the "Pause Menu" of CYBERNUKE: you can manage the equipment of the main character and his companions in this view, see a map of the overworld (currently the mockup we drew at the beginning), edit options, and exit the game. And, of course, return back to the overworld (where this view is accessed from). 
 
-This UML contains the TownView's UML representation:
+	\item Behind all of these Views is the MainWindow, which provides easy access to relevant data used as the player plays. For instance, the list of characters in the player's party, the equipment the player has in their inventory, and even the list of maps used is always accessible from every view through use of the MainWindow.
 
-\begin{figure}[h]
-\centering
-\includegraphics[height=350px, width=500px]{UML/UML Screenshots for Deliverable/MVVM_townview.png}
-\caption{UML for the TownView functionality used in the Cybernuke project}
-\label{uml_townview}
-\end{figure}
+	\end{enumerate} 
 
-\pagebreak
+\item Further, in the bottom-right, the Model section holds all of the classes used for gameplay and map loading (at present). The "Character" class manages all the variables relevant to every Character object like health (HP), skill points (SP), and their various stats and equipped items. Similarly, the Skill and Item classes holds the variables relevant for their aspects of gameplay: names, costs, descriptions, etc. And, finally, the "Map" class is used to manage the maps to-be-featured in CYBERNUKE and manages the encounter chances, maps to be loaded in, spawn locations, and more. The LocationData class is part of the Map class in that it tracks the locations of various elements on the map: objects (ObjectData) and NPCs (NPCData). This will soon be expanded to have towns to enter, treasure/ interesting events, and more.
 
-This UML contains the CutsceneView's UML representation:
+\item For the last section in the top-center, the UserControls section contains classes which inherit from UserControl and are used in various aspects of CYBERNUKE. For now, the EnemyBox class is used in the CombatView to display enemies' health, skill points, and other stats and such in a visual format. The TurnOrderBox class is much the same, a visual element used in the TurnOrder aspect of combat.
 
-\begin{figure}[h]
-\centering
-\includegraphics[height=350px, width=500px]{UML/UML Screenshots for Deliverable/MVVM_cutsceneview.png}
-\caption{UML for the Cutscene functionality used in the Cybernuke project}
-\label{uml_cutsceneview}
-\end{figure}
+\end{itemize}
 
-\pagebreak
+
 
 \subsection{Design Patterns Used}
 %Make sure to actually use at least 2 design patterns from this class.  This is not normally part of such documentation, but largely just specific to this class -- I want to see you use the patterns!
@@ -666,28 +732,56 @@ This UML contains the CutsceneView's UML representation:
 
 We used a Prototype for the enemies in CYBERNUKE. When the Combat Menu is opened it will be given a data file that contains which enemies to spawn. It will then take the data files for those enemies and instantiate an Enemy UserControl Object to display on the Combat Menu.
 
+In the UML in the above subsection, this is seen in the CombatView class and EnemyBox UserControl. In CombatView's constructor, the data for the enemy party is read in using the StreamReader input and then passed to the AddEnemy() function, which creates an EnemyBox object for each enemy and adds it to the Combat Menu's enemy GUI.
+
 \underline{2. Decorator Design Pattern}
 \vspace{5px}
 
 We used a Decorator for the Pause Menu in CYBERNUKE. When opening the Pause Menu it unhides a Content Presenter that is present on the MainWindow. This Content Presenter holds the Pause Menu and renders over the underlying window so that the user cannot accidentally activate anything while paused.
+
+In the UML, the Pause Menu refers to the CharacterView (dubbed as such before becoming known as the Pause Menu). In the constructor for the CharacterView, as stated, it unhides a Content Presenter on the Main Window to prevents the player from taking actions with the Pause Menu open.
 
 \underline{3. MVVM (Model-View-ViewModel) Design Pattern}
 \vspace{5px}
 
 We used the MVVM design pattern for CYBERNUKE. We chose to use it as it would allow the program to seamlessly switch between menus without breaking the user's immersion in the game. It also allows us to store data in MainWindow as it stays open persistently.
 
+This is seen very clearly in the UML as the sections are split mainly into the MVVM manager, the different Views used in CYBERNUKE's coding, as well as the Models and ViewModels associated with them.
+
 
 % RESULTS ****************************************************************************** %
 \section{Results}
-%This section will start out a little vague, but it should grow as your project evolves.  With each deliverable you hand in, give me a final summary of where your project stands.  By the end, this should be a reflective section discussing how many of your original goals you managed to attain/how many desired use cases you implemented/how many extra features you added.
+With the amount of time and experience we had starting off, we were able to get a lot implemented successfully:
+\begin{itemize}
+\item Operational interfaces. We were able to get a functioning main menu, combat menu, overworld menu, and town menu all working.
+\item Menu switching. We were able to implement buttons that allowed players to switch between the different in-game menus.
+\item Pause Menu. We got the pause menu working, only in the overworld menu though.
+\item Map Files. Maps are loaded in from .txt files stored in the game's files.
+\item Enemies, Enemy parties, and Enemy data. We were able to get enemies to load in from files and then load them into combat through enemy party files.
+\item Enemy Encounters in the overworld. We were able to implement enemy encounters when in the overworld through the map's data file.
+\item Combat menu. We got the combat menu to work where players and enemies can attack each other.
+\item Companion and party system. We got the game to load in multiple player characters in the overworld and combat menu.
+\item Basic item system. We got a basic item system with armor and weapons able to be equipped by players.
+\end{itemize}
+
+We over-estimated the amount of work we would be able to complete in the time we had. This led to a lot of planned features being scrapped and moved to the “Stretch-goals” section of the scope.
+A list of features we had to remove:
+\begin{itemize}
+\item Player and Enemy physical and elemental resistances. This feature required too much in terms of programming and our code wasn't able to handle it.
+\item Music and Sounds. Our lack of knowledge in threading led to this being scrapped after numerous attempts at implementing it.
+\item Fleshed out armor and weapon system. We originally had slots for 3 armor pieces and a melee + ranged weapon. This had to be cut down to a single Armor and Weapon slot in each character's inventory.
+\item Inventory system. This would've included multiple different item types such as consumbles, armors, weapons, quest items, etc. It had to be scrapped due to time constraints.
+\item Save/Load system. While possible, we were limited by the amount of time we had which prevented implementation.
+\item Game story. We weren't able to get all fundamental features down so a Story was out of question with the time we had left.
+\item Merchants and currency. Time constraints.
+\item Hacking puzzles. Time constraints.
+\item More enemy types. Time constraints.
+\end{itemize}
 
 \subsection{Future Work}
-%Where are you going next with your project?
-For early deliverables, what are your next steps?  (HINT: you will typically want to look back at your timeline and evaluate: did you meet your expected goals?  Are you ahead of schedule?  Did you decide to shift gears and implement a new feature?)
-By the end, what do you plan on doing with this project?  Will you try to sell it?  Set it on fire?  Link to it on your resume and forget it exists?
+Overall this project was a good learning experience in many ways. We were able to learn a lot about WPF, game design, UI design, and more. CYBERNUKE will probably end up on our resumes and never see the light of day ever again.
 
 
-%How to cite: (stuff that needs citation)\cite{IEEEhowto:kopka}.
 % BIBLIOGRAPHY ************************************************************************* %
 \bibliographystyle{IEEEtran}
 \bibliography{./reference}
@@ -708,5 +802,3 @@ whatNerd, Joel Lee. \emph{"What’s a Roguelike vs. Roguelite? Is the Difference
 
 % END ********************************************************************************** %
 \end{document}
-
-
