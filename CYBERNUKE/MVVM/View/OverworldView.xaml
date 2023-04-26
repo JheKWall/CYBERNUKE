@@ -333,9 +333,20 @@
 
         <!-- Pause Menu Container -->
         <Grid x:Name="PauseMenuOverlayContainer" Grid.ColumnSpan="15" Grid.RowSpan="20" Visibility="Hidden">
-            <Grid Height="768" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1366"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="19*"/>
+                <RowDefinition Height="731*"/>
+                <RowDefinition Height="18*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="244*"/>
+                <ColumnDefinition Width="878*"/>
+                <ColumnDefinition Width="244*"/>
+            </Grid.ColumnDefinitions>
+
             <Rectangle Fill="#7F000000"/>
-            <Grid x:Name="OverworldView_CharacterMenuContainer" Grid.ColumnSpan="16" Grid.RowSpan="19" Margin="244,19,244,18"/>
+            
+            <Grid x:Name="OverworldView_CharacterMenuContainer" Grid.Column="1" Grid.Row="1"/>
         </Grid>
 
         <!-- Main Menu Navigation -->

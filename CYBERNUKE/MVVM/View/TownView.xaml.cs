@@ -42,11 +42,17 @@ namespace CYBERNUKE.MVVM.View
         {
             InitializeComponent();
 
+            //Set new current town
+            ((MainWindow)Application.Current.MainWindow).currentTown = "TranquilityTown";
+
             hasControl = true;
         }
 
         private void ButtonLeave_Click(object sender, RoutedEventArgs e)
         {
+            //Set TownToMap true
+            ((MainWindow)Application.Current.MainWindow).TownToMap = true;
+
             //Return to overworld view
             var viewModel = (TownViewModel)DataContext;
             if (viewModel.NavigateOverworldViewCommand.CanExecute(null))

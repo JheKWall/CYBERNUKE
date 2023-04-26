@@ -69,8 +69,12 @@
             </Grid.ColumnDefinitions>
 
             <!-- Name -->
-            <TextBlock x:Name="MainBG_Name" Grid.Column="1" Style="{StaticResource PlayerBox_TextBlock}"
-                       Text="NAME" Padding="2,2,0,0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis"/>
+            <TextBlock x:Name="MainBG_Name" Grid.Column="1" Style="{StaticResource PlayerBox_TextBlock}" Foreground="#400000"
+                       Text="NAME" Padding="2,2,0,0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                </TextBlock.Effect>
+            </TextBlock>
 
             <!-- HP Bar -->
             <ProgressBar x:Name="MainBG_HP_Bar" Foreground="#00ff00" Background="#008000" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1"/>

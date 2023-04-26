@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CYBERNUKE.MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,14 +23,39 @@ namespace CYBERNUKE.GameData.UserControls
     {
         //References
         Grid pauseMenuContainer;
+        int currentChar;
 
         public PauseMenu(Grid pauseMenuContainer)
         {
             InitializeComponent();
             ScaleText();
+            Init_ComboBoxes();
 
             this.pauseMenuContainer = pauseMenuContainer;
         }
+
+        #region Equipment Boxes
+        private void Init_ComboBoxes()
+        {
+            //Armor Combobox
+            List<string> armorNameList = new List<string>();
+            for (int i = 0; i < ((MainWindow)Application.Current.MainWindow).ArmorList.Count; i++)
+            {
+                armorNameList.Add(((MainWindow)Application.Current.MainWindow).ArmorList[i].getName());
+            }
+            ArmorListBox.ItemsSource = armorNameList;
+        }
+
+        private void ArmorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Get index of armor
+            int index = ArmorListBox.SelectedIndex;
+            MainArmor selectedArmor = ((MainWindow)Application.Current.MainWindow).ArmorList[index];
+
+            //Set armor on char
+            ((MainWindow)Application.Current.MainWindow).CharacterList[currentChar].setEquippedOutfit(selectedArmor);
+        }
+        #endregion
 
         #region Side Panel ToggleButtons
         private void Character_Button_Checked(object sender, RoutedEventArgs e)
@@ -102,6 +128,7 @@ namespace CYBERNUKE.GameData.UserControls
 
             //Show Select
             Char_One_Select.Visibility = Visibility.Visible;
+            currentChar = 0;
 
             //Hide Other Character Info
 
@@ -117,6 +144,7 @@ namespace CYBERNUKE.GameData.UserControls
 
             //Show Select
             Char_Two_Select.Visibility = Visibility.Visible;
+            currentChar = 1;
 
             //Hide Other Character Info
 
@@ -132,6 +160,7 @@ namespace CYBERNUKE.GameData.UserControls
 
             //Show Select
             Char_Three_Select.Visibility = Visibility.Visible;
+            currentChar = 2;
 
             //Hide Other Character Info
 
@@ -169,12 +198,18 @@ namespace CYBERNUKE.GameData.UserControls
             {
                 case 0: //1366
                     FontSizeVar.FontSize = 38;
+                    InfoFontSizeVar.FontSize = 70;
+                    HeaderFontSizeVar.FontSize = 50;
                     break;
                 case 1: //1600
                     FontSizeVar.FontSize = 42;
+                    InfoFontSizeVar.FontSize = 74;
+                    HeaderFontSizeVar.FontSize = 54;
                     break;
                 case 2: //1920
                     FontSizeVar.FontSize = 46;
+                    InfoFontSizeVar.FontSize = 78;
+                    HeaderFontSizeVar.FontSize = 58;
                     break;
             }
         }

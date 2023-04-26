@@ -55,6 +55,34 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!-- TextBlock Style -->
+        <Style x:Key="PM_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#Microsoft Himalaya"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=FontSizeVar, Path=FontSize}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
+        </Style>
+        <!-- Header TextBlock Style -->
+        <Style x:Key="PM_Header_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#Microsoft Himalaya"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=HeaderFontSizeVar, Path=FontSize}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
+        </Style>
+        <!-- Info TextBlock Style -->
+        <Style x:Key="PM_Info_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#Microsoft Himalaya"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=InfoFontSizeVar, Path=FontSize}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
+        </Style>
     </UserControl.Resources>
 
     <!-- Main Grid -->
@@ -79,6 +107,8 @@
 
         <!-- Font Size Variable -->
         <TextBlock x:Name="FontSizeVar" FontSize="38" Visibility="Hidden" Grid.RowSpan="5" Grid.ColumnSpan="7"/>
+        <TextBlock x:Name="InfoFontSizeVar" FontSize="70" Visibility="Hidden" Grid.RowSpan="5" Grid.ColumnSpan="7"/>
+        <TextBlock x:Name="HeaderFontSizeVar" FontSize="100" Visibility="Hidden" Grid.RowSpan="5" Grid.ColumnSpan="7"/>
 
         <!-- Pause Menu BG -->
         <Image Source="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_MainBG.png" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.RowSpan="5" Grid.ColumnSpan="7"/>
@@ -135,7 +165,106 @@
             <!-- InfoBG -->
             <Image Source="/CYBERNUKE;component/GameData/Images/PauseMenu/PauseMenu_CharacterInfoBG.png" Stretch="Fill" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.Column="3" Grid.Row="1" Grid.RowSpan="7"/>
             <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="7">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="105*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="67*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="230*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Character Name -->
+                <TextBlock x:Name="Char_Name" Grid.Column="2" Grid.Row="2" Style="{StaticResource PM_Header_TextBlock}" Foreground="#400000"
+                       Text="NAME" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="4" Height="100">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Rectangle Fill="#400000" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2"/>
+
+                <!-- Character HP, SP -->
+                <TextBlock x:Name="Char_HP" Grid.Column="2" Grid.Row="5" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
+                       Text="HP: 0/0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="3" Height="70">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock x:Name="Char_SP" Grid.Column="2" Grid.Row="7" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
+                       Text="SP: 0/0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="3" Height="70">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+
+                <!-- Character Stats -->
+                <TextBlock x:Name="Char_STR" Grid.Column="2" Grid.Row="9" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
+                       Text="STR: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.RowSpan="3" Height="70">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock x:Name="Char_END" Grid.Column="3" Grid.Row="9" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
+                       Text="END: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.RowSpan="3" Height="70">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock x:Name="Char_DEX" Grid.Column="2" Grid.Row="11" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
+                       Text="DEX: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.RowSpan="4" Height="70">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock x:Name="Char_INT" Grid.Column="3" Grid.Row="11" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
+                       Text="INT: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.RowSpan="4" Height="70">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Rectangle Fill="#400000" Grid.Column="2" Grid.Row="13" Grid.ColumnSpan="2"/>
+
+                <!-- Character Equipment -->
+                <TextBlock Grid.Column="2" Grid.Row="15" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
+                       Text="EQUIPMENT:" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="4" Height="70">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Rectangle Fill="#400000" Grid.Column="2" Grid.Row="17" Grid.ColumnSpan="2"/>
+                <TextBlock Grid.Column="2" Grid.Row="19" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
+                       Text="ARMOR:" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="1" Height="70" Grid.RowSpan="2">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <ComboBox x:Name="ArmorListBox" Grid.Column="3" Grid.Row="19" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                          SelectionChanged="ArmorComboBox_SelectionChanged"/>
+
             </Grid>
 
             <!-- Selection BG -->
@@ -188,5 +317,6 @@
         <Grid x:Name="Exit_Prompt_Display" Visibility="Hidden" Grid.Column="4" Grid.Row="2">
 
         </Grid>
+        <!-- REMOVE ALL ROW/COLUMN SPANS! REMOVE ALL ROW/COLUMN SPANS! REMOVE ALL ROW/COLUMN SPANS! REMOVE ALL ROW/COLUMN SPANS! -->
     </Grid>
 </UserControl>

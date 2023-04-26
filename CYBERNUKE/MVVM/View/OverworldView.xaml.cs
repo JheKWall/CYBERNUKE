@@ -109,21 +109,35 @@ namespace CYBERNUKE.MVVM.View
             }
             else
             {
-                int spawnIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Spawn_Index(currentMap);
-                if (spawnIndex == -1) //-1 means it couldnt find the mapname in the location data, so it defaults to default spawn location
+                int spawnIndex;
+
+                //If coming from Town
+                if (((MainWindow)Application.Current.MainWindow).TownToMap)
                 {
-                    playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].defaultSpawnY;
-                    playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].defaultSpawnX;
-                }
-                else
-                {
-                    //If coming from Town
-                    if (((MainWindow)Application.Current.MainWindow).TownToMap)
+                    string currentTown = ((MainWindow)Application.Current.MainWindow).currentTown;
+                    spawnIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Spawn_Index(currentTown);
+
+                    if (spawnIndex == -1) //-1 means it couldnt find the mapname in the location data, so it defaults to default spawn location
+                    {
+                        playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].defaultSpawnY;
+                        playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].defaultSpawnX;
+                    }
+                    else
                     {
                         playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].townTeleportLocationData[spawnIndex].locationCoordY;
                         playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].townTeleportLocationData[spawnIndex].locationCoordX;
                     }
-                    //Else you're coming from another map/just spawning in
+                }
+                //Else you're coming from another map/just spawning in
+                else
+                {
+                    spawnIndex = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].Get_Spawn_Index(currentMap);
+
+                    if (spawnIndex == -1) //-1 means it couldnt find the mapname in the location data, so it defaults to default spawn location
+                    {
+                        playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].defaultSpawnY;
+                        playerPosX = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].defaultSpawnX;
+                    }
                     else
                     {
                         playerPosY = ((MainWindow)Application.Current.MainWindow).mapList[currentIndex].teleportLocationData[spawnIndex].locationCoordY;
