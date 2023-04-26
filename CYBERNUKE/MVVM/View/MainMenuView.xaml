@@ -159,7 +159,7 @@
 
             <Button x:Name="StartPrompt_YesButton" Style="{StaticResource MainMenuButton}" Content="YES" FontFamily="Microsoft Himalaya" FontSize="36" 
                     BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" Margin="0,15,0,0"  Height="27" 
-                    Command="{Binding NavigateOverworldViewCommand}"/>
+                    Click="StartPrompt_YesButton_Click"/>
 
             <Button x:Name="StartPrompt_NoButton" Style="{StaticResource MainMenuButton}" Content="NO" FontFamily="Microsoft Himalaya" FontSize="36"
                     BorderBrush="{x:Null}" Background="{x:Null}" FontWeight="Bold" Margin="0,15,0,0"  Height="27" Click="StartPrompt_NoButton_Click"/>

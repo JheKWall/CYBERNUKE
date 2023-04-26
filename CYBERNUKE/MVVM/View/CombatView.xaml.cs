@@ -514,22 +514,44 @@ namespace CYBERNUKE.MVVM.View
                 }
             }
 
-            //Return to overworld view
-            var viewModel = (CombatViewModel)DataContext;
-            if (viewModel.NavigateOverworldViewCommand.CanExecute(null))
+            //If all enemies dead, victory screen
+            if (numEnemyDead == enemyCount)
             {
-                viewModel.NavigateOverworldViewCommand.Execute(null);
+                //set cutscene name
+                ((MainWindow)Application.Current.MainWindow).cutsceneToLoad = "Win";
+
+                //set menu to load (overworld)
+                ((MainWindow)Application.Current.MainWindow).menuToLoad = 1;
+            }
+            else //If you flee
+            {
+                //set cutscene name
+                ((MainWindow)Application.Current.MainWindow).cutsceneToLoad = "Escape";
+
+                //set menu to load (overworld)
+                ((MainWindow)Application.Current.MainWindow).menuToLoad = 1;
+            }
+
+            //switch to cutscene view
+            var viewModel = (CombatViewModel)DataContext;
+            if (viewModel.NavigateCutsceneViewCommand.CanExecute(null))
+            {
+                viewModel.NavigateCutsceneViewCommand.Execute(null);
             }
         }
         private void EnemyEndCombat() //Enemy victory, game over
         {
-            //Show game over screen
+            //set cutscene name
+            ((MainWindow)Application.Current.MainWindow).cutsceneToLoad = "Gameover";
 
-            //kick player to main menu
+            //set menu to load (overworld)
+            ((MainWindow)Application.Current.MainWindow).menuToLoad = 0;
+
+            //switch to cutscene view
             var viewModel = (CombatViewModel)DataContext;
-            if (viewModel.NavigateMainMenuViewCommand.CanExecute(null))
+            if (viewModel.NavigateCutsceneViewCommand.CanExecute(null))
             {
-                viewModel.NavigateMainMenuViewCommand.Execute(null);
+                viewModel.NavigateCutsceneViewCommand.Execute(null);
             }
         }
 

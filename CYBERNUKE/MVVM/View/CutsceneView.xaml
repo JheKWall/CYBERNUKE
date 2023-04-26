@@ -7,14 +7,51 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" 
              d:DesignWidth="1366"
-             Background="Yellow">
+             Background="#400000">
+    <UserControl.Resources>
+        <!-- Header TextBlock Style -->
+        <Style x:Key="Cutscene_Header_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#Microsoft Himalaya"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=HeaderFontSizeVar, Path=FontSize}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
+        </Style>
+        <!-- Footer TextBlock Style -->
+        <Style x:Key="Cutscene_Footer_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#Microsoft Himalaya"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=FooterFontSizeVar, Path=FontSize}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
+        </Style>
+        <!-- Main Menu Button Style -->
+        <Style x:Key="Cutscene_Button" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid>
         <!-- Horizontal Grid -->
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="142*"/>
+            <RowDefinition Height="57*"/>
         </Grid.RowDefinitions>
         <!-- Vertical Grid -->
         <Grid.ColumnDefinitions>
@@ -23,9 +60,25 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Cutscene View Test" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
-        <Image Source="/CYBERNUKE;component/GameData/Images/capybara_60.jpg" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!-- Font Size Var -->
+        <TextBlock x:Name="HeaderFontSizeVar" FontSize="100" Visibility="Hidden"/>
+        <TextBlock x:Name="FooterFontSizeVar" FontSize="60" Visibility="Hidden"/>
 
+        <TextBlock x:Name="Cutscene_Text" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Style="{StaticResource Cutscene_Header_TextBlock}" Foreground="Red"
+                       Text="SOMEWHERE IN NEVADA..." HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" VerticalAlignment="Center">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Style="{StaticResource Cutscene_Footer_TextBlock}" Foreground="Red"
+                       Text="CLICK TO CONTINUE" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" VerticalAlignment="Center">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <Button x:Name="Cutscene_FullScreenClick" Style="{StaticResource Cutscene_Button}" Grid.ColumnSpan="3" Grid.RowSpan="3" Background="#02DDDDDD" BorderBrush="#FF290000" Click="Cutscene_FullScreenClick_Click"/>
 
     </Grid>
 </UserControl>

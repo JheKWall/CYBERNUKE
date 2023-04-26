@@ -54,6 +54,10 @@ namespace CYBERNUKE
         //Enemy Variables
         public List<string> enemyPartyList = new List<string>(); //Enemy parties encountered randomly while walking
 
+        //Cutscene Variables
+        public string cutsceneToLoad = "Intro";
+        public int menuToLoad = 0; //0 == main menu, 1 == overworld, 2 == town, 3 == combat
+
         public MainWindow()
         {
             InitializeComponent();
