@@ -41,11 +41,48 @@ namespace CYBERNUKE.MVVM.View
         public TownView()
         {
             InitializeComponent();
+            ScaleText();
 
             //Set new current town
             ((MainWindow)Application.Current.MainWindow).currentTown = "TranquilityTown";
 
             hasControl = true;
+        }
+
+        private void ScaleText()
+        {
+            switch (Application.Current.MainWindow.Width)
+            {
+                case 1366:
+                    ChangeFontSize(0);
+                    break;
+                case 1600:
+                    ChangeFontSize(1);
+                    break;
+                case 1920:
+                    ChangeFontSize(2);
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void ChangeFontSize(int size)
+        {
+            switch (size)
+            {
+                case 0: //1366
+                    Dialogue_Text.FontSize = 32;
+                    DialogueContinue.FontSize = 22;
+                    break;
+                case 1: //1600
+                    Dialogue_Text.FontSize = 35;
+                    DialogueContinue.FontSize = 25;
+                    break;
+                case 2: //1920
+                    Dialogue_Text.FontSize = 45;
+                    DialogueContinue.FontSize = 35;
+                    break;
+            }
         }
 
         private void ButtonLeave_Click(object sender, RoutedEventArgs e)

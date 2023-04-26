@@ -130,27 +130,29 @@
     <Grid>
         <!-- Horizontal Grid -->
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="286"/>
+            <RowDefinition Height="241*"/>
+            <RowDefinition Height="143*"/>
         </Grid.RowDefinitions>
         <!-- Vertical Grid -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="766"/>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="301*"/>
+            <ColumnDefinition Width="175*"/>
+            <ColumnDefinition Width="414*"/>
+            <ColumnDefinition Width="175*"/>
+            <ColumnDefinition Width="301*"/>
         </Grid.ColumnDefinitions>
-        
-
-        <TextBlock Text="Town View Test" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="50" Visibility="Hidden" Height="67" Width="334" Margin="416,178,0,0"/>
-        <Image Source="/CYBERNUKE;component/GameData/Towns/CYBERNUKE_TOWN_TRANQUILITY.png" Margin="-21,-58,0,0" Grid.ColumnSpan="3" Grid.RowSpan="2" Stretch="UniformToFill"/>
-        <Image Source="/CYBERNUKE;component/GameData/Images/TownMenu/townviewpanel.png" Grid.Column="1" Grid.Row="1" Margin="183,0,183,0"/>
 
 
+        <TextBlock Text="Town View Test" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="50" Visibility="Hidden" Height="67" Width="334" Margin="326,178,0,0" Grid.ColumnSpan="3"/>
+        <Image Source="/CYBERNUKE;component/GameData/Towns/CYBERNUKE_TOWN_TRANQUILITY.png" Grid.ColumnSpan="5" Grid.RowSpan="2" Stretch="UniformToFill"/>
+        <Image Source="/CYBERNUKE;component/GameData/Images/TownMenu/townviewpanel.png" Grid.Column="1" Grid.Row="1" RenderOptions.BitmapScalingMode="NearestNeighbor" Grid.ColumnSpan="3" Height="286" VerticalAlignment="Top"/>
 
 
-        <Image Source="/CYBERNUKE;component/GameData/Images/capybara (6).png" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Hidden" Height="334" Width="342" Margin="412,195,0,0" Grid.RowSpan="2"/>
-        <StackPanel x:Name="ButtonStackPanel" Grid.Column="1" Grid.Row="1" Margin="10,70,10,10"/>
-        <Grid Grid.Column="1" Grid.Row="1">
+
+
+        <Image Source="/CYBERNUKE;component/GameData/Images/capybara (6).png" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Hidden" Height="334" Width="342" Margin="322,195,0,0" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+        <StackPanel x:Name="ButtonStackPanel" Grid.Column="1" Grid.Row="1" Margin="10,70,10,10" Grid.ColumnSpan="3"/>
+        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>
                 <RowDefinition/>
@@ -159,7 +161,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="TownNameTextBlock" FontWeight="Bold" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Grid.ColumnSpan="2" Height="45" Width="746" Margin="0,0,0,0" FontFamily="Microsoft Himalaya" FontSize="60" Text="-- Tranquility --" Foreground="Black"/>
+            <TextBlock x:Name="TownNameTextBlock" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Grid.ColumnSpan="2" Margin="0,5,18,5" FontFamily="Microsoft Himalaya" FontSize="60" Text="-- Tranquility --" Foreground="Black"/>
             <StackPanel x:Name="TownButtonsStackPanel1" Grid.Row="1" Margin="203,5,202,5" Grid.ColumnSpan="2">
                 <Button x:Name="ButtonLeave" Style="{StaticResource MainMenuButton}" FontWeight="Bold" Content="1. Leave" Height="45" FontFamily="Microsoft Himalaya" FontSize="64" Margin="5" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonLeave_Click"/>
                 <Button x:Name="ButtonNPC1" Style="{StaticResource MainMenuButton}" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Content="2. Old Man" Height="45" FontFamily="Microsoft Himalaya" FontSize="64" Margin="5" Click="ButtonNPC1_Click"/>
@@ -169,8 +171,8 @@
 
         </Grid>
         <!-- PopUp Box -->
-        <Grid x:Name="PopUpContainer" Grid.Column="1"
-              Visibility="Hidden">
+        <Grid x:Name="PopUpContainer" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5"
+              Visibility="Hidden" Grid.ColumnSpan="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="346*"/>
                 <ColumnDefinition Width="360*"/>
