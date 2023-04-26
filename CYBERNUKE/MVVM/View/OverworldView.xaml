@@ -344,7 +344,7 @@
                 <ColumnDefinition Width="244*"/>
             </Grid.ColumnDefinitions>
 
-            <Rectangle Fill="#7F000000"/>
+            <Rectangle Fill="#7F000000" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
             
             <Grid x:Name="OverworldView_CharacterMenuContainer" Grid.Column="1" Grid.Row="1"/>
         </Grid>

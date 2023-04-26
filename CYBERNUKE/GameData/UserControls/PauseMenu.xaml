@@ -83,6 +83,157 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
         </Style>
+        <!-- ComboBox Style -->
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="95*" />
+                    <ColumnDefinition Width="9*" />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border
+                  x:Name="Border" 
+                  Grid.ColumnSpan="3"
+                  CornerRadius="0"
+                  Background="Black"
+                  BorderBrush="Red"
+                  BorderThickness="2" />
+                <Border 
+                  Grid.Column="0"
+                  CornerRadius="0" 
+                  Background="Transparent" 
+                  BorderBrush="Red"
+                  BorderThickness="0,0,2,0" />
+                <Path 
+                  x:Name="Arrow"
+                  Grid.Column="1"
+                  Fill="White"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Data="M0,0 L0,2 L4,6 L8,2 L8,0 L4,4 z" Height="11" Stretch="Fill" Width="14"
+                />
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+            <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+
+        <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=ComboBoxFontSizeVar, Path=FontSize}"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton 
+                            Name="ToggleButton" 
+                            Template="{StaticResource ComboBoxToggleButton}" 
+                            Grid.Column="2" 
+                            Focusable="false"
+                            IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+                            ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                            Margin="3,3,23,3"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox"
+                            Style="{x:Null}" 
+                            Template="{StaticResource ComboBoxTextBox}" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Center" 
+                            Margin="3,3,23,3"
+                            Focusable="True" 
+                            Background="#FF3F3F3F"
+                            Foreground="Green"
+                            Visibility="Hidden"
+                            IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup 
+                            Name="Popup"
+                            Placement="Bottom"
+                            IsOpen="{TemplateBinding IsDropDownOpen}"
+                            AllowsTransparency="True" 
+                            Focusable="False"
+                            PopupAnimation="Slide">
+
+                                <Grid Name="DropDown"
+                              SnapsToDevicePixels="True"                
+                              MinWidth="{TemplateBinding ActualWidth}"
+                              MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border 
+                                        x:Name="DropDownBorder"
+                                        Background="Black"
+                                        BorderThickness="2"
+                                        BorderBrush="#400000"/> 
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#888888"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+                                <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="0"/>
+                                <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsEditable"  Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+
+        <!-- SimpleStyles: ComboBoxItem -->
+        <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                        <Border Name="Border"
+                              Padding="2"
+                              SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#FF4F4F4F"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#888888"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
 
     <!-- Main Grid -->
@@ -106,6 +257,7 @@
         </Grid.RowDefinitions>
 
         <!-- Font Size Variable -->
+        <TextBlock x:Name="ComboBoxFontSizeVar" FontSize="28" Visibility="Hidden" Grid.RowSpan="5" Grid.ColumnSpan="7"/>
         <TextBlock x:Name="FontSizeVar" FontSize="38" Visibility="Hidden" Grid.RowSpan="5" Grid.ColumnSpan="7"/>
         <TextBlock x:Name="InfoFontSizeVar" FontSize="70" Visibility="Hidden" Grid.RowSpan="5" Grid.ColumnSpan="7"/>
         <TextBlock x:Name="HeaderFontSizeVar" FontSize="100" Visibility="Hidden" Grid.RowSpan="5" Grid.ColumnSpan="7"/>
@@ -194,13 +346,21 @@
                     <RowDefinition Height="4*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="47*"/>
-                    <RowDefinition Height="230*"/>
+                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="11*"/>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="80*"/>
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
                 <!-- Character Name -->
                 <TextBlock x:Name="Char_Name" Grid.Column="2" Grid.Row="2" Style="{StaticResource PM_Header_TextBlock}" Foreground="#400000"
-                       Text="NAME" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="4" Height="100">
+                       Text="NAME" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                     </TextBlock.Effect>
@@ -209,13 +369,13 @@
 
                 <!-- Character HP, SP -->
                 <TextBlock x:Name="Char_HP" Grid.Column="2" Grid.Row="5" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
-                       Text="HP: 0/0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="3" Height="70">
+                       Text="HP: 0/0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                     </TextBlock.Effect>
                 </TextBlock>
                 <TextBlock x:Name="Char_SP" Grid.Column="2" Grid.Row="7" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
-                       Text="SP: 0/0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="3" Height="70">
+                       Text="SP: 0/0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                     </TextBlock.Effect>
@@ -223,25 +383,25 @@
 
                 <!-- Character Stats -->
                 <TextBlock x:Name="Char_STR" Grid.Column="2" Grid.Row="9" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
-                       Text="STR: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.RowSpan="3" Height="70">
+                       Text="STR: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                     </TextBlock.Effect>
                 </TextBlock>
                 <TextBlock x:Name="Char_END" Grid.Column="3" Grid.Row="9" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
-                       Text="END: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.RowSpan="3" Height="70">
+                       Text="END: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                     </TextBlock.Effect>
                 </TextBlock>
                 <TextBlock x:Name="Char_DEX" Grid.Column="2" Grid.Row="11" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
-                       Text="DEX: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.RowSpan="4" Height="70">
+                       Text="DEX: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                     </TextBlock.Effect>
                 </TextBlock>
                 <TextBlock x:Name="Char_INT" Grid.Column="3" Grid.Row="11" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
-                       Text="INT: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.RowSpan="4" Height="70">
+                       Text="INT: 0" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                     </TextBlock.Effect>
@@ -250,21 +410,41 @@
 
                 <!-- Character Equipment -->
                 <TextBlock Grid.Column="2" Grid.Row="15" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
-                       Text="EQUIPMENT:" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="4" Height="70">
+                       Text="EQUIPMENT:" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="2">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                     </TextBlock.Effect>
                 </TextBlock>
                 <Rectangle Fill="#400000" Grid.Column="2" Grid.Row="17" Grid.ColumnSpan="2"/>
                 <TextBlock Grid.Column="2" Grid.Row="19" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
-                       Text="ARMOR:" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="1" Height="70" Grid.RowSpan="2">
+                       Text="ARMOR:" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
                     </TextBlock.Effect>
                 </TextBlock>
-                <ComboBox x:Name="ArmorListBox" Grid.Column="3" Grid.Row="19" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                <ComboBox x:Name="ArmorListBox" Grid.Column="3" Grid.Row="19"
                           SelectionChanged="ArmorComboBox_SelectionChanged"/>
-
+                <TextBlock Grid.Column="2" Grid.Row="21" Style="{StaticResource PM_TextBlock}" Foreground="#400000"
+                       Text="EQUIPPED: CURRENT ARMOR" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Rectangle Fill="#400000" Grid.Column="2" Grid.Row="23" Grid.ColumnSpan="2"/>
+                <TextBlock Grid.Column="2" Grid.Row="25" Style="{StaticResource PM_Info_TextBlock}" Foreground="#400000"
+                       Text="WEAPN:" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <ComboBox x:Name="WeaponListBox" Grid.Column="3" Grid.Row="25"
+                          SelectionChanged="WeaponComboBox_SelectionChanged"/>
+                <TextBlock Grid.Column="2" Grid.Row="27" Style="{StaticResource PM_TextBlock}" Foreground="#400000"
+                       Text="EQUIPPED: CURRENT WEAPON" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
+                    </TextBlock.Effect>
+                </TextBlock>
             </Grid>
 
             <!-- Selection BG -->

@@ -44,6 +44,14 @@ namespace CYBERNUKE.GameData.UserControls
                 armorNameList.Add(((MainWindow)Application.Current.MainWindow).ArmorList[i].getName());
             }
             ArmorListBox.ItemsSource = armorNameList;
+
+            //Weapon Combobox
+            List<string> weaponNameList = new List<string>();
+            for (int i = 0; i < ((MainWindow)Application.Current.MainWindow).WeaponList.Count; i++)
+            {
+                weaponNameList.Add(((MainWindow)Application.Current.MainWindow).WeaponList[i].getName());
+            }
+            WeaponListBox.ItemsSource = weaponNameList;
         }
 
         private void ArmorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,6 +62,21 @@ namespace CYBERNUKE.GameData.UserControls
 
             //Set armor on char
             ((MainWindow)Application.Current.MainWindow).CharacterList[currentChar].setEquippedOutfit(selectedArmor);
+
+            //Update current armor
+
+        }
+        private void WeaponComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Get index of armor
+            int index = WeaponListBox.SelectedIndex;
+            MainWeapon selectedWeapon = ((MainWindow)Application.Current.MainWindow).WeaponList[index];
+
+            //Set armor on char
+            ((MainWindow)Application.Current.MainWindow).CharacterList[currentChar].setEquippedWeapon(selectedWeapon);
+
+            //Update current weapon
+
         }
         #endregion
 
@@ -197,16 +220,19 @@ namespace CYBERNUKE.GameData.UserControls
             switch (size)
             {
                 case 0: //1366
+                    ComboBoxFontSizeVar.FontSize = 28;
                     FontSizeVar.FontSize = 38;
                     InfoFontSizeVar.FontSize = 70;
                     HeaderFontSizeVar.FontSize = 50;
                     break;
                 case 1: //1600
+                    ComboBoxFontSizeVar.FontSize = 32;
                     FontSizeVar.FontSize = 42;
                     InfoFontSizeVar.FontSize = 74;
                     HeaderFontSizeVar.FontSize = 54;
                     break;
                 case 2: //1920
+                    ComboBoxFontSizeVar.FontSize = 36;
                     FontSizeVar.FontSize = 46;
                     InfoFontSizeVar.FontSize = 78;
                     HeaderFontSizeVar.FontSize = 58;

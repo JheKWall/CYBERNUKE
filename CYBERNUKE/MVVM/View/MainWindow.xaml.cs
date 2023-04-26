@@ -89,7 +89,7 @@ namespace CYBERNUKE
             #region Main Armor Init
             MainArmor armorOne = new MainArmor("Labrat Suit", 20, "The suit of those who are forgotten at birth and experimented on relentlessly.");
             MainArmor armorTwo = new MainArmor("Medieval Armor", 10, "In this day and age, metal plates won't get you far when you're up against energy weapons.");
-            MainArmor armorThree = new MainArmor("Corporate Standard", 20, "Offers surprising protection, probably because nobody likes bureaucrats.");
+            MainArmor armorThree = new MainArmor("Corporate Assassin", 20, "Offers surprising protection, probably because nobody likes bureaucrats.");
             MainArmor armorFour = new MainArmor("Sun Armor", 15, "A suit of metal armor with a sun painted on the chestpiece. Praise the Sun!");
             MainArmor armorFive = new MainArmor("Demonica", 50, "Demountable Next Integrated Capability Armor, a high-tech demon summoning suit.");
             MainArmor armorSix = new MainArmor("Power Armor", 30, "Surprisingly manueverable and highly effective, fusion cores not included.");
