@@ -293,6 +293,16 @@ namespace CYBERNUKE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap KELPY_Portrait2 {
+            get {
+                object obj = ResourceManager.GetObject("KELPY_Portrait2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MainMenu_CityParallax_1 {
             get {
                 object obj = ResourceManager.GetObject("MainMenu_CityParallax_1", resourceCulture);
@@ -346,6 +356,16 @@ namespace CYBERNUKE.Properties {
         internal static System.Drawing.Bitmap MAST_Portrait {
             get {
                 object obj = ResourceManager.GetObject("MAST_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MAST_Portrait2 {
+            get {
+                object obj = ResourceManager.GetObject("MAST_Portrait2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -566,6 +586,16 @@ namespace CYBERNUKE.Properties {
         internal static System.Drawing.Bitmap PROTO_Portrait {
             get {
                 object obj = ResourceManager.GetObject("PROTO_Portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PROTO_Portrait2 {
+            get {
+                object obj = ResourceManager.GetObject("PROTO_Portrait2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -70,12 +70,12 @@ namespace CYBERNUKE
             #endregion
 
             #region Main Weapon Init
-            MainWeapon weaponOne = new MainWeapon("Holosword", 42, 15, "A hilt that projects a large 4 foot blade. It almost feels weightless.");
-            MainWeapon weaponTwo = new MainWeapon("Daemonbrand", 60, 35, "A hefty blade infused with the souls of daemons.");
-            MainWeapon weaponThree = new MainWeapon("A Cute Plushie", 1, 1, "A stuffed animal that has seen better days.");
-            MainWeapon weaponFour = new MainWeapon("Nukestaff", 999, 100, "A large metal rod with a mini-nuke at the end. Surely you're not thinking of using it, right?");
-            MainWeapon weaponFive = new MainWeapon("Photonsaber", 40, 15, "Replace Photon with Light and you've got yourself a lawsuit.");
-            MainWeapon weaponSix = new MainWeapon("Lasgun", 50, 25, "A big hefty metal gun that shoots lasers, battery pack not included.");
+            MainWeapon weaponOne = new MainWeapon("HOLOSWORD", 42, 15, "A hilt that projects a large 4 foot blade. It almost feels weightless.");
+            MainWeapon weaponTwo = new MainWeapon("DAEMONBRAND", 60, 35, "A hefty blade infused with the souls of daemons.");
+            MainWeapon weaponThree = new MainWeapon("CUTE PLUSHIE", 1, 1, "A stuffed animal that has seen better days.");
+            MainWeapon weaponFour = new MainWeapon("NUKESTAFF", 999, 100, "A large metal rod with a mini-nuke at the end. Surely you're not thinking of using it, right?");
+            MainWeapon weaponFive = new MainWeapon("PHOTONSABER", 40, 15, "Replace Photon with Light and you've got yourself a lawsuit.");
+            MainWeapon weaponSix = new MainWeapon("LASGUN", 50, 25, "A big hefty metal gun that shoots lasers, battery pack not included.");
             MainWeapon weaponSeven = new MainWeapon("G.B.E.", 70, 50, "Gravitational Beam Emitter, otherwise known as the gun that will tear your hands off if you're not careful.");
             WeaponList.Add(weaponOne);
             WeaponList.Add(weaponTwo);
@@ -87,13 +87,13 @@ namespace CYBERNUKE
             #endregion
 
             #region Main Armor Init
-            MainArmor armorOne = new MainArmor("Labrat Suit", 20, "The suit of those who are forgotten at birth and experimented on relentlessly.");
-            MainArmor armorTwo = new MainArmor("Medieval Armor", 10, "In this day and age, metal plates won't get you far when you're up against energy weapons.");
-            MainArmor armorThree = new MainArmor("Corporate Assassin", 20, "Offers surprising protection, probably because nobody likes bureaucrats.");
-            MainArmor armorFour = new MainArmor("Sun Armor", 15, "A suit of metal armor with a sun painted on the chestpiece. Praise the Sun!");
-            MainArmor armorFive = new MainArmor("Demonica", 50, "Demountable Next Integrated Capability Armor, a high-tech demon summoning suit.");
-            MainArmor armorSix = new MainArmor("Power Armor", 30, "Surprisingly manueverable and highly effective, fusion cores not included.");
-            MainArmor armorSeven = new MainArmor("Nanosuit", 40, "A suit comprised of reactive nanobots capable of increasing armor thickness at points of impact.");
+            MainArmor armorOne = new MainArmor("ANDROID SUIT", 20, "The suit of those who are forgotten at birth and experimented on relentlessly.");
+            MainArmor armorTwo = new MainArmor("MEDIEVAL ARMOR", 10, "In this day and age, metal plates won't get you far when you're up against energy weapons.");
+            MainArmor armorThree = new MainArmor("CORPORATE ASSASSIN", 20, "Offers surprising protection, probably because nobody likes bureaucrats.");
+            MainArmor armorFour = new MainArmor("SUN ARMOR", 15, "A suit of metal armor with a sun painted on the chestpiece. Praise the Sun!");
+            MainArmor armorFive = new MainArmor("DEMONICA", 50, "Demountable Next Integrated Capability Armor, a high-tech demon summoning suit.");
+            MainArmor armorSix = new MainArmor("POWER ARMOR", 30, "Surprisingly manueverable and highly effective, fusion cores not included.");
+            MainArmor armorSeven = new MainArmor("NANOSUIT", 40, "A suit comprised of reactive nanobots capable of increasing armor thickness at points of impact.");
             ArmorList.Add(armorOne);
             ArmorList.Add(armorTwo);
             ArmorList.Add(armorThree);

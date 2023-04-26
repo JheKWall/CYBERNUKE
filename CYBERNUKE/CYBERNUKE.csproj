@@ -516,5 +516,19 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GameData\Images\PlayerPortrait\KELPY_Portrait2.png" />
+    <Resource Include="GameData\Images\PlayerPortrait\MAST_Portrait2.png" />
+    <Resource Include="GameData\Images\PlayerPortrait\PROTO_Portrait2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PROTO_Portrait2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KELPY_Portrait2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAST_Portrait2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -83,6 +83,38 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor"/>
         </Style>
+        <!-- Big Button Style -->
+        <Style x:Key="PM_Big_Button" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=InfoFontSizeVar, Path=FontSize}"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#Microsoft Himalaya"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Map Textblock -->
+        <Style x:Key="PM_Map_TextBlock" TargetType="TextBlock">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Foreground" Value="#f0f0f0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="/CYBERNUKE;component/GameData/Fonts/#OCR A Extended"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=FontSizeVar, Path=FontSize}"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+
         <!-- ComboBox Style -->
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
             <Grid>
@@ -175,7 +207,7 @@
                                         x:Name="DropDownBorder"
                                         Background="Black"
                                         BorderThickness="2"
-                                        BorderBrush="#400000"/> 
+                                        BorderBrush="#400000"/>
                                     <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
                                         <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
                                     </ScrollViewer>
@@ -424,7 +456,7 @@
                 </TextBlock>
                 <ComboBox x:Name="ArmorListBox" Grid.Column="3" Grid.Row="19"
                           SelectionChanged="ArmorComboBox_SelectionChanged"/>
-                <TextBlock Grid.Column="2" Grid.Row="21" Style="{StaticResource PM_TextBlock}" Foreground="#400000"
+                <TextBlock x:Name="Char_EquippedArmor" Grid.Column="2" Grid.Row="21" Style="{StaticResource PM_TextBlock}" Foreground="#400000"
                        Text="EQUIPPED: CURRENT ARMOR" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
@@ -439,7 +471,7 @@
                 </TextBlock>
                 <ComboBox x:Name="WeaponListBox" Grid.Column="3" Grid.Row="25"
                           SelectionChanged="WeaponComboBox_SelectionChanged"/>
-                <TextBlock Grid.Column="2" Grid.Row="27" Style="{StaticResource PM_TextBlock}" Foreground="#400000"
+                <TextBlock x:Name="Char_EquippedWeapon" Grid.Column="2" Grid.Row="27" Style="{StaticResource PM_TextBlock}" Foreground="#400000"
                        Text="EQUIPPED: CURRENT WEAPON" HorizontalAlignment="Stretch" TextTrimming="CharacterEllipsis" VerticalAlignment="Top" Grid.ColumnSpan="2">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="1" Direction="330" Color="#c00000" Opacity="5" BlurRadius="0"/>
@@ -491,10 +523,59 @@
                 </Button>
             </Grid>
         </Grid>
-        <Grid x:Name="Map_Display" Visibility="Hidden" Grid.Column="4" Grid.Row="2">
+
+        <Grid x:Name="Map_Display" Visibility="Hidden" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="3"
+              Background="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="124"/>
+                <RowDefinition Height="111"/>
+                <RowDefinition Height="37"/>
+                <RowDefinition Height="95"/>
+                <RowDefinition Height="352"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="49*"/>
+                <ColumnDefinition Width="91*"/>
+                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="102*"/>
+                <ColumnDefinition Width="53*"/>
+                <ColumnDefinition Width="91*"/>
+                <ColumnDefinition Width="49*"/>
+                <ColumnDefinition Width="145*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <Rectangle Fill="Red" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3"/>
+            <TextBlock Text="GROVE STREET" Style="{StaticResource PM_Map_TextBlock}"
+                       Grid.Column="1" Grid.ColumnSpan="5" HorizontalAlignment="Center"/>
+
+            <Rectangle Fill="Lime" Grid.Column="3" Grid.Row="3"/>
+            <TextBlock Text="CHECKPOINT" Style="{StaticResource PM_Map_TextBlock}" VerticalAlignment="Top"
+                       Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="4" HorizontalAlignment="Center"/>
+
+            <Rectangle Fill="Lime" Grid.Column="5" Grid.Row="3"/>
+            <TextBlock Text="TOWN    " Style="{StaticResource PM_Map_TextBlock}" VerticalAlignment="Center"
+                       Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center"/>
 
         </Grid>
-        <Grid x:Name="Exit_Prompt_Display" Visibility="Hidden" Grid.Column="4" Grid.Row="2">
+
+        <Grid x:Name="Exit_Prompt_Display" Visibility="Hidden" Grid.Column="5" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="145*"/>
+                <ColumnDefinition Width="168*" />
+                <ColumnDefinition Width="167*"/>
+                <ColumnDefinition Width="145*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="270*"/>
+                <RowDefinition Height="90*"/>
+                <RowDefinition Height="90*"/>
+                <RowDefinition Height="269*"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="PM_QuitGame" Grid.Column="1" Grid.Row="1" Style="{StaticResource PM_Big_Button}" FontStyle="Normal"
+                       Content="EXIT GAME" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Click="PM_QuitGame_Click"/>
 
         </Grid>
         <!-- REMOVE ALL ROW/COLUMN SPANS! REMOVE ALL ROW/COLUMN SPANS! REMOVE ALL ROW/COLUMN SPANS! REMOVE ALL ROW/COLUMN SPANS! -->

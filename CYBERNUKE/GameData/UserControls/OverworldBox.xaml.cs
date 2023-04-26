@@ -33,6 +33,9 @@ namespace CYBERNUKE.GameData.UserControls
 
             // Get SP
             SP_Display.Text = "SP: " + currentsp.ToString() + "/" + maxsp.ToString();
+
+            // Get Portrait
+            CharPortrait.Source = new BitmapImage(new Uri("pack://application:,,,/CYBERNUKE;component/GameData/Images/PlayerPortrait/" + name + "_Portrait2.png"));
         }
 
 

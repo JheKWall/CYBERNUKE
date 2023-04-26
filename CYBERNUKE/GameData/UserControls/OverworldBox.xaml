@@ -54,6 +54,7 @@
         <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Source="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_PlayerBox.png" Grid.ColumnSpan="5" Grid.RowSpan="6"/>
 
         <!-- Character Portrait -->
+        <Image x:Name="CharPortrait" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
 
         <!-- Character Text -->
         <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">

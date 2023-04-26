@@ -202,7 +202,7 @@
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_X.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>
         <Button x:Name="Button_Map" Style="{StaticResource ControlPanel_Button}" Grid.Column="8" Grid.Row="15" Grid.ColumnSpan="2" Grid.RowSpan="2"
-                Click="Button_Map_Click">
+                Visibility="Hidden">
             <BitmapImage UriSource="/CYBERNUKE;component/GameData/Images/OverworldMenu/OverworldMenu_Button_C.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Button>
 

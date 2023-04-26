@@ -788,13 +788,6 @@ namespace CYBERNUKE.MVVM.View
                 }
             }
         }
-        private void Button_Map_Click(object sender, RoutedEventArgs e)
-        {
-            if (hasControl)
-            {
-                // Open local map
-            }
-        }
         #endregion
 
         #region Meta Methods
@@ -883,10 +876,6 @@ namespace CYBERNUKE.MVVM.View
 
                     case Key.X:
                         Button_Down.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
-                        break;
-
-                    case Key.C:
-                        Button_Map.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
                         break;
 
                     default:
