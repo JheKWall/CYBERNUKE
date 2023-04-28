@@ -610,7 +610,8 @@ Updated stretch-goals:
 \item Story Content\\
 \end{enumerate}
 
-Apr. 28 Final Presentation: Not reached
+Apr. 28 Final Presentation: 
+Requirements were not changed from the last update.
 
 \vspace{5px}
 \underline{2. Design}
@@ -624,7 +625,7 @@ Apr. 10 Project Update: UML was re-factored for the new MVVM design pattern bein
 
 Apr. 21 Penultimate Update: UML was worked on to accomodate new implementations.\\
 
-Apr. 28 Final Presentation: Not reached
+Apr. 28 Final Presentation: UML was updated to accomodate the new implementations of the Pause Menu, Town Views, User Controls, etc.
 
 
 This stage resulted in the creation of the first UML diagram for CYBERNUKE.
@@ -641,7 +642,7 @@ Apr. 10 Project Update: By this point we had the main menu 90\% done, it was mis
 
 Apr. 21 Penultimate Update: The combat menu, overworld menu, and town menu were being worked on with the overworld menu being the closest to finished.\\
 
-Apr. 28 Final Presentation: Not reached
+Apr. 28 Final Presentation: The pause menu, town menu, overworld menu, cutscene menu , and combat menu were fully implemented and the game was finished.
 
 \vspace{5px}
 \underline{4. Testing}
@@ -655,7 +656,7 @@ Apr. 10 Project Update: Main menu functionality was verified.\\
 
 Apr. 21 Penultimate Update: Overworld functionality was verified. Testing began on combat and town menus.\\
 
-Apr. 28 Final Presentation: Not reached
+Apr. 28 Final Presentation: Functionality of all menus was verified before the presentation.
 
 \vspace{5px}
 \underline{5. Maintenance}
@@ -686,62 +687,16 @@ The basis of Cybernuke's structure is built on top of the MVVM (Model-View-ViewM
 \end{itemize}
 
 \subsection{UML Outline}
-This is the entire UML for CYBERNUKE so far:
-
-\begin{figure}[h]
-\centering
-\includegraphics[height=300px, width=500px]{UML/UML Screenshots for Deliverable/CYBERNUKE_UML_REVAMP.png}
-\caption{Entire UML for the CYBERNUKE project, divided into sections depending on the folder the actual code file is in}
-\label{uml_view}
-\end{figure}
-
-As listed in the caption, each section of the UML is sorted based on the folder and function the classes serve. As is evident, all of the Views for CYBERNUKE are contained in the [View] section, the User Controls in the [UserControls] section, and so on.
-
-\begin{itemize}
-
-\item First, in the top-left, the Model-View-ViewModel Manager (MVVM) section. This portion of the UML holds the classes used to handle switching from view to view. The NavigationService inherits from the INavigationService interface and from the ObservableObject class, and is primarily used to manage the current view of the program as well as navigating to other views as required. The ViewModel class, though without implementation inside the classes, are registered within the program on startup and link View to View. The RelayCommand class is used to program the navigation between the Views, but only after the Singletons from the ViewModels are registered.
-
-\item Next, in the bottom-left, the View section holds all the Views (and the Main Window) used in CYBERNUKE. Each View correlates to a different part of CYBERNUKE's gameplay elements. 
-
-	\begin{enumerate}
-
-	\item The MainMenuView correlates to the Main Menu that is loaded upon starting CYBERNUKE and holds its functionality: Starting the game, loading a game, configuring options, and leaving. 
-
-	\item The OverworldView correlates to the game world and handles rendering the player's movement, the player interacting with objects, and random encounters that occur as the player moves about the world.
-
-	\item From there, the CombatView manages combat: counting the number of players (the player and their companions) and the number of enemies the players are facing. It is also responsible for handling actions the player takes throughout combat, like attacking, guarding, fleeing, and so forth. 
-
-	\item The CharacterView is essentially the "Pause Menu" of CYBERNUKE: you can manage the equipment of the main character and his companions in this view, see a map of the overworld (currently the mockup we drew at the beginning), edit options, and exit the game. And, of course, return back to the overworld (where this view is accessed from). 
-
-	\item Behind all of these Views is the MainWindow, which provides easy access to relevant data used as the player plays. For instance, the list of characters in the player's party, the equipment the player has in their inventory, and even the list of maps used is always accessible from every view through use of the MainWindow.
-
-	\end{enumerate} 
-
-\item Further, in the bottom-right, the Model section holds all of the classes used for gameplay and map loading (at present). The "Character" class manages all the variables relevant to every Character object like health (HP), skill points (SP), and their various stats and equipped items. Similarly, the Skill and Item classes holds the variables relevant for their aspects of gameplay: names, costs, descriptions, etc. And, finally, the "Map" class is used to manage the maps to-be-featured in CYBERNUKE and manages the encounter chances, maps to be loaded in, spawn locations, and more. The LocationData class is part of the Map class in that it tracks the locations of various elements on the map: objects (ObjectData) and NPCs (NPCData). This will soon be expanded to have towns to enter, treasure/ interesting events, and more.
-
-\item For the last section in the top-center, the UserControls section contains classes which inherit from UserControl and are used in various aspects of CYBERNUKE. For now, the EnemyBox class is used in the CombatView to display enemies' health, skill points, and other stats and such in a visual format. The TurnOrderBox class is much the same, a visual element used in the TurnOrder aspect of combat.
-
-\end{itemize}
-
-
 
 \subsection{Design Patterns Used}
-%Make sure to actually use at least 2 design patterns from this class.  This is not normally part of such documentation, but largely just specific to this class -- I want to see you use the patterns!
-\underline{1. Prototype Design Pattern}
-\vspace{5px}
-
-We used a Prototype for the enemies in CYBERNUKE. When the Combat Menu is opened it will be given a data file that contains which enemies to spawn. It will then take the data files for those enemies and instantiate an Enemy UserControl Object to display on the Combat Menu.
-
-In the UML in the above subsection, this is seen in the CombatView class and EnemyBox UserControl. In CombatView's constructor, the data for the enemy party is read in using the StreamReader input and then passed to the AddEnemy() function, which creates an EnemyBox object for each enemy and adds it to the Combat Menu's enemy GUI.
-
-\underline{2. Decorator Design Pattern}
+\underline{1. Decorator Design Pattern}
 \vspace{5px}
 
 We used a Decorator for the Pause Menu in CYBERNUKE. When opening the Pause Menu it unhides a Content Presenter that is present on the MainWindow. This Content Presenter holds the Pause Menu and renders over the underlying window so that the user cannot accidentally activate anything while paused.
 
 In the UML, the Pause Menu refers to the CharacterView (dubbed as such before becoming known as the Pause Menu). In the constructor for the CharacterView, as stated, it unhides a Content Presenter on the Main Window to prevents the player from taking actions with the Pause Menu open.
 
-\underline{3. MVVM (Model-View-ViewModel) Design Pattern}
+\underline{2. MVVM (Model-View-ViewModel) Design Pattern}
 \vspace{5px}
 
 We used the MVVM design pattern for CYBERNUKE. We chose to use it as it would allow the program to seamlessly switch between menus without breaking the user's immersion in the game. It also allows us to store data in MainWindow as it stays open persistently.
@@ -779,7 +734,7 @@ A list of features we had to remove:
 \end{itemize}
 
 \subsection{Future Work}
-Overall this project was a good learning experience in many ways. We were able to learn a lot about WPF, game design, UI design, and more. CYBERNUKE will probably end up on our resumes and never see the light of day ever again.
+We learned a lot about UMLs, WPF, C\#, and game design while working on CYBERNUKE. Although we will continue working on games it won't be on CYBERNUKE and most certainly won't be on WPF. If anything it will end up on our resumes and that will be the end of it.
 
 
 % BIBLIOGRAPHY ************************************************************************* %
