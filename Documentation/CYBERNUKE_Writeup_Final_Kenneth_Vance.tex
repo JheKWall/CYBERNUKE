@@ -687,7 +687,64 @@ The basis of Cybernuke's structure is built on top of the MVVM (Model-View-ViewM
 \end{itemize}
 
 \subsection{UML Outline}
+This is the entire UML for CYBERNUKE so far:
 
+\begin{figure}[h]
+\centering
+\includegraphics[height=300px, width=500px]{UML/UML Screenshots for Deliverable/CYBERNUKE_UML_REVAMP.png}
+\caption{Entire UML for the CYBERNUKE project, divided into sections depending on the folder the actual code file is in}
+\label{uml_view}
+\end{figure}
+
+As listed in the caption, each section of the UML is sorted based on the folder and function the classes serve. As is evident, all of the Views for CYBERNUKE are contained in the [View] section, the User Controls in the [UserControls] section, and so on.
+
+\begin{itemize}
+
+	\item First, in the top-left, the Model-View-ViewModel Manager (MVVM) section. This portion of the UML holds the classes used to handle switching from view to view. 
+
+	\begin{enumerate}
+	\item The NavigationService inherits from the INavigationService interface and from the ObservableObject class, and is primarily used to manage the current view of the program as well as navigating to other views as required. 
+	
+	\item The ViewModel classes are registered within the program on startup and link from one View to another View (for instance: the Main Menu should go from the Main Menu to the Cutscene View, and then the Combat View. Thus, proper relay commands within each of these ViewModels for destination views is required). 
+	
+	\item The RelayCommand class is used to program the navigation between the Views, but only after the Singletons from the ViewModels are registered.
+	\end{enumerate}
+	
+\item Next, in the bottom-left, the View section holds all the Views (and the Main Window) used in CYBERNUKE. Each View correlates to a different part of CYBERNUKE's gameplay elements. 
+
+	\begin{enumerate}
+	\item The MainMenuView correlates to the Main Menu that is loaded upon starting CYBERNUKE and holds its functionality: Starting the game, loading a game, configuring options, and leaving. 
+	
+	\item The TownView correlates to the Town Menu that is opened upon entering a town. For now, our only town available in Cybernuke is Tranquility Town, which features just a leave button, a couple NPCs to talk to, and some functions to help with dialogue prompts and pop-up boxes. This is reflected in the UML, where our only functions are the button declarations, constructor, and dialogue functions.
+
+	\item The CombatView manages combat: counting the number of players (the player and their companions) and the number of enemies the players are facing. It is also responsible for handling actions the player takes throughout combat, like attacking, guarding, fleeing, and so forth. 
+
+	\item The OverworldView correlates to the game world and handles rendering the player's movement, the player interacting with objects, and random encounters that occur as the player moves about the world.
+
+	\item Behind all of these Views is the MainWindow, which provides easy access to relevant data used as the player plays. For instance, the list of characters in the player's party, the equipment the player has in their inventory, and even the list of maps used is always accessible from every view through use of the MainWindow.
+	\end{enumerate} 
+	
+
+\item Further, in the bottom-right, the Model section holds all of the classes used for gameplay and map loading (at present). 
+
+	\begin{enumerate}
+	\item The "Character" class manages all the variables relevant to every Character object like health (HP), skill points (SP), and their various stats and equipped items. 
+	\item Similarly, the Item classes holds the variables relevant for their aspects of gameplay: names, costs, descriptions, etc. 
+	\item "Map" class is used to manage the maps to-be-featured in CYBERNUKE and manages the encounter chances, maps to be loaded in, spawn locations, and more. 
+	\item The LocationData class is part of the Map class in that it tracks the locations of various elements on the map: objects and NPCs. This will soon be expanded to have towns to enter, treasure / interesting events, and more.
+	\end{enumerate}
+	
+
+\item For the last section in the top-center, the UserControls section contains classes which inherit from UserControl and are used in various aspects of CYBERNUKE. 
+
+	\begin{enumerate}
+	\item The EnemyBox class is used in the CombatView to display enemies' health, skill points, and other stats and such in a visual format. 
+	\item The TurnOrderBox class is much the same, a visual element used in the TurnOrder aspect of combat.
+	\item The PlayerBox is much like the EnemyBox class in that it displays information related to the corresponding characters, with the main difference being that the PlayerBox is for exclusive use by the player character and his companions within Cybernuke.
+	\item The PauseMenu is used from the Overworld to fundamentally access Character information in the main party and allow for switching of equipment and armor of members in the party. It also serves as an effective Pause menu (as indicated by its name) to prevent player action on the game world. A user can exit the game or set options from this menu.
+	\end{enumerate}
+
+\end{itemize}
 \subsection{Design Patterns Used}
 \underline{1. Decorator Design Pattern}
 \vspace{5px}
@@ -708,29 +765,29 @@ This is seen very clearly in the UML as the sections are split mainly into the M
 \section{Results}
 With the amount of time and experience we had starting off, we were able to get a lot implemented successfully:
 \begin{itemize}
-\item Operational interfaces. We were able to get a functioning main menu, combat menu, overworld menu, and town menu all working.
-\item Menu switching. We were able to implement buttons that allowed players to switch between the different in-game menus.
-\item Pause Menu. We got the pause menu working, only in the overworld menu though.
-\item Map Files. Maps are loaded in from .txt files stored in the game's files.
-\item Enemies, Enemy parties, and Enemy data. We were able to get enemies to load in from files and then load them into combat through enemy party files.
-\item Enemy Encounters in the overworld. We were able to implement enemy encounters when in the overworld through the map's data file.
-\item Combat menu. We got the combat menu to work where players and enemies can attack each other.
-\item Companion and party system. We got the game to load in multiple player characters in the overworld and combat menu.
-\item Basic item system. We got a basic item system with armor and weapons able to be equipped by players.
+	\item Operational interfaces. We were able to get a functioning main menu, combat menu, overworld menu, and town menu all working.
+	\item Menu switching. We were able to implement buttons that allowed players to switch between the different in-game menus.
+	\item Pause Menu. We got the pause menu working, only in the overworld menu though.
+	\item Map Files. Maps are loaded in from .txt files stored in the game's files.
+	\item Enemies, Enemy parties, and Enemy data. We were able to get enemies to load in from files and then load them into combat through enemy party files.
+	\item Enemy Encounters in the overworld. We were able to implement enemy encounters when in the overworld through the map's data file.
+	\item Combat menu. We got the combat menu to work where players and enemies can attack each other.
+	\item Companion and party system. We got the game to load in multiple player characters in the overworld and combat menu.
+	\item Basic item system. We got a basic item system with armor and weapons able to be equipped by players.
 \end{itemize}
 
 We over-estimated the amount of work we would be able to complete in the time we had. This led to a lot of planned features being scrapped and moved to the “Stretch-goals” section of the scope.
 A list of features we had to remove:
 \begin{itemize}
-\item Player and Enemy physical and elemental resistances. This feature required too much in terms of programming and our code wasn't able to handle it.
-\item Music and Sounds. Our lack of knowledge in threading led to this being scrapped after numerous attempts at implementing it.
-\item Fleshed out armor and weapon system. We originally had slots for 3 armor pieces and a melee + ranged weapon. This had to be cut down to a single Armor and Weapon slot in each character's inventory.
-\item Inventory system. This would've included multiple different item types such as consumbles, armors, weapons, quest items, etc. It had to be scrapped due to time constraints.
-\item Save/Load system. While possible, we were limited by the amount of time we had which prevented implementation.
-\item Game story. We weren't able to get all fundamental features down so a Story was out of question with the time we had left.
-\item Merchants and currency. Time constraints.
-\item Hacking puzzles. Time constraints.
-\item More enemy types. Time constraints.
+	\item Player and Enemy physical and elemental resistances. This feature required too much in terms of programming and our code wasn't able to handle it.
+	\item Music and Sounds. Our lack of knowledge in threading led to this being scrapped after numerous attempts at implementing it.
+	\item Fleshed out armor and weapon system. We originally had slots for 3 armor pieces and a melee + ranged weapon. This had to be cut down to a single Armor and Weapon slot in each character's inventory.
+	\item Inventory system. This would've included multiple different item types such as consumbles, armors, weapons, quest items, etc. It had to be scrapped due to time constraints.
+	\item Save/Load system. While possible, we were limited by the amount of time we had which prevented implementation.
+	\item Game story. We weren't able to get all fundamental features down so a Story was out of question with the time we had left.
+	\item Merchants and currency. Time constraints.
+	\item Hacking puzzles. Time constraints.
+	\item More enemy types. Time constraints.
 \end{itemize}
 
 \subsection{Future Work}
