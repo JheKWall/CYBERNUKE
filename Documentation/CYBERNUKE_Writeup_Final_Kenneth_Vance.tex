@@ -158,8 +158,6 @@ We hope that those who enjoy the gameplay and story of the works that inspired C
 \subsection{Audience}
 CYBERNUKE has a diverse setting, story, and gameplay that draws inspiration from a wide range of games and stories. We want to draw in fans by fusing two sizable genres—cyberpunk and post-apocalyptic—and putting it into a roguelite game. Those looking for gameplay should expect turn-based combat and a top-down world filled with exploration and encounters akin to \emph{Pokémon}. Those who come for the story will be treated to a mysterious tale about someone piecing together their memories in a new, hostile cyberpunk hell. 
 
-%Cosmetic Page Break
-\pagebreak
 \subsection{Background}
 CYBERNUKE is inspired by roguelike games, but it does not completely follow them, making CYBERNUKE a rogue-\emph{lite}. Roguelite games are a subgenre of roguelike games. The Berlin Interpretation of a “roguelike,” developed at the 2008 International Roguelike Development Conference, is the most widely accepted definition. It specifies that all roguelikes must have the following characteristics\cite{IEEEhowto:roguelite_2}:
 \begin{enumerate}
@@ -173,74 +171,144 @@ CYBERNUKE is inspired by roguelike games, but it does not completely follow them
 Permadeath, random environment generation, and non-modal gameplay are not included in CYBERNUKE. As such, our game is classified as a roguelite because it lacks most of the required features. Specifically, roguelite as used by CYBERNUKE means the player has infinite lives, explores a pre-built map with loot spread out, encounters enemies at fixed rates, fights in turn-based combat, and manages a limited amount of resources.
 
 CYBERNUKE's setting is a hybrid of two genres: cyberpunk and post-apocalyptic.
-Cyberpunk is defined as a \emph{"science-fiction subgenre characterized by countercultural antiheroes trapped in a dehumanized, high-tech future,"}\cite{IEEEhowto:cyberpunk} or a dystopian future full of holograms, lasers, and crime. The post-apocalyptic genre is defined by the collapse of society as a result of a disaster, with a few survivors forming small civilizations. The combination of these two genres serves as the foundation for the rest of the story and gameplay. 
+Cyberpunk is defined as a ``science-fiction subgenre characterized by countercultural antiheroes trapped in a dehumanized, high-tech future,"\cite{IEEEhowto:cyberpunk} or a dystopian future full of holograms, lasers, and crime. The post-apocalyptic genre is defined by the collapse of society as a result of a disaster, with a few survivors forming small civilizations. The combination of these two genres serves as the foundation for the rest of the story and gameplay. 
 
 \subsection{Impacts}
-If enough effort is put in, CYBERNUKE has the potential to amass a sizable fan base. An optimistic estimate would be that CYBERNUKE reaches a large audience that plays, discusses, and enjoys the game in general. The game would then inspire others to create stories or games in the same hybrid cyberpunk-post-apocalyptic genre. A more realistic estimate would be that the game is simply released and is only played by a small number of people. Expecting too much from such a small game is unrealistic. 
+CYBERNUKE has the potential to amass a sizable fan base. An optimistic estimate would be that CYBERNUKE reaches a large audience that plays, discusses, and enjoys the game in general. The game would then inspire others to create stories or games in the same hybrid cyberpunk-post-apocalyptic genre. We hope that, even if Cybernuke is not as widely-received, the game still makes a noticeable impression on those who play it and said players can appreciate the time and effort spent on the game as a whole.
 
 \subsection{Challenges}
-Three big challenges will need to be overcome in this project:
+Four big challenges will need to be overcome in this project:
 \begin{enumerate}
-\item Inexperience in C\# and WPF
 \item Clear communication of ideas and implementations
-\item Beating the time limit
 \item How to design a game
+\item Creating enough features for the game that it can be sufficiently described as a game
+\item Maintaining the theme and setting of our game within the UI and game elements
 \end{enumerate}
-We've both never worked with the WPF framework, let alone C\#. As the project progresses, we will have to learn how to work with both. This can be mitigated by reading documentation or watching tutorials.
 
 Clear communication can also be a big issue and can stop work if people aren't on the same page. What makes this worse is that we are both inspired by different games which makes it difficult to communicate ideas of one game that the other person hasn't experienced. The clear solution to a lack of clear communication is using standardized methods of communication like UMLs and Diagrams. UML and Discord will definitely be the work-horses of communication throughout the project.
 
-Another issue is the project's time frame. Having to not only learn but also implement a large number of designs in a short period of time will be stressful, but it should be possible.
+The most serious issue is that we have no experience designing games. There is a significant difference between playing and creating a game, which will need to be addressed as we continue to work.
 
-The most serious issue is that we have no experience designing games. There is a significant difference between playing and creating a game, which will need to be addressed as we continue to work. 
+Further, we want enough features within the game that any players who play it can have an enjoyable enough time to consider the finished product an actual game and not a chore or unfinished mess.
+
+Finally, considering our hybrid of the cyberpunk and post-apocalyptic genres, we want to make sure to maintain these genres throughout the entirety of the project through its user interface, its gameplay elements like combat, movement, enemy variety, and the trials and tribulations the player must overcome throughout the game.
+
+Overall, we think we have managed to meet these challenges sufficiently:
+\begin{enumerate}
+\item Communication was handled appropriately throughout the course of the project: discord was used as our medium, and through it, we consulted each other on the features and elements we implemented in Cybernuke. Although the UML was not as efficient as we wanted it to be (we had to redesign it multiple times as development proceeded), it still served as a solid foundation to build our project from and expand upon.
+\item Despite our lack of experience with designing and creating games, we believe that, ultimately, Cybernuke became a decent game throughout the course of its production. Although not filled with as many features as we initially planned (having to cut some to meet the time available to us), we think the features available currently mark it as a solid first step into game creation and design that can absolutely be expanded upon in the future.
+\item The challenge of creating enough features for the game by the time of the final presentation was slightly elaborated upon in the above point, but to reiterate: we think we managed to get enough features into the final product that Cybernuke could be considered an actual game (albeit not fully-finished or polished) that provided a satisfactory example of the product we wanted to make.
+\item We also believe that were able to maintain a constant theme and feel for Cybernuke throughout its various menus and gameplay functions (pause menu, main menu, combat, etc.) that stayed true to the hybrid genre we were basing our game within. Although one feature in particular was rushed and quite scrappy (the town menu), the rest of the features were quality enough to display our vision.
+\end{enumerate}
+
 
 %Tactical Page Break
 \pagebreak
 % SCOPE ******************************************************************************** %
 \section{Scope}
 In order of importance, these are the fundamental game mechanics that must be implemented for \emph{CYBERNUKE} to be considered functional:
+
 \begin{flushleft}
-1. Operational Interfaces:
-The Operational Interfaces are the menus that the player uses to interact with the game. (Main Menu, Combat Menu, Town Menu, Overworld Menu, Cutscene Menu).
 
-2. Menu Switching: The ability to switch between Menus.
 
-3. Secondary Interfaces: The Secondary Interfaces are other menus that are accessed within other menus (Pause Menu).
+\begin{enumerate}
 
-4. Enemies: Enemies and Enemy party files to load in enemies and groups of those enemies from.
+\item Operational Interfaces:
+\begin{itemize}
+\item The Operational Interfaces are the menus that the player uses to interact with the game. (Main Menu, Combat Menu, Town Menu, Overworld Menu, Cutscene Menu).
+\end{itemize}
 
-5. Overworld Maps: The ability to create Overworld maps and render them onto the screen from a file.
+\item Menu Switching:
+\begin{itemize}
+\item The ability to switch between Menus.
+\end{itemize}
 
-6. Character-Map Interaction: The ability to move a player's character while they are on the map and the ability to interact with parts of that map as the player.
+\item Secondary Interfaces:
+\begin{itemize}
+\item The Secondary Interfaces are other menus that are accessed within other menus (Pause Menu).
+\end{itemize}
 
-7. Enemy Encounters: Enemies are the monsters/humans that the player will encounter throughout the game. Enemy Encounters refers to how you will find monsters in the first place, which is primarily done through a "percent encounter" system akin to the old \textit{Pokemon} games.
+\item Enemies:
+\begin{itemize}
+\item Enemies and Enemy party files to load in enemies and groups of those enemies from.
+\end{itemize}
 
-8. Combat: Combat refers to fights between the player character and enemies in this game, which will be turn-based. Combat happens inside the Combat Menu.
+\item Overworld Maps:
+\begin{itemize}
+\item The ability to create Overworld maps and render them onto the screen from a file.
+\end{itemize}
 
-9. Companions and Party System: Multiple player characters (up to 4) to bring into combat.
+\item Character-Map Interaction:
+\begin{itemize}
+\item The ability to move a player's character while they are on the map and the ability to interact with parts of that map as the player.
+\end{itemize}
 
-10. Basic Item System: A bare-bones item equip system that lets players equip different armor and weapons.
+\item Enemy Encounters:
+\begin{itemize}
+\item Enemies are the monsters/humans that the player will encounter throughout the game. Enemy Encounters refers to how you will find monsters in the first place, which is primarily done through a "percent encounter" system akin to the old \textit{Pokemon} games.
+\end{itemize}
+
+\item Combat:
+\begin{itemize}
+\item Combat refers to fights between the player character and enemies in this game, which will be turn-based. Combat happens inside the Combat Menu.
+\end{itemize}
+
+\item Companions and Party System:
+\begin{itemize}
+\item Multiple player characters (up to 4) to bring into combat.
+\end{itemize}
+
+\item Basic Item System:
+\begin{itemize}
+\item A bare-bones item equip system that lets players equip different armor and weapons.
+\end{itemize}
+
+\end{enumerate}
+
+
 \end{flushleft}
-
 
 After the fundamental game mechanics are in place, additional features that flesh out the game can be added.
 
 Possible stretch-goal features:
-\begin{flushleft}
-1. Items, Loot, Weapons, Armor: A fully fleshed out equipment and item system.
+\begin{enumerate}
 
-2. Currency and Merchants: A money system with merchants you can find in Towns and buy items from.
+\item Items, Loot, Weapons, Armor:
+\begin{itemize}
+\item A fully fleshed out equipment and item system.
+\end{itemize}
 
-3. Leveling System: Leveling system for players and enemies that scale in difficulty the higher the level you are.
+\item Currency and Merchants:
+\begin{itemize}
+\item A money system with merchants you can find in Towns and buy items from.
+\end{itemize}
 
-4. More Enemy Types: Different types of unique enemies.
+\item Leveling System:
+\begin{itemize}
+\item Leveling system for players and enemies that scale in difficulty the higher the level you are.
+\end{itemize}
 
-5. Saving and Loading: The ability to save and load the game, with an autosave for when you need to quit in the overworld and a proper save-load in the towns.
+\item More Enemy Types:
+\begin{itemize}
+\item Different types of unique enemies.
+\end{itemize}
 
-6. Hacking Puzzles: In-game puzzles that allow you to access certain areas of the map.
+\item Saving and Loading: 
+\begin{itemize}
+\item The ability to save and load the game, with an autosave for when you need to quit in the overworld and a proper save-load in the towns.
+\end{itemize}
 
-7. Story Content: A story tied to the game.
-\end{flushleft}
+\item Hacking Puzzles:
+\begin{itemize}
+\item In-game puzzles that allow you to access certain areas of the map.
+\end{itemize}
+
+\item Story Content:
+\begin{itemize}
+\item A story tied to the game.
+\end{itemize}
+
+\end{enumerate}
 
 
 
@@ -284,27 +352,25 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 \hline
 5 & Overworld Menu: Toggle Pause Menu & Player & Low & 1\\
 \hline
-6 & Overworld Menu: Toggle Map & Player & Low & 1\\
+6 & Overworld Menu: Interact & Player & Med & 1\\
 \hline
-7 & Overworld Menu: Interact & Player & Med & 1\\
+7 & Pause Menu: Equip Item & Player & Med & 3\\
 \hline
-8 & Pause Menu: Equip Item & Player & Med & 3\\
+8 & Pause Menu: View Map & Player & Low & 3\\
 \hline
-9 & Pause Menu: View Map & Player & Low & 3\\
+9 & Pause Menu: Close Menu & Player & Low & 1\\
 \hline
-10 & Pause Menu: Close Menu & Player & Low & 1\\
+10 & Pause Menu: Exit Game & Player & Low & 1\\
 \hline
-11 & Pause Menu: Exit Game & Player & Low & 1\\
+11 & Combat Menu: Attack Enemy & Player & Med & 1\\
 \hline
-12 & Combat Menu: Attack Enemy & Player & Med & 1\\
+12 & Combat Menu: Wait & Player & Low & 1\\
 \hline
-13 & Combat Menu: Wait & Player & Low & 1\\
+13 & Combat Menu: Flee & Player & Low & 1\\
 \hline
-14 & Combat Menu: Flee & Player & Low & 1\\
+14 & Town Menu: Interact with NPC & Player & Low & 1\\
 \hline
-15 & Town Menu: Interact with NPC & Player & Low & 1\\
-\hline
-16 & Town Menu: Exit Town & Player & Low & 1\\
+15 & Town Menu: Exit Town & Player & Low & 1\\
 \hline
 
 \end{tabular}
@@ -377,17 +443,6 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 
 \begin{itemize}
 \item[Use Case Number:] 6
-\item[Use Case Name:] Toggle Map
-\item[Description:] Player is in the overworld menu and wants to open the map.
-\end{itemize}
-\begin{enumerate}
-\item Player is in the overworld menu.
-\item The player can press “C” to toggle the map that shows the layout of the current map.
-\item [Termination Outcome:] The map is toggled open or closed.
-\end{enumerate}
-
-\begin{itemize}
-\item[Use Case Number:] 7
 \item[Use Case Name:] Interact
 \item[Description:] Player is in the overworld menu and wants to interact with an element on the map.
 \end{itemize}
@@ -398,7 +453,7 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 \end{enumerate}
 
 \begin{itemize}
-\item[Use Case Number:] 8
+\item[Use Case Number:] 7
 \item[Use Case Name:] Equip Item
 \item[Description:] Player is in the pause menu and wants to change their character's equipment.
 \end{itemize}
@@ -412,7 +467,7 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 \end{enumerate}
 
 \begin{itemize}
-\item[Use Case Number:] 9
+\item[Use Case Number:] 8
 \item[Use Case Name:] View Map
 \item[Description:] Player is in the pause menu and wants to view the map.
 \end{itemize}
@@ -423,7 +478,7 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 \end{enumerate}
 
 \begin{itemize}
-\item[Use Case Number:] 10
+\item[Use Case Number:] 9
 \item[Use Case Name:] Close Menu
 \item[Description:] Player is in the pause menu and wants to close it.
 \end{itemize}
@@ -435,7 +490,7 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 \end{enumerate}
 
 \begin{itemize}
-\item[Use Case Number:] 11
+\item[Use Case Number:] 10
 \item[Use Case Name:] Exit Game
 \item[Description:] Player is in the pause menu and wants to exit the game.
 \end{itemize}
@@ -446,7 +501,7 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 \end{enumerate}
 
 \begin{itemize}
-\item[Use Case Number:] 12
+\item[Use Case Number:] 11
 \item[Use Case Name:] Attack Enemy
 \item[Description:] Player is in the combat menu and wants to attack an enemy.
 \end{itemize}
@@ -459,7 +514,7 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 \end{enumerate}
 
 \begin{itemize}
-\item[Use Case Number:] 13
+\item[Use Case Number:] 12
 \item[Use Case Name:] Wait
 \item[Description:] Player is in the combat menu and wants to skip their turn.
 \end{itemize}
@@ -471,7 +526,7 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 \end{enumerate}
 
 \begin{itemize}
-\item[Use Case Number:] 14
+\item[Use Case Number:] 13
 \item[Use Case Name:] Flee
 \item[Description:] Player is in the combat menu and wants to flee the fight.
 \end{itemize}
@@ -483,7 +538,7 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 \end{enumerate}
 
 \begin{itemize}
-\item[Use Case Number:] 15
+\item[Use Case Number:] 14
 \item[Use Case Name:] Interact with NPC
 \item[Description:] Player is in the town menu and wants to interact with an NPC.
 \end{itemize}
@@ -494,7 +549,7 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 \end{enumerate}
 
 \begin{itemize}
-\item[Use Case Number:] 16
+\item[Use Case Number:] 15
 \item[Use Case Name:] Exit Town
 \item[Description:] Player is in the town menu and wants to leave the town.
 \end{itemize}
@@ -506,26 +561,61 @@ Use Case ID & Use Case Name & Primary Actor & Complexity & Priority \\
 
 %Page Break Mockup
 \pagebreak
-\subsection{Interface Mockups}
+\subsection{Interface Screenshots}
 
-The following is a mock-up of CYBERNUKE's main menu screen [\ref{main_menu_mockup}].
+The following is a screenshot of CYBERNUKE's main menu screen [\ref{main_menu_mockup}].
+CYBERNUKE Main Menu Screen Mockup. Where “Start Game” would start a new game for the player, “Load Game” would allow the player to load a previously saved game, “Options” would allow the player to change options like screen resolution and volume, and “Exit Game” would let the player exit the game.
+
 \begin{figure}[ht!]
 \centering
 \includegraphics[height=462px, width=500px]{Mockups/CYBERNUKE_MAIN_MENU_2.png}
-\caption{CYBERNUKE Main Menu Screen Mockup. Where “Start Game” would start a new game for the player, “Load Game” would allow the player to load a previously saved game, “Options” would allow the player to change options like screen resolution and volume, and “Exit Game” would let the player exit the game.}
+\caption{Main Menu Screen}
 \label{main_menu_mockup}
 \end{figure}
 
 %Summon Page Break
 \pagebreak
-The following is a mock-up of CYBERNUKE's combat screen.
+The following is a screenshot of CYBERNUKE's combat screen.
+
+\begin{itemize}
+\item “Attack” lets the player attack an enemy at the cost of stamina points (SP) 
+\item “Wait” lets the player skip their turn and regenerate stamina points
+\item “Escape” lets the player flee the battle. 
+\item The turn order on the right side displays which character is currently acting (signified by the > to the left of their name tile), as well as displaying each combatant's health points (in green) and stamina points (in yellow). Where it says "!! Combat Start !!" in the screenshot will populate with the actions each character takes and how much damage they take / receive over the course of combat.
+\end{itemize}
+
+
 \begin{figure}[ht!]
 \centering
-\includegraphics[height=281.25px, width=500px]{Mockups/CYBERNUKE_COMBAT_MOCKUP.png}
-\caption{CYBERNUKE Combat Screen Mockup. Where “Attack” lets the player attack an enemy, “Skill” lets the player use a skill, “Item” lets the player use an item from the inventory, “Analyze” lets the player view the stats of a friendly or enemy, “Guard” lets the player raise their defense and end their turn, “Wait” lets the player skip their turn, “Escape” lets the player flee the battle, and “Auto” repeats the character's last action.}
+\includegraphics[height=281.25px, width=500px]{Mockups/CYBERNUKE_COMBAT_SCREENSHOT.png}
+\caption{Combat Interface}
 \label{combat_mockup}
 \end{figure}
 
+\pagebreak
+The following is a screenshot of CYBERNUKE's overworld menu / gameplay feature.
+Features:
+
+
+\begin{itemize}
+
+\item Here, the player is represented by the radiation symbol on the grid-like map (the circle with the three rounded triangles in white within) towards the right side. Each tile / block on the map is accessed using the movement keys (W A X D), each corresponding to a different direction: 'W' goes up, 'A' goes left, 'D' goes right, 'X' goes down. 'S' is a special key used to interact with whatever is directly under the player - for instance, if the player steps on a town tile and decides not to enter, instead of backing away and re-entering the tile to trigger the enter prompt, they can just press 'S' instead.
+
+\item Also on this screen, the player can see the current status of the party with their names, health points (HP) and stamina points (SP) all visible. As the player moves from tile to tile, if their stamina points were below max before moving, they will regenerate slightly with each tile moved.
+
+\item Further, different icons represent different interact-ables / points of interest for the player. The '!' at the very top, middle block of the map is a quest item (in this case, a key for a locked door). The triangles with '!' inside of them are mini-bosses the player can fight where escaping is not possible. Also, the rounded, incomplete square at the bottom of the map in the alcove is an area transition square, used to move from one location to another (from Grove Street to Tranquility Checkpoint).
+
+\item As a final note, the percentage in the bottom-right part of the screen is the encounter chance of the area. Whatever the number is is the percent chance that a combat encounter is triggered while moving. In the case of Grove Street which has an encounter chance of thirty percent, each square has a thirty percent chance of triggering a combat encounter whenever you move from one to another.
+
+\end{itemize}
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[height=281.25px, width=500px]{Mockups/CYBERNUKE_OVERWORLD_SCREENSHOT.png}
+\caption{Overworld Menu / Map}
+\label{combat_mockup}
+\end{figure}
 
 %Ultimate Page Break Attack
 \pagebreak
@@ -676,7 +766,7 @@ The basis of Cybernuke's structure is built on top of the MVVM (Model-View-ViewM
 
 \item The CombatView is connected to the OverworldView which randomly decides enemy encounters using a randomized percent-based system where each step you take has a random chance to start an enemy encounter depending on the values set in the map's file. Inside the CombatView, data is pulled from the MainWindow which stores all of the persistent data such as character information, what map you're on, etc. It then stores that information locally within the CombatView and uses it throughout the battle.
 
-\item For the OverworldView, this will serve as the player's method for moving throughout the game's world and exploring locations and places of interest. This is done through use of a grid-like movement system where the player can move one tile each action to cover distance. During each movement step, chances of a random encounter will be factored depending on the location the player is in (for instance, the player will not have random encounters in a safe-designated area while having lots of encounters in "dungeons").
+\item For the OverworldView, this will serve as the player's method for moving throughout the game's world and exploring locations and places of interest. This is done through use of a grid-like movement system where the player can move one tile each action to cover distance. During each movement step, chances of a random encounter will be factored depending on the location the player is in (for instance, the player will not have random encounters in a safe-designated area while having lots of encounters in ``dungeons").
 
 \item From the OverworldView, the player can open the Pause Menu, which functions to allow the player to examine character info, and the more general map (of the current map's layout), as well as closing the Pause Menu and exiting the game.
 
@@ -696,7 +786,7 @@ This is the entire UML for CYBERNUKE so far:
 \label{uml_view}
 \end{figure}
 
-As listed in the caption, each section of the UML is sorted based on the folder and function the classes serve. As is evident, all of the Views for CYBERNUKE are contained in the [View] section, the User Controls in the [UserControls] section, and so on.
+Each section of the UML is sorted based on the folder and function the classes serve. As is evident, all of the Views for CYBERNUKE are contained in the [View] section, the User Controls in the [UserControls] section, and so on.
 
 \begin{itemize}
 
@@ -728,9 +818,9 @@ As listed in the caption, each section of the UML is sorted based on the folder 
 \item Further, in the bottom-right, the Model section holds all of the classes used for gameplay and map loading (at present). 
 
 	\begin{enumerate}
-	\item The "Character" class manages all the variables relevant to every Character object like health (HP), skill points (SP), and their various stats and equipped items. 
+	\item The ``Character" class manages all the variables relevant to every Character object like health (HP), skill points (SP), and their various stats and equipped items. 
 	\item Similarly, the Item classes holds the variables relevant for their aspects of gameplay: names, costs, descriptions, etc. 
-	\item "Map" class is used to manage the maps to-be-featured in CYBERNUKE and manages the encounter chances, maps to be loaded in, spawn locations, and more. 
+	\item ``Map" class is used to manage the maps to-be-featured in CYBERNUKE and manages the encounter chances, maps to be loaded in, spawn locations, and more. 
 	\item The LocationData class is part of the Map class in that it tracks the locations of various elements on the map: objects and NPCs. This will soon be expanded to have towns to enter, treasure / interesting events, and more.
 	\end{enumerate}
 	
@@ -801,14 +891,14 @@ We learned a lot about UMLs, WPF, C\#, and game design while working on CYBERNUK
 \begin{thebibliography}{1}
 
 \bibitem{IEEEhowto:cyberpunk}
-Britannica, T. Editors of Encyclopaedia. \emph{"cyberpunk."} Encyclopedia Britannica, 1999. https://www.britannica.com/art/cyberpunk.
+Britannica, T. Editors of Encyclopaedia. \emph{``cyberpunk."} Encyclopedia Britannica, 1999. https://www.britannica.com/art/cyberpunk.
 
 \bibitem{IEEEhowto:roguelite_1}
-Wiktionary. \emph{"roguelite"}
+Wiktionary. \emph{``roguelite"}
 https://en.wiktionary.org/wiki/rogue-lite
 
 \bibitem{IEEEhowto:roguelite_2}
-whatNerd, Joel Lee. \emph{"What’s a Roguelike vs. Roguelite? Is the Difference Really That Important?"} whatNerd, 2021. https://whatnerd.com/what-is-a-roguelike-roguelite-difference/.
+whatNerd, Joel Lee. \emph{``What’s a Roguelike vs. Roguelite? Is the Difference Really That Important?"} whatNerd, 2021. https://whatnerd.com/what-is-a-roguelike-roguelite-difference/.
 
 \end{thebibliography}
 
